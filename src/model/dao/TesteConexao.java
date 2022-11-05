@@ -40,7 +40,7 @@ public class TesteConexao {
 
 
         for(Livros livro: db.buscarLivroSelecionado("com")){
-            System.out.println(livro.getTitle() + " " + livro.isPrice());
+            System.out.println(livro.getTitle() + " " + livro.getPrice());
         }
 
 

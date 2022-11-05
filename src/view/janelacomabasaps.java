@@ -438,7 +438,15 @@ public class janelacomabasaps extends javax.swing.JFrame {
     }
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
+        if (jCheckBox1.isSelected()){
+            jTextField1.getText();
+            System.out.println("Teste");
+        }
+           
+        jTable4.set
+       
+        
+        
     }
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -454,7 +462,7 @@ public class janelacomabasaps extends javax.swing.JFrame {
     }
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        
     }
 
     public static void main(String args[]) {

@@ -11,10 +11,10 @@ import model.entidades.Livros;
 
 public class ConexaoBD implements Dao{
 
-    static private final String USER = "admin";
-    static private final String PASS = "apsunip2022";
-    static private final String DATABASE = "aps_livraria";
-    static private final String URL = "jdbc:mysql://aps-livraria.ckngk6g6yaw4.sa-east-1.rds.amazonaws.com:3306/" + DATABASE;
+    static private final String USER = "root";
+    static private final String PASS = "";
+    static private final String DATABASE = "livraria";
+    static private final String URL = "jdbc:mysql://localhost:3306/" + DATABASE;
 
     static void testaConexao() {
 
