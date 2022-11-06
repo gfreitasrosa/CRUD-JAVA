@@ -9,6 +9,7 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.crypto.AlgorithmMethod;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 import model.entidades.*;
 import view.tables.RelTotalTableModel;
@@ -30,7 +31,6 @@ public class ViewConcreta extends javax.swing.JFrame {
     Boolean pesquisaAuthors;
     Boolean pesquisaPublishers;
     DefaultTableModel modelo;
-    int numeroColunas = 3;
 
     public ViewConcreta() {
         initComponents();
@@ -59,7 +59,7 @@ public class ViewConcreta extends javax.swing.JFrame {
         Filtrodepesquisa_abaPesquisa = new javax.swing.JLabel();
         checkboxLivros_abaPesquisa = new javax.swing.JCheckBox();
         checkboxEditoras_abaPesquisa = new javax.swing.JCheckBox();
-        botaopesquisar_abaPesquisar = new javax.swing.JButton();
+        botaoAjuda_abaPesquisa = new javax.swing.JButton();
         abaInserir = new javax.swing.JPanel();
         titulo_abaInserir = new javax.swing.JLabel();
         caixadetexto_abaInserir = new javax.swing.JTextField();
@@ -149,10 +149,10 @@ public class ViewConcreta extends javax.swing.JFrame {
             }
         });
 
-        botaopesquisar_abaPesquisar.setBackground(new java.awt.Color(204, 204, 204));
-        botaopesquisar_abaPesquisar.setFont(new java.awt.Font("Swis721 Blk BT", 0, 14)); // NOI18N
-        botaopesquisar_abaPesquisar.setText("Pesquisar");
-        botaopesquisar_abaPesquisar.setToolTipText("");
+        botaoAjuda_abaPesquisa.setBackground(new java.awt.Color(204, 204, 204));
+        botaoAjuda_abaPesquisa.setFont(new java.awt.Font("Swis721 Blk BT", 0, 14)); // NOI18N
+        botaoAjuda_abaPesquisa.setText("Ajuda?");
+        botaoAjuda_abaPesquisa.setToolTipText("");
 
         javax.swing.GroupLayout abaPesquisaLayout = new javax.swing.GroupLayout(abaPesquisa);
         abaPesquisa.setLayout(abaPesquisaLayout);
@@ -184,7 +184,7 @@ public class ViewConcreta extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaPesquisaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaopesquisar_abaPesquisar)
+                .addComponent(botaoAjuda_abaPesquisa)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         abaPesquisaLayout.setVerticalGroup(
@@ -205,7 +205,7 @@ public class ViewConcreta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botaopesquisar_abaPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botaoAjuda_abaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -639,6 +639,10 @@ public class ViewConcreta extends javax.swing.JFrame {
         this.botaopesquisar_abaPesquisa.addActionListener(al);
     }
 
+    public void informacoes(ActionListener al){
+        this.botaoAjuda_abaPesquisa.addActionListener(al);
+    }
+
     public void setOpcao(){
 
         this.pesquisaAuthors = checkboxAutores_abaPesquisa.isSelected();
@@ -691,11 +695,6 @@ public class ViewConcreta extends javax.swing.JFrame {
         this.tabela_abaPesquisa.getTableHeader().resizeAndRepaint();
     }
 
-    public int getNumeroColunas(){
-        return numeroColunas;
-    }
-
-    
     public void atualizaTabelaRelGeral(int contador, RelTudo valor){
 
        
@@ -706,6 +705,25 @@ public class ViewConcreta extends javax.swing.JFrame {
         this.tabela_abaPesquisa.getTableHeader().resizeAndRepaint();
     }
 
+    public void atualizaRelLivroAutor(int contador, RelLivrosAutores dados){
+
+        String[] infos = {(Integer.toString(contador)),  dados.getSobrenome().getName(), dados.getNome().getFname(), dados.getTitulo().getTitle(), dados.getIsbn().getIsbn(), Float.toString(dados.getPreco().getPrice())};
+
+        modelo.addRow(infos);
+        this.tabela_abaPesquisa.getTableHeader().resizeAndRepaint();
+    }
+
+    public void mensagemErro(){
+        JOptionPane.showMessageDialog(null, "TESTE", "Erro ", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public void mensagemAjudaPesquisa(){
+
+        String[] infos = {"Nas checkboxs escolha os campos que deseja pesquisar.", "Autores: Pesquisas feitas no sobrenome", "Livros: Pesquisas feitas pelo título.", "Editoras: Pesquisas feitas pelo nome."};
+        JOptionPane.showMessageDialog(null, infos, "Como realizar as pesquisas:", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+   
     /**
      * @param args the command line arguments
      */
@@ -758,7 +776,7 @@ public class ViewConcreta extends javax.swing.JFrame {
     private javax.swing.JButton botaopesquisar_abaDeletar;
     private javax.swing.JButton botaopesquisar_abaInserir;
     private javax.swing.JButton botaopesquisar_abaPesquisa;
-    private javax.swing.JButton botaopesquisar_abaPesquisar;
+    private javax.swing.JButton botaoAjuda_abaPesquisa;
     private javax.swing.JTextField caixadetexto_abaAlterar;
     private javax.swing.JTextField caixadetexto_abaDeletar;
     private javax.swing.JTextField caixadetexto_abaInserir;

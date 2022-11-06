@@ -8,6 +8,7 @@ import java.util.List;
 import model.entidades.Autores;
 import model.entidades.Editoras;
 import model.entidades.Livros;
+import model.entidades.RelLivrosAutores;
 import model.entidades.RelTudo;
 
 public class ConexaoBD implements Dao{
@@ -218,12 +219,13 @@ public class ConexaoBD implements Dao{
 
         List<Livros> livros_rel= new ArrayList<>();
 
-        final String query = "SELECT * FROM Books WHERE Books.title LIKE ?;";
+        final String query = "SELECT * FROM Books WHERE Books.title LIKE ? OR Books.isbn LIKE ?;";
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
             PreparedStatement pstm = con.prepareStatement(query);
 
             pstm.setString(1, "%" + nome + "%");
+            pstm.setString(2, "%" + nome + "%");
             ResultSet rs = pstm.executeQuery();
 
             while(rs.next()) {
@@ -242,6 +244,46 @@ public class ConexaoBD implements Dao{
         return livros_rel;
 
     }
+
+    @Override
+    public List<RelLivrosAutores> buscarRelLivroAutor(String nome){
+
+        List<RelLivrosAutores> lista_rel= new ArrayList<>();
+
+        final String query = "SELECT * FROM authors as A INNER JOIN booksauthors as BA on A.author_id = BA.author_id INNER JOIN books AS B on B.isbn = BA.isbn WHERE B.title LIKE ? OR B.isbn LIKE ? OR A.name LIKE ?;";
+
+        try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
+            PreparedStatement pstm = con.prepareStatement(query);
+
+            pstm.setString(1, "%" + nome + "%");
+            pstm.setString(2, "%" + nome + "%");
+            pstm.setString(3, "%" + nome + "%");
+            ResultSet rs = pstm.executeQuery();
+
+            while(rs.next()) {
+                String name = rs.getString("name");
+                String fName = rs.getString("fname");
+                String isbn = rs.getString("isbn");
+                String title = rs.getString("title");
+                Float price = rs.getFloat("price");
+
+                Autores auxAutores = new Autores(name, fName);
+                Livros auxLivros = new Livros(title, isbn, price);
+
+                RelLivrosAutores relLivrosAutores = new RelLivrosAutores(auxAutores, auxAutores, auxLivros, auxLivros, auxLivros);
+                
+                lista_rel.add(relLivrosAutores);
+            }
+
+        } catch(Exception e){
+            e.printStackTrace();
+
+        }
+
+        return lista_rel;
+
+    }
+
 
     @Override
     public List<RelTudo> buscarTudo(String nome){
