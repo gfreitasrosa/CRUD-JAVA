@@ -15,6 +15,6 @@ import model.dao.ConexaoBD;
 public class Janelaaps {
 
     public static void main(String[] args) {
-        new Controller(new ConexaoBD(), new janelacomabasaps()).init();
+        new Controller(new ConexaoBD(), new ViewConcreta()).init();
     }
     }

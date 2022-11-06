@@ -458,16 +458,6 @@ public class janelacomabasaps extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
-    private void jButton4ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if (jCheckBox1.isSelected()){
-            jTextField1.getText();
-            System.out.println("Teste");
-        }
- 
-        
-        
-    }
-
     public void realizarPesquisa(ActionListener al){
         this.jButton4.addActionListener(al);
     }

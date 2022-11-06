@@ -12,12 +12,12 @@ import java.awt.event.ActionEvent;
 
 public class Controller {
 
-    janelacomabasaps view;
+    ViewConcreta view;
     Dao model;
     int contador;
 
 
-    public Controller(Dao aModel, janelacomabasaps aView){
+    public Controller(Dao aModel, ViewConcreta aView){
         this.model = aModel;
         this.view = aView;
 
