@@ -5,6 +5,9 @@
 
 package view;
 
+import controller.Controller;
+import model.dao.ConexaoBD;
+
 /**
  *
  * @author Admin-PC
@@ -12,6 +15,6 @@ package view;
 public class Janelaaps {
 
     public static void main(String[] args) {
-        new janelacomabasaps().setVisible(true);
+        new Controller(new ConexaoBD(), new janelacomabasaps()).init();
     }
     }

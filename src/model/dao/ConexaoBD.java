@@ -8,6 +8,7 @@ import java.util.List;
 import model.entidades.Autores;
 import model.entidades.Editoras;
 import model.entidades.Livros;
+import model.entidades.RelTudo;
 
 public class ConexaoBD implements Dao{
 
@@ -107,16 +108,62 @@ public class ConexaoBD implements Dao{
     }
 
     @Override
-    public List<Autores> buscarAutorSelecionado(String nome){
+    public List<RelTudo>listarTudo(){
 
-        List<Autores> autores_sel = new ArrayList<>();
+        List<RelTudo> lista_rel= new ArrayList<>();
 
-        final String query = "SELECT * FROM Authors WHERE Authors.name = ?;";
+        final String query = "SELECT a.fname, a.name, b.title, b.isbn, b.price, p.name as editora , p.url " 
+        + " FROM authors as a " 
+        + " LEFT JOIN booksauthors ba " 
+        + " on ba.author_id = a.author_id "
+        + " LEFT join books b "
+        + " on b.isbn = ba.isbn "
+        + " LEFT join publishers p "
+        + " on p.publisher_id = b.publisher_id";
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
             PreparedStatement pstm = con.prepareStatement(query);
 
-            pstm.setString(1, nome);
+
+            ResultSet rs = pstm.executeQuery();
+
+            while(rs.next()) {
+                String fName = rs.getString("fname");
+                String name = rs.getString("name");
+                String title = rs.getString("title");
+                String isbn = rs.getString("isbn");
+                Float price = rs.getFloat("price");
+                String pName = rs.getString("editora");
+                String url = rs.getString("url");
+
+                Autores auxAutores = new Autores(name, fName);
+                Livros auxLivros = new Livros(title, isbn, price);
+                Editoras auxEditoras = new Editoras(pName, url);
+
+                RelTudo relacao = new RelTudo(auxAutores, auxAutores, auxLivros, auxLivros, auxLivros, auxEditoras, auxEditoras);
+                lista_rel.add(relacao);
+            }
+
+        } catch(Exception e){
+            e.printStackTrace();
+
+        }
+
+        return lista_rel;
+
+    }
+
+    @Override
+    public List<Autores> buscarAutorSelecionado(String nome){
+
+        List<Autores> autores_sel = new ArrayList<>();
+
+        final String query = "SELECT * FROM Authors WHERE Authors.name  LIKE ?;";
+
+        try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
+            PreparedStatement pstm = con.prepareStatement(query);
+
+            pstm.setString(1,"%" + nome + "%");
             ResultSet rs = pstm.executeQuery();
 
             while(rs.next()) {
@@ -141,12 +188,12 @@ public class ConexaoBD implements Dao{
 
         List<Editoras> editoras_sel = new ArrayList<>();
 
-            final String query = "SELECT * FROM Publishers WHERE Publishers.name = ?;";
+            final String query = "SELECT * FROM Publishers WHERE Publishers.name LIKE ?;";
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
             PreparedStatement pstm = con.prepareStatement(query);
 
-            pstm.setString(1, nome);
+            pstm.setString(1, "%" + nome + "%");
             ResultSet rs = pstm.executeQuery();
 
             while(rs.next()) {
@@ -194,6 +241,54 @@ public class ConexaoBD implements Dao{
 
         return livros_rel;
 
+    }
+
+    @Override
+    public List<RelTudo> buscarTudo(String nome){
+
+        List<RelTudo> lista_rel= new ArrayList<>();
+
+        final String query = "SELECT a.fname, a.name, b.title, b.isbn, b.price, p.name as editora , p.url " 
+        + " FROM authors as a " 
+        + " INNER JOIN booksauthors ba " 
+        + " on ba.author_id = a.author_id "
+        + " inner join books b "
+        + " on b.isbn = ba.isbn "
+        + " inner join publishers p "
+        + " on p.publisher_id = b.publisher_id "
+        + " WHERE a.fname LIKE ? OR a.name LIKE ? OR b.title LIKE ?; ";
+
+        try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
+            PreparedStatement pstm = con.prepareStatement(query);
+
+            pstm.setString(1, "%" + nome + "%");
+            pstm.setString(2, "%" + nome + "%");
+            pstm.setString(3, "%" + nome + "%");
+            ResultSet rs = pstm.executeQuery();
+
+            while(rs.next()) {
+                String fName = rs.getString("fname");
+                String name = rs.getString("name");
+                String title = rs.getString("title");
+                String isbn = rs.getString("isbn");
+                Float price = rs.getFloat("price");
+                String pName = rs.getString("editora");
+                String url = rs.getString("url");
+
+                Autores auxAutores = new Autores(name, fName);
+                Livros auxLivros = new Livros(title, isbn, price);
+                Editoras auxEditoras = new Editoras(pName, url);
+
+                RelTudo relacao = new RelTudo(auxAutores, auxAutores, auxLivros, auxLivros, auxLivros, auxEditoras, auxEditoras);
+                lista_rel.add(relacao);
+            }
+
+        } catch(Exception e){
+            e.printStackTrace();
+
+        }
+
+        return lista_rel;
 
     }
     

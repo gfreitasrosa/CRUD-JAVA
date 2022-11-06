@@ -1,12 +1,37 @@
 package view;
 
+import javax.swing.JTable;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
+import javax.xml.crypto.AlgorithmMethod;
+import java.util.List;
+
+import model.entidades.*;
+import view.tables.RelTotalTableModel;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
+
 public class janelacomabasaps extends javax.swing.JFrame {
     /**
      * Creates new form janelacomabasaps
      */
-    public janelacomabasaps() {
+
+    Boolean pesquisaBooks;
+    Boolean pesquisaAuthors;
+    Boolean pesquisaPublishers;
+    DefaultTableModel modelo;
+    int numeroColunas = 3;
+    
+
+    public janelacomabasaps(){
         initComponents();
+        pack();
+        setVisible(true);
+        modelo = (DefaultTableModel) this.jTable4.getModel();
     }
+ 
     @SuppressWarnings("unchecked")
     private void initComponents() {
 
@@ -249,25 +274,21 @@ public class janelacomabasaps extends javax.swing.JFrame {
         jButton3.setText("Alterar");
 
         jButton4.setText("Pesquisar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+        
+        
+       jTable4.setModel(new javax.swing.table.DefaultTableModel(
+           new Object [][] {
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nº Ordem", "Sobrenome do Autor", "Nome do Autor", "Título do livro", "ISBN", "Preço", "Nome da editora", "URL" 
             }
         ));
-        jScrollPane4.setViewportView(jTable4);
 
+
+
+        jScrollPane4.setViewportView(jTable4);
+  
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -437,16 +458,18 @@ public class janelacomabasaps extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButton4ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if (jCheckBox1.isSelected()){
             jTextField1.getText();
             System.out.println("Teste");
         }
-           
-        jTable4.set
-       
+ 
         
         
+    }
+
+    public void realizarPesquisa(ActionListener al){
+        this.jButton4.addActionListener(al);
     }
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -463,6 +486,79 @@ public class janelacomabasaps extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
         
+    }
+
+    public void setOpcao(){
+
+        this.pesquisaAuthors = jCheckBox1.isSelected();
+        this.pesquisaBooks = jCheckBox2.isSelected();
+        this.pesquisaPublishers = jCheckBox3.isSelected();
+
+    }
+
+    public Boolean getOpcaoLivro(){
+        return this.pesquisaBooks;
+    }
+
+    public Boolean getOpcaoAutor(){
+        return this.pesquisaAuthors;
+    }
+
+    public Boolean getOpcaoEditora(){
+        return this.pesquisaPublishers;
+    }
+
+    public String getTexto(){
+        return this.jTextField1.getText();
+    }
+
+    public void limpaTabela(){
+        modelo.setRowCount(0);
+    }
+
+   // public void criaTabela(List<RelTudo> relacao){
+       // jTable4.setModel(new RelTotalTableModel(relacao));
+   // }
+    
+    public void atualizaTabelaAutor(int contador, Autores autor){
+
+        String[] infos = {(Integer.toString(contador)), autor.getName(), autor.getFname()};
+
+        modelo.addRow(infos);
+        this.jTable4.getTableHeader().resizeAndRepaint();
+    }
+
+    public void atualizaTabelaLivro(int contador, Livros livro){
+        
+        String[] infos = {(Integer.toString(contador)), "", "", livro.getTitle(), livro.getIsbn(), Float.toString(livro.getPrice())};
+
+        modelo.addRow(infos);
+        this.jTable4.getTableHeader().resizeAndRepaint();
+    }
+
+    public void atualizaTabelaEditora(int contador, Editoras editora){
+        
+        String[] infos = {(Integer.toString(contador)), "", "", "", "", "", editora.getName(), editora.getUrl()};
+
+        modelo.addRow(infos);
+        this.jTable4.getTableHeader().resizeAndRepaint();
+    }
+
+    public int getNumeroColunas(){
+        return numeroColunas;
+    }
+
+    
+    
+    
+    public void atualizaTabelaRelGeral(int contador, RelTudo valor){
+
+       
+        String[] infos = {(Integer.toString(contador)), valor.getNomeAutor().getName(),valor.getSobrenome().getFname(), valor.getTitulo().getTitle(), valor.getIsbn().getIsbn(), Float.toString(valor.getPreco().getPrice()), valor.getNomeEditora().getName(), valor.getUrl().getUrl()};
+
+
+        modelo.addRow(infos);
+        this.jTable4.getTableHeader().resizeAndRepaint();
     }
 
     public static void main(String args[]) {
