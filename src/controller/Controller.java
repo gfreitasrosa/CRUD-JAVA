@@ -65,6 +65,7 @@ public class Controller {
                     if (model.buscarRelLivroAutor(view.getTexto()).isEmpty()){
                         for (RelLivrosAutores relacao: model.buscarRelLivroAutor(view.getTexto())){
                             contador ++;
+           
                             view.atualizaRelLivroAutor(contador, relacao);
     
                         }
