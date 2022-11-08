@@ -9,6 +9,9 @@ import model.entidades.RelTudo;
 import view.*;
 
 import java.awt.event.ActionListener;
+
+import javax.swing.Action;
+
 import java.awt.event.ActionEvent;
 
 public class Controller {
@@ -28,6 +31,7 @@ public class Controller {
 
         this.view.realizarPesquisa(new AcaoPesquisa());
         this.view.informacoes(new AcaoInformacao());
+        this.view.realizaAtt(new AcaoAtualizar());
         
     }
 
@@ -138,6 +142,14 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent ae){
             view.mensagemAjudaPesquisa();      
+        }
+    }
+
+    public class AcaoAtualizar implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent ae){
+            
         }
     }
 }

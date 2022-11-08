@@ -633,7 +633,13 @@ public class ViewConcreta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_checkboxEditoras_abaAlterarActionPerformed
 
-    // MÉTODOS CRIADOS
+    // MÉTODOS JANELA ATUALIZAR
+
+    public void realizaAtt(ActionListener al){
+        this.botaoAlterar_abaAlterar.addActionListener(al);
+    }
+    
+    // MÉTODOS JANELA PESQUISA
 
     public void realizarPesquisa(ActionListener al){
         this.botaopesquisar_abaPesquisa.addActionListener(al);
