@@ -40,7 +40,7 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent ae){
           view.setOpcao();
-        
+
           contador = 0;
           view.limpaTabela();
 
@@ -83,6 +83,25 @@ public class Controller {
                     }
                 }
                 
+            } else if (view.getOpcaoEditora() && view.getOpcaoLivro()){
+
+                if(view.getTexto() != ""){
+                    if (model.buscarAutorSelecionado(view.getTexto()).isEmpty()){
+                        for (Autores autor: model.listarTodosAutores()){
+                            contador ++;
+                            view.atualizaTabelaAutor(contador, autor);
+
+                        }
+                    } else{
+                        for (Autores autor: model.buscarAutorSelecionado(view.getTexto())){
+                            contador ++;
+                            view.atualizaTabelaAutor(contador, autor);
+
+
+                        }
+                    }
+                }
+            
             } else if (view.getOpcaoAutor()){
 
                 if(view.getTexto() != ""){
@@ -96,6 +115,8 @@ public class Controller {
                         for (Autores autor: model.buscarAutorSelecionado(view.getTexto())){
                             contador ++;
                             view.atualizaTabelaAutor(contador, autor);
+
+                            
 
 
                         }
@@ -141,7 +162,10 @@ public class Controller {
 
         @Override
         public void actionPerformed(ActionEvent ae){
-            view.mensagemAjudaPesquisa();      
+            view.mensagemAjudaPesquisa();    
+            System.out.println(view.pesquisa()); 
+            
+            view.popUp();
         }
     }
 

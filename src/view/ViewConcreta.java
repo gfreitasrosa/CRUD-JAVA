@@ -4,12 +4,19 @@
  */
 package view;
 
+import java.awt.FlowLayout;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.crypto.AlgorithmMethod;
 import java.util.List;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import model.entidades.*;
 import view.tables.RelTotalTableModel;
@@ -32,6 +39,7 @@ public class ViewConcreta extends javax.swing.JFrame {
     Boolean pesquisaPublishers;
     DefaultTableModel modelo;
 
+
     public ViewConcreta() {
         initComponents();
         pack();
@@ -48,6 +56,7 @@ public class ViewConcreta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        g1 = new javax.swing.ButtonGroup();
         janelacomabas = new javax.swing.JTabbedPane();
         abaPesquisa = new javax.swing.JPanel();
         tituloPesquisa = new javax.swing.JLabel();
@@ -60,17 +69,19 @@ public class ViewConcreta extends javax.swing.JFrame {
         checkboxLivros_abaPesquisa = new javax.swing.JCheckBox();
         checkboxEditoras_abaPesquisa = new javax.swing.JCheckBox();
         botaoAjuda_abaPesquisa = new javax.swing.JButton();
-        abaInserir = new javax.swing.JPanel();
-        titulo_abaInserir = new javax.swing.JLabel();
-        caixadetexto_abaInserir = new javax.swing.JTextField();
-        botaopesquisar_abaInserir = new javax.swing.JButton();
-        Filtrodepesquisa_abaInserir = new javax.swing.JLabel();
-        checkboxLivros_abainserir = new javax.swing.JCheckBox();
-        checkboxAutores_abaInserir = new javax.swing.JCheckBox();
-        checkboxEditoras_abaInserir = new javax.swing.JCheckBox();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tabela_abaInserir = new javax.swing.JTable();
-        botaoinserir_abaInserir = new javax.swing.JButton();
+
+        // abaInserir = new javax.swing.JPanel();
+        // titulo_abaInserir = new javax.swing.JLabel();
+        // caixadetexto_abaInserir = new javax.swing.JTextField();
+        // botaopesquisar_abaInserir = new javax.swing.JButton();
+        // Filtrodepesquisa_abaInserir = new javax.swing.JLabel();
+        // checkboxLivros_abainserir = new javax.swing.JCheckBox();
+        // checkboxAutores_abaInserir = new javax.swing.JCheckBox();
+        // checkboxEditoras_abaInserir = new javax.swing.JCheckBox();
+        // jScrollPane2 = new javax.swing.JScrollPane();
+        // tabela_abaInserir = new javax.swing.JTable();
+        // botaoinserir_abaInserir = new javax.swing.JButton();
+
         abaDeletar = new javax.swing.JPanel();
         titulo_abaDeletar = new javax.swing.JLabel();
         caixadetexto_abaDeletar = new javax.swing.JTextField();
@@ -93,6 +104,37 @@ public class ViewConcreta extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         tabela_abaAlterar = new javax.swing.JTable();
         botaoAlterar_abaAlterar = new javax.swing.JButton();
+
+        // OBJETOS DA ABA INSERIR
+
+        abaInserir = new javax.swing.JPanel();
+        titulo_abaInserir = new javax.swing.JLabel();
+        botaoAjuda_abaInserir = new javax.swing.JButton();
+        radioButton_AutorAbaInserir = new javax.swing.JRadioButton();
+        radioButton_LivrosAbaInserir = new javax.swing.JRadioButton();
+        radioButton_EditorasAbaInserir = new javax.swing.JRadioButton();
+        caixadetexto_abaInserirSobreNome = new javax.swing.JTextField();
+        caixadetexto_abaInserirNome1 = new javax.swing.JTextField();
+        labelNome_abaInserir = new javax.swing.JLabel();
+        labelSobreNome_abaInserir = new javax.swing.JLabel();
+        caixadetexto_abaInserirTitulo = new javax.swing.JTextField();
+        caixadetexto_abaInserirISBN = new javax.swing.JTextField();
+        caixadetexto_abaInserirEditora = new javax.swing.JTextField();
+        caixadetexto_abaInserirNome5 = new javax.swing.JTextField();
+        labelISBN_abaInserir = new javax.swing.JLabel();
+        labelTitulo_abaInserir = new javax.swing.JLabel();
+        labelpreco_abaInserir = new javax.swing.JLabel();
+        labelNomeDaEditora_radiolivros_abaInserir = new javax.swing.JLabel();
+        botaoAutor_abainserir = new javax.swing.JButton();
+        labelAutores_abainserir = new javax.swing.JLabel();
+        labelAutoresEscolhidos_abaInserir = new javax.swing.JLabel();
+        labelNomeDaEditora_abaInserir = new javax.swing.JLabel();
+        caixadetexto_NomeDaEditora_abaInserir = new javax.swing.JTextField();
+        labelURL_abaInserir = new javax.swing.JLabel();
+        caixadetexto_URL_abaInserir = new javax.swing.JTextField();
+        labelQueMostraConfimacao_abaInserir = new javax.swing.JLabel();
+        botaoinserir_abaInserir1 = new javax.swing.JButton();
+
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -211,116 +253,7 @@ public class ViewConcreta extends javax.swing.JFrame {
 
         janelacomabas.addTab("Pesquisa", abaPesquisa);
 
-        abaInserir.setBorder(new javax.swing.border.MatteBorder(null));
-
-        titulo_abaInserir.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        titulo_abaInserir.setText("Inserir novos dados");
-
-        caixadetexto_abaInserir.setBackground(new java.awt.Color(204, 204, 204));
-        caixadetexto_abaInserir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caixadetexto_abaInserirActionPerformed(evt);
-            }
-        });
-
-        botaopesquisar_abaInserir.setBackground(new java.awt.Color(204, 204, 204));
-        botaopesquisar_abaInserir.setText("Pesquisar");
-
-        Filtrodepesquisa_abaInserir.setText("Pesquisar em:");
-
-        checkboxLivros_abainserir.setText("Livros");
-        checkboxLivros_abainserir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkboxLivros_abainserirActionPerformed(evt);
-            }
-        });
-
-        checkboxAutores_abaInserir.setText("Autores");
-        checkboxAutores_abaInserir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkboxAutores_abaInserirActionPerformed(evt);
-            }
-        });
-
-        checkboxEditoras_abaInserir.setText("Editoras");
-        checkboxEditoras_abaInserir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkboxEditoras_abaInserirActionPerformed(evt);
-            }
-        });
-
-        tabela_abaInserir.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(tabela_abaInserir);
-
-        botaoinserir_abaInserir.setBackground(new java.awt.Color(153, 255, 153));
-        botaoinserir_abaInserir.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
-        botaoinserir_abaInserir.setText("Inserir");
-        botaoinserir_abaInserir.setToolTipText("");
-
-        javax.swing.GroupLayout abaInserirLayout = new javax.swing.GroupLayout(abaInserir);
-        abaInserir.setLayout(abaInserirLayout);
-        abaInserirLayout.setHorizontalGroup(
-            abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(abaInserirLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(abaInserirLayout.createSequentialGroup()
-                        .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(abaInserirLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(Filtrodepesquisa_abaInserir)
-                                .addGap(18, 18, 18)
-                                .addComponent(checkboxLivros_abainserir)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
-                                .addComponent(checkboxAutores_abaInserir)
-                                .addGap(122, 122, 122)
-                                .addComponent(checkboxEditoras_abaInserir))
-                            .addComponent(caixadetexto_abaInserir))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaopesquisar_abaInserir))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(abaInserirLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(titulo_abaInserir)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(abaInserirLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaoinserir_abaInserir)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        abaInserirLayout.setVerticalGroup(
-            abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(abaInserirLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(titulo_abaInserir)
-                .addGap(4, 4, 4)
-                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(caixadetexto_abaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaopesquisar_abaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkboxAutores_abaInserir)
-                    .addComponent(Filtrodepesquisa_abaInserir)
-                    .addComponent(checkboxLivros_abainserir)
-                    .addComponent(checkboxEditoras_abaInserir))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botaoinserir_abaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
-
+       
         janelacomabas.addTab("Inserir", abaInserir);
 
         abaDeletar.setBorder(new javax.swing.border.MatteBorder(null));
@@ -546,6 +479,197 @@ public class ViewConcreta extends javax.swing.JFrame {
         );
 
         janelacomabas.addTab("Alterar", abaAlterar);
+        
+        abaInserir.setBorder(new javax.swing.border.MatteBorder(null));
+
+        titulo_abaInserir.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        titulo_abaInserir.setText("Inserir novos dados");
+
+        botaoAjuda_abaInserir.setBackground(new java.awt.Color(204, 204, 204));
+        botaoAjuda_abaInserir.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
+        botaoAjuda_abaInserir.setText("Ajuda?");
+        botaoAjuda_abaInserir.setToolTipText("");
+
+        g1.add(radioButton_AutorAbaInserir);
+        radioButton_AutorAbaInserir.setText("Autor");
+        radioButton_AutorAbaInserir.setToolTipText("");
+
+        g1.add(radioButton_LivrosAbaInserir);
+        radioButton_LivrosAbaInserir.setText("Livros");
+
+        g1.add(radioButton_EditorasAbaInserir);
+        radioButton_EditorasAbaInserir.setText("Editoras");
+
+        labelNome_abaInserir.setText("Primeiro nome: ");
+
+        labelSobreNome_abaInserir.setText("Sobrenome:");
+
+        caixadetexto_abaInserirNome5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                caixadetexto_abaInserirNome5ActionPerformed(evt);
+            }
+        });
+
+        labelISBN_abaInserir.setText("ISBN");
+
+        labelTitulo_abaInserir.setText("Título do Livro: ");
+
+        labelpreco_abaInserir.setText("Preço:");
+
+        labelNomeDaEditora_radiolivros_abaInserir.setText("Nome da Editora:");
+        labelNomeDaEditora_radiolivros_abaInserir.setToolTipText("");
+
+        botaoAutor_abainserir.setText("Escolher Autor");
+        botaoAutor_abainserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoAutor_abainserirActionPerformed(evt);
+            }
+        });
+
+        labelAutores_abainserir.setText("Autores:");
+
+        labelAutoresEscolhidos_abaInserir.setText("(lembra de apagar depois)");
+        labelAutoresEscolhidos_abaInserir.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                labelAutoresEscolhidos_abaInserirComponentAdded(evt);
+            }
+        });
+
+        labelNomeDaEditora_abaInserir.setText("Nome da Editora:");
+
+        labelURL_abaInserir.setText("URL:");
+
+        labelQueMostraConfimacao_abaInserir.setText("(label que vai ser pra mostrar a confirmação de inserção, apagar depois tbm)");
+
+        botaoinserir_abaInserir1.setBackground(new java.awt.Color(153, 255, 153));
+        botaoinserir_abaInserir1.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
+        botaoinserir_abaInserir1.setText("Inserir");
+        botaoinserir_abaInserir1.setToolTipText("");
+
+        javax.swing.GroupLayout abaInserirLayout = new javax.swing.GroupLayout(abaInserir);
+        abaInserir.setLayout(abaInserirLayout);
+        abaInserirLayout.setHorizontalGroup(
+            abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(abaInserirLayout.createSequentialGroup()
+                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(abaInserirLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(abaInserirLayout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(labelAutoresEscolhidos_abaInserir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(abaInserirLayout.createSequentialGroup()
+                                        .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(abaInserirLayout.createSequentialGroup()
+                                                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(botaoAutor_abainserir, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(labelAutores_abainserir))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addGroup(abaInserirLayout.createSequentialGroup()
+                                                        .addComponent(labelNomeDaEditora_radiolivros_abaInserir)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(caixadetexto_abaInserirEditora))
+                                                    .addGroup(abaInserirLayout.createSequentialGroup()
+                                                        .addComponent(labelTitulo_abaInserir)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(caixadetexto_abaInserirTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(21, 21, 21)
+                                                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(labelpreco_abaInserir)
+                                                    .addComponent(labelISBN_abaInserir))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(caixadetexto_abaInserirISBN)
+                                                    .addComponent(caixadetexto_abaInserirNome5, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)))
+                                            .addGroup(abaInserirLayout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(labelNome_abaInserir)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(caixadetexto_abaInserirNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(labelSobreNome_abaInserir)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(caixadetexto_abaInserirSobreNome, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(2, 2, 2))))
+                            .addComponent(radioButton_AutorAbaInserir)
+                            .addComponent(radioButton_EditorasAbaInserir)
+                            .addComponent(radioButton_LivrosAbaInserir)
+                            .addGroup(abaInserirLayout.createSequentialGroup()
+                                .addGap(196, 196, 196)
+                                .addComponent(titulo_abaInserir))
+                            .addGroup(abaInserirLayout.createSequentialGroup()
+                                .addComponent(botaoAjuda_abaInserir)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelQueMostraConfimacao_abaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(botaoinserir_abaInserir1))))
+                    .addGroup(abaInserirLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(labelNomeDaEditora_abaInserir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(caixadetexto_NomeDaEditora_abaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelURL_abaInserir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(caixadetexto_URL_abaInserir)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        abaInserirLayout.setVerticalGroup(
+            abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(abaInserirLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(titulo_abaInserir)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(radioButton_AutorAbaInserir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNome_abaInserir)
+                    .addComponent(caixadetexto_abaInserirNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelSobreNome_abaInserir)
+                    .addComponent(caixadetexto_abaInserirSobreNome, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addComponent(radioButton_LivrosAbaInserir)
+                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(abaInserirLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(caixadetexto_abaInserirTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(caixadetexto_abaInserirISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelISBN_abaInserir)
+                            .addComponent(labelTitulo_abaInserir))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelNomeDaEditora_radiolivros_abaInserir)
+                            .addComponent(caixadetexto_abaInserirNome5, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelpreco_abaInserir)
+                            .addComponent(caixadetexto_abaInserirEditora, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26))
+                    .addGroup(abaInserirLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(botaoAutor_abainserir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(labelAutores_abainserir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(labelAutoresEscolhidos_abaInserir)
+                .addGap(29, 29, 29)
+                .addComponent(radioButton_EditorasAbaInserir)
+                .addGap(18, 18, 18)
+                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNomeDaEditora_abaInserir)
+                    .addComponent(caixadetexto_NomeDaEditora_abaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelURL_abaInserir)
+                    .addComponent(caixadetexto_URL_abaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelQueMostraConfimacao_abaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoinserir_abaInserir1)
+                    .addComponent(botaoAjuda_abaInserir))
+                .addContainerGap(9, Short.MAX_VALUE))
+        );
+
+        janelacomabas.addTab("Inserir", abaInserir);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -568,6 +692,17 @@ public class ViewConcreta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // MÉTODOS GERADOS PELO NETBEANS
+    private void caixadetexto_abaInserirNome5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixadetexto_abaInserirNome5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_caixadetexto_abaInserirNome5ActionPerformed
+
+    private void botaoAutor_abainserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAutor_abainserirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoAutor_abainserirActionPerformed
+
+    private void labelAutoresEscolhidos_abaInserirComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_labelAutoresEscolhidos_abaInserirComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_labelAutoresEscolhidos_abaInserirComponentAdded
 
     private void caixadetexto_abaPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixadetexto_abaPesquisaActionPerformed
         // TODO add your handling code here:
@@ -638,23 +773,84 @@ public class ViewConcreta extends javax.swing.JFrame {
     public void realizaAtt(ActionListener al){
         this.botaoAlterar_abaAlterar.addActionListener(al);
     }
-    
     // MÉTODOS JANELA PESQUISA
 
     public void realizarPesquisa(ActionListener al){
         this.botaopesquisar_abaPesquisa.addActionListener(al);
     }
 
+    public void habilita(){
+        this.caixadetexto_abaPesquisa.setVisible(false);
+    }
     public void informacoes(ActionListener al){
         this.botaoAjuda_abaPesquisa.addActionListener(al);
     }
 
+    public String pesquisa(){
+        int value;
+        value = this.tabela_abaPesquisa.getSelectedRow();
+
+        String texto = this.tabela_abaPesquisa.getValueAt(value, 1).toString() + ' ' +this.tabela_abaPesquisa.getValueAt(value, 2).toString();
+        return texto;
+    }
+    
     public void setOpcao(){
 
         this.pesquisaAuthors = checkboxAutores_abaPesquisa.isSelected();
         this.pesquisaBooks = checkboxLivros_abaPesquisa.isSelected();
         this.pesquisaPublishers = checkboxEditoras_abaPesquisa.isSelected();
 
+    }
+
+    public void popUp(){
+        
+        // JFrame table = new JFrame();
+        // table.setSize(300, 300);
+        // table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JDialog popUp = new JDialog();
+        popUp.setSize(500, 500);
+        popUp.setLayout(new FlowLayout());
+        popUp.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
+        JTable tabela_abaAutor = new javax.swing.JTable();
+        JButton botao_autor = new JButton();
+        // JPanel panel = new JPanel();
+        JScrollPane scroll = new JScrollPane(tabela_abaAutor);
+
+
+        botao_autor.setText("Adicionar");
+
+        
+
+        tabela_abaAutor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nº Ordem", "Sobrenome do Autor", "Nome do autor"
+            }
+        ));
+
+        tabela_abaAutor.setSize(350, 350);
+
+
+        // panel.add(tabela_abaAutor);
+        // panel.setSize(480, 380);
+        popUp.add(scroll);
+        // popUp.add(tabela_abaAutor);
+        popUp.add(botao_autor);
+        popUp.setTitle("Selecione os autores do livro");
+
+        // table.setVisible(true);
+
+        popUp.setVisible(true); 
+
+        // table.add(tabela_abaAutor);
+        // table.add(botao_autor);
+        // table.add(jScrollPane1);
+        
+        
     }
 
     public Boolean getOpcaoLivro(){
@@ -767,6 +963,7 @@ public class ViewConcreta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup g1;
     private javax.swing.JLabel Filtrodepesquisa_abaAlterar;
     private javax.swing.JLabel Filtrodepesquisa_abaDeletar;
     private javax.swing.JLabel Filtrodepesquisa_abaInserir;
@@ -812,5 +1009,37 @@ public class ViewConcreta extends javax.swing.JFrame {
     private javax.swing.JLabel titulo_abaAlterar;
     private javax.swing.JLabel titulo_abaDeletar;
     private javax.swing.JLabel titulo_abaInserir;
+
+    // VARIAVEIS ABA INSERIR
+
+
+    private javax.swing.JButton botaoinserir_abaInserir1;
+    private javax.swing.JButton botaoAutor_abainserir;
+    private javax.swing.JButton botaoAjuda_abaInserir;
+
+    private javax.swing.JTextField caixadetexto_NomeDaEditora_abaInserir;
+    private javax.swing.JTextField caixadetexto_URL_abaInserir;
+
+    private javax.swing.JTextField caixadetexto_abaInserirEditora;
+    private javax.swing.JTextField caixadetexto_abaInserirISBN;
+    private javax.swing.JTextField caixadetexto_abaInserirNome1;
+    private javax.swing.JTextField caixadetexto_abaInserirNome5;
+    private javax.swing.JTextField caixadetexto_abaInserirSobreNome;
+    private javax.swing.JTextField caixadetexto_abaInserirTitulo;
+
+    private javax.swing.JLabel labelAutoresEscolhidos_abaInserir;
+    private javax.swing.JLabel labelAutores_abainserir;
+    private javax.swing.JLabel labelISBN_abaInserir;
+    private javax.swing.JLabel labelNomeDaEditora_abaInserir;
+    private javax.swing.JLabel labelNomeDaEditora_radiolivros_abaInserir;
+    private javax.swing.JLabel labelNome_abaInserir;
+    private javax.swing.JLabel labelQueMostraConfimacao_abaInserir;
+    private javax.swing.JLabel labelSobreNome_abaInserir;
+    private javax.swing.JLabel labelTitulo_abaInserir;
+    private javax.swing.JLabel labelURL_abaInserir;
+    private javax.swing.JLabel labelpreco_abaInserir;
+    private javax.swing.JRadioButton radioButton_AutorAbaInserir;
+    private javax.swing.JRadioButton radioButton_EditorasAbaInserir;
+    private javax.swing.JRadioButton radioButton_LivrosAbaInserir;
     // End of variables declaration//GEN-END:variables
 }
