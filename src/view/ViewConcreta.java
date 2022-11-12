@@ -19,7 +19,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import model.entidades.*;
-import view.tables.RelTotalTableModel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -38,6 +37,9 @@ public class ViewConcreta extends javax.swing.JFrame {
     Boolean pesquisaAuthors;
     Boolean pesquisaPublishers;
     DefaultTableModel modelo;
+    DefaultTableModel modelo2;
+
+    String EscolhaAbaInserir;
 
 
     public ViewConcreta() {
@@ -45,6 +47,7 @@ public class ViewConcreta extends javax.swing.JFrame {
         pack();
         setVisible(true);
         modelo = (DefaultTableModel) this.tabela_abaPesquisa.getModel();
+        modelo2 = (DefaultTableModel) this.tabela_abaAutor.getModel();
     }
 
     /**
@@ -134,6 +137,9 @@ public class ViewConcreta extends javax.swing.JFrame {
         caixadetexto_URL_abaInserir = new javax.swing.JTextField();
         labelQueMostraConfimacao_abaInserir = new javax.swing.JLabel();
         botaoinserir_abaInserir1 = new javax.swing.JButton();
+        popUp = new JDialog();
+        tabela_abaAutor = new javax.swing.JTable();
+        botao_autor = new JButton();
 
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -528,7 +534,7 @@ public class ViewConcreta extends javax.swing.JFrame {
 
         labelAutores_abainserir.setText("Autores:");
 
-        labelAutoresEscolhidos_abaInserir.setText("(lembra de apagar depois)");
+        labelAutoresEscolhidos_abaInserir.setText("");
         labelAutoresEscolhidos_abaInserir.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
                 labelAutoresEscolhidos_abaInserirComponentAdded(evt);
@@ -540,6 +546,14 @@ public class ViewConcreta extends javax.swing.JFrame {
         labelURL_abaInserir.setText("URL:");
 
         labelQueMostraConfimacao_abaInserir.setText("(label que vai ser pra mostrar a confirmação de inserção, apagar depois tbm)");
+
+        tabela_abaAutor.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+            },
+            new String [] {
+                "Nº Ordem", "Sobrenome do Autor", "Nome do autor"
+            }
+        ));
 
         botaoinserir_abaInserir1.setBackground(new java.awt.Color(153, 255, 153));
         botaoinserir_abaInserir1.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
@@ -688,6 +702,8 @@ public class ViewConcreta extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+       
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -773,7 +789,12 @@ public class ViewConcreta extends javax.swing.JFrame {
     public void realizaAtt(ActionListener al){
         this.botaoAlterar_abaAlterar.addActionListener(al);
     }
+
     // MÉTODOS JANELA PESQUISA
+
+    public void attAutor(ActionListener al){
+        this.botao_autor.addActionListener(al);
+    }
 
     public void realizarPesquisa(ActionListener al){
         this.botaopesquisar_abaPesquisa.addActionListener(al);
@@ -782,16 +803,22 @@ public class ViewConcreta extends javax.swing.JFrame {
     public void habilita(){
         this.caixadetexto_abaPesquisa.setVisible(false);
     }
+   
     public void informacoes(ActionListener al){
         this.botaoAjuda_abaPesquisa.addActionListener(al);
     }
 
     public String pesquisa(){
         int value;
-        value = this.tabela_abaPesquisa.getSelectedRow();
+        value = this.tabela_abaAutor.getSelectedRow();
 
-        String texto = this.tabela_abaPesquisa.getValueAt(value, 1).toString() + ' ' +this.tabela_abaPesquisa.getValueAt(value, 2).toString();
+        String texto = this.tabela_abaAutor.getValueAt(value, 1).toString() + " " + this.tabela_abaAutor.getValueAt(value, 2).toString() + " / ";
         return texto;
+    }
+
+    public void attTextoAutor(String texto){
+        labelAutoresEscolhidos_abaInserir.setText(labelAutoresEscolhidos_abaInserir.getText() + " " + texto);
+        
     }
     
     public void setOpcao(){
@@ -808,30 +835,20 @@ public class ViewConcreta extends javax.swing.JFrame {
         // table.setSize(300, 300);
         // table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JDialog popUp = new JDialog();
+ 
         popUp.setSize(500, 500);
         popUp.setLayout(new FlowLayout());
         popUp.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
-        JTable tabela_abaAutor = new javax.swing.JTable();
-        JButton botao_autor = new JButton();
+        
         // JPanel panel = new JPanel();
         JScrollPane scroll = new JScrollPane(tabela_abaAutor);
 
 
         botao_autor.setText("Adicionar");
 
+
         
-
-        tabela_abaAutor.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nº Ordem", "Sobrenome do Autor", "Nome do autor"
-            }
-        ));
-
         tabela_abaAutor.setSize(350, 350);
 
 
@@ -850,9 +867,35 @@ public class ViewConcreta extends javax.swing.JFrame {
         // table.add(botao_autor);
         // table.add(jScrollPane1);
         
-        
     }
 
+    public void addAutor(ActionListener al){
+        this.botaoAutor_abainserir.addActionListener(al);
+    }
+
+    public void atualizaAutores(int contador, Autores autor){
+
+        String[] infos = {(Integer.toString(contador)), autor.getName(), autor.getFname()};
+
+        modelo2.addRow(infos);
+        this.tabela_abaAutor.getTableHeader().resizeAndRepaint();
+    }
+
+    public Boolean getOpcaoAutorAbaInserir(){
+
+       return radioButton_AutorAbaInserir.isSelected();
+    }
+
+    public Boolean getOpcaoEditoraAbaInserir(){
+
+        return radioButton_EditorasAbaInserir.isSelected();
+    }
+    
+    public Boolean getOpcaoLivroAbarInserir(){
+
+        return radioButton_LivrosAbaInserir.isSelected();
+    }
+     
     public Boolean getOpcaoLivro(){
         return this.pesquisaBooks;
     }
@@ -1017,6 +1060,8 @@ public class ViewConcreta extends javax.swing.JFrame {
     private javax.swing.JButton botaoAutor_abainserir;
     private javax.swing.JButton botaoAjuda_abaInserir;
 
+     private JDialog popUp;
+
     private javax.swing.JTextField caixadetexto_NomeDaEditora_abaInserir;
     private javax.swing.JTextField caixadetexto_URL_abaInserir;
 
@@ -1041,5 +1086,10 @@ public class ViewConcreta extends javax.swing.JFrame {
     private javax.swing.JRadioButton radioButton_AutorAbaInserir;
     private javax.swing.JRadioButton radioButton_EditorasAbaInserir;
     private javax.swing.JRadioButton radioButton_LivrosAbaInserir;
+
+    private JTable tabela_abaAutor ;
+    private JButton botao_autor;
+
+
     // End of variables declaration//GEN-END:variables
 }

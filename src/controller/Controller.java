@@ -32,6 +32,8 @@ public class Controller {
         this.view.realizarPesquisa(new AcaoPesquisa());
         this.view.informacoes(new AcaoInformacao());
         this.view.realizaAtt(new AcaoAtualizar());
+        this.view.addAutor(new AcaoAddAutor());
+        this.view.attAutor(new AcaoAttAutor());
         
     }
 
@@ -165,7 +167,6 @@ public class Controller {
             view.mensagemAjudaPesquisa();    
             System.out.println(view.pesquisa()); 
             
-            view.popUp();
         }
     }
 
@@ -176,5 +177,50 @@ public class Controller {
             
         }
     }
+
+    // CLASSES RELACIONADAS A ABA INSERIR
+
+    public class AcaoAddAutor implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent ae){
+
+            if (view.getOpcaoAutorAbaInserir()){
+                 
+
+            } else if (view.getOpcaoEditoraAbaInserir()) {
+
+
+            } else if (view.getOpcaoLivroAbarInserir()){
+                
+                for (Autores autor: model.listarTodosAutores()){
+                    contador ++;
+                    view.atualizaAutores(contador, autor);
+                }
+                view.popUp();
+
+            } else{
+                System.out.println("Deu merda");
+            }
+            
+            
+        }
+    }
+
+    public class AcaoAttAutor implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent ae){
+            
+            view.attTextoAutor(view.pesquisa());
+
+        }
+    }
+
+
+
+
+
+
 }
 
