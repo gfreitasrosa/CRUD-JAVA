@@ -37,6 +37,8 @@ public class Controller {
         
     }
 
+    // CLASSES RELACIONADAS A ABA PESQUISA
+
     public class AcaoPesquisa implements ActionListener{
         
         @Override
@@ -170,6 +172,8 @@ public class Controller {
         }
     }
 
+    // CLASSES RELACIONADAS A ABA ATUALZIAR
+    
     public class AcaoAtualizar implements ActionListener{
 
         @Override

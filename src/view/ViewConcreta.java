@@ -796,6 +796,8 @@ public class ViewConcreta extends javax.swing.JFrame {
         this.botao_autor.addActionListener(al);
     }
 
+    
+
     public void realizarPesquisa(ActionListener al){
         this.botaopesquisar_abaPesquisa.addActionListener(al);
     }
