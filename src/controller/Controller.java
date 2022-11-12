@@ -46,7 +46,7 @@ public class Controller {
           view.setOpcao();
 
           contador = 0;
-          view.limpaTabela();
+          view.limpaTabelaPesquisa();
 
             if (view.getOpcaoAutor() && view.getOpcaoEditora() && view.getOpcaoLivro()){
 
@@ -173,7 +173,7 @@ public class Controller {
     }
 
     // CLASSES RELACIONADAS A ABA ATUALZIAR
-    
+
     public class AcaoAtualizar implements ActionListener{
 
         @Override
@@ -189,6 +189,10 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent ae){
 
+            contador = 0;
+
+            view.limpaTabelaInserir();
+
             if (view.getOpcaoAutorAbaInserir()){
                  
 
@@ -201,6 +205,7 @@ public class Controller {
                     contador ++;
                     view.atualizaAutores(contador, autor);
                 }
+                
                 view.popUp();
 
             } else{

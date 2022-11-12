@@ -62,7 +62,7 @@ public class ConexaoBD implements Dao{
     public List<Editoras> listarTodasEditoras(){
         List<Editoras> editoras = new ArrayList<>();
 
-        final String query = "SELECT * FROM Publishers;";
+        final String query = "SELECT * FROM Publishers ORDER BY name;";
 
         try (Connection con = DriverManager.getConnection(URL, USER, PASS)){
 
@@ -87,7 +87,7 @@ public class ConexaoBD implements Dao{
     public List<Autores> listarTodosAutores(){
         List<Autores> autores = new ArrayList<>();
 
-        final String query = "SELECT * FROM Authors;";
+        final String query = "SELECT * FROM Authors ORDER BY name;";
 
         try (Connection con = DriverManager.getConnection(URL, USER, PASS)){
 
