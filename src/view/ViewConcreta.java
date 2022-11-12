@@ -381,11 +381,7 @@ public class ViewConcreta extends javax.swing.JFrame {
         botaoDeletar_abaDeletar1.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
         botaoDeletar_abaDeletar1.setText("Deletar");
         botaoDeletar_abaDeletar1.setToolTipText("");
-        botaoDeletar_abaDeletar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoDeletar_abaDeletar1ActionPerformed(evt);
-            }
-        });
+       
 
         labelConclusaodeTarefa_abaDeletar.setText("aqui vai a msg de conclusão DELETARESTETEXTODEPOIS");
 
@@ -1062,9 +1058,6 @@ public class ViewConcreta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoAjuda_abaDeletarActionPerformed
 
-    private void botaoDeletar_abaDeletar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDeletar_abaDeletar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoDeletar_abaDeletar1ActionPerformed
 
     private void botaoAjuda_abaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAjuda_abaAlterarActionPerformed
         // TODO add your handling code here
@@ -1077,6 +1070,33 @@ public class ViewConcreta extends javax.swing.JFrame {
     private void botãoTitulosantigos_abaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoTitulosantigos_abaAlterarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botãoTitulosantigos_abaAlterarActionPerformed
+
+    // MÉTODOS DA JANELA DELETAR
+
+    public void deletar(ActionListener al){
+        this.botaoDeletar_abaDeletar1.addActionListener(al);
+    }
+
+    public boolean verificaEscolhaDeletarAutor(){
+        return this.radioButton_AutorDeletar.isSelected();
+    }
+
+    // public boolean verificaEscolhaInserirEditora(){
+    //     return this.radioButton_EditorasAbaInserir.isSelected();
+    // }
+
+    // public boolean verificaEscolhaInserirLivro(){
+    //     return this.radioButton_LivrosAbaInserir.isSelected();
+    // }
+
+    public String getTextoNomeAutor(){
+        return this.caixadetextoPrimeiroNomeAutor_abaDeletar.getText();
+    }
+
+    public String getTextoSobrenomeAutor(){
+        return this.caixadetextoSobrenomeAutor_abainserir.getText();
+    }
+
 
     // MÉTODOS DA JANELA INSERIR
 
@@ -1121,29 +1141,6 @@ public class ViewConcreta extends javax.swing.JFrame {
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // MÉTODOS JANELA ATUALIZAR
 

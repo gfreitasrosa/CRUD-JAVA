@@ -1,6 +1,10 @@
 package model.dao;
 
 import javax.swing.*;
+
+import com.mysql.cj.Query;
+import com.mysql.cj.xdevapi.Result;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -444,12 +448,29 @@ public class ConexaoBD implements Dao{
     }
 
     @Override
-    public void apagarAutor(Integer ID){
-        String queryDelAuthor = "DELETE FROM Authors WHERE author_id = ?";
+    public void apagarAutor(String nome, String sobrenome){
+
+        String queryVerificaAutor = "SELECT * FROM booksauthors AS ba INNER JOIN authors AS a ON a.author_id = ba.author_id WHERE a.fname = ? AND a.name = ?;";
+
+        try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
+            PreparedStatement pstm = con.prepareStatement(queryVerificaAutor);
+            pstm.setString(1, nome);
+            pstm.setString(2, sobrenome);
+            ResultSet rs = pstm.executeQuery();
+
+            System.out.println("O autor possuí um livro cadastrado em seu nome, exclua-o primeiro.");
+            return;
+        } catch(Exception e){
+            e.printStackTrace();
+
+        }
+
+        String queryDelAuthor = "DELETE FROM Authors WHERE fname = ? AND name = ?;";
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
             PreparedStatement pstm = con.prepareStatement(queryDelAuthor);
-            pstm.setInt(1, ID);
+            pstm.setString(1, nome);
+            pstm.setString(2, sobrenome);
             pstm.execute();
         } catch(Exception e){
             e.printStackTrace();

@@ -38,6 +38,7 @@ public class Controller {
         this.view.camposInsAutores(new AcaoInvalidaCamposInserir());
         this.view.camposInsEditoras(new AcaoInvalidaCamposInserir());
         this.view.camposInsLivros(new AcaoInvalidaCamposInserir());
+        this.view.deletar(new AcaoDeletar());
     }
 
     // CLASSES RELACIONADAS A ABA PESQUISA
@@ -249,13 +250,29 @@ public class Controller {
         }
     }
 
-    
+
+    public class AcaoDeletar implements ActionListener{
+
+        String nomeAutor;
+
+        String SobrenomeAutor;
+
+        @Override
+        public void actionPerformed(ActionEvent ae){
+
+
+            if(view.verificaEscolhaDeletarAutor()){
+
+                nomeAutor = view.getTextoNomeAutor();
+                SobrenomeAutor = view.getTextoSobrenomeAutor();
+
+                model.apagarAutor(nomeAutor, SobrenomeAutor);
 
 
 
 
-
-
-
+            }
+        }
+    }
 }
 
