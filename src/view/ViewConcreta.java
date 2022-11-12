@@ -59,6 +59,8 @@ public class ViewConcreta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        
+
         g1 = new javax.swing.ButtonGroup();
         janelacomabas = new javax.swing.JTabbedPane();
         abaPesquisa = new javax.swing.JPanel();
@@ -96,17 +98,18 @@ public class ViewConcreta extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tabela_abaDeletar = new javax.swing.JTable();
         botaoDeletar_abaDeletar = new javax.swing.JButton();
-        abaAlterar = new javax.swing.JPanel();
-        titulo_abaAlterar = new javax.swing.JLabel();
-        caixadetexto_abaAlterar = new javax.swing.JTextField();
-        botaopesquisar_abaAlterar = new javax.swing.JButton();
-        Filtrodepesquisa_abaAlterar = new javax.swing.JLabel();
-        checkboxLivros_abaAlterar = new javax.swing.JCheckBox();
-        checkboxAutores_abaAlterar = new javax.swing.JCheckBox();
-        checkboxEditoras_abaAlterar = new javax.swing.JCheckBox();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tabela_abaAlterar = new javax.swing.JTable();
-        botaoAlterar_abaAlterar = new javax.swing.JButton();
+
+        // abaAlterar = new javax.swing.JPanel();
+        // titulo_abaAlterar = new javax.swing.JLabel();
+        // caixadetexto_abaAlterar = new javax.swing.JTextField();
+        // botaopesquisar_abaAlterar = new javax.swing.JButton();
+        // Filtrodepesquisa_abaAlterar = new javax.swing.JLabel();
+        // checkboxLivros_abaAlterar = new javax.swing.JCheckBox();
+        // checkboxAutores_abaAlterar = new javax.swing.JCheckBox();
+        // checkboxEditoras_abaAlterar = new javax.swing.JCheckBox();
+        // jScrollPane4 = new javax.swing.JScrollPane();
+        // tabela_abaAlterar = new javax.swing.JTable();
+        // botaoAlterar_abaAlterar = new javax.swing.JButton();
 
         // OBJETOS DA ABA INSERIR
 
@@ -140,6 +143,84 @@ public class ViewConcreta extends javax.swing.JFrame {
         popUp = new JDialog();
         tabela_abaAutor = new javax.swing.JTable();
         botao_autor = new JButton();
+
+        // OBJETOS DA ABA ALTERAR
+
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+
+        grupo_abaALterar = new javax.swing.ButtonGroup();
+
+        abaAlterar = new javax.swing.JPanel();
+        titulo_abaAlterar = new javax.swing.JLabel();
+        botaoAjuda_abaAlterar = new javax.swing.JButton();
+        botaoAlterar_abaAlterar1 = new javax.swing.JButton();
+
+        botaoAutor_abaAlterar = new javax.swing.JButton();
+        primeironomeLabel_abaAlterar = new javax.swing.JLabel();
+        javax.swing.JLabel caixadetexto_abaAlterar = new javax.swing.JLabel();
+
+        labelSobrenome_abaAlterar = new javax.swing.JLabel();
+        labelDadosAntigos_abaAlterar = new javax.swing.JLabel();
+        labelnovosDados_abaALterar = new javax.swing.JLabel();
+        LabelPrimeiroNome_abaALterar = new javax.swing.JLabel();
+
+        botãoTitulosantigos_abaAlterar = new javax.swing.JButton();
+        labelprecoNovo_abaAlterar = new javax.swing.JLabel();
+        label_tutilo_abaAlterar = new javax.swing.JLabel();
+
+        labelPrecoOLD_abaALterar = new javax.swing.JLabel();
+        label_tituloNovo_abaAlterar = new javax.swing.JLabel();
+
+        caixadetexto_NovoTitulo_abaAlterar = new javax.swing.JTextField();
+        caixadetexto_precoNovo_abaAlterar = new javax.swing.JTextField();
+        labelPreco1_abaAlterar = new javax.swing.JLabel();
+        labelTitulo_abaAlterar = new javax.swing.JLabel();
+        labelURL_abaAlterar = new javax.swing.JLabel();
+        botaoEditoras_abaAlterar = new javax.swing.JButton();
+        labelNomeEditora_abaALterar = new javax.swing.JLabel();
+        caixadetextoURL_abaAlterar = new javax.swing.JLabel();
+        labelNomeAntigoEd_abaALterar = new javax.swing.JLabel();
+
+        labelNomeEDit_abaALterar = new javax.swing.JLabel();
+        labelURL_abaALterar = new javax.swing.JLabel();
+        buttonURL_abaAlterar = new javax.swing.JTextField();
+        caixadetetxonomeEdit_abaAlterar_ = new javax.swing.JTextField();
+
+        radioButton_AutorAbaInserir1 = new javax.swing.JRadioButton();
+        radioButton_EditorasAbaInserir1 = new javax.swing.JRadioButton();
+        radioButton_LivrosAbaInserir1 = new javax.swing.JRadioButton();
+        caixadetexto_nomAutor_abaA = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+
+        labelQueMostraConfimacao_abaInserir1 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+
+        // OBJETOS DA ABA DELETAR
+
+        grupo_abaDeletar = new javax.swing.ButtonGroup();
+        abaDeletar = new javax.swing.JPanel();
+        titulo_abaDeletar = new javax.swing.JLabel();
+        botaoAjuda_abaDeletar = new javax.swing.JButton();
+        radioButton_EditorasAbaDeletar = new javax.swing.JRadioButton();
+        labelPrimeiroNome_abaDeletar = new javax.swing.JLabel();
+        labelISBN_abaDeletar = new javax.swing.JLabel();
+        labelNomedaEditora_abaDeletar = new javax.swing.JLabel();
+        labelSobrenome_abaDeletar = new javax.swing.JLabel();
+        botaoDeletar_abaDeletar1 = new javax.swing.JButton();
+        caixadetextoPrimeiroNomeAutor_abaDeletar = new javax.swing.JTextField();
+
+        caixadetextoISBN_abaDeletar = new javax.swing.JTextField();
+        caixadetextoNomeDaEditora_abaDeletar = new javax.swing.JTextField();
+        labelConclusaodeTarefa_abaDeletar = new javax.swing.JLabel();
+
+        radioButton_AutorDeletar = new javax.swing.JRadioButton();
+        caixadetextoSobrenomeAutor_abainserir = new javax.swing.JTextField();
+        radioButton_LivrosDeletar = new javax.swing.JRadioButton();
+    
+
+
 
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -267,87 +348,100 @@ public class ViewConcreta extends javax.swing.JFrame {
         titulo_abaDeletar.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         titulo_abaDeletar.setText("Deletar dados existentes");
 
-        caixadetexto_abaDeletar.setBackground(new java.awt.Color(204, 204, 204));
-        caixadetexto_abaDeletar.addActionListener(new java.awt.event.ActionListener() {
+        botaoAjuda_abaDeletar.setBackground(new java.awt.Color(204, 204, 204));
+        botaoAjuda_abaDeletar.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
+        botaoAjuda_abaDeletar.setText("Ajuda?");
+        botaoAjuda_abaDeletar.setToolTipText("");
+        botaoAjuda_abaDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caixadetexto_abaDeletarActionPerformed(evt);
+                botaoAjuda_abaDeletarActionPerformed(evt);
             }
         });
 
-        botaopesquisar_abaDeletar.setBackground(new java.awt.Color(204, 204, 204));
-        botaopesquisar_abaDeletar.setText("Pesquisar");
+        grupo_abaDeletar.add(radioButton_AutorDeletar);
+        radioButton_AutorDeletar.setText("Autor");
+        radioButton_AutorDeletar.setToolTipText("");
 
-        Filtrodepesquisa_abaDeletar.setText("Pesquisar em:");
+        grupo_abaDeletar.add(radioButton_LivrosDeletar);
+        radioButton_LivrosDeletar.setText("Livros");
 
-        checkboxLivros_abaDeletar.setText("Livros");
-        checkboxLivros_abaDeletar.addActionListener(new java.awt.event.ActionListener() {
+        grupo_abaDeletar.add(radioButton_EditorasAbaDeletar);
+        radioButton_EditorasAbaDeletar.setText("Editoras");
+
+        labelPrimeiroNome_abaDeletar.setText("Primeiro Nome:");
+
+        labelISBN_abaDeletar.setText("ISBN:");
+
+        labelNomedaEditora_abaDeletar.setText("Nome da Editora:");
+
+        labelSobrenome_abaDeletar.setText("Sobrenome:");
+
+        botaoDeletar_abaDeletar1.setBackground(new java.awt.Color(255, 51, 51));
+        botaoDeletar_abaDeletar1.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
+        botaoDeletar_abaDeletar1.setText("Deletar");
+        botaoDeletar_abaDeletar1.setToolTipText("");
+        botaoDeletar_abaDeletar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkboxLivros_abaDeletarActionPerformed(evt);
+                botaoDeletar_abaDeletar1ActionPerformed(evt);
             }
         });
 
-        checkboxAutores_abaDeletar.setText("Autores");
-        checkboxAutores_abaDeletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkboxAutores_abaDeletarActionPerformed(evt);
-            }
-        });
-
-        checkboxEditoras_abaDeletar.setText("Editoras");
-        checkboxEditoras_abaDeletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkboxEditoras_abaDeletarActionPerformed(evt);
-            }
-        });
-
-        tabela_abaDeletar.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(tabela_abaDeletar);
-
-        botaoDeletar_abaDeletar.setBackground(new java.awt.Color(255, 51, 51));
-        botaoDeletar_abaDeletar.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
-        botaoDeletar_abaDeletar.setText("Deletar");
-        botaoDeletar_abaDeletar.setToolTipText("");
+        labelConclusaodeTarefa_abaDeletar.setText("aqui vai a msg de conclusão DELETARESTETEXTODEPOIS");
 
         javax.swing.GroupLayout abaDeletarLayout = new javax.swing.GroupLayout(abaDeletar);
         abaDeletar.setLayout(abaDeletarLayout);
         abaDeletarLayout.setHorizontalGroup(
             abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(abaDeletarLayout.createSequentialGroup()
+                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaDeletarLayout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(labelISBN_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(caixadetextoISBN_abaDeletar)
+                        .addGap(21, 21, 21))
+                    .addGroup(abaDeletarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(radioButton_LivrosDeletar)
+                        .addGap(545, 545, 545)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(abaDeletarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(abaDeletarLayout.createSequentialGroup()
-                        .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(abaDeletarLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(Filtrodepesquisa_abaDeletar)
-                                .addGap(18, 18, 18)
-                                .addComponent(checkboxLivros_abaDeletar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
-                                .addComponent(checkboxAutores_abaDeletar)
-                                .addGap(122, 122, 122)
-                                .addComponent(checkboxEditoras_abaDeletar))
-                            .addComponent(caixadetexto_abaDeletar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaopesquisar_abaDeletar))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(botaoAjuda_abaDeletar)
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(labelConclusaodeTarefa_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botaoDeletar_abaDeletar1))
                     .addGroup(abaDeletarLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(titulo_abaDeletar)
+                        .addComponent(radioButton_AutorDeletar)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaDeletarLayout.createSequentialGroup()
+            .addGroup(abaDeletarLayout.createSequentialGroup()
+                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaDeletarLayout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labelPrimeiroNome_abaDeletar)
+                            .addComponent(labelSobrenome_abaDeletar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(caixadetextoPrimeiroNomeAutor_abaDeletar)
+                            .addComponent(caixadetextoSobrenomeAutor_abainserir)))
+                    .addGroup(abaDeletarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(radioButton_EditorasAbaDeletar)
+                            .addGroup(abaDeletarLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelNomedaEditora_abaDeletar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(caixadetextoNomeDaEditora_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(21, 21, 21))
+            .addGroup(abaDeletarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaoDeletar_abaDeletar)
+                .addComponent(titulo_abaDeletar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         abaDeletarLayout.setVerticalGroup(
@@ -355,21 +449,34 @@ public class ViewConcreta extends javax.swing.JFrame {
             .addGroup(abaDeletarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titulo_abaDeletar)
-                .addGap(4, 4, 4)
-                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(caixadetexto_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaopesquisar_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkboxAutores_abaDeletar)
-                    .addComponent(Filtrodepesquisa_abaDeletar)
-                    .addComponent(checkboxLivros_abaDeletar)
-                    .addComponent(checkboxEditoras_abaDeletar))
+                .addGap(16, 16, 16)
+                .addComponent(radioButton_AutorDeletar)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPrimeiroNome_abaDeletar)
+                    .addComponent(caixadetextoPrimeiroNomeAutor_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelSobrenome_abaDeletar)
+                    .addComponent(caixadetextoSobrenomeAutor_abainserir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addComponent(radioButton_LivrosDeletar)
+                .addGap(1, 1, 1)
+                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelISBN_abaDeletar)
+                    .addComponent(caixadetextoISBN_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addComponent(radioButton_EditorasAbaDeletar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botaoDeletar_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNomedaEditora_abaDeletar)
+                    .addComponent(caixadetextoNomeDaEditora_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoAjuda_abaDeletar)
+                    .addComponent(botaoDeletar_abaDeletar1)
+                    .addComponent(labelConclusaodeTarefa_abaDeletar))
+                .addContainerGap())
         );
 
         janelacomabas.addTab("Deletar", abaDeletar);
@@ -379,56 +486,116 @@ public class ViewConcreta extends javax.swing.JFrame {
         titulo_abaAlterar.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         titulo_abaAlterar.setText("Alterar dados existentes");
 
-        caixadetexto_abaAlterar.setBackground(new java.awt.Color(204, 204, 204));
-        caixadetexto_abaAlterar.addActionListener(new java.awt.event.ActionListener() {
+        botaoAjuda_abaAlterar.setBackground(new java.awt.Color(204, 204, 204));
+        botaoAjuda_abaAlterar.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
+        botaoAjuda_abaAlterar.setText("Ajuda?");
+        botaoAjuda_abaAlterar.setToolTipText("");
+        botaoAjuda_abaAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caixadetexto_abaAlterarActionPerformed(evt);
+                botaoAjuda_abaAlterarActionPerformed(evt);
             }
         });
 
-        botaopesquisar_abaAlterar.setBackground(new java.awt.Color(204, 204, 204));
-        botaopesquisar_abaAlterar.setText("Pesquisar");
+        botaoAlterar_abaAlterar1.setBackground(new java.awt.Color(51, 255, 204));
+        botaoAlterar_abaAlterar1.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
+        botaoAlterar_abaAlterar1.setText("Alterar");
+        botaoAlterar_abaAlterar1.setToolTipText("");
 
-        Filtrodepesquisa_abaAlterar.setText("Pesquisar em:");
+        grupo_abaALterar.add(radioButton_AutorAbaInserir1);
+        radioButton_AutorAbaInserir1.setText("Autor");
+        radioButton_AutorAbaInserir1.setToolTipText("");
 
-        checkboxLivros_abaAlterar.setText("Livros");
-        checkboxLivros_abaAlterar.addActionListener(new java.awt.event.ActionListener() {
+        grupo_abaALterar.add(radioButton_LivrosAbaInserir1);
+        radioButton_LivrosAbaInserir1.setText("Livros");
+
+        grupo_abaALterar.add(radioButton_EditorasAbaInserir1);
+        radioButton_EditorasAbaInserir1.setText("Editoras");
+
+        botaoAutor_abaAlterar.setText("Escolher Autor");
+        botaoAutor_abaAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkboxLivros_abaAlterarActionPerformed(evt);
+                botaoAutor_abaAlterarActionPerformed(evt);
             }
         });
 
-        checkboxAutores_abaAlterar.setText("Autores");
-        checkboxAutores_abaAlterar.addActionListener(new java.awt.event.ActionListener() {
+        primeironomeLabel_abaAlterar.setText("Primeiro nome:");
+
+        caixadetexto_abaAlterar.setBackground(new java.awt.Color(204, 204, 255));
+        caixadetexto_abaAlterar.setText("(sobrenome do Autor)");
+        caixadetexto_abaAlterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        labelSobrenome_abaAlterar.setBackground(new java.awt.Color(204, 204, 255));
+        labelSobrenome_abaAlterar.setText("(primeiro nome do Autor)");
+        labelSobrenome_abaAlterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        labelDadosAntigos_abaAlterar.setText("Novos Dados");
+
+        labelnovosDados_abaALterar.setText("Dados Antigos");
+
+        LabelPrimeiroNome_abaALterar.setText("Primeiro nome:");
+
+        caixadetexto_nomAutor_abaA.setText("(primeiro nome)");
+
+        jTextField2.setText("Sobrenome");
+
+        botãoTitulosantigos_abaAlterar.setText("Escolher Livro");
+        botãoTitulosantigos_abaAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkboxAutores_abaAlterarActionPerformed(evt);
+                botãoTitulosantigos_abaAlterarActionPerformed(evt);
             }
         });
 
-        checkboxEditoras_abaAlterar.setText("Editoras");
-        checkboxEditoras_abaAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkboxEditoras_abaAlterarActionPerformed(evt);
-            }
-        });
+        labelprecoNovo_abaAlterar.setText("Preço:");
 
-        tabela_abaAlterar.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane4.setViewportView(tabela_abaAlterar);
+        label_tutilo_abaAlterar.setBackground(new java.awt.Color(204, 204, 255));
+        label_tutilo_abaAlterar.setText("(titulo do livro)");
+        label_tutilo_abaAlterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        botaoAlterar_abaAlterar.setBackground(new java.awt.Color(51, 255, 204));
-        botaoAlterar_abaAlterar.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
-        botaoAlterar_abaAlterar.setText("Alterar");
-        botaoAlterar_abaAlterar.setToolTipText("");
+        jLabel9.setText("Dados Antigos");
+
+        labelPrecoOLD_abaALterar.setBackground(new java.awt.Color(204, 204, 255));
+        labelPrecoOLD_abaALterar.setText("(preço)");
+        labelPrecoOLD_abaALterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        label_tituloNovo_abaAlterar.setText("Titulo:");
+
+        jLabel12.setText("Novos Dados");
+
+        caixadetexto_NovoTitulo_abaAlterar.setText("novo titulo");
+
+        caixadetexto_precoNovo_abaAlterar.setText("novo preço");
+
+        labelPreco1_abaAlterar.setText("Preço:");
+
+        labelTitulo_abaAlterar.setText("Titulo:");
+
+        labelURL_abaAlterar.setText("URL:");
+
+        botaoEditoras_abaAlterar.setText("Escolher Editoras");
+
+        labelNomeEditora_abaALterar.setText("Nome da Editora:");
+
+        caixadetextoURL_abaAlterar.setBackground(new java.awt.Color(204, 204, 255));
+        caixadetextoURL_abaAlterar.setText("URL");
+        caixadetextoURL_abaAlterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        labelNomeAntigoEd_abaALterar.setBackground(new java.awt.Color(204, 204, 255));
+        labelNomeAntigoEd_abaALterar.setText("(nome Da Editora)");
+        labelNomeAntigoEd_abaALterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel19.setText("Dados Antigos");
+
+        jLabel20.setText("Novos Dados");
+
+        labelNomeEDit_abaALterar.setText("Nome da Editora:");
+
+        labelURL_abaALterar.setText("URL:");
+
+        buttonURL_abaAlterar.setText("jTextField5");
+
+        caixadetetxonomeEdit_abaAlterar_.setText("jTextField6");
+
+        labelQueMostraConfimacao_abaInserir1.setText("(label que vai ser pra mostrar a confirmação de inserção, apagar depois tbm)");
 
         javax.swing.GroupLayout abaAlterarLayout = new javax.swing.GroupLayout(abaAlterar);
         abaAlterar.setLayout(abaAlterarLayout);
@@ -437,52 +604,190 @@ public class ViewConcreta extends javax.swing.JFrame {
             .addGroup(abaAlterarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaAlterarLayout.createSequentialGroup()
+                        .addComponent(botaoAutor_abaAlterar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(abaAlterarLayout.createSequentialGroup()
+                                .addComponent(primeironomeLabel_abaAlterar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelSobrenome_abaAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
+                            .addGroup(abaAlterarLayout.createSequentialGroup()
+                                .addComponent(LabelPrimeiroNome_abaALterar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(caixadetexto_nomAutor_abaA)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(caixadetexto_abaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(21, Short.MAX_VALUE))
+                    .addGroup(abaAlterarLayout.createSequentialGroup()
+                        .addComponent(radioButton_LivrosAbaInserir1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9)
+                        .addGap(68, 68, 68)
+                        .addComponent(jLabel12)
+                        .addGap(145, 145, 145))
                     .addGroup(abaAlterarLayout.createSequentialGroup()
                         .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(abaAlterarLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(Filtrodepesquisa_abaAlterar)
+                                .addComponent(radioButton_AutorAbaInserir1)
+                                .addGap(189, 189, 189)
+                                .addComponent(labelnovosDados_abaALterar))
+                            .addGroup(abaAlterarLayout.createSequentialGroup()
+                                .addGap(241, 241, 241)
+                                .addComponent(labelDadosAntigos_abaAlterar))
+                            .addGroup(abaAlterarLayout.createSequentialGroup()
+                                .addComponent(botãoTitulosantigos_abaAlterar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelPreco1_abaAlterar)
+                                    .addComponent(labelTitulo_abaAlterar))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelPrecoOLD_abaALterar)
+                                    .addComponent(label_tutilo_abaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(abaAlterarLayout.createSequentialGroup()
+                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(abaAlterarLayout.createSequentialGroup()
+                                .addComponent(radioButton_EditorasAbaInserir1)
+                                .addGap(182, 182, 182)
+                                .addComponent(jLabel19)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaAlterarLayout.createSequentialGroup()
+                                .addComponent(botaoAjuda_abaAlterar)
                                 .addGap(18, 18, 18)
-                                .addComponent(checkboxLivros_abaAlterar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
-                                .addComponent(checkboxAutores_abaAlterar)
-                                .addGap(122, 122, 122)
-                                .addComponent(checkboxEditoras_abaAlterar))
-                            .addComponent(caixadetexto_abaAlterar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaopesquisar_abaAlterar))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaAlterarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaoAlterar_abaAlterar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(labelQueMostraConfimacao_abaInserir1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(botaoAlterar_abaAlterar1))
+                            .addGroup(abaAlterarLayout.createSequentialGroup()
+                                .addComponent(botaoEditoras_abaAlterar)
+                                .addGap(18, 18, 18)
+                                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(abaAlterarLayout.createSequentialGroup()
+                                        .addComponent(labelNomeEDit_abaALterar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(caixadetetxonomeEdit_abaAlterar_, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(labelURL_abaALterar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(buttonURL_abaAlterar))
+                                    .addGroup(abaAlterarLayout.createSequentialGroup()
+                                        .addComponent(labelNomeEditora_abaALterar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(labelNomeAntigoEd_abaALterar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(labelURL_abaAlterar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(caixadetextoURL_abaAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                        .addContainerGap())))
             .addGroup(abaAlterarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(titulo_abaAlterar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(abaAlterarLayout.createSequentialGroup()
+                        .addGap(182, 182, 182)
+                        .addComponent(titulo_abaAlterar))
+                    .addGroup(abaAlterarLayout.createSequentialGroup()
+                        .addGap(354, 354, 354)
+                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(abaAlterarLayout.createSequentialGroup()
+                                .addComponent(label_tituloNovo_abaAlterar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(caixadetexto_NovoTitulo_abaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(abaAlterarLayout.createSequentialGroup()
+                                .addComponent(labelprecoNovo_abaAlterar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(caixadetexto_precoNovo_abaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(abaAlterarLayout.createSequentialGroup()
+                        .addGap(257, 257, 257)
+                        .addComponent(jLabel20)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         abaAlterarLayout.setVerticalGroup(
             abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(abaAlterarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titulo_abaAlterar)
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelnovosDados_abaALterar)
+                    .addComponent(radioButton_AutorAbaInserir1))
+                .addGap(9, 9, 9)
                 .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(caixadetexto_abaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaopesquisar_abaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botaoAutor_abaAlterar)
+                    .addComponent(primeironomeLabel_abaAlterar)
+                    .addComponent(labelSobrenome_abaAlterar)
+                    .addComponent(caixadetexto_abaAlterar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelDadosAntigos_abaAlterar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkboxAutores_abaAlterar)
-                    .addComponent(Filtrodepesquisa_abaAlterar)
-                    .addComponent(checkboxLivros_abaAlterar)
-                    .addComponent(checkboxEditoras_abaAlterar))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelPrimeiroNome_abaALterar)
+                    .addComponent(caixadetexto_nomAutor_abaA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(radioButton_LivrosAbaInserir1)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(abaAlterarLayout.createSequentialGroup()
+                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botãoTitulosantigos_abaAlterar)
+                            .addComponent(label_tutilo_abaAlterar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelPrecoOLD_abaALterar)
+                            .addComponent(labelPreco1_abaAlterar)))
+                    .addComponent(labelTitulo_abaAlterar)
+                    .addGroup(abaAlterarLayout.createSequentialGroup()
+                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(label_tituloNovo_abaAlterar)
+                            .addComponent(caixadetexto_NovoTitulo_abaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelprecoNovo_abaAlterar)
+                            .addComponent(caixadetexto_precoNovo_abaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(radioButton_EditorasAbaInserir1)
+                    .addComponent(jLabel19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botaoEditoras_abaAlterar)
+                    .addComponent(labelNomeEditora_abaALterar)
+                    .addComponent(labelNomeAntigoEd_abaALterar)
+                    .addComponent(labelURL_abaAlterar)
+                    .addComponent(caixadetextoURL_abaAlterar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botaoAlterar_abaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNomeEDit_abaALterar)
+                    .addComponent(labelURL_abaALterar)
+                    .addComponent(buttonURL_abaAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(caixadetetxonomeEdit_abaAlterar_, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(abaAlterarLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botaoAlterar_abaAlterar1)
+                            .addComponent(botaoAjuda_abaAlterar)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaAlterarLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelQueMostraConfimacao_abaInserir1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
+
+        primeironomeLabel_abaAlterar.getAccessibleContext().setAccessibleName("Nome do Autor:");
+
+        grupo_abaALterar.add(radioButton_AutorAbaInserir);
+        radioButton_AutorAbaInserir.setText("Autor");
+        radioButton_AutorAbaInserir.setToolTipText("");
+
+        grupo_abaALterar.add(radioButton_LivrosAbaInserir);
+        radioButton_LivrosAbaInserir.setText("Livros");
 
         janelacomabas.addTab("Alterar", abaAlterar);
         
@@ -752,37 +1057,25 @@ public class ViewConcreta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_checkboxEditoras_abaInserirActionPerformed
 
-    private void caixadetexto_abaDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixadetexto_abaDeletarActionPerformed
+    private void botaoAjuda_abaDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAjuda_abaDeletarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_caixadetexto_abaDeletarActionPerformed
+    }//GEN-LAST:event_botaoAjuda_abaDeletarActionPerformed
 
-    private void checkboxLivros_abaDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxLivros_abaDeletarActionPerformed
+    private void botaoDeletar_abaDeletar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDeletar_abaDeletar1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_checkboxLivros_abaDeletarActionPerformed
+    }//GEN-LAST:event_botaoDeletar_abaDeletar1ActionPerformed
 
-    private void checkboxAutores_abaDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxAutores_abaDeletarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_checkboxAutores_abaDeletarActionPerformed
+    private void botaoAjuda_abaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAjuda_abaAlterarActionPerformed
+        // TODO add your handling code here
+    }//GEN-LAST:event_botaoAjuda_abaAlterarActionPerformed
 
-    private void checkboxEditoras_abaDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxEditoras_abaDeletarActionPerformed
+    private void botaoAutor_abaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAutor_abaAlterarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_checkboxEditoras_abaDeletarActionPerformed
+    }//GEN-LAST:event_botaoAutor_abaAlterarActionPerformed
 
-    private void caixadetexto_abaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixadetexto_abaAlterarActionPerformed
+    private void botãoTitulosantigos_abaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botãoTitulosantigos_abaAlterarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_caixadetexto_abaAlterarActionPerformed
-
-    private void checkboxLivros_abaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxLivros_abaAlterarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_checkboxLivros_abaAlterarActionPerformed
-
-    private void checkboxAutores_abaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxAutores_abaAlterarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_checkboxAutores_abaAlterarActionPerformed
-
-    private void checkboxEditoras_abaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxEditoras_abaAlterarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_checkboxEditoras_abaAlterarActionPerformed
+    }//GEN-LAST:event_botãoTitulosantigos_abaAlterarActionPerformed
 
     // MÉTODOS JANELA ATUALIZAR
 
@@ -1016,8 +1309,6 @@ public class ViewConcreta extends javax.swing.JFrame {
     private javax.swing.JLabel Filtrodepesquisa_abaDeletar;
     private javax.swing.JLabel Filtrodepesquisa_abaInserir;
     private javax.swing.JLabel Filtrodepesquisa_abaPesquisa;
-    private javax.swing.JPanel abaAlterar;
-    private javax.swing.JPanel abaDeletar;
     private javax.swing.JPanel abaInserir;
     private javax.swing.JPanel abaPesquisa;
     private javax.swing.JButton botaoAlterar_abaAlterar;
@@ -1026,7 +1317,7 @@ public class ViewConcreta extends javax.swing.JFrame {
     private javax.swing.JButton botaopesquisar_abaAlterar;
     private javax.swing.JButton botaopesquisar_abaDeletar;
     private javax.swing.JButton botaopesquisar_abaInserir;
-    private javax.swing.JButton botaopesquisar_abaPesquisa;
+    private javax.swing.JButton botaopesquisar_abaPesquisa;    
     private javax.swing.JButton botaoAjuda_abaPesquisa;
     private javax.swing.JTextField caixadetexto_abaAlterar;
     private javax.swing.JTextField caixadetexto_abaDeletar;
@@ -1054,8 +1345,6 @@ public class ViewConcreta extends javax.swing.JFrame {
     private javax.swing.JTable tabela_abaInserir;
     private javax.swing.JTable tabela_abaPesquisa;
     private javax.swing.JLabel tituloPesquisa;
-    private javax.swing.JLabel titulo_abaAlterar;
-    private javax.swing.JLabel titulo_abaDeletar;
     private javax.swing.JLabel titulo_abaInserir;
 
     // VARIAVEIS ABA INSERIR
@@ -1095,6 +1384,86 @@ public class ViewConcreta extends javax.swing.JFrame {
     private JTable tabela_abaAutor ;
     private JButton botao_autor;
 
+    // VARIÁVEIS DA ABA ALTERAR
+
+    private javax.swing.ButtonGroup grupo_abaALterar;
+
+    private javax.swing.JLabel LabelPrimeiroNome_abaALterar;
+    private javax.swing.JPanel abaAlterar;
+
+    private javax.swing.JButton botaoAjuda_abaAlterar;
+    private javax.swing.JButton botaoAlterar_abaAlterar1;
+    private javax.swing.JButton botaoAutor_abaAlterar;
+    private javax.swing.JButton botaoEditoras_abaAlterar;
+    private javax.swing.JButton botãoTitulosantigos_abaAlterar;
+    
+    private javax.swing.JTextField buttonURL_abaAlterar;
+    private javax.swing.JTextField caixadetetxonomeEdit_abaAlterar_;
+
+    private javax.swing.JTextField caixadetexto_NovoTitulo_abaAlterar;
+    private javax.swing.JTextField caixadetexto_precoNovo_abaAlterar;
+
+    private javax.swing.JLabel caixadetextoURL_abaAlterar;
+    
+    private javax.swing.JLabel labelDadosAntigos_abaAlterar;
+    private javax.swing.JLabel labelNomeAntigoEd_abaALterar;
+    private javax.swing.JLabel labelNomeEDit_abaALterar;
+    private javax.swing.JLabel labelNomeEditora_abaALterar;
+    private javax.swing.JLabel labelPreco1_abaAlterar;
+    private javax.swing.JLabel labelPrecoOLD_abaALterar;
+    private javax.swing.JLabel labelSobrenome_abaAlterar;
+    private javax.swing.JLabel labelTitulo_abaAlterar;
+    private javax.swing.JLabel labelURL_abaALterar;
+    private javax.swing.JLabel labelURL_abaAlterar;
+    private javax.swing.JLabel label_tituloNovo_abaAlterar;
+    private javax.swing.JLabel label_tutilo_abaAlterar;
+    private javax.swing.JLabel labelnovosDados_abaALterar;
+    private javax.swing.JLabel labelprecoNovo_abaAlterar;
+    private javax.swing.JLabel primeironomeLabel_abaAlterar;
+    private javax.swing.JLabel titulo_abaAlterar;
+
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel9;
+
+    private javax.swing.JRadioButton radioButton_AutorAbaInserir1;
+    private javax.swing.JRadioButton radioButton_EditorasAbaInserir1;
+    private javax.swing.JRadioButton radioButton_LivrosAbaInserir1;
+
+    private javax.swing.JTextField caixadetexto_nomAutor_abaA;
+    private javax.swing.JTextField jTextField2;
+
+    private javax.swing.JLabel labelQueMostraConfimacao_abaInserir1;
+
+    // VARIÁVEIS DA ABA DELETAR
+
+    private javax.swing.JPanel abaDeletar;
+
+    private javax.swing.JButton botaoAjuda_abaDeletar;
+    private javax.swing.JButton botaoDeletar_abaDeletar1;
+    
+    private javax.swing.JTextField caixadetextoISBN_abaDeletar;
+    private javax.swing.JTextField caixadetextoNomeDaEditora_abaDeletar;
+    private javax.swing.JTextField caixadetextoPrimeiroNomeAutor_abaDeletar;
+
+    private javax.swing.ButtonGroup grupo_abaDeletar;
+
+    private javax.swing.JLabel labelConclusaodeTarefa_abaDeletar;
+    
+    private javax.swing.JLabel labelISBN_abaDeletar;
+    private javax.swing.JLabel labelPrimeiroNome_abaDeletar;
+    private javax.swing.JLabel labelNomedaEditora_abaDeletar;
+    private javax.swing.JLabel labelSobrenome_abaDeletar;
+    private javax.swing.JRadioButton radioButton_EditorasAbaDeletar;
+    private javax.swing.JLabel titulo_abaDeletar;
+
+    private javax.swing.JRadioButton radioButton_AutorDeletar;
+    private javax.swing.JRadioButton radioButton_LivrosDeletar;
+    private javax.swing.JTextField caixadetextoSobrenomeAutor_abainserir;
+
+
+    
 
     // End of variables declaration//GEN-END:variables
 }
