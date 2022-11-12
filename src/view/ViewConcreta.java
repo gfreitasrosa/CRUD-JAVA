@@ -39,6 +39,7 @@ public class ViewConcreta extends javax.swing.JFrame {
     DefaultTableModel modelo;
     DefaultTableModel modelo2;
 
+
     String EscolhaAbaInserir;
 
 
@@ -1077,11 +1078,78 @@ public class ViewConcreta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_botãoTitulosantigos_abaAlterarActionPerformed
 
+    // MÉTODOS DA JANELA INSERIR
+
+
+    public void camposInsLivros(ActionListener al){
+        
+        this.radioButton_LivrosAbaInserir.addActionListener(al);
+
+    }
+
+    public void camposInsEditoras(ActionListener al){
+
+        this.radioButton_EditorasAbaInserir.addActionListener(al);
+
+    }
+
+    public void camposInsAutores(ActionListener al){
+
+        this.radioButton_AutorAbaInserir.addActionListener(al);
+ 
+    }
+
+    public boolean verificaEscolhaInserirAutor(){
+        return this.radioButton_AutorAbaInserir.isSelected();
+    }
+
+    public boolean verificaEscolhaInserirEditora(){
+        return this.radioButton_EditorasAbaInserir.isSelected();
+    }
+
+    public boolean verificaEscolhaInserirLivro(){
+        return this.radioButton_LivrosAbaInserir.isSelected();
+    }
+
+    public void desabilitaLivrosEditoras(){
+
+        this.caixadetexto_abaInserirSobreNome.setEnabled(false);
+        this.caixadetexto_abaInserirNome1.setEnabled(false);
+
+        this.caixadetexto_NomeDaEditora_abaInserir.setEnabled(false);
+        this.caixadetexto_URL_abaInserir.setEnabled(false);
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // MÉTODOS JANELA ATUALIZAR
 
-    public void realizaAtt(ActionListener al){
-        this.botaoAlterar_abaAlterar.addActionListener(al);
-    }
+    // public void realizaAtt(ActionListener al){
+    //     this.botaoAlterar_abaAlterar.addActionListener(al);
+    // }
 
     // MÉTODOS JANELA PESQUISA
 

@@ -5,11 +5,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.entidades.Autores;
-import model.entidades.Editoras;
-import model.entidades.Livros;
-import model.entidades.RelLivrosAutores;
-import model.entidades.RelTudo;
+import model.entidades.*;
 
 public class ConexaoBD implements Dao{
 
@@ -281,6 +277,45 @@ public class ConexaoBD implements Dao{
         }
 
         return lista_rel;
+
+    }
+
+    @Override
+    public List<RelLivrosEditoras> buscarRelLivroEditora(String nome){
+
+        List<RelLivrosEditoras> lista_relLivrosEditoras= new ArrayList<>();
+
+        final String query = "SELECT * FROM books as b INNER JOIN publishers as p ON b.publisher_id =  p.publisher_id WHERE b.isbn = ? or b.title = ? or p.name = ?;";
+
+        try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
+            PreparedStatement pstm = con.prepareStatement(query);
+
+            pstm.setString(1, "%" + nome + "%");
+            pstm.setString(2, "%" + nome + "%");
+            pstm.setString(3, "%" + nome + "%");
+            ResultSet rs = pstm.executeQuery();
+
+            while(rs.next()) {
+                String title = rs.getString("title");
+                String isbn = rs.getString("isbn");
+                Float price = rs.getFloat("price");
+                String name = rs.getString("name");
+                String url = rs.getString("url");
+
+                Livros auxLivros = new Livros(title, isbn, price);
+                Editoras auxEditoras = new Editoras(name, url);
+
+                RelLivrosEditoras relLivrosEditoras = new RelLivrosEditoras(auxLivros, auxLivros, auxLivros, auxEditoras, auxEditoras);
+                
+                lista_relLivrosEditoras.add(relLivrosEditoras);
+            }
+
+        } catch(Exception e){
+            e.printStackTrace();
+
+        }
+
+        return lista_relLivrosEditoras;
 
     }
 

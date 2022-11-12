@@ -1,9 +1,10 @@
-package controller;
+ package controller;
 
 import model.dao.*;
 import model.entidades.Autores;
 import model.entidades.Livros;
 import model.entidades.RelLivrosAutores;
+import model.entidades.RelLivrosEditoras;
 import model.entidades.Editoras;
 import model.entidades.RelTudo;
 import view.*;
@@ -31,10 +32,12 @@ public class Controller {
 
         this.view.realizarPesquisa(new AcaoPesquisa());
         this.view.informacoes(new AcaoInformacao());
-        this.view.realizaAtt(new AcaoAtualizar());
+        // this.view.realizaAtt(new AcaoAtualizar());
         this.view.addAutor(new AcaoAddAutor());
         this.view.attAutor(new AcaoAttAutor());
-        
+        this.view.camposInsAutores(new AcaoInvalidaCamposInserir());
+        this.view.camposInsEditoras(new AcaoInvalidaCamposInserir());
+        this.view.camposInsLivros(new AcaoInvalidaCamposInserir());
     }
 
     // CLASSES RELACIONADAS A ABA PESQUISA
@@ -90,10 +93,11 @@ public class Controller {
             } else if (view.getOpcaoEditora() && view.getOpcaoLivro()){
 
                 if(view.getTexto() != ""){
-                    if (model.buscarAutorSelecionado(view.getTexto()).isEmpty()){
-                        for (Autores autor: model.listarTodosAutores()){
+                    if (model.buscarLivroSelecionado(view.getTexto()).isEmpty()){
+                        for (RelLivrosEditoras relacao: model.buscarRelLivroEditora(view.getTexto())){
                             contador ++;
-                            view.atualizaTabelaAutor(contador, autor);
+                           // view.atualizaTabelaEditora(contador, relacao);
+                            //  CRIAR O MÉTODO PARA ATUALIZAR A VIEW
 
                         }
                     } else{
@@ -225,6 +229,28 @@ public class Controller {
 
         }
     }
+
+    public class AcaoInvalidaCamposInserir implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent ae){
+            
+            if (view.verificaEscolhaInserirAutor()){
+                
+
+
+            } else if (view.verificaEscolhaInserirEditora()){
+
+            } else if (view.verificaEscolhaInserirLivro()){
+
+                view.desabilitaLivrosEditoras();
+            }
+
+        }
+    }
+
+    
+
 
 
 
