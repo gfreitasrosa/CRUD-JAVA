@@ -148,7 +148,7 @@ public class ViewConcreta extends javax.swing.JFrame {
         caixadetexto_URL_abaInserir = new javax.swing.JTextField();
         labelQueMostraConfimacao_abaInserir = new javax.swing.JLabel();
         botaoinserir_abaInserir1 = new javax.swing.JButton();
-        popUp = new JDialog();
+        
         tabela_abaAutor = new javax.swing.JTable();
         botao_autor = new JButton();
 
@@ -1194,6 +1194,7 @@ public class ViewConcreta extends javax.swing.JFrame {
         // table.setSize(300, 300);
         // table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        popUp = new JDialog();
  
         popUp.setSize(500, 500);
         popUp.setLayout(new FlowLayout());
@@ -1240,6 +1241,7 @@ public class ViewConcreta extends javax.swing.JFrame {
         // table.setSize(300, 300);
         // table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        popUp = new JDialog();
  
         popUp.setSize(500, 500);
         popUp.setLayout(new FlowLayout());
@@ -1303,12 +1305,14 @@ public class ViewConcreta extends javax.swing.JFrame {
         this.botãoTitulosantigos_abaAlterar.addActionListener(al);
 
     }
+    
     public void popUpLivrosAbaAlterar(){
 
         // JFrame table = new JFrame();
         // table.setSize(300, 300);
         // table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        popUp = new JDialog();
 
         popUp.setSize(500, 500);
         popUp.setLayout(new FlowLayout());
@@ -1349,15 +1353,13 @@ public class ViewConcreta extends javax.swing.JFrame {
 
 
     }
+    
     public boolean getEditorasAbaAlterar(){
         return radioButton_EditorasAbaInserir1.isSelected();
-
-
     }
+    
     public boolean getAutorAbaAlterar(){
         return radioButton_AutorAbaInserir1.isSelected();
-
-
     }
 
     // MÉTODOS JANELA PESQUISA
@@ -1411,6 +1413,7 @@ public class ViewConcreta extends javax.swing.JFrame {
         // table.setSize(300, 300);
         // table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        popUp = new JDialog();
  
         popUp.setSize(500, 500);
         popUp.setLayout(new FlowLayout());

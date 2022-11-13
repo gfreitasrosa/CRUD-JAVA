@@ -300,7 +300,6 @@ public class Controller {
         public void actionPerformed(ActionEvent ae){
 
             contador = 0;
-            view.limpaTabelaInserir();
 
 
             // for (Autores autor: model.listarTodosAutores()){
@@ -317,36 +316,34 @@ public class Controller {
                 for (Livros livros:model.listarTodosLivros()){
                     contador ++;
                     view.atualizaLivrosAbaAlterar(contador, livros);
-
+       
                 }
                 view.popUpLivrosAbaAlterar();
+
 
             } else if (view.getAutorAbaAlterar()) {
                 for (Autores autor:model.listarTodosAutores()){
                     contador ++;
                     view.atualizaAutoresAbaAlterar(contador, autor);
-
+                    
                 }
                 view.popUpAutorAbaAlterar();
+
 
             } else if (view.getEditorasAbaAlterar()) {
                 for (Editoras editora:model.listarTodasEditoras()){
                     contador ++;
                     view.atualizaEditorasAbaAlterar(contador, editora);
-
+                    
                 }
                 view.popUpEditorasAbaAlterar();
 
-            };
+            } else {
+
+            JOptionPane.showMessageDialog(null, "Nenhum botão escolhido!", "Erro", JOptionPane.ERROR_MESSAGE);
 
 
-
-
-
-
-
-
-
+            }
 
         }
     }
