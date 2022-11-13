@@ -38,6 +38,8 @@ public class ViewConcreta extends javax.swing.JFrame {
     Boolean pesquisaPublishers;
     DefaultTableModel modelo;
     DefaultTableModel modelo2;
+    DefaultTableModel modelo3;
+    DefaultTableModel modelo4;
 
 
     String EscolhaAbaInserir;
@@ -49,6 +51,8 @@ public class ViewConcreta extends javax.swing.JFrame {
         setVisible(true);
         modelo = (DefaultTableModel) this.tabela_abaPesquisa.getModel();
         modelo2 = (DefaultTableModel) this.tabela_abaAutor.getModel();
+        modelo3 = (DefaultTableModel) this.tabelaAutor_abaAlterar.getModel();
+        modelo4 = (DefaultTableModel) this.tabelaEditoras_abaAlterar.getModel();
     }
 
     /**
@@ -197,6 +201,13 @@ public class ViewConcreta extends javax.swing.JFrame {
         labelQueMostraConfimacao_abaInserir1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+
+        tabelaAutor_abaAlterar = new JTable();
+        botaoAttAutor_abaAlterar = new JButton();
+
+        tabelaEditoras_abaAlterar = new JTable();
+        botaoAttEditoras_abaAlterar = new JButton();
+
 
         // OBJETOS DA ABA DELETAR
 
@@ -381,8 +392,23 @@ public class ViewConcreta extends javax.swing.JFrame {
         botaoDeletar_abaDeletar1.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
         botaoDeletar_abaDeletar1.setText("Deletar");
         botaoDeletar_abaDeletar1.setToolTipText("");
-       
 
+        tabelaAutor_abaAlterar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+            },
+            new String [] {
+                "Nº Ordem", "Sobrenome do Autor", "Nome do autor"
+            }
+        ));
+
+        tabelaEditoras_abaAlterar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+            },
+            new String [] {
+                "Nº Ordem", "Nome", "URL"
+            }
+        ));
+       
         labelConclusaodeTarefa_abaDeletar.setText("aqui vai a msg de conclusão DELETARESTETEXTODEPOIS");
 
         javax.swing.GroupLayout abaDeletarLayout = new javax.swing.GroupLayout(abaDeletar);
@@ -1142,11 +1168,107 @@ public class ViewConcreta extends javax.swing.JFrame {
 
     }
 
-    // MÉTODOS JANELA ATUALIZAR
+    // MÉTODOS JANELA ALTERAR
 
-    // public void realizaAtt(ActionListener al){
-    //     this.botaoAlterar_abaAlterar.addActionListener(al);
-    // }
+    public void pesquisaAutorAlterar(ActionListener al){
+        this.botaoAutor_abaAlterar.addActionListener(al);
+    }
+
+    public void popUpAutorAbaAlterar(){
+        
+        // JFrame table = new JFrame();
+        // table.setSize(300, 300);
+        // table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+ 
+        popUp.setSize(500, 500);
+        popUp.setLayout(new FlowLayout());
+        popUp.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
+        
+        // JPanel panel = new JPanel();
+        JScrollPane scroll = new JScrollPane(tabelaAutor_abaAlterar);
+
+
+        botaoAttAutor_abaAlterar.setText("Adicionar");
+
+
+        
+        tabelaAutor_abaAlterar.setSize(350, 350);
+
+
+        // panel.add(tabela_abaAutor);
+        // panel.setSize(480, 380);
+        popUp.add(scroll);
+        // popUp.add(tabela_abaAutor);
+        popUp.add(botaoAttAutor_abaAlterar);
+        popUp.setTitle("Escolha um autor para atualizar!");
+
+        // table.setVisible(true);
+
+        popUp.setVisible(true); 
+
+
+        // table.add(tabela_abaAutor);
+        // table.add(botao_autor);
+        // table.add(jScrollPane1);
+        
+    }
+
+    public void pesquisaEditoraAlterar(ActionListener al){
+        this.botaoEditoras_abaAlterar.addActionListener(al);
+        
+    }
+
+    public void popUpEditorasAbaAlterar(){
+        
+        // JFrame table = new JFrame();
+        // table.setSize(300, 300);
+        // table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+ 
+        popUp.setSize(500, 500);
+        popUp.setLayout(new FlowLayout());
+        popUp.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
+        
+        // JPanel panel = new JPanel();
+        JScrollPane scroll = new JScrollPane(tabelaEditoras_abaAlterar);
+
+
+        botaoAttEditoras_abaAlterar.setText("Adicionar");
+
+
+        
+        tabelaEditoras_abaAlterar.setSize(350, 350);
+
+
+        // panel.add(tabela_abaAutor);
+        // panel.setSize(480, 380);
+        popUp.add(scroll);
+        // popUp.add(tabela_abaAutor);
+        popUp.add(botaoAttEditoras_abaAlterar);
+        popUp.setTitle("Escolha uma editoras para atualizar!");
+
+        // table.setVisible(true);
+
+        popUp.setVisible(true); 
+
+
+        // table.add(tabela_abaAutor);
+        // table.add(botao_autor);
+        // table.add(jScrollPane1);
+        
+    }
+
+    public void atualizaAutoresAbaAlterar(int contador, Autores autor){
+
+        String[] infos = {(Integer.toString(contador)), autor.getName(), autor.getFname()};
+
+        modelo3.addRow(infos);
+        this.tabelaAutor_abaAlterar.getTableHeader().resizeAndRepaint();
+    }
+
 
     // MÉTODOS JANELA PESQUISA
 
@@ -1191,7 +1313,9 @@ public class ViewConcreta extends javax.swing.JFrame {
 
     }
 
-    public void popUp(){
+   
+
+    public void popUpAutorAbaInserir(){
         
         // JFrame table = new JFrame();
         // table.setSize(300, 300);
@@ -1219,7 +1343,7 @@ public class ViewConcreta extends javax.swing.JFrame {
         popUp.add(scroll);
         // popUp.add(tabela_abaAutor);
         popUp.add(botao_autor);
-        popUp.setTitle("Selecione os autores do livro");
+        popUp.setTitle("Escolha um autor!");
 
         // table.setVisible(true);
 
@@ -1236,7 +1360,7 @@ public class ViewConcreta extends javax.swing.JFrame {
         this.botaoAutor_abainserir.addActionListener(al);
     }
 
-    public void atualizaAutores(int contador, Autores autor){
+    public void atualizaAutoresAbaInserir(int contador, Autores autor){
 
         String[] infos = {(Integer.toString(contador)), autor.getName(), autor.getFname()};
 
@@ -1329,6 +1453,7 @@ public class ViewConcreta extends javax.swing.JFrame {
         this.tabela_abaPesquisa.getTableHeader().resizeAndRepaint();
 
     }
+    
     public void mensagemErro(){
         JOptionPane.showMessageDialog(null, "TESTE", "Erro ", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -1535,6 +1660,11 @@ public class ViewConcreta extends javax.swing.JFrame {
     private javax.swing.JRadioButton radioButton_LivrosDeletar;
     private javax.swing.JTextField caixadetextoSobrenomeAutor_abainserir;
 
+    private JTable tabelaAutor_abaAlterar;
+    private JButton botaoAttAutor_abaAlterar;
+
+    private JTable tabelaEditoras_abaAlterar;
+    private JButton botaoAttEditoras_abaAlterar;
 
 
 

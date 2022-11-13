@@ -6,7 +6,6 @@ import com.mysql.cj.Query;
 import com.mysql.cj.xdevapi.Result;
 
 import java.sql.*;
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -498,6 +497,27 @@ public class ConexaoBD implements Dao{
 
     }
 
+<<<<<<< HEAD
+    public void atualizarLivro(String novoTitulo, float novoPreco, String antigoTitulo, float antigoPreco){
+
+        String queryUpdLivro = "UPDATE books set title = ? and price = ? WHERE title = ? and price = ?;";
+
+        try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
+            PreparedStatement pstm = con.prepareStatement(queryUpdLivro);
+            pstm.setString(1, novoTitulo);
+            pstm.setFloat(2, novoPreco);
+            pstm.setString(3, antigoTitulo);
+            pstm.setFloat(4, antigoPreco);
+            pstm.execute();
+
+        } catch(Exception e){
+
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar", "Erro", JOptionPane.ERROR_MESSAGE);
+
+        }
+
+    }
+=======
     public void atualizarAutor(String novoNome, String novoSobrenome, String antigoNome, String antigoSobrenome ) {
 
         String queryUpdAutor = "UPDATE authors set fname = ? and name = ? WHERE fname = ? and name = ?;";
@@ -571,6 +591,7 @@ public class ConexaoBD implements Dao{
        }
 
    }
+>>>>>>> aeac7c8332e1e4a67c399feb6b3eb93247dcc100
 }
 
 
