@@ -12,6 +12,7 @@ import view.*;
 import java.awt.event.ActionListener;
 
 import javax.swing.Action;
+import javax.swing.JOptionPane;
 
 import java.awt.event.ActionEvent;
 
@@ -97,20 +98,25 @@ public class Controller {
                     if (model.buscarLivroSelecionado(view.getTexto()).isEmpty()){
                         for (RelLivrosEditoras relacao: model.buscarRelLivroEditora(view.getTexto())){
                             contador ++;
+                            view.atualizaRelLivroEditora(contador, relacao);
                            // view.atualizaTabelaEditora(contador, relacao);
                             //  CRIAR O MÉTODO PARA ATUALIZAR A VIEW
 
                         }
                     } else{
-                        for (Autores autor: model.buscarAutorSelecionado(view.getTexto())){
+                        for (RelLivrosEditoras relacao: model.buscarRelLivroEditora(view.getTexto())){
                             contador ++;
-                            view.atualizaTabelaAutor(contador, autor);
+                            view.atualizaRelLivroEditora(contador, relacao);
 
 
                         }
                     }
                 }
             
+            } else if (view.getOpcaoEditora() && view.getOpcaoAutor()){
+
+                JOptionPane.showMessageDialog(null, "A relação de pesquisa Autores e Editoras não existe!", "Erro ao pesquisar", JOptionPane.ERROR_MESSAGE);
+
             } else if (view.getOpcaoAutor()){
 
                 if(view.getTexto() != ""){
@@ -172,7 +178,6 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent ae){
             view.mensagemAjudaPesquisa();    
-            System.out.println(view.pesquisa()); 
             
         }
     }

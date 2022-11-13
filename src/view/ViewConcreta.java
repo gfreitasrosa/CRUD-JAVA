@@ -390,10 +390,10 @@ public class ViewConcreta extends javax.swing.JFrame {
         abaDeletarLayout.setHorizontalGroup(
             abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(abaDeletarLayout.createSequentialGroup()
-                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaDeletarLayout.createSequentialGroup()
                         .addGap(95, 95, 95)
-                        .addComponent(labelISBN_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelISBN_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(caixadetextoISBN_abaDeletar)
                         .addGap(21, 21, 21))
@@ -1321,6 +1321,14 @@ public class ViewConcreta extends javax.swing.JFrame {
         this.tabela_abaPesquisa.getTableHeader().resizeAndRepaint();
     }
 
+    public void atualizaRelLivroEditora(int contador, RelLivrosEditoras dados){
+
+        String[] infos = {(Integer.toString(contador)), "", "", dados.getTitulo().getTitle(), dados.getIsbn().getIsbn(), Float.toString(dados.getPreco().getPrice()), dados.getNome().getName(), dados.getUrl().getUrl()};
+
+        modelo.addRow(infos);
+        this.tabela_abaPesquisa.getTableHeader().resizeAndRepaint();
+
+    }
     public void mensagemErro(){
         JOptionPane.showMessageDialog(null, "TESTE", "Erro ", JOptionPane.INFORMATION_MESSAGE);
     }
