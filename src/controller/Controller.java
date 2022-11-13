@@ -36,13 +36,20 @@ public class Controller {
         // this.view.realizaAtt(new AcaoAtualizar());
         this.view.addAutor(new AcaoAddAutor());
         this.view.attAutor(new AcaoAttAutor());
+
         this.view.camposInsAutores(new AcaoInvalidaCamposInserir());
         this.view.camposInsEditoras(new AcaoInvalidaCamposInserir());
         this.view.camposInsLivros(new AcaoInvalidaCamposInserir());
+
         this.view.deletar(new AcaoDeletar());
+
         this.view.pesquisaAutorAlterar(new AcaoPesquisaAlterar());
         this.view.pesquisaEditoraAlterar(new AcaoPesquisaAlterar());
         this.view.pesquisaLivrosAlterar(new AcaoPesquisaAlterar());
+
+        this.view.camposAlterarAutor(new AcaoInvalidaCamposAlterar());
+        this.view.camposAlterarEditoras(new AcaoInvalidaCamposAlterar());
+        this.view.camposAlterarLivros(new AcaoInvalidaCamposAlterar());
     }
 
     // CLASSES RELACIONADAS A ABA PESQUISA
@@ -301,17 +308,8 @@ public class Controller {
 
             contador = 0;
 
+            view.desabilitaTelaAlterar();
 
-            // for (Autores autor: model.listarTodosAutores()){
-            //     contador ++;
-            //     view.atualizaAutoresAbaAlterar(contador, autor);
-            // }
-            
-            // view.popUpAutorAbaAlterar();
-
-            // view.popUpEditorasAbaAlterar();
-
-            contador = 0;
             if (view.getLivrosAbaAlterar()){
                 for (Livros livros:model.listarTodosLivros()){
                     contador ++;
@@ -348,9 +346,28 @@ public class Controller {
         }
     }
 
+    public class AcaoInvalidaCamposAlterar implements ActionListener{
 
+        @Override
+        public void actionPerformed(ActionEvent ae){
 
+            view.desabilitaTelaAlterar();
+            
+            if (view.getAutorAbaAlterar()){
 
+                view.habilitaAutorTelaAlterar();
+
+            } else if (view.getLivrosAbaAlterar()){
+
+                view.habilitaLivroTelaAlterar();
+
+            } else if (view.getEditorasAbaAlterar()){
+
+                view.habilitaEditoriaTelaAlterar();
+
+            }
+        }
+    }
 }
 
 

@@ -51,6 +51,7 @@ public class ViewConcreta extends javax.swing.JFrame {
         initComponents();
         pack();
         setVisible(true);
+        desabilitaTelaAlterar();
         modelo = (DefaultTableModel) this.tabela_abaPesquisa.getModel();
         modelo2 = (DefaultTableModel) this.tabela_abaAutor.getModel();
         modelo3 = (DefaultTableModel) this.tabelaAutor_abaAlterar.getModel();
@@ -1361,6 +1362,73 @@ public class ViewConcreta extends javax.swing.JFrame {
     public boolean getAutorAbaAlterar(){
         return radioButton_AutorAbaInserir1.isSelected();
     }
+
+    public void desabilitaTelaAlterar(){
+
+        this.caixadetetxonomeEdit_abaAlterar_.setEnabled(false);
+        this.buttonURL_abaAlterar.setEnabled(false);
+
+        this.caixadetexto_NovoTitulo_abaAlterar.setEnabled(false);
+        this.caixadetexto_precoNovo_abaAlterar.setEnabled(false);
+
+        this.caixadetexto_nomAutor_abaA.setEnabled(false);
+        this.jTextField2.setEnabled(false);;
+
+        this.botaoEditoras_abaAlterar.setEnabled(false);
+        this.botaoAutor_abaAlterar.setEnabled(false);
+        this.botãoTitulosantigos_abaAlterar.setEnabled(false);
+    }
+
+    public void habilitaAutorTelaAlterar(){
+
+        this.jTextField2.setEnabled(true);
+        this.caixadetexto_nomAutor_abaA.setEnabled(true);
+
+        this.botaoAutor_abaAlterar.setEnabled(true);
+
+    }
+
+    public void habilitaEditoriaTelaAlterar(){
+
+        this.buttonURL_abaAlterar.setEnabled(true);
+        
+
+        this.botaoEditoras_abaAlterar.setEnabled(true);
+        this.caixadetetxonomeEdit_abaAlterar_.setEnabled(true);
+
+    }
+
+    public void habilitaLivroTelaAlterar(){
+
+        this.caixadetexto_NovoTitulo_abaAlterar.setEnabled(true);
+        this.caixadetexto_precoNovo_abaAlterar.setEnabled(true);
+
+        this.botãoTitulosantigos_abaAlterar.setEnabled(true);
+
+
+    }
+
+    public void camposAlterarAutor(ActionListener al){
+        
+        this.radioButton_AutorAbaInserir1.addActionListener(al);
+
+    }
+
+    public void camposAlterarEditoras(ActionListener al){
+
+        this.radioButton_EditorasAbaInserir1.addActionListener(al);
+
+    }
+
+    public void camposAlterarLivros(ActionListener al){
+
+        this.radioButton_LivrosAbaInserir1.addActionListener(al);
+ 
+    }
+
+    
+
+
 
     // MÉTODOS JANELA PESQUISA
 
