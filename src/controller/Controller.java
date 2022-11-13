@@ -14,8 +14,9 @@ import java.awt.event.ActionListener;
 import javax.swing.Action;
 
 import java.awt.event.ActionEvent;
+import java.util.Arrays;
 
-public class Controller {
+ public class Controller {
 
     ViewConcreta view;
     Dao model;
@@ -38,6 +39,10 @@ public class Controller {
         this.view.camposInsAutores(new AcaoInvalidaCamposInserir());
         this.view.camposInsEditoras(new AcaoInvalidaCamposInserir());
         this.view.camposInsLivros(new AcaoInvalidaCamposInserir());
+        this.view.Inserir(new AcaoInsertAutores());
+        this.view.Inserir(new AcaoInsertEditoras());
+        this.view.Inserir(new AcaoinsertLivros());
+
     }
 
     // CLASSES RELACIONADAS A ABA PESQUISA
@@ -234,28 +239,91 @@ public class Controller {
 
         @Override
         public void actionPerformed(ActionEvent ae){
-            
-            if (view.verificaEscolhaInserirAutor()){
-                
+            view.desabilitarTela();
 
+            if (view.verificaEscolhaInserirAutor()){
+                view.habilitarAutor();
 
             } else if (view.verificaEscolhaInserirEditora()){
+                view.habilitaEditoras();
 
             } else if (view.verificaEscolhaInserirLivro()){
 
-                view.desabilitaLivrosEditoras();
+                view.habilitaLivros();
             }
+        }
 
+    }
+
+    public class AcaoInsertAutores implements ActionListener{
+        String nomeAutor;
+        String sobreNomeAutor;
+
+        @Override
+        public void actionPerformed(ActionEvent al){
+
+
+            if(view.verificaEscolhaInserirAutor()){
+                nomeAutor = view.getNome();
+                sobreNomeAutor = view.getSobrenome();
+
+                model.InsertAutores(nomeAutor, sobreNomeAutor);
+            }
+        }
+
+
+    }
+
+    public class AcaoInsertEditoras implements ActionListener {
+        String nomeEditora;
+        String Url;
+
+        @Override
+        public void actionPerformed(ActionEvent al) {
+            if (view.verificaEscolhaInserirEditora()) {
+
+                nomeEditora = view.getNomeEditora();
+                Url = view.getUrl();
+
+                model.InsertEditoras(nomeEditora, Url);
+            }
         }
     }
 
-    
+    public class AcaoinsertLivros implements ActionListener{
+        String titulo;
+        String nomeEditora;
+        Float preco;
+        String isbn;
+        @Override
+        public void actionPerformed(ActionEvent ae){
+            String[] listaAutoresEscolhidos;
+            String nome;
+            String sobrenome;
+            String[] listaLinhas;
+
+            if(view.verificaEscolhaInserirLivro()){
+                titulo = view.getInserirTitulo();
+                nomeEditora = view.getInserirEditoras();
+                preco = Float.valueOf(view.getInserirPreco());
+                isbn = view.getISBN();
+                listaAutoresEscolhidos = view.getAutoresSelecionados().split(" / ");
+
+                for(String valor: listaAutoresEscolhidos){
+                    listaLinhas = valor.split(" ");
+
+                    model.InsertLivros(titulo, isbn, preco, nomeEditora, listaLinhas[1], listaLinhas[2]);
+                    listaLinhas = null;
 
 
+                }
 
-
-
+            }
+        }
+    }
 
 
 }
+
+
 

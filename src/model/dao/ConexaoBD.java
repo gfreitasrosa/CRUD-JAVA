@@ -8,7 +8,8 @@ import java.util.List;
 import model.entidades.*;
 
 public class ConexaoBD implements Dao{
-
+    int idPublisher;
+    int autorId;
     static private final String USER = "root";
     static private final String PASS = "";
     static private final String DATABASE = "livraria";
@@ -373,34 +374,89 @@ public class ConexaoBD implements Dao{
     // MÉTODOS RESPONSÁVEIS POR ADICIONAR AS ENTIDADES DO BD
 
     @Override
-    public void InsertLivros(Livros livros){
+    public void InsertLivros(String titulo, String isbn, float preco, String nomeEditora, String name, String fname){
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)) {
+            String sqlRelacao = "select * from authors where name = ? and fname = ? ";
+            PreparedStatement pstm = con.prepareStatement(sqlRelacao);
 
-            String SqlInsertLivros = "insert into Books (title, isbn, price) values (?, ?, ?)";
-            PreparedStatement pstm = con.prepareStatement(SqlInsertLivros);
+            pstm.setString(1, name);
+            pstm.setString(2, fname);
+            ResultSet rs = pstm.executeQuery();
 
-            pstm.setString(1, livros.getTitle());
-            pstm.setString(2, livros.getIsbn());
-            pstm.setFloat(3, livros.getPrice());
-            pstm.execute();
+            if(rs.next()){
+               autorId = rs.getInt("author_id");
 
-            JOptionPane.showMessageDialog(null, "Adicionado com sucesso.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+
+            }else {
+                System.out.println("Autor não cadastrada! ");
+            }
+
+            JOptionPane.showMessageDialog(null, "Select", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 
         }catch (SQLException ErroSql) {
             JOptionPane.showMessageDialog(null, "Erro ao adicionar", "Erro", JOptionPane.INFORMATION_MESSAGE);
         }
+
+        try(Connection con = DriverManager.getConnection(URL, USER, PASS)) {
+            String sqlPesquisaEditora = "select * from publishers where name = ?";
+            PreparedStatement pstm = con.prepareStatement(sqlPesquisaEditora);
+
+            pstm.setString(1, nomeEditora);
+            ResultSet rs = pstm.executeQuery();
+
+            if(rs.next()){
+                idPublisher = rs.getInt("publisher_id");
+
+
+            }else {
+                System.out.println("Editora não cadastrada! ");
+            }
+
+        }catch (SQLException ErroSql) {
+            JOptionPane.showMessageDialog(null, "Erro ao adicionar", "Erro", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        try(Connection con = DriverManager.getConnection(URL, USER, PASS)) {
+
+            String SqlInsertLivros = "insert into Books (title, isbn, publisher_id, price) values (?, ?, ?, ?)";
+            PreparedStatement pstm = con.prepareStatement(SqlInsertLivros);
+
+            pstm.setString(1, titulo);
+            pstm.setString(2, isbn);
+            pstm.setInt(3, idPublisher);
+            pstm.setFloat(4, preco);
+            pstm.execute();
+
+            JOptionPane.showMessageDialog(null, "Adicionado com sucesso livro", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+
+        }catch (SQLException ErroSql) {
+            JOptionPane.showMessageDialog(null, "Erro ao adicionar", "Erro", JOptionPane.INFORMATION_MESSAGE);
+        }
+        try(Connection con2 = DriverManager.getConnection(URL, USER, PASS)) {
+            String sqlInsert = "insert into booksauthors (author_id, isbn) value (?,?);";
+            PreparedStatement pstm2 = con2.prepareStatement(sqlInsert);
+
+            pstm2.setInt(1, autorId);
+            pstm2.setString(2, isbn);
+            pstm2.execute();
+
+            System.out.println("Messagem do 1 select");
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    public void InsertAutores(Autores autores){
+    public void InsertAutores(String Nome, String Sobrenome){
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
             String SqlInsertAutores = "insert into Authors (name, fname) value (?, ?)";
             PreparedStatement pstm = con.prepareStatement(SqlInsertAutores);
 
-            pstm.setString(1, autores.getName());
-            pstm.setString(2, autores.getFname());
+            pstm.setString(1, Nome);
+            pstm.setString(2, Sobrenome);
             pstm.execute();
 
         }catch (SQLException ErroSql){
@@ -409,13 +465,13 @@ public class ConexaoBD implements Dao{
     }
 
     @Override
-    public void InsertEditoras(Editoras editoras){
+    public void InsertEditoras(String nomeEditora, String Url){
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)) {
             String SqlInsertEditoras = "insert into Publishers (name, url) value (?, ?)";
             PreparedStatement pstm = con.prepareStatement(SqlInsertEditoras);
 
-            pstm.setString(1, editoras.getName());
-            pstm.setString(2, editoras.getUrl());
+            pstm.setString(1, nomeEditora);
+            pstm.setString(2, Url);
             pstm.execute();
 
             JOptionPane.showMessageDialog(null, "Adicionado com sucesso.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
