@@ -40,6 +40,8 @@ public class Controller {
         this.view.camposInsEditoras(new AcaoInvalidaCamposInserir());
         this.view.camposInsLivros(new AcaoInvalidaCamposInserir());
         this.view.deletar(new AcaoDeletar());
+        this.view.pesquisaAutorAlterar(new AcaoPesquisaAlterar());
+        this.view.pesquisaEditoraAlterar(new AcaoPesquisaAlterar());
     }
 
     // CLASSES RELACIONADAS A ABA PESQUISA
@@ -213,10 +215,10 @@ public class Controller {
                 
                 for (Autores autor: model.listarTodosAutores()){
                     contador ++;
-                    view.atualizaAutores(contador, autor);
+                    view.atualizaAutoresAbaInserir(contador, autor);
                 }
                 
-                view.popUp();
+                view.popUpAutorAbaInserir();
 
             } else{
                 System.out.println("Deu merda");
@@ -279,5 +281,44 @@ public class Controller {
             }
         }
     }
+
+    public class AcaoPesquisaAutor implements ActionListener{
+
+
+        @Override
+        public void actionPerformed(ActionEvent ae){
+
+        }
+
+
+    }
+
+    public class AcaoPesquisaAlterar implements ActionListener{
+       
+        @Override
+        public void actionPerformed(ActionEvent ae){
+
+            contador = 0;
+            view.limpaTabelaInserir();
+
+
+            // for (Autores autor: model.listarTodosAutores()){
+            //     contador ++;
+            //     view.atualizaAutoresAbaAlterar(contador, autor);
+            // }
+            
+            // view.popUpAutorAbaAlterar();
+
+            view.popUpEditorasAbaAlterar();
+
+            
+            
+        }
+    }
+
+
+
+
 }
+
 
