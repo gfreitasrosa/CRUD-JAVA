@@ -493,6 +493,80 @@ public class ConexaoBD implements Dao{
         }
 
     }
+
+    public void atualizarAutor(String novoNome, String novoSobrenome, String antigoNome, String antigoSobrenome ) {
+
+        String queryUpdAutor = "UPDATE authors set fname = ? and name = ? WHERE fname = ? and name = ?;";
+
+
+        try (Connection con = DriverManager.getConnection(URL, USER, PASS)) {
+            PreparedStatement pstm = con.prepareStatement(queryUpdAutor);
+            pstm.setString(1, novoNome);
+            pstm.setString(2, novoSobrenome);
+            pstm.setString(3, antigoNome);
+            pstm.setString(4, antigoSobrenome);
+            pstm.executeUpdate();
+
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar", "Erro", JOptionPane.ERROR_MESSAGE);
+
+
+        }
+    }
+
+
+
+
+
+   public void atualizarLivro(String novoTitulo, float novoPreco, String antigoTitulo, float antigoPreco){
+
+        String queryUpdLivro = "UPDATE books set title = ? and price = ? WHERE title = ? and price = ?;";
+
+       try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
+           PreparedStatement pstm = con.prepareStatement(queryUpdLivro);
+           pstm.setString( 1, novoTitulo);
+           pstm.setFloat( 2, novoPreco);
+           pstm.setString( 3, antigoTitulo);
+           pstm.setFloat( 4, antigoPreco);
+           pstm.executeUpdate();
+
+
+       } catch(Exception e){
+
+           JOptionPane.showMessageDialog( null,  "Erro ao atualizar",  "Erro", JOptionPane.ERROR_MESSAGE);
+
+
+
+       }
+   }
+
+
+
+
+   public void atualizarEditora(String novoNome, String novaURL, String antigoNome, String antigaURL){
+
+       String queryUpdEditora = "UPDATE publishers set name = ? and url = ? WHERE name = ? and url = ?;";
+
+       try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
+           PreparedStatement pstm = con.prepareStatement(queryUpdEditora);
+           pstm.setString( 1, novoNome);
+           pstm.setString( 2, novaURL);
+           pstm.setString( 3, antigoNome);
+           pstm.setString( 4, antigaURL);
+           pstm.executeUpdate();
+
+
+       } catch(Exception e){
+
+           JOptionPane.showMessageDialog( null,  "Erro ao atualizar",  "Erro", JOptionPane.ERROR_MESSAGE);
+
+
+
+       }
+
+   }
 }
 
 
