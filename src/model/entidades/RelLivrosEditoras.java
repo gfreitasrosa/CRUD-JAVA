@@ -34,6 +34,10 @@ public class RelLivrosEditoras {
          return url;
      }
 
+     public Livros getIsbn() {
+         return isbn;
+     }
+
      public void setNome(Editoras nome) {
          this.nome = nome;
      }
@@ -48,6 +52,10 @@ public class RelLivrosEditoras {
 
      public void setUrl(Editoras url) {
          this.url = url;
+     }
+
+     public void setIsbn(Livros isbn) {
+         this.isbn = isbn;
      }
 
 

@@ -6,6 +6,7 @@ import com.mysql.cj.Query;
 import com.mysql.cj.xdevapi.Result;
 
 import java.sql.*;
+import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -146,7 +147,9 @@ public class ConexaoBD implements Dao{
             }
 
         } catch(Exception e){
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Acoteceu algum erro na busca, contante o suporte!", "Erro", JOptionPane.ERROR_MESSAGE);
+            lista_rel.clear();
+            return lista_rel;
 
         }
 
@@ -289,7 +292,7 @@ public class ConexaoBD implements Dao{
 
         List<RelLivrosEditoras> lista_relLivrosEditoras= new ArrayList<>();
 
-        final String query = "SELECT * FROM books as b INNER JOIN publishers as p ON b.publisher_id =  p.publisher_id WHERE b.isbn = ? or b.title = ? or p.name = ?;";
+        final String query = "SELECT * FROM books as b INNER JOIN publishers as p ON b.publisher_id =  p.publisher_id WHERE b.isbn LIKE ? or b.title LIKE ? or p.name LIKE ?;";
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
             PreparedStatement pstm = con.prepareStatement(query);
@@ -337,7 +340,7 @@ public class ConexaoBD implements Dao{
         + " on b.isbn = ba.isbn "
         + " inner join publishers p "
         + " on p.publisher_id = b.publisher_id "
-        + " WHERE a.fname LIKE ? OR a.name LIKE ? OR b.title LIKE ?; ";
+        + " WHERE a.fname LIKE ? OR a.name LIKE ? OR b.title LIKE ? OR b.isbn LIKE ?; ";
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
             PreparedStatement pstm = con.prepareStatement(query);
@@ -345,6 +348,7 @@ public class ConexaoBD implements Dao{
             pstm.setString(1, "%" + nome + "%");
             pstm.setString(2, "%" + nome + "%");
             pstm.setString(3, "%" + nome + "%");
+            pstm.setString(4, "%" + nome + "%");
             ResultSet rs = pstm.executeQuery();
 
             while(rs.next()) {
@@ -364,8 +368,8 @@ public class ConexaoBD implements Dao{
                 lista_rel.add(relacao);
             }
 
-        } catch(Exception e){
-            e.printStackTrace();
+        } catch(SQLException e){
+           JOptionPane.showMessageDialog(null, "Acoteceu algum erro na busca, contante o suporte!", "Erro", JOptionPane.ERROR_MESSAGE);
 
         }
 
