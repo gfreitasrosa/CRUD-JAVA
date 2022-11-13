@@ -42,6 +42,7 @@ public class Controller {
         this.view.deletar(new AcaoDeletar());
         this.view.pesquisaAutorAlterar(new AcaoPesquisaAlterar());
         this.view.pesquisaEditoraAlterar(new AcaoPesquisaAlterar());
+        this.view.pesquisaLivrosAlterar(new AcaoPesquisaAlterar());
     }
 
     // CLASSES RELACIONADAS A ABA PESQUISA
@@ -309,10 +310,44 @@ public class Controller {
             
             // view.popUpAutorAbaAlterar();
 
-            view.popUpEditorasAbaAlterar();
+            // view.popUpEditorasAbaAlterar();
 
-            
-            
+            contador = 0;
+            if (view.getLivrosAbaAlterar()){
+                for (Livros livros:model.listarTodosLivros()){
+                    contador ++;
+                    view.atualizaLivrosAbaAlterar(contador, livros);
+
+                }
+                view.popUpLivrosAbaAlterar();
+
+            } else if (view.getAutorAbaAlterar()) {
+                for (Autores autor:model.listarTodosAutores()){
+                    contador ++;
+                    view.atualizaAutoresAbaAlterar(contador, autor);
+
+                }
+                view.popUpAutorAbaAlterar();
+
+            } else if (view.getEditorasAbaAlterar()) {
+                for (Editoras editora:model.listarTodasEditoras()){
+                    contador ++;
+                    view.atualizaEditorasAbaAlterar(contador, editora);
+
+                }
+                view.popUpEditorasAbaAlterar();
+
+            };
+
+
+
+
+
+
+
+
+
+
         }
     }
 

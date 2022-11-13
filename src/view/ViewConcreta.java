@@ -41,6 +41,8 @@ public class ViewConcreta extends javax.swing.JFrame {
     DefaultTableModel modelo3;
     DefaultTableModel modelo4;
 
+    DefaultTableModel modelo5;
+
 
     String EscolhaAbaInserir;
 
@@ -53,6 +55,7 @@ public class ViewConcreta extends javax.swing.JFrame {
         modelo2 = (DefaultTableModel) this.tabela_abaAutor.getModel();
         modelo3 = (DefaultTableModel) this.tabelaAutor_abaAlterar.getModel();
         modelo4 = (DefaultTableModel) this.tabelaEditoras_abaAlterar.getModel();
+        modelo5 = (DefaultTableModel) this.tabelaLivros_abaAlterar.getModel();
     }
 
     /**
@@ -207,6 +210,9 @@ public class ViewConcreta extends javax.swing.JFrame {
 
         tabelaEditoras_abaAlterar = new JTable();
         botaoAttEditoras_abaAlterar = new JButton();
+
+        tabelaLivros_abaAlterar = new JTable();
+        botaoAttLivros_abaAlterar = new JButton();
 
 
         // OBJETOS DA ABA DELETAR
@@ -407,6 +413,14 @@ public class ViewConcreta extends javax.swing.JFrame {
             new String [] {
                 "Nº Ordem", "Nome", "URL"
             }
+        ));
+
+        tabelaLivros_abaAlterar.setModel(new javax.swing.table.DefaultTableModel(
+                new Object [][] {
+                },
+                new String [] {
+                        "Nº Ordem","Titulo", "Preço"
+                }
         ));
        
         labelConclusaodeTarefa_abaDeletar.setText("aqui vai a msg de conclusão DELETARESTETEXTODEPOIS");
@@ -1269,6 +1283,82 @@ public class ViewConcreta extends javax.swing.JFrame {
         this.tabelaAutor_abaAlterar.getTableHeader().resizeAndRepaint();
     }
 
+    public void atualizaLivrosAbaAlterar(int contador, Livros livro){
+
+        String[] infos = {(Integer.toString(contador)),livro.getTitle(),Float.toString(livro.getPrice())};
+
+        modelo5.addRow(infos);
+        this.tabelaLivros_abaAlterar.getTableHeader().resizeAndRepaint();
+    }
+
+    public void atualizaEditorasAbaAlterar(int contador, Editoras editora){
+
+        String[] infos = {(Integer.toString(contador)), editora.getName(),editora.getUrl()};
+
+        modelo4.addRow(infos);
+        this.tabelaEditoras_abaAlterar.getTableHeader().resizeAndRepaint();
+    }
+
+    public void pesquisaLivrosAlterar(ActionListener al){
+        this.botãoTitulosantigos_abaAlterar.addActionListener(al);
+
+    }
+    public void popUpLivrosAbaAlterar(){
+
+        // JFrame table = new JFrame();
+        // table.setSize(300, 300);
+        // table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+        popUp.setSize(500, 500);
+        popUp.setLayout(new FlowLayout());
+        popUp.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
+
+        // JPanel panel = new JPanel();
+        JScrollPane scroll = new JScrollPane(tabelaLivros_abaAlterar);
+
+
+        botaoAttLivros_abaAlterar.setText("Adicionar");
+
+
+
+        tabelaLivros_abaAlterar.setSize(350, 350);
+
+
+        // panel.add(tabela_abaAutor);
+        // panel.setSize(480, 380);
+        popUp.add(scroll);
+        // popUp.add(tabela_abaAutor);
+        popUp.add(botaoAttLivros_abaAlterar);
+        popUp.setTitle("Escolha um livro para atualizar!");
+
+        // table.setVisible(true);
+
+        popUp.setVisible(true);
+
+
+        // table.add(tabela_abaAutor);
+        // table.add(botao_autor);
+        // table.add(jScrollPane1);
+
+    }
+
+    public boolean getLivrosAbaAlterar(){
+        return radioButton_LivrosAbaInserir1.isSelected();
+
+
+    }
+    public boolean getEditorasAbaAlterar(){
+        return radioButton_EditorasAbaInserir1.isSelected();
+
+
+    }
+    public boolean getAutorAbaAlterar(){
+        return radioButton_AutorAbaInserir1.isSelected();
+
+
+    }
 
     // MÉTODOS JANELA PESQUISA
 
@@ -1665,6 +1755,9 @@ public class ViewConcreta extends javax.swing.JFrame {
 
     private JTable tabelaEditoras_abaAlterar;
     private JButton botaoAttEditoras_abaAlterar;
+
+    private JButton botaoAttLivros_abaAlterar;
+    private JTable tabelaLivros_abaAlterar;
 
 
 
