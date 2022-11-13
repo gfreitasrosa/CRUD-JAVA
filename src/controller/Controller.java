@@ -109,8 +109,7 @@ public class Controller {
                         for (RelLivrosEditoras relacao: model.buscarRelLivroEditora(view.getTexto())){
                             contador ++;
                             view.atualizaRelLivroEditora(contador, relacao);
-                           // view.atualizaTabelaEditora(contador, relacao);
-                            //  CRIAR O MÉTODO PARA ATUALIZAR A VIEW
+
 
                         }
                     } else{
