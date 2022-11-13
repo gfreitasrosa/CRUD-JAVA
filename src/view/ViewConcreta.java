@@ -1536,6 +1536,8 @@ public class ViewConcreta extends javax.swing.JFrame {
     private javax.swing.JTextField caixadetextoSobrenomeAutor_abainserir;
 
 
+
+
     
 
     // End of variables declaration//GEN-END:variables
