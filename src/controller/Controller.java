@@ -32,16 +32,14 @@ public class Controller {
     public void init(){
 
         this.view.realizarPesquisa(new AcaoPesquisa());
-        this.view.informacoes(new AcaoInformacao());
+        this.view.informacoes(new AcaoInformacaoPesquisa());
         // this.view.realizaAtt(new AcaoAtualizar());
         this.view.addAutor(new AcaoAddAutor());
         this.view.attAutor(new AcaoAttAutor());
         this.view.camposInsAutores(new AcaoInvalidaCamposInserir());
         this.view.camposInsEditoras(new AcaoInvalidaCamposInserir());
         this.view.camposInsLivros(new AcaoInvalidaCamposInserir());
-        this.view.deletar(new AcaoDeletar());
-        this.view.pesquisaAutorAlterar(new AcaoPesquisaAlterar());
-        this.view.pesquisaEditoraAlterar(new AcaoPesquisaAlterar());
+
     }
 
     // CLASSES RELACIONADAS A ABA PESQUISA
@@ -175,7 +173,7 @@ public class Controller {
         }
     }
 
-    public class AcaoInformacao implements ActionListener{
+    public class AcaoInformacaoPesquisa implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent ae){
@@ -195,7 +193,7 @@ public class Controller {
     }
 
     // CLASSES RELACIONADAS A ABA INSERIR
-
+    
     public class AcaoAddAutor implements ActionListener{
 
         @Override
@@ -256,69 +254,5 @@ public class Controller {
 
         }
     }
-
-
-    public class AcaoDeletar implements ActionListener{
-
-        String nomeAutor;
-
-        String SobrenomeAutor;
-
-        @Override
-        public void actionPerformed(ActionEvent ae){
-
-
-            if(view.verificaEscolhaDeletarAutor()){
-
-                nomeAutor = view.getTextoNomeAutor();
-                SobrenomeAutor = view.getTextoSobrenomeAutor();
-
-                model.apagarAutor(nomeAutor, SobrenomeAutor);
-
-
-
-
-            }
-        }
-    }
-
-    public class AcaoPesquisaAutor implements ActionListener{
-
-
-        @Override
-        public void actionPerformed(ActionEvent ae){
-
-        }
-
-
-    }
-
-    public class AcaoPesquisaAlterar implements ActionListener{
-       
-        @Override
-        public void actionPerformed(ActionEvent ae){
-
-            contador = 0;
-            view.limpaTabelaInserir();
-
-
-            // for (Autores autor: model.listarTodosAutores()){
-            //     contador ++;
-            //     view.atualizaAutoresAbaAlterar(contador, autor);
-            // }
-            
-            // view.popUpAutorAbaAlterar();
-
-            view.popUpEditorasAbaAlterar();
-
-            
-            
-        }
-    }
-
-
-
-
 }
-
 
