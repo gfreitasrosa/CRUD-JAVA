@@ -2,8 +2,8 @@ package model.dao;
 
 import javax.swing.*;
 
-import com.mysql.cj.Query;
-import com.mysql.cj.xdevapi.Result;
+// import com.mysql.cj.Query;
+// import com.mysql.cj.xdevapi.Result;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -434,15 +434,25 @@ public class ConexaoBD implements Dao{
 
     @Override
     public void apagarLivro(String isbn){
+        String queryDeleteBook = "DELETE FROM booksauthors WHERE isbn = ?";
+
+        try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
+            PreparedStatement pstm = con.prepareStatement(queryDeleteBook);
+            pstm.setString(1, isbn);
+            pstm.execute();
+        } catch(SQLException ErroSql){
+            JOptionPane.showMessageDialog(null, "Erro ao executar query no Banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+
+
         String queryDelBook = "DELETE FROM Books WHERE isbn = ?";
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
             PreparedStatement pstm = con.prepareStatement(queryDelBook);
             pstm.setString(1, isbn);
             pstm.execute();
-        } catch(Exception e){
-            e.printStackTrace();
-
+        } catch(SQLException ErroSql){
+            JOptionPane.showMessageDialog(null, "Erro ao executar query no Banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
         }
 
     }
@@ -450,48 +460,68 @@ public class ConexaoBD implements Dao{
     @Override
     public void apagarAutor(String nome, String sobrenome){
 
-        String queryVerificaAutor = "SELECT * FROM booksauthors AS ba INNER JOIN authors AS a ON a.author_id = ba.author_id WHERE a.fname = ? AND a.name = ?;";
+        String queryDeleteBook = "DELETE FROM booksauthors WHERE author_id IN (SELECT author_id FROM authors WHERE name = ? and fname = ?)";
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
-            PreparedStatement pstm = con.prepareStatement(queryVerificaAutor);
-            pstm.setString(1, nome);
-            pstm.setString(2, sobrenome);
-            ResultSet rs = pstm.executeQuery();
-
-            System.out.println("O autor possuí um livro cadastrado em seu nome, exclua-o primeiro.");
-            return;
-        } catch(Exception e){
-            e.printStackTrace();
-
-        }
-
-        String queryDelAuthor = "DELETE FROM Authors WHERE fname = ? AND name = ?;";
-
-        try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
-            PreparedStatement pstm = con.prepareStatement(queryDelAuthor);
-            pstm.setString(1, nome);
-            pstm.setString(2, sobrenome);
+            PreparedStatement pstm = con.prepareStatement(queryDeleteBook);
+            pstm.setString(1, sobrenome);
+            pstm.setString(2, nome);
             pstm.execute();
-        } catch(Exception e){
-            e.printStackTrace();
-
+            JOptionPane.showMessageDialog(null, "Valor apagado da tabela booksauthor", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        } catch(SQLException ErroSql){
+            JOptionPane.showMessageDialog(null, "Erro ao executar query no Banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
         }
 
+        String queryDelAuthor = "DELETE FROM authors WHERE fname = ? AND name = ?;";
+
+        try(Connection con1 = DriverManager.getConnection(URL, USER, PASS)){
+            PreparedStatement pstm1 = con1.prepareStatement(queryDelAuthor);
+            pstm1.setString(1, nome);
+            pstm1.setString(2, sobrenome);
+            pstm1.execute();
+            JOptionPane.showMessageDialog(null, "Valor apagado da tabela authors", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        } catch(SQLException ErroSql){
+          JOptionPane.showMessageDialog(null, "Erro ao executar query no Banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     @Override
-    public void apagarEditora(Integer ID){
-        String queryDelPubli = "DELETE FROM Publishers WHERE publisher_id = ?";
+    public void apagarEditora(String editora){
+        String queryVerificaEditora = "SELECT * FROM books WHERE publisher_id IN (SELECT publisher_id FROM publishers WHERE name = ?);";
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
-            PreparedStatement pstm = con.prepareStatement(queryDelPubli);
-            pstm.setInt(1, ID);
-            pstm.execute();
-        } catch(Exception e){
-            e.printStackTrace();
+            PreparedStatement pstm = con.prepareStatement(queryVerificaEditora);
+            pstm.setString(1, editora);
+            ResultSet rs = pstm.executeQuery();
 
+            if (rs.next()) {
+                String queryUpdEditoraToNull = "UPDATE books SET publisher_id = null WHERE publisher_id IN (SELECT publisher_id FROM publishers WHERE name = ?);";
+
+                try(Connection con1 = DriverManager.getConnection(URL, USER, PASS)){
+                    PreparedStatement pstm1 = con1.prepareStatement(queryUpdEditoraToNull);
+                    pstm1.setString(1, editora);
+                    pstm1.executeUpdate();
+
+                } catch(SQLException ErroSql){
+                    JOptionPane.showMessageDialog(null, "Erro ao executar query no Banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+
+            String queryDelPubli = "DELETE FROM publishers WHERE name = ?";
+
+            try(Connection con2 = DriverManager.getConnection(URL, USER, PASS)){
+                PreparedStatement pstm2 = con2.prepareStatement(queryDelPubli);
+                pstm2.setString(1, editora);
+                pstm2.execute();
+                JOptionPane.showMessageDialog(null, "Valor apagado da tabela publishers", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+
+            } catch(SQLException ErroSql){
+                JOptionPane.showMessageDialog(null, "Erro ao executar query no Banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch(SQLException ErroSql){
+            JOptionPane.showMessageDialog(null, "Erro ao executar query no Banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
         }
-
     }
 }
 

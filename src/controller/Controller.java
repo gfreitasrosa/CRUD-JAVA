@@ -31,7 +31,8 @@ public class Controller {
     public void init(){
 
         this.view.realizarPesquisa(new AcaoPesquisa());
-        this.view.informacoes(new AcaoInformacao());
+        this.view.informacoes(new AcaoInformacaoPesquisa());
+        this.view.ajudaDeletar(new AcaoInformacaoDeletar());
         // this.view.realizaAtt(new AcaoAtualizar());
         this.view.addAutor(new AcaoAddAutor());
         this.view.attAutor(new AcaoAttAutor());
@@ -39,6 +40,7 @@ public class Controller {
         this.view.camposInsEditoras(new AcaoInvalidaCamposInserir());
         this.view.camposInsLivros(new AcaoInvalidaCamposInserir());
         this.view.deletar(new AcaoDeletar());
+        this.view.habilitarTelasDeletar(new HabilitarTelaDeletar());
     }
 
     // CLASSES RELACIONADAS A ABA PESQUISA
@@ -167,13 +169,12 @@ public class Controller {
         }
     }
 
-    public class AcaoInformacao implements ActionListener{
+    public class AcaoInformacaoPesquisa implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent ae){
-            view.mensagemAjudaPesquisa();    
-            System.out.println(view.pesquisa()); 
-            
+            view.mensagemAjudaPesquisa();
+            System.out.println(view.pesquisa());
         }
     }
 
@@ -252,27 +253,75 @@ public class Controller {
 
 
     public class AcaoDeletar implements ActionListener{
-
         String nomeAutor;
-
-        String SobrenomeAutor;
+        String sobrenomeAutor;
+        String isbn;
+        String editora;
 
         @Override
         public void actionPerformed(ActionEvent ae){
-
-
             if(view.verificaEscolhaDeletarAutor()){
 
                 nomeAutor = view.getTextoNomeAutor();
-                SobrenomeAutor = view.getTextoSobrenomeAutor();
+                sobrenomeAutor = view.getTextoSobrenomeAutor();
+                model.apagarAutor(nomeAutor, sobrenomeAutor);
 
-                model.apagarAutor(nomeAutor, SobrenomeAutor);
+                if (nomeAutor.equals("") && (sobrenomeAutor.equals(""))) {
+                    view.atualizarMensagemConclusao("Erro ao deletar: Campo Primeiro Nome e campo Sobrenome está vazio!");
+                } else if (nomeAutor.equals("")) {
+                    view.atualizarMensagemConclusao("Erro ao deletar: Campo Primeiro Nome está vazio!");
 
+                } else if(sobrenomeAutor.equals("")) {
+                    view.atualizarMensagemConclusao("Erro ao deletar: Campo Sobrenome está vazio!");
+                } else {
+                    view.atualizarMensagemConclusao("");
+                }
 
+            } else if (view.verificaEscolhaDeletarLivro()) {
+                isbn = view.getTextoISBN();
+                model.apagarLivro(isbn);
 
+                if (isbn.equals("")) {
+                    view.atualizarMensagemConclusao("Erro ao deletar: Campo ISBN está vazio!");
+                } else {
+                    view.atualizarMensagemConclusao("");
+                }
 
+            } else if (view.verificaEscolhaDeletarEditora()) {
+                editora = view.getTextoEditora();
+                model.apagarEditora(editora);
+
+                if (editora.equals("")) {
+                    view.atualizarMensagemConclusao("Erro ao deletar: Campo Nome da Editora está vazio!");
+                } else {
+                    view.atualizarMensagemConclusao("");
+                }
             }
         }
     }
+
+    public class HabilitarTelaDeletar implements ActionListener{
+        @Override
+        public void actionPerformed (ActionEvent ae) {
+            view.desabilitarTela();
+
+            if (view.verificaEscolhaDeletarAutor()) {
+                view.habilitarAutor();
+            } else if (view.verificaEscolhaDeletarLivro()) {
+                view.habilitarLivros();
+            } else if (view.verificaEscolhaDeletarEditora()) {
+                view.habilitarEditoras();
+            }
+        }
+    }
+
+    public class AcaoInformacaoDeletar implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae){
+            view.mensagemAjudaDeletar();
+            System.out.println(view.pesquisa());
+        }
+    }
+
 }
 

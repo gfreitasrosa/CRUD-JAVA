@@ -27,7 +27,7 @@ public interface Dao {
     public void InsertEditoras(Editoras editoras);
     public void apagarLivro(String isbn);
     public void apagarAutor(String nome, String sobrenome);
-    public void apagarEditora(Integer ID);
+    public void apagarEditora(String editora);
     
 
 }
