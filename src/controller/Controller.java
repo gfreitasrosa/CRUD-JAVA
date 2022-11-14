@@ -282,9 +282,6 @@ public class Controller {
 
                 model.apagarAutor(nomeAutor, SobrenomeAutor);
 
-
-
-
             }
         }
     }
@@ -297,9 +294,7 @@ public class Controller {
 
         }
 
-
     }
-
     public class AcaoPesquisaAlterar implements ActionListener{
        
         @Override
@@ -339,9 +334,7 @@ public class Controller {
 
             JOptionPane.showMessageDialog(null, "Nenhum botão escolhido!", "Erro", JOptionPane.ERROR_MESSAGE);
 
-
             }
-
         }
     }
 
