@@ -83,7 +83,7 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
         BtnAjudaPesquisa = new javax.swing.JButton();
 
         abaDeletar = new javax.swing.JPanel();
-        titulo_abaDeletar = new javax.swing.JLabel();
+        LblTituloDeletar = new javax.swing.JLabel();
         caixadetexto_abaDeletar = new javax.swing.JTextField();
         botaopesquisar_abaDeletar = new javax.swing.JButton();
         Filtrodepesquisa_abaDeletar = new javax.swing.JLabel();
@@ -191,24 +191,24 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
 
         grupo_abaDeletar = new javax.swing.ButtonGroup();
         abaDeletar = new javax.swing.JPanel();
-        titulo_abaDeletar = new javax.swing.JLabel();
-        botaoAjuda_abaDeletar = new javax.swing.JButton();
+        LblTituloDeletar = new javax.swing.JLabel();
+        BtnAjudaDeletar = new javax.swing.JButton();
         radioButton_EditorasAbaDeletar = new javax.swing.JRadioButton();
-        labelPrimeiroNome_abaDeletar = new javax.swing.JLabel();
-        labelISBN_abaDeletar = new javax.swing.JLabel();
-        labelNomedaEditora_abaDeletar = new javax.swing.JLabel();
-        labelSobrenome_abaDeletar = new javax.swing.JLabel();
-        botaoDeletar_abaDeletar1 = new javax.swing.JButton();
-        caixadetextoPrimeiroNomeAutor_abaDeletar = new javax.swing.JTextField();
+        LblPrimeiroNomeDeletar = new javax.swing.JLabel();
+        LblISBNDeletar = new javax.swing.JLabel();
+        LblNomeDaEditoraDeletar = new javax.swing.JLabel();
+        LblSobrenomeDeletar = new javax.swing.JLabel();
+        BtnDeletarDeletar = new javax.swing.JButton();
+        TxtFieldPrimeiroNomeAutorDeletar = new javax.swing.JTextField();
 
-        caixadetextoISBN_abaDeletar = new javax.swing.JTextField();
-        caixadetextoNomeDaEditora_abaDeletar = new javax.swing.JTextField();
-        labelConclusaodeTarefa_abaDeletar = new javax.swing.JLabel();
+        TxtFieldISBNDeletar = new javax.swing.JTextField();
+        TxtFieldNomeDaEditoraDeletar = new javax.swing.JTextField();
+        LblConclusaoDeTarefaDeletar = new javax.swing.JLabel();
 
         radioButton_AutorDeletar = new javax.swing.JRadioButton();
         radioButton_LivrosDeletar = new javax.swing.JRadioButton();
     
-        caixadetextoSobrenomeAutor_abaDeletar = new javax.swing.JTextField();
+        TxtFieldSobrenomeAutorDeletar = new javax.swing.JTextField();
 
 
 
@@ -334,16 +334,16 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
 
         abaDeletar.setBorder(new javax.swing.border.MatteBorder(null));
 
-        titulo_abaDeletar.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        titulo_abaDeletar.setText("Deletar dados existentes");
+        LblTituloDeletar.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        LblTituloDeletar.setText("Deletar dados existentes");
 
-        botaoAjuda_abaDeletar.setBackground(new java.awt.Color(204, 204, 204));
-        botaoAjuda_abaDeletar.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
-        botaoAjuda_abaDeletar.setText("Ajuda?");
-        botaoAjuda_abaDeletar.setToolTipText("");
-        botaoAjuda_abaDeletar.addActionListener(new java.awt.event.ActionListener() {
+        BtnAjudaDeletar.setBackground(new java.awt.Color(204, 204, 204));
+        BtnAjudaDeletar.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
+        BtnAjudaDeletar.setText("Ajuda?");
+        BtnAjudaDeletar.setToolTipText("");
+        BtnAjudaDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAjuda_abaDeletarActionPerformed(evt);
+                BtnAjudaDeletarActionPerformed(evt);
             }
         });
 
@@ -357,18 +357,18 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
         grupo_abaDeletar.add(radioButton_EditorasAbaDeletar);
         radioButton_EditorasAbaDeletar.setText("Editoras");
 
-        labelPrimeiroNome_abaDeletar.setText("Primeiro Nome:");
+        LblPrimeiroNomeDeletar.setText("Primeiro Nome:");
 
-        labelISBN_abaDeletar.setText("ISBN:");
+        LblISBNDeletar.setText("ISBN:");
 
-        labelNomedaEditora_abaDeletar.setText("Nome da Editora:");
+        LblNomeDaEditoraDeletar.setText("Nome da Editora:");
 
-        labelSobrenome_abaDeletar.setText("Sobrenome:");
+        LblSobrenomeDeletar.setText("Sobrenome:");
 
-        botaoDeletar_abaDeletar1.setBackground(new java.awt.Color(255, 51, 51));
-        botaoDeletar_abaDeletar1.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
-        botaoDeletar_abaDeletar1.setText("Deletar");
-        botaoDeletar_abaDeletar1.setToolTipText("");
+        BtnDeletarDeletar.setBackground(new java.awt.Color(255, 51, 51));
+        BtnDeletarDeletar.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
+        BtnDeletarDeletar.setText("Deletar");
+        BtnDeletarDeletar.setToolTipText("");
 
         tabelaAutor_abaAlterar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -386,7 +386,7 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
             }
         ));
        
-        labelConclusaodeTarefa_abaDeletar.setText("");
+        LblConclusaoDeTarefaDeletar.setText("");
 
         javax.swing.GroupLayout abaDeletarLayout = new javax.swing.GroupLayout(abaDeletar);
         abaDeletar.setLayout(abaDeletarLayout);
@@ -396,9 +396,9 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
                 .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaDeletarLayout.createSequentialGroup()
                         .addGap(95, 95, 95)
-                        .addComponent(labelISBN_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LblISBNDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(caixadetextoISBN_abaDeletar)
+                        .addComponent(TxtFieldISBNDeletar)
                         .addGap(21, 21, 21))
                     .addGroup(abaDeletarLayout.createSequentialGroup()
                         .addContainerGap()
@@ -409,11 +409,11 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
                 .addContainerGap()
                 .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(abaDeletarLayout.createSequentialGroup()
-                        .addComponent(botaoAjuda_abaDeletar)
+                        .addComponent(BtnAjudaDeletar)
                         .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(labelConclusaodeTarefa_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LblConclusaoDeTarefaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botaoDeletar_abaDeletar1))
+                        .addComponent(BtnDeletarDeletar))
                     .addGroup(abaDeletarLayout.createSequentialGroup()
                         .addComponent(radioButton_AutorDeletar)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -423,59 +423,59 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaDeletarLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(labelPrimeiroNome_abaDeletar)
-                            .addComponent(labelSobrenome_abaDeletar))
+                            .addComponent(LblPrimeiroNomeDeletar)
+                            .addComponent(LblSobrenomeDeletar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(caixadetextoPrimeiroNomeAutor_abaDeletar)
-                            .addComponent(caixadetextoSobrenomeAutor_abaDeletar)))
+                            .addComponent(TxtFieldPrimeiroNomeAutorDeletar)
+                            .addComponent(TxtFieldSobrenomeAutorDeletar)))
                     .addGroup(abaDeletarLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(radioButton_EditorasAbaDeletar)
                             .addGroup(abaDeletarLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(labelNomedaEditora_abaDeletar)
+                                .addComponent(LblNomeDaEditoraDeletar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(caixadetextoNomeDaEditora_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(TxtFieldNomeDaEditoraDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(21, 21, 21))
             .addGroup(abaDeletarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(titulo_abaDeletar)
+                .addComponent(LblTituloDeletar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         abaDeletarLayout.setVerticalGroup(
             abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(abaDeletarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(titulo_abaDeletar)
+                .addComponent(LblTituloDeletar)
                 .addGap(16, 16, 16)
                 .addComponent(radioButton_AutorDeletar)
                 .addGap(18, 18, 18)
                 .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelPrimeiroNome_abaDeletar)
-                    .addComponent(caixadetextoPrimeiroNomeAutor_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LblPrimeiroNomeDeletar)
+                    .addComponent(TxtFieldPrimeiroNomeAutorDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelSobrenome_abaDeletar)
-                    .addComponent(caixadetextoSobrenomeAutor_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LblSobrenomeDeletar)
+                    .addComponent(TxtFieldSobrenomeAutorDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(radioButton_LivrosDeletar)
                 .addGap(1, 1, 1)
                 .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelISBN_abaDeletar)
-                    .addComponent(caixadetextoISBN_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LblISBNDeletar)
+                    .addComponent(TxtFieldISBNDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addComponent(radioButton_EditorasAbaDeletar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNomedaEditora_abaDeletar)
-                    .addComponent(caixadetextoNomeDaEditora_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LblNomeDaEditoraDeletar)
+                    .addComponent(TxtFieldNomeDaEditoraDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoAjuda_abaDeletar)
-                    .addComponent(botaoDeletar_abaDeletar1)
-                    .addComponent(labelConclusaodeTarefa_abaDeletar))
+                    .addComponent(BtnAjudaDeletar)
+                    .addComponent(BtnDeletarDeletar)
+                    .addComponent(LblConclusaoDeTarefaDeletar))
                 .addContainerGap())
         );
 
@@ -1071,9 +1071,9 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
         // TODO add your handling code here:
     }//GEN-LAST:event_checkboxEditoras_abaInserirActionPerformed
 
-    private void botaoAjuda_abaDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAjuda_abaDeletarActionPerformed
+    private void BtnAjudaDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAjudaDeletarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botaoAjuda_abaDeletarActionPerformed
+    }//GEN-LAST:event_BtnAjudaDeletarActionPerformed
 
 
     private void BtnAjudaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAjudaAlterarActionPerformed
@@ -1084,13 +1084,15 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoAutor_abaAlterarActionPerformed
 
-
-    // MÉTODOS DA JANELA DELETAR
+    // *****************************
+    // * MÉTODOS DA JANELA DELETAR *
+    // *****************************
 
     public void deletar(ActionListener al){
-        this.botaoDeletar_abaDeletar1.addActionListener(al);
+        this.BtnDeletarDeletar.addActionListener(al);
     }
-
+    
+    // Métodos para pegar a escolha de qual seção o autor vai deletar
     public boolean verificaEscolhaDeletarAutor(){
         return this.radioButton_AutorDeletar.isSelected();
     }
@@ -1101,48 +1103,51 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
 
      public boolean verificaEscolhaDeletarLivro(){
          return this.radioButton_LivrosDeletar.isSelected();
-     }
+    }
 
+    // Métodos Gets para pegar o texto digitado pelo user
     public String getTextoNomeAutor(){
-        return this.caixadetextoPrimeiroNomeAutor_abaDeletar.getText();
+        return this.TxtFieldPrimeiroNomeAutorDeletar.getText();
     }
 
     public String getTextoSobrenomeAutor(){
-        return this.caixadetextoSobrenomeAutor_abaDeletar.getText();
+        return this.TxtFieldSobrenomeAutorDeletar.getText();
     }
 
     public String getTextoISBN() {
-        return this.caixadetextoISBN_abaDeletar.getText();
+        return this.TxtFieldISBNDeletar.getText();
     }
 
     public String getTextoEditora() {
-        return this.caixadetextoNomeDaEditora_abaDeletar.getText();
+        return this.TxtFieldNomeDaEditoraDeletar.getText();
     }
 
+    // Mensagem no fim da tela que trata os campos vazio
     public void atualizarMensagemConclusao(String mensagem) {
-        this.labelConclusaodeTarefa_abaDeletar.setText(mensagem);
+        this.LblConclusaoDeTarefaDeletar.setText(mensagem);
     }
 
     public void habilitarLivrosDeletar(){
-        this.caixadetextoISBN_abaDeletar.setEnabled(true);
+        this.TxtFieldISBNDeletar.setEnabled(true);
     }
 
     public void habilitarAutorDeletar(){
-        this.caixadetextoPrimeiroNomeAutor_abaDeletar.setEnabled(true);
-        this.caixadetextoSobrenomeAutor_abaDeletar.setEnabled(true);
+        this.TxtFieldPrimeiroNomeAutorDeletar.setEnabled(true);
+        this.TxtFieldSobrenomeAutorDeletar.setEnabled(true);
     }
 
     public void habilitarEditorasDeletar(){
-        this.caixadetextoNomeDaEditora_abaDeletar.setEnabled(true);
+        this.TxtFieldNomeDaEditoraDeletar.setEnabled(true);
     }
+
+    // Método que deixa a tela desabilitada por padrão
     public void desabilitarTelaDeletar(){
-        this.caixadetextoISBN_abaDeletar.setEnabled(false);
+        this.TxtFieldISBNDeletar.setEnabled(false);
+    
+        this.TxtFieldSobrenomeAutorDeletar.setEnabled(false);
+        this.TxtFieldPrimeiroNomeAutorDeletar.setEnabled(false);
 
-        
-        this.caixadetextoSobrenomeAutor_abaDeletar.setEnabled(false);
-        this.caixadetextoPrimeiroNomeAutor_abaDeletar.setEnabled(false);
-
-        this.caixadetextoNomeDaEditora_abaDeletar.setEnabled(false);
+        this.TxtFieldNomeDaEditoraDeletar.setEnabled(false);
     }
 
     public void habilitarTelasDeletar(ActionListener al) {
@@ -1151,10 +1156,12 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
         this.radioButton_EditorasAbaDeletar.addActionListener(al);
     }
 
+    // Método do botão de ajuda
     public void ajudaDeletar(ActionListener al) {
-        this.botaoAjuda_abaDeletar.addActionListener(al);
+        this.BtnAjudaDeletar.addActionListener(al);
     }
 
+    // Popup da mensagem em si do botao de ajuda
     public void mensagemAjudaDeletar(){
         String[] infos = {"Nas checkboxs escolha os campos que deseja deletar.", "Autor: Deletar a partir do Nome e Sobrenome", "Livros: Deleta a partir do ISBN do livro.", "Editoras: Deleta a partir do nome da Editora."};
         JOptionPane.showMessageDialog(null, infos, "Como deletar:", JOptionPane.INFORMATION_MESSAGE);
@@ -2010,20 +2017,20 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
     private javax.swing.JRadioButton radioButton_EditorasAbaDeletar;
     private javax.swing.JRadioButton radioButton_LivrosDeletar;
 
-    private javax.swing.JTextField caixadetextoISBN_abaDeletar;
-    private javax.swing.JTextField caixadetextoNomeDaEditora_abaDeletar;
-    private javax.swing.JTextField caixadetextoPrimeiroNomeAutor_abaDeletar;
-    private javax.swing.JTextField caixadetextoSobrenomeAutor_abaDeletar;
+    private javax.swing.JTextField TxtFieldISBNDeletar;
+    private javax.swing.JTextField TxtFieldNomeDaEditoraDeletar;
+    private javax.swing.JTextField TxtFieldPrimeiroNomeAutorDeletar;
+    private javax.swing.JTextField TxtFieldSobrenomeAutorDeletar;
 
-    private javax.swing.JButton botaoAjuda_abaDeletar;
-    private javax.swing.JButton botaoDeletar_abaDeletar1;
+    private javax.swing.JButton BtnAjudaDeletar;
+    private javax.swing.JButton BtnDeletarDeletar;
 
-    private javax.swing.JLabel labelConclusaodeTarefa_abaDeletar;
-    private javax.swing.JLabel labelISBN_abaDeletar;
-    private javax.swing.JLabel labelPrimeiroNome_abaDeletar;
-    private javax.swing.JLabel labelNomedaEditora_abaDeletar;
-    private javax.swing.JLabel labelSobrenome_abaDeletar;
-    private javax.swing.JLabel titulo_abaDeletar;
+    private javax.swing.JLabel LblConclusaoDeTarefaDeletar;
+    private javax.swing.JLabel LblISBNDeletar;
+    private javax.swing.JLabel LblPrimeiroNomeDeletar;
+    private javax.swing.JLabel LblNomeDaEditoraDeletar;
+    private javax.swing.JLabel LblSobrenomeDeletar;
+    private javax.swing.JLabel LblTituloDeletar;
 
 
 

@@ -208,7 +208,7 @@ public class Controller {
         }
     }
 
-    // CLASSES RELACIONADAS A ABA INSERIR
+    // CLASSES RELACIONADAS A ABA DELETAR
     
     public class AcaoDeletar implements ActionListener{
         String nomeAutor;
@@ -218,12 +218,12 @@ public class Controller {
 
         @Override
         public void actionPerformed(ActionEvent ae){
+            // Verifica se o autor escolheu a opção Autor na tela
             if(view.verificaEscolhaDeletarAutor()){
-
                 nomeAutor = view.getTextoNomeAutor();
                 sobrenomeAutor = view.getTextoSobrenomeAutor();
-                
 
+                // Validação para ver se todos os campo necessários estão preenchidos
                 if (nomeAutor.equals("") && (sobrenomeAutor.equals(""))) {
                     view.atualizarMensagemConclusao("Erro ao deletar: Campo Primeiro Nome e campo Sobrenome está vazio!");
                     return;
@@ -235,15 +235,14 @@ public class Controller {
                     return;
                 } else {
                     view.atualizarMensagemConclusao("");
-                    
                 }
-
-                model.apagarAutor(nomeAutor, sobrenomeAutor);
-
-            } else if (view.verificaEscolhaDeletarLivro()) {
+                model.apagarAutor(nomeAutor, sobrenomeAutor); // Chama a classe na model para excluir do BD
                 
+                // Verifica se o autor escolheu a opção Livro na tela
+            } else if (view.verificaEscolhaDeletarLivro()) {        
                 isbn = view.getTextoISBN();
 
+                // Validação para ver se todos os campo necessários estão preenchidos
                 if (isbn.equals("")) {
                     view.atualizarMensagemConclusao("Erro ao deletar: Campo ISBN está vazio!");
                     return;
@@ -252,33 +251,33 @@ public class Controller {
                 }
 
                 
-                model.apagarLivro(isbn);
+                model.apagarLivro(isbn);// Chama a classe na model para excluir do BD
 
+                // Verifica se o autor escolheu a opção Editora na tela
             } else if (view.verificaEscolhaDeletarEditora()) {
-                
                 editora = view.getTextoEditora();
 
+                // Validação para ver se todos os campo necessários estão preenchidos
                 if (editora.equals("")) {
                     view.atualizarMensagemConclusao("Erro ao deletar: Campo Nome da Editora está vazio!");
                     return;
                 } else {
                     view.atualizarMensagemConclusao("");
                 }
-
-                
-                model.apagarEditora(editora);
+                model.apagarEditora(editora); // Chama a classe na model para excluir do BD
             } else {
-                JOptionPane.showMessageDialog(null, "Escolha uma opção e insira os valores para excluir", "Erro", JOptionPane.ERROR_MESSAGE);
-                
+                JOptionPane.showMessageDialog(null, "Escolha uma opção e insira os valores para excluir", "Erro", JOptionPane.ERROR_MESSAGE);  
             }
         }
     }
 
-    public class AcaoHabilitarTelaDeletar implements ActionListener{
+    public class AcaoHabilitarTelaDeletar implements ActionListener{ // Classe que habilita a tela por opção escolhida
+
         @Override
         public void actionPerformed (ActionEvent ae) {
-            view.desabilitarTelaDeletar();
+            view.desabilitarTelaDeletar(); // Deixa a tela desabilitada
 
+            // Chma da view e habilita opção na tela confor escolhido pelo usuário
             if (view.verificaEscolhaDeletarAutor()) {
                 view.habilitarAutorDeletar();
             } else if (view.verificaEscolhaDeletarLivro()) {
@@ -289,7 +288,7 @@ public class Controller {
         }
     }
 
-    public class AcaoInformacaoDeletar implements ActionListener {
+    public class AcaoInformacaoDeletar implements ActionListener { // Classe que chama mensagem do botão ajuda
         @Override
         public void actionPerformed(ActionEvent ae){
             view.mensagemAjudaDeletar();
