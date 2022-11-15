@@ -536,6 +536,9 @@ public class ConexaoBD implements Dao{
     @Override
     public void apagarAutor(String nome, String sobrenome){ // MÉTODO QUE REALIZA DELETE NA 'authors'
 
+        String isbn;
+        int escolha;
+
         // SELECT PARA VERIFICAR SE EXISTE O AUTOR A SER EXCLUIDO
         String queryVerificaEditora = "SELECT * FROM authors WHERE fname = ? AND name = ?";
 
@@ -552,6 +555,35 @@ public class ConexaoBD implements Dao{
             }
 
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+
+        // QUERY PARA VERIFICAR SE ALGUM LIVRO TEM RELAÇÃO COM ESSE AUTOR 
+        String queryVerificaRelacao = "SELECT * FROM booksauthors WHERE author_id IN (SELECT author_id FROM authors WHERE fname = ? AND name = ?);";
+
+        try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
+            PreparedStatement pstm = con.prepareStatement(queryVerificaRelacao);
+            pstm.setString(1, nome);
+            pstm.setString(2, sobrenome);
+            ResultSet rs = pstm.executeQuery();
+
+            
+            if (rs.next()){
+                isbn = rs.getString("isbn");
+                // CASO EXISTA RELAÇÃO, ABRE UM POP-UP PARA O USUÁRIO ESCOLHER SE ELE QUER APAGAR O LIVRO TAMBÉM OU SÓ A RELAÇÃO
+                escolha = JOptionPane.showConfirmDialog(null, "O autor inserido possuí um livro cadastrado no sistema, deseja excluir também?", "Atençao", JOptionPane.YES_NO_CANCEL_OPTION);
+                
+                if(escolha == JOptionPane.YES_OPTION){
+                    this.apagarLivro(isbn); // CHAMA O MÉTODO DE APAGAR LIVRO E CONTINUA A EXECUÇÃO DO MÉTODO
+                    JOptionPane.showMessageDialog(null, "Livro apagado", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                } else if (escolha == JOptionPane.CANCEL_OPTION){
+                    JOptionPane.showMessageDialog(null, "Autor nao apagado", "Atenção", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
             JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
         }
 
@@ -588,6 +620,9 @@ public class ConexaoBD implements Dao{
     @Override
     public void apagarEditora(String editora){ // // MÉTODO QUE REALIZA DELETE na 'publishers'
 
+        int escolha;
+        String isbn;
+
         // SELECT PARA VERIFICAR SE EXISTE A EDITORA A SER EXCLUIDA
         String queryVerificaEditora = "SELECT * FROM publishers WHERE name = ?";
 
@@ -617,7 +652,21 @@ public class ConexaoBD implements Dao{
             ResultSet rs = pstm.executeQuery();
 
             if (rs.next()) {
-                // CASO EXISTA, ATUALIZA O COLUNA 'publisher_id' DO 'booksauthors'  PARA 'NULL'
+                
+                isbn = rs.getString("isbn");
+
+                // CASO EXISTA RELAÇÃO, ABRE UM POP-UP PARA O USUÁRIO ESCOLHER SE ELE QUER APAGAR O LIVRO TAMBÉM OU SÓ A RELAÇÃO
+                escolha = JOptionPane.showConfirmDialog(null, "A editora inserida possuí livros cadastrados no sistema, deseja exclui-los?", "Atençao", JOptionPane.YES_NO_CANCEL_OPTION);
+                
+                if(escolha == JOptionPane.YES_OPTION){
+                    this.apagarLivro(isbn); // CHAMA O MÉTODO DE APAGAR LIVRO E CONTINUA A EXECUÇÃO DO MÉTODO
+                    JOptionPane.showMessageDialog(null, "Livro apagado", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                } else if (escolha == JOptionPane.CANCEL_OPTION){
+                    JOptionPane.showMessageDialog(null, "Editora não apagada", "Atenção", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                
+                // CASO O USUÁRIO ESCOLHA NÃO APAGAR OS LIVROS, ATUALIZA O COLUNA 'publisher_id' DO 'books' PARA 'NULL'
                 String queryUpdEditoraToNull = "UPDATE books SET publisher_id = null WHERE publisher_id IN (SELECT publisher_id FROM publishers WHERE name = ?);";
 
                 try(Connection con1 = DriverManager.getConnection(URL, USER, PASS)){
