@@ -11,7 +11,6 @@ import view.*;
 
 import java.awt.event.ActionListener;
 
-import javax.swing.Action;
 import javax.swing.JOptionPane;
 
 import java.awt.event.ActionEvent;
@@ -48,6 +47,7 @@ public class Controller {
         this.view.Inserir(new AcaoInsertAutores());
         this.view.Inserir(new AcaoInsertEditoras());
         this.view.Inserir(new AcaoinsertLivros());
+        this.view.BtnAjudaInserir(new AcaoInformacaoInserir());
 
         this.view.pesquisaAutorAlterar(new AcaoPesquisaAlterar());
         this.view.pesquisaEditoraAlterar(new AcaoPesquisaAlterar());
@@ -336,7 +336,7 @@ public class Controller {
         }
     }
 
-    public class AcaoInsertAutores implements ActionListener{
+    public class AcaoInsertAutores implements ActionListener{ // inserindo autores
         String nomeAutor;
         String sobreNomeAutor;
 
@@ -348,8 +348,10 @@ public class Controller {
                 nomeAutor = view.getNome();
                 sobreNomeAutor = view.getSobrenome();
 
+                if (nomeAutor.equals("") && sobreNomeAutor.equals("")){ //Verificação de erros do usuário
+                    JOptionPane.showMessageDialog(null, "Campos em branco.", "Erro", JOptionPane.INFORMATION_MESSAGE);
 
-                if (nomeAutor.equals("")){
+                } else if (nomeAutor.equals("")){
                     JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta o Nome do Autor ", "Erro", JOptionPane.INFORMATION_MESSAGE);
 
                 } else if (sobreNomeAutor.equals("")) {
@@ -364,7 +366,7 @@ public class Controller {
         }
     }
 
-    public class AcaoInsertEditoras implements ActionListener {
+    public class AcaoInsertEditoras implements ActionListener { // Inserindo Editoras
         String nomeEditora;
         String Url;
 
@@ -375,7 +377,7 @@ public class Controller {
                 nomeEditora = view.getNomeEditora();
                 Url = view.getUrl();
 
-                if (nomeEditora.equals("") && Url.equals("")) {
+                if (nomeEditora.equals("") && Url.equals("")) { //Verificação de erros do usuário
                     JOptionPane.showMessageDialog(null, "Campos em branco. ", "Erro", JOptionPane.INFORMATION_MESSAGE);
 
                 } else if (nomeEditora.equals("")){
@@ -395,7 +397,7 @@ public class Controller {
         }
     }
 
-    public class AcaoinsertLivros implements ActionListener{
+    public class AcaoinsertLivros implements ActionListener{ // Inserindo livros
         String titulo;
         String nomeEditora;
         Float preco;
@@ -414,7 +416,7 @@ public class Controller {
                 isbn = view.getISBN();
                 listaAutoresEscolhidos = view.getAutoresSelecionados().split(" / ");
 
-                if (titulo.equals("") && nomeEditora.equals("") && preco == 0.0 && isbn.equals("")){
+                if (titulo.equals("") && nomeEditora.equals("") && preco == 0.0 && isbn.equals("")){ //Verificação de erros do usuário
                     JOptionPane.showMessageDialog(null, "Campos em branco ", "Erro", JOptionPane.INFORMATION_MESSAGE);
                 } else if(titulo.equals("")) {
                     JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta Titulo do livro ", "Erro", JOptionPane.INFORMATION_MESSAGE);
@@ -428,11 +430,11 @@ public class Controller {
                 } else if (isbn.equals("")) {
                     JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta a ISBN ", "Erro", JOptionPane.INFORMATION_MESSAGE);
 
-                } else if (listaAutoresEscolhidos.length < 1) {
+                } else if (listaAutoresEscolhidos.length < 1) { // utilizado para inserir caso o usuário opte a não adicionar autor.
                     model.InsertLivros(titulo, isbn, preco, nomeEditora, null, null);
 
 
-                } else {
+                } else { // Utilizado caso o usuário selecione o autor
                     for (String valor : listaAutoresEscolhidos) {
                         listaLinhas = valor.split(" ");
 
@@ -446,7 +448,7 @@ public class Controller {
         }
     }
 
-    public class AcaoHabilitarTelaInserir implements ActionListener{
+    public class AcaoHabilitarTelaInserir implements ActionListener{ //Acão em que habilita a tela conforme o clique do usuário
 
         @Override
         public void actionPerformed(ActionEvent ae){
@@ -464,6 +466,14 @@ public class Controller {
             }
         }
 
+    }
+    public class AcaoInformacaoInserir implements ActionListener{ // mensagem de ajuda para o usuário.
+
+        @Override
+        public void actionPerformed(ActionEvent ae){
+            view.mensagemAjudaInserir();
+
+        }
     }
 
     // CLASSES DE ACAO PARA A TELA ALTERAR

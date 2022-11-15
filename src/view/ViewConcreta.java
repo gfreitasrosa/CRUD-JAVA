@@ -6,25 +6,17 @@ package view;
 
 import java.awt.FlowLayout;
 import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
-import javax.xml.crypto.AlgorithmMethod;
-import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import model.entidades.*;
 
 import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
 
 /**
  *
@@ -100,25 +92,25 @@ public class ViewConcreta extends javax.swing.JFrame {
         radioButton_AutorAbaInserir = new javax.swing.JRadioButton();
         radioButton_LivrosAbaInserir = new javax.swing.JRadioButton();
         radioButton_EditorasAbaInserir = new javax.swing.JRadioButton();
-        caixadetexto_abaInserirSobreNome = new javax.swing.JTextField();
-        caixadetexto_abaInserirNome1 = new javax.swing.JTextField();
+        TxtFieldSobrenomeAutorInserir = new javax.swing.JTextField();
+        TxtFieldNomeAutorInserir = new javax.swing.JTextField();
         labelNome_abaInserir = new javax.swing.JLabel();
         labelSobreNome_abaInserir = new javax.swing.JLabel();
-        caixadetexto_abaInserirTitulo = new javax.swing.JTextField();
-        caixadetexto_abaInserirISBN = new javax.swing.JTextField();
-        caixadetexto_abaInserirEditora = new javax.swing.JTextField();
-        caixadetexto_abaInserirPreco = new javax.swing.JTextField();
+        TxtFieldTituloInserir = new javax.swing.JTextField();
+        TxtFieldISBNInserir = new javax.swing.JTextField();
+        TxtFieldNomeEditoraLivroInserir = new javax.swing.JTextField();
+        TxtFieldPrecoInserir = new javax.swing.JTextField();
         labelISBN_abaInserir = new javax.swing.JLabel();
         labelTitulo_abaInserir = new javax.swing.JLabel();
         labelpreco_abaInserir = new javax.swing.JLabel();
         labelNomeDaEditora_radiolivros_abaInserir = new javax.swing.JLabel();
         botaoAutor_abainserir = new javax.swing.JButton();
         labelAutores_abainserir = new javax.swing.JLabel();
-        labelAutoresEscolhidos_abaInserir = new javax.swing.JLabel();
+        LblAutorEscolhidoInserir = new javax.swing.JLabel();
         labelNomeDaEditora_abaInserir = new javax.swing.JLabel();
-        caixadetexto_NomeDaEditora_abaInserir = new javax.swing.JTextField();
+        TxtFieldNomeEditoraInserir = new javax.swing.JTextField();
         labelURL_abaInserir = new javax.swing.JLabel();
-        caixadetexto_URL_abaInserir = new javax.swing.JTextField();
+        TxtFieldURLInserir = new javax.swing.JTextField();
         labelQueMostraConfimacao_abaInserir = new javax.swing.JLabel();
         botaoinserir_abaInserir1 = new javax.swing.JButton();
         
@@ -835,9 +827,9 @@ public class ViewConcreta extends javax.swing.JFrame {
 
         labelSobreNome_abaInserir.setText("Sobrenome:");
 
-        caixadetexto_abaInserirPreco.addActionListener(new java.awt.event.ActionListener() {
+        TxtFieldPrecoInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caixadetexto_abaInserirPrecoActionPerformed(evt);
+                TxtFieldPrecoInserirActionPerformed(evt);
             }
         });
 
@@ -859,10 +851,10 @@ public class ViewConcreta extends javax.swing.JFrame {
 
         labelAutores_abainserir.setText("Autores:");
 
-        labelAutoresEscolhidos_abaInserir.setText("");
-        labelAutoresEscolhidos_abaInserir.addContainerListener(new java.awt.event.ContainerAdapter() {
+        LblAutorEscolhidoInserir.setText("");
+        LblAutorEscolhidoInserir.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
-                labelAutoresEscolhidos_abaInserirComponentAdded(evt);
+                LblAutorEscolhidoInserirComponentAdded(evt);
             }
         });
 
@@ -897,7 +889,7 @@ public class ViewConcreta extends javax.swing.JFrame {
                             .addGroup(abaInserirLayout.createSequentialGroup()
                                 .addGap(23, 23, 23)
                                 .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(labelAutoresEscolhidos_abaInserir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(LblAutorEscolhidoInserir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(abaInserirLayout.createSequentialGroup()
                                         .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(abaInserirLayout.createSequentialGroup()
@@ -909,28 +901,28 @@ public class ViewConcreta extends javax.swing.JFrame {
                                                     .addGroup(abaInserirLayout.createSequentialGroup()
                                                         .addComponent(labelNomeDaEditora_radiolivros_abaInserir)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(caixadetexto_abaInserirEditora))
+                                                        .addComponent(TxtFieldNomeEditoraLivroInserir))
                                                     .addGroup(abaInserirLayout.createSequentialGroup()
                                                         .addComponent(labelTitulo_abaInserir)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(caixadetexto_abaInserirTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addComponent(TxtFieldTituloInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                                 .addGap(21, 21, 21)
                                                 .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                     .addComponent(labelpreco_abaInserir)
                                                     .addComponent(labelISBN_abaInserir))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                    .addComponent(caixadetexto_abaInserirISBN)
-                                                    .addComponent(caixadetexto_abaInserirPreco, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)))
+                                                    .addComponent(TxtFieldISBNInserir)
+                                                    .addComponent(TxtFieldPrecoInserir, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)))
                                             .addGroup(abaInserirLayout.createSequentialGroup()
                                                 .addGap(0, 0, Short.MAX_VALUE)
                                                 .addComponent(labelNome_abaInserir)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(caixadetexto_abaInserirNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(TxtFieldNomeAutorInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(labelSobreNome_abaInserir)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(caixadetexto_abaInserirSobreNome, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(TxtFieldSobrenomeAutorInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(2, 2, 2))))
                             .addComponent(radioButton_AutorAbaInserir)
                             .addComponent(radioButton_EditorasAbaInserir)
@@ -948,11 +940,11 @@ public class ViewConcreta extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(labelNomeDaEditora_abaInserir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(caixadetexto_NomeDaEditora_abaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TxtFieldNomeEditoraInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelURL_abaInserir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(caixadetexto_URL_abaInserir)))
+                        .addComponent(TxtFieldURLInserir)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         abaInserirLayout.setVerticalGroup(
@@ -965,25 +957,25 @@ public class ViewConcreta extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNome_abaInserir)
-                    .addComponent(caixadetexto_abaInserirNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtFieldNomeAutorInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelSobreNome_abaInserir)
-                    .addComponent(caixadetexto_abaInserirSobreNome, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtFieldSobrenomeAutorInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addComponent(radioButton_LivrosAbaInserir)
                 .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(abaInserirLayout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(caixadetexto_abaInserirTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(caixadetexto_abaInserirISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtFieldTituloInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtFieldISBNInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelISBN_abaInserir)
                             .addComponent(labelTitulo_abaInserir))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelNomeDaEditora_radiolivros_abaInserir)
-                            .addComponent(caixadetexto_abaInserirPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtFieldPrecoInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelpreco_abaInserir)
-                            .addComponent(caixadetexto_abaInserirEditora, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TxtFieldNomeEditoraLivroInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26))
                     .addGroup(abaInserirLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -991,15 +983,15 @@ public class ViewConcreta extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(labelAutores_abainserir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(labelAutoresEscolhidos_abaInserir)
+                .addComponent(LblAutorEscolhidoInserir)
                 .addGap(29, 29, 29)
                 .addComponent(radioButton_EditorasAbaInserir)
                 .addGap(18, 18, 18)
                 .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNomeDaEditora_abaInserir)
-                    .addComponent(caixadetexto_NomeDaEditora_abaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtFieldNomeEditoraInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelURL_abaInserir)
-                    .addComponent(caixadetexto_URL_abaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtFieldURLInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelQueMostraConfimacao_abaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1033,17 +1025,17 @@ public class ViewConcreta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // MÉTODOS GERADOS PELO NETBEANS
-    private void caixadetexto_abaInserirPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixadetexto_abaInserirPrecoActionPerformed
+    private void TxtFieldPrecoInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFieldPrecoInserirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_caixadetexto_abaInserirPrecoActionPerformed
+    }//GEN-LAST:event_TxtFieldPrecoInserirActionPerformed
 
     private void botaoAutor_abainserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAutor_abainserirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoAutor_abainserirActionPerformed
 
-    private void labelAutoresEscolhidos_abaInserirComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_labelAutoresEscolhidos_abaInserirComponentAdded
+    private void LblAutorEscolhidoInserirComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_LblAutorEscolhidoInserirComponentAdded
         // TODO add your handling code here:
-    }//GEN-LAST:event_labelAutoresEscolhidos_abaInserirComponentAdded
+    }//GEN-LAST:event_LblAutorEscolhidoInserirComponentAdded
 
     private void caixadetexto_abaPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixadetexto_abaPesquisaActionPerformed
         // TODO add your handling code here:
@@ -1168,25 +1160,26 @@ public class ViewConcreta extends javax.swing.JFrame {
 
     // MÉTODOS DA JANELA INSERIR
 
-
+    //Botão utilizado para escolher a área de inserir os livros
     public void camposInsLivros(ActionListener al){
 
         this.radioButton_LivrosAbaInserir.addActionListener(al);
 
     }
-
+    //Botão utilizado para escolher a área de inserir as Editoras
     public void camposInsEditoras(ActionListener al){
 
         this.radioButton_EditorasAbaInserir.addActionListener(al);
 
     }
-
+    //Botão utilizado para escolher a área de inserir os Autores
     public void camposInsAutores(ActionListener al){
 
         this.radioButton_AutorAbaInserir.addActionListener(al);
  
     }
 
+    //verifica a ação do usuário sobre os campos selecionados
     public boolean verificaEscolhaInserirAutor(){
         return this.radioButton_AutorAbaInserir.isSelected();
     }
@@ -1197,99 +1190,102 @@ public class ViewConcreta extends javax.swing.JFrame {
     public boolean verificaEscolhaInserirLivro(){
         return this.radioButton_LivrosAbaInserir.isSelected();
     }
-
+    //utilizadondo comandos para habilitar os campos para que o usuário possa inserir dependendo da sua escolha.
     public void habilitaEditoras(){
-        this.caixadetexto_NomeDaEditora_abaInserir.setEnabled(true);
-        this.caixadetexto_URL_abaInserir.setEnabled(true);
+        this.TxtFieldNomeEditoraInserir.setEnabled(true);
+        this.TxtFieldURLInserir.setEnabled(true);
     }
 
     public void habilitarAutor(){
-        this.caixadetexto_abaInserirSobreNome.setEnabled(true);
-        this.caixadetexto_abaInserirNome1.setEnabled(true);
+        this.TxtFieldSobrenomeAutorInserir.setEnabled(true);
+        this.TxtFieldNomeAutorInserir.setEnabled(true);
 
     }
 
     public void habilitaLivros(){
-        this.caixadetexto_abaInserirTitulo.setEnabled(true);
-        this.caixadetexto_abaInserirPreco.setEnabled(true);
-        this.caixadetexto_abaInserirISBN.setEnabled(true);
-        this.caixadetexto_abaInserirEditora.setEnabled(true);
+        this.TxtFieldTituloInserir.setEnabled(true);
+        this.TxtFieldPrecoInserir.setEnabled(true);
+        this.TxtFieldISBNInserir.setEnabled(true);
+        this.TxtFieldNomeEditoraLivroInserir.setEnabled(true);
         this.botaoAutor_abainserir.setEnabled(true);
 
     }
     public void habilitarTela(){
-        this.caixadetexto_abaInserirSobreNome.setEnabled(true);
-        this.caixadetexto_abaInserirNome1.setEnabled(true);
+        this.TxtFieldSobrenomeAutorInserir.setEnabled(true);
+        this.TxtFieldNomeAutorInserir.setEnabled(true);
 
-        this.caixadetexto_abaInserirTitulo.setEnabled(true);
-        this.caixadetexto_abaInserirPreco.setEnabled(true);
-        this.caixadetexto_abaInserirISBN.setEnabled(true);
-        this.caixadetexto_abaInserirEditora.setEnabled(true);
+        this.TxtFieldTituloInserir.setEnabled(true);
+        this.TxtFieldPrecoInserir.setEnabled(true);
+        this.TxtFieldISBNInserir.setEnabled(true);
+        this.TxtFieldNomeEditoraLivroInserir.setEnabled(true);
         this.botaoAutor_abainserir.setEnabled(true);
-        this.caixadetexto_NomeDaEditora_abaInserir.setEnabled(true);
-        this.caixadetexto_URL_abaInserir.setEnabled(true);
+        this.TxtFieldNomeEditoraInserir.setEnabled(true);
+        this.TxtFieldURLInserir.setEnabled(true);
     }
+    //Comando utilizado para que a tela já fique desabilitada, esperando o primeiro evento acontecer.
     public void desabilitarTela(){
-        this.caixadetexto_abaInserirSobreNome.setEnabled(false);
-        this.caixadetexto_abaInserirNome1.setEnabled(false);
+        this.TxtFieldSobrenomeAutorInserir.setEnabled(false);
+        this.TxtFieldNomeAutorInserir.setEnabled(false);
 
-        this.caixadetexto_abaInserirTitulo.setEnabled(false);
-        this.caixadetexto_abaInserirPreco.setEnabled(false);
-        this.caixadetexto_abaInserirISBN.setEnabled(false);
-        this.caixadetexto_abaInserirEditora.setEnabled(false);
+        this.TxtFieldTituloInserir.setEnabled(false);
+        this.TxtFieldPrecoInserir.setEnabled(false);
+        this.TxtFieldISBNInserir.setEnabled(false);
+        this.TxtFieldNomeEditoraLivroInserir.setEnabled(false);
         this.botaoAutor_abainserir.setEnabled(false);
-        this.caixadetexto_NomeDaEditora_abaInserir.setEnabled(false);
-        this.caixadetexto_URL_abaInserir.setEnabled(false);
+        this.TxtFieldNomeEditoraInserir.setEnabled(false);
+        this.TxtFieldURLInserir.setEnabled(false);
     }
 
     //inicializando botao de inserir
     public void Inserir(ActionListener al){
         this.botaoinserir_abaInserir1.addActionListener(al);
     }
-
+    public void BtnAjudaInserir(ActionListener al){
+        this.botaoAjuda_abaInserir.addActionListener(al);
+    }
     // Gets para Autor
     public String getNome(){
-        return this.caixadetexto_abaInserirNome1.getText();
+        return this.TxtFieldNomeAutorInserir.getText();
     }
 
     public String getSobrenome(){
-       return this.caixadetexto_abaInserirSobreNome.getText();
+       return this.TxtFieldSobrenomeAutorInserir.getText();
     }
 
     //Gets para editoras
 
     public String getNomeEditora(){
-        return this.caixadetexto_NomeDaEditora_abaInserir.getText();
+        return this.TxtFieldNomeEditoraInserir.getText();
     }
 
     public String getUrl(){
-        return this.caixadetexto_URL_abaInserir.getText();
+        return this.TxtFieldURLInserir.getText();
     }
 
     // Gets para os livros
 
     public String getInserirTitulo(){
-        return this.caixadetexto_abaInserirTitulo.getText();
+        return this.TxtFieldTituloInserir.getText();
     }
 
     public String getInserirPreco(){
-        if (this.caixadetexto_abaInserirPreco.getText().equals("")){
+        if (this.TxtFieldPrecoInserir.getText().equals("")){
             return "0";
         }else{
-            return this.caixadetexto_abaInserirPreco.getText();
+            return this.TxtFieldPrecoInserir.getText();
         }
     }
 
     public String getISBN(){
-        return this.caixadetexto_abaInserirISBN.getText();
+        return this.TxtFieldISBNInserir.getText();
     }
 
     public String getInserirEditoras(){
-        return this.caixadetexto_abaInserirEditora.getText();
+        return this.TxtFieldNomeEditoraLivroInserir.getText();
     }
 
     public String getAutoresSelecionados(){
-        return this.labelAutoresEscolhidos_abaInserir.getText();
+        return this.LblAutorEscolhidoInserir.getText();
     }
 
     public String pesquisaInserir(){
@@ -1300,10 +1296,17 @@ public class ViewConcreta extends javax.swing.JFrame {
         return texto;
     }
 
-  
+    // Mensagem de ajuda
+    public void mensagemAjudaInserir(){
+
+        String[] infos = {"Nas checkbox selecione o que deseja inserir para habilitar os campos", "Autores: Inserir Nome e Sobrenome", "Livros: Escolha o Autor, Insira o Titulo, Preco, ISBN e Editora", "Editora: Insira o Nome da Editora e URL."};
+        JOptionPane.showMessageDialog(null, infos, "Como utilizar o método Inserir:", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+
 
     public void attTextoAutorInserir(String texto){
-        labelAutoresEscolhidos_abaInserir.setText(labelAutoresEscolhidos_abaInserir.getText() + " " + texto);
+        LblAutorEscolhidoInserir.setText(LblAutorEscolhidoInserir.getText() + " " + texto);
         
     }
 
@@ -1920,17 +1923,17 @@ public class ViewConcreta extends javax.swing.JFrame {
 
     private JDialog popUp;
 
-    private javax.swing.JTextField caixadetexto_NomeDaEditora_abaInserir;
-    private javax.swing.JTextField caixadetexto_URL_abaInserir;
+    private javax.swing.JTextField TxtFieldNomeEditoraInserir;
+    private javax.swing.JTextField TxtFieldURLInserir;
 
-    private javax.swing.JTextField caixadetexto_abaInserirEditora;
-    private javax.swing.JTextField caixadetexto_abaInserirISBN;
-    private javax.swing.JTextField caixadetexto_abaInserirNome1;
-    private javax.swing.JTextField caixadetexto_abaInserirPreco;
-    private javax.swing.JTextField caixadetexto_abaInserirSobreNome;
-    private javax.swing.JTextField caixadetexto_abaInserirTitulo;
+    private javax.swing.JTextField TxtFieldNomeEditoraLivroInserir;
+    private javax.swing.JTextField TxtFieldISBNInserir;
+    private javax.swing.JTextField TxtFieldNomeAutorInserir;
+    private javax.swing.JTextField TxtFieldPrecoInserir;
+    private javax.swing.JTextField TxtFieldSobrenomeAutorInserir;
+    private javax.swing.JTextField TxtFieldTituloInserir;
 
-    private javax.swing.JLabel labelAutoresEscolhidos_abaInserir;
+    private javax.swing.JLabel LblAutorEscolhidoInserir;
     private javax.swing.JLabel labelAutores_abainserir;
     private javax.swing.JLabel labelISBN_abaInserir;
     private javax.swing.JLabel labelNomeDaEditora_abaInserir;
