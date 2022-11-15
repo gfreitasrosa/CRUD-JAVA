@@ -1,8 +1,11 @@
 package com.company;
 
+import controller.Controller;
+import model.dao.ConexaoBD;
+import view.ViewConcreta;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        new Controller(new ConexaoBD(), new ViewConcreta()).init();
     }
 }

@@ -33,21 +33,35 @@ public class Controller {
 
         this.view.realizarPesquisa(new AcaoPesquisa());
         this.view.informacoes(new AcaoInformacaoPesquisa());
-        // this.view.realizaAtt(new AcaoAtualizar());
-        this.view.addAutor(new AcaoAddAutor());
-        this.view.attAutor(new AcaoAttAutor());
+  
+        this.view.addAutorInserir(new AcaoAddAutor());
+        this.view.attAutor(new AcaoAttAutorInserir());
+        
 
         this.view.deletar(new AcaoDeletar());
-        this.view.habilitarTelasDeletar(new HabilitarTelaDeletar());
+        this.view.habilitarTelasDeletar(new AcaoHabilitarTelaDeletar());
         this.view.ajudaDeletar(new AcaoInformacaoDeletar());
 
-        this.view.camposInsAutores(new AcaoInvalidaCamposInserir());
-        this.view.camposInsEditoras(new AcaoInvalidaCamposInserir());
-        this.view.camposInsLivros(new AcaoInvalidaCamposInserir());
+        this.view.camposInsAutores(new AcaoHabilitarTelaInserir());
+        this.view.camposInsEditoras(new AcaoHabilitarTelaInserir());
+        this.view.camposInsLivros(new AcaoHabilitarTelaInserir());
         this.view.Inserir(new AcaoInsertAutores());
         this.view.Inserir(new AcaoInsertEditoras());
         this.view.Inserir(new AcaoinsertLivros());
 
+        this.view.pesquisaAutorAlterar(new AcaoPesquisaAlterar());
+        this.view.pesquisaEditoraAlterar(new AcaoPesquisaAlterar());
+        this.view.pesquisaLivrosAlterar(new AcaoPesquisaAlterar());
+
+        this.view.camposAlterarAutor(new AcaoHabilitaTelaAlterar());
+        this.view.camposAlterarEditoras(new AcaoHabilitaTelaAlterar());
+        this.view.camposAlterarLivros(new AcaoHabilitaTelaAlterar());
+
+        this.view.attAutorAlterar(new AcaoAttDadosAntigosAlterar());
+        this.view.attLivroAlterar(new AcaoAttDadosAntigosAlterar());
+        this.view.attEditoraAlterar(new AcaoAttDadosAntigosAlterar());
+
+        this.view.realizaAlteracao(new AcaoAlterar());
     }
 
     // CLASSES RELACIONADAS A ABA PESQUISA
@@ -190,18 +204,96 @@ public class Controller {
         }
     }
 
-    // CLASSES RELACIONADAS A ABA ATUALZIAR
-
-    public class AcaoAtualizar implements ActionListener{
+    // CLASSES RELACIONADAS A ABA INSERIR
+    
+    public class AcaoDeletar implements ActionListener{
+        String nomeAutor;
+        String sobrenomeAutor;
+        String isbn;
+        String editora;
 
         @Override
         public void actionPerformed(ActionEvent ae){
-            
+            if(view.verificaEscolhaDeletarAutor()){
+
+                nomeAutor = view.getTextoNomeAutor();
+                sobrenomeAutor = view.getTextoSobrenomeAutor();
+                
+
+                if (nomeAutor.equals("") && (sobrenomeAutor.equals(""))) {
+                    view.atualizarMensagemConclusao("Erro ao deletar: Campo Primeiro Nome e campo Sobrenome está vazio!");
+                    return;
+                } else if (nomeAutor.equals("")) {
+                    view.atualizarMensagemConclusao("Erro ao deletar: Campo Primeiro Nome está vazio!");
+                    return;
+                } else if(sobrenomeAutor.equals("")) {
+                    view.atualizarMensagemConclusao("Erro ao deletar: Campo Sobrenome está vazio!");
+                    return;
+                } else {
+                    view.atualizarMensagemConclusao("");
+                    
+                }
+
+                model.apagarAutor(nomeAutor, sobrenomeAutor);
+
+            } else if (view.verificaEscolhaDeletarLivro()) {
+                
+                isbn = view.getTextoISBN();
+
+                if (isbn.equals("")) {
+                    view.atualizarMensagemConclusao("Erro ao deletar: Campo ISBN está vazio!");
+                    return;
+                } else {
+                    view.atualizarMensagemConclusao("");
+                }
+
+                
+                model.apagarLivro(isbn);
+
+            } else if (view.verificaEscolhaDeletarEditora()) {
+                
+                editora = view.getTextoEditora();
+
+                if (editora.equals("")) {
+                    view.atualizarMensagemConclusao("Erro ao deletar: Campo Nome da Editora está vazio!");
+                    return;
+                } else {
+                    view.atualizarMensagemConclusao("");
+                }
+
+                
+                model.apagarEditora(editora);
+            } else {
+                JOptionPane.showMessageDialog(null, "Escolha uma opção e insira os valores para excluir", "Erro", JOptionPane.ERROR_MESSAGE);
+                
+            }
+        }
+    }
+
+    public class AcaoHabilitarTelaDeletar implements ActionListener{
+        @Override
+        public void actionPerformed (ActionEvent ae) {
+            view.desabilitarTelaDeletar();
+
+            if (view.verificaEscolhaDeletarAutor()) {
+                view.habilitarAutorDeletar();
+            } else if (view.verificaEscolhaDeletarLivro()) {
+                view.habilitarLivrosDeletar();
+            } else if (view.verificaEscolhaDeletarEditora()) {
+                view.habilitarEditorasDeletar();
+            }
+        }
+    }
+
+    public class AcaoInformacaoDeletar implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae){
+            view.mensagemAjudaDeletar();
         }
     }
 
     // CLASSES RELACIONADAS A ABA INSERIR
-    
+
     public class AcaoAddAutor implements ActionListener{
 
         @Override
@@ -234,90 +326,13 @@ public class Controller {
         }
     }
 
-    public class AcaoAttAutor implements ActionListener{
+    public class AcaoAttAutorInserir implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent ae){
             
-            view.attTextoAutor(view.pesquisa());
+            view.attTextoAutorInserir(view.pesquisaInserir());
 
-        }
-    }
-
-    public class AcaoDeletar implements ActionListener{
-        String nomeAutor;
-        String sobrenomeAutor;
-        String isbn;
-        String editora;
-
-        @Override
-        public void actionPerformed(ActionEvent ae){
-            if(view.verificaEscolhaDeletarAutor()){
-
-                nomeAutor = view.getTextoNomeAutor();
-                sobrenomeAutor = view.getTextoSobrenomeAutor();
-                
-
-                if (nomeAutor.equals("") && (sobrenomeAutor.equals(""))) {
-                    view.atualizarMensagemConclusao("Erro ao deletar: Campo Primeiro Nome e campo Sobrenome está vazio!");
-                    return;
-                } else if (nomeAutor.equals("")) {
-                    view.atualizarMensagemConclusao("Erro ao deletar: Campo Primeiro Nome está vazio!");
-                    return;
-                } else if(sobrenomeAutor.equals("")) {
-                    view.atualizarMensagemConclusao("Erro ao deletar: Campo Sobrenome está vazio!");
-                    return;
-                } else {
-                    view.atualizarMensagemConclusao("");
-                    
-                }
-
-                model.apagarAutor(nomeAutor, sobrenomeAutor);
-
-            } else if (view.verificaEscolhaDeletarLivro()) {
-                isbn = view.getTextoISBN();
-                model.apagarLivro(isbn);
-
-                if (isbn.equals("")) {
-                    view.atualizarMensagemConclusao("Erro ao deletar: Campo ISBN está vazio!");
-                    return;
-                } else {
-                    view.atualizarMensagemConclusao("");
-                }
-
-            } else if (view.verificaEscolhaDeletarEditora()) {
-                editora = view.getTextoEditora();
-                model.apagarEditora(editora);
-
-                if (editora.equals("")) {
-                    view.atualizarMensagemConclusao("Erro ao deletar: Campo Nome da Editora está vazio!");
-                    return;
-                } else {
-                    view.atualizarMensagemConclusao("");
-                }
-            }
-        }
-    }
-
-    public class HabilitarTelaDeletar implements ActionListener{
-        @Override
-        public void actionPerformed (ActionEvent ae) {
-            view.desabilitarTelaDeletar();
-
-            if (view.verificaEscolhaDeletarAutor()) {
-                view.habilitarAutorDeletar();
-            } else if (view.verificaEscolhaDeletarLivro()) {
-                view.habilitarLivrosDeletar();
-            } else if (view.verificaEscolhaDeletarEditora()) {
-                view.habilitarEditorasDeletar();
-            }
-        }
-    }
-
-    public class AcaoInformacaoDeletar implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent ae){
-            view.mensagemAjudaDeletar();
         }
     }
 
@@ -342,7 +357,7 @@ public class Controller {
 
                 }else{
                     model.InsertAutores(nomeAutor, sobreNomeAutor);
-                    JOptionPane.showMessageDialog(null, "Adicionado com Sucesso", "Erro", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Adicionado com Sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 
                 }
             }
@@ -413,7 +428,7 @@ public class Controller {
                 } else if (isbn.equals("")) {
                     JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta a ISBN ", "Erro", JOptionPane.INFORMATION_MESSAGE);
 
-                } else if (listaAutoresEscolhidos.length == 1) {
+                } else if (listaAutoresEscolhidos.length < 1) {
                     model.InsertLivros(titulo, isbn, preco, nomeEditora, null, null);
 
 
@@ -423,7 +438,7 @@ public class Controller {
 
                         model.InsertLivros(titulo, isbn, preco, nomeEditora, listaLinhas[1], listaLinhas[2]);
                         listaLinhas = null;
-                        JOptionPane.showMessageDialog(null, "Livro adicionado com Sucesso. ", "Erro", JOptionPane.INFORMATION_MESSAGE);
+                        
 
                     }
                 }
@@ -431,7 +446,7 @@ public class Controller {
         }
     }
 
-    public class AcaoInvalidaCamposInserir implements ActionListener{
+    public class AcaoHabilitarTelaInserir implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent ae){
@@ -451,6 +466,185 @@ public class Controller {
 
     }
 
+    // CLASSES DE ACAO PARA A TELA ALTERAR
+
+    public class AcaoPesquisaAlterar implements ActionListener{
+       
+        @Override
+        public void actionPerformed(ActionEvent ae){
+
+            contador = 0;
+
+            view.limpaTabelaAlterar();
+
+            if (view.getLivrosAbaAlterar()){
+                for (Livros livros:model.listarTodosLivros()){
+                    contador ++;
+                    view.atualizaLivrosAbaAlterar(contador, livros);
+       
+                }
+                view.popUpLivrosAbaAlterar();
+
+
+            } else if (view.getAutorAbaAlterar()) {
+                for (Autores autor:model.listarTodosAutores()){
+                    contador ++;
+                    view.atualizaAutoresAbaAlterar(contador, autor);
+                    
+                }
+                view.popUpAutorAbaAlterar();
+
+
+            } else if (view.getEditorasAbaAlterar()) {
+                for (Editoras editora:model.listarTodasEditoras()){
+                    contador ++;
+                    view.atualizaEditorasAbaAlterar(contador, editora);
+                    
+                }
+                view.popUpEditorasAbaAlterar();
+
+            } else {
+
+            JOptionPane.showMessageDialog(null, "Nenhum botão escolhido!", "Erro", JOptionPane.ERROR_MESSAGE);
+
+            }
+        }
+    }
+
+    public class AcaoHabilitaTelaAlterar implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent ae){
+
+            view.desabilitaTelaAlterar();
+            
+            if (view.getAutorAbaAlterar()){
+
+                view.habilitaAutorTelaAlterar();
+
+            } else if (view.getLivrosAbaAlterar()){
+
+                view.habilitaLivroTelaAlterar();
+
+            } else if (view.getEditorasAbaAlterar()){
+
+                view.habilitaEditoriaTelaAlterar();
+
+            }
+        }
+    }
+
+    public class AcaoAttDadosAntigosAlterar implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent ae){
+
+            if (view.getAutorAbaAlterar()){
+
+                view.attTextoAutorAlterar(view.pesquisaAutorAlterar());
+
+            } else if (view.getLivrosAbaAlterar()){
+
+                view.attTextoLivroAlterar(view.pesquisaLivroAlterar());
+
+            } else if (view.getEditorasAbaAlterar()){
+
+                view.attTextoEditoraAlterar(view.pesquisaEditoraAlterar());
+
+            }
+
+             
+        }
+    }
+
+    public class AcaoAlterar implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent ae){
+
+            if (view.getAutorAbaAlterar()){
+
+                if (!verificaCamposAutor()){
+                    JOptionPane.showMessageDialog(null, "Preencha todos os campos referentes ao autor", "Erro", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                model.atualizarAutor(view.getNovoNomeAutorAlterar(),
+                view.getNovoSobrenomeAutorAlterar(),
+                view.getAntigoNomeAutorAlterar(),
+                view.getAntigoSobrenomeAutorAlterar());
+
+            }else if (view.getLivrosAbaAlterar()){
+
+                if (!verificaCamposLivro()){
+                    JOptionPane.showMessageDialog(null, "Preencha todos os campos referentes ao livro", "Erro", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                model.atualizarLivro(view.getNovoTituloLivroAlterar(),
+                Float.parseFloat(view.getNovoPrecoLivroAlterar()),
+                view.getAntigoTituloLivroAlterar(),
+                Float.parseFloat(view.getAntigoPrecoLivroAlterar()));
+                
+            } else if (view.getEditorasAbaAlterar()){
+
+                if (!verificaCamposEditora()){
+                    JOptionPane.showMessageDialog(null, "Preencha todos os campos referentes a editora", "Erro", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                model.atualizarEditora(view.getNovoNomeEditoraAlterar(),
+                view.getNovaUrlEditoraAlterar(),
+                view.getAntigoNomeEditoraAlterar(),
+                view.getAntigaUrlAlterar()
+                );
+                
+
+            }
+
+             
+        }
+
+        public boolean verificaCamposAutor(){
+
+            if (view.getAntigoNomeAutorAlterar().equals("")      ||  
+                view.getAntigoSobrenomeAutorAlterar().equals("") ||
+                view.getNovoNomeAutorAlterar().equals("")        ||
+                view.getNovoSobrenomeAutorAlterar().equals(""))
+                {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        public boolean verificaCamposLivro(){
+
+            if (
+                view.getAntigoTituloLivroAlterar().equals("")    ||
+                view.getAntigoPrecoLivroAlterar().equals("")     ||
+                view.getNovoTituloLivroAlterar().equals("")      ||
+                view.getNovoPrecoLivroAlterar().equals("")
+                ){
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        public boolean verificaCamposEditora(){
+
+            if (
+                view.getAntigoNomeEditoraAlterar().equals("")    ||
+                view.getAntigaUrlAlterar().equals("")            ||
+                view.getNovoNomeEditoraAlterar().equals("")      ||
+                view.getNovaUrlEditoraAlterar().equals("")){
+                return false;
+            } else {
+                return true;
+            }
+        }
+    }
 
 }
 

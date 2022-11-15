@@ -28,6 +28,7 @@ public interface Dao {
     public void apagarLivro(String isbn);
     public void apagarAutor(String nome, String sobrenome);
     public void apagarEditora(String nome);
-    
-
+    public void atualizarAutor(String novoNome, String novoSobrenome, String antigoNome, String antigoSobrenome );
+    public void atualizarLivro(String novoTitulo, float novoPreco, String antigoTitulo, float antigoPreco);
+    public void atualizarEditora(String novoNome, String novaURL, String antigoNome, String antigaURL);
 }
