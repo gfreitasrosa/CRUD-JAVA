@@ -5,39 +5,28 @@
 package view;
 
 import java.awt.FlowLayout;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.table.AbstractTableModel;
+
+import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 import javax.xml.crypto.AlgorithmMethod;
 import java.util.List;
 
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import model.entidades.*;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
+                                        
 
 /**
  *
  * @author Admin-PC
  */
-public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
+public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     /**
      * Creates new form NewJFrame
      */
-    Boolean pesquisaBooks;
-    Boolean pesquisaAuthors;
-    Boolean pesquisaPublishers;
     DefaultTableModel modelo;
     DefaultTableModel modelo2;
     DefaultTableModel modelo3;
@@ -68,114 +57,114 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
 
         
 
-        g1 = new javax.swing.ButtonGroup();
-        janelacomabas = new javax.swing.JTabbedPane();
-        abaPesquisa = new javax.swing.JPanel();
-        tituloPesquisa = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabela_abaPesquisa = new javax.swing.JTable();
-        TxtFieldPesquisa = new javax.swing.JTextField();
-        BtnPesquisa = new javax.swing.JButton();
-        CheckBoxAutoresPesquisa = new javax.swing.JCheckBox();
-        Filtrodepesquisa_abaPesquisa = new javax.swing.JLabel();
-        CheckBoxLivrosPesquisa = new javax.swing.JCheckBox();
-        CheckBoxEditorasPesquisa = new javax.swing.JCheckBox();
-        BtnAjudaPesquisa = new javax.swing.JButton();
+        g1 = new ButtonGroup();
+        janelacomabas = new JTabbedPane();
+        abaPesquisa = new JPanel();
+        tituloPesquisa = new JLabel();
+        jScrollPane1 = new JScrollPane();
+        tabela_abaPesquisa = new JTable();
+        TxtFieldPesquisa = new JTextField();
+        BtnPesquisa = new JButton();
+        CheckBoxAutoresPesquisa = new JCheckBox();
+        Filtrodepesquisa_abaPesquisa = new JLabel();
+        CheckBoxLivrosPesquisa = new JCheckBox();
+        CheckBoxEditorasPesquisa = new JCheckBox();
+        BtnAjudaPesquisa = new JButton();
 
-        abaDeletar = new javax.swing.JPanel();
-        LblTituloDeletar = new javax.swing.JLabel();
-        caixadetexto_abaDeletar = new javax.swing.JTextField();
-        botaopesquisar_abaDeletar = new javax.swing.JButton();
-        Filtrodepesquisa_abaDeletar = new javax.swing.JLabel();
-        checkboxLivros_abaDeletar = new javax.swing.JCheckBox();
-        checkboxAutores_abaDeletar = new javax.swing.JCheckBox();
-        checkboxEditoras_abaDeletar = new javax.swing.JCheckBox();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tabela_abaDeletar = new javax.swing.JTable();
-        botaoDeletar_abaDeletar = new javax.swing.JButton();
+        abaDeletar = new JPanel();
+        LblTituloDeletar = new JLabel();
+        caixadetexto_abaDeletar = new JTextField();
+        botaopesquisar_abaDeletar = new JButton();
+        Filtrodepesquisa_abaDeletar = new JLabel();
+        checkboxLivros_abaDeletar = new JCheckBox();
+        checkboxAutores_abaDeletar = new JCheckBox();
+        checkboxEditoras_abaDeletar = new JCheckBox();
+        jScrollPane3 = new JScrollPane();
+        tabela_abaDeletar = new JTable();
+        botaoDeletar_abaDeletar = new JButton();
 
-        abaInserir = new javax.swing.JPanel();
-        titulo_abaInserir = new javax.swing.JLabel();
-        botaoAjuda_abaInserir = new javax.swing.JButton();
-        radioButton_AutorAbaInserir = new javax.swing.JRadioButton();
-        radioButton_LivrosAbaInserir = new javax.swing.JRadioButton();
-        radioButton_EditorasAbaInserir = new javax.swing.JRadioButton();
-        caixadetexto_abaInserirSobreNome = new javax.swing.JTextField();
-        caixadetexto_abaInserirNome1 = new javax.swing.JTextField();
-        labelNome_abaInserir = new javax.swing.JLabel();
-        labelSobreNome_abaInserir = new javax.swing.JLabel();
-        caixadetexto_abaInserirTitulo = new javax.swing.JTextField();
-        caixadetexto_abaInserirISBN = new javax.swing.JTextField();
-        caixadetexto_abaInserirEditora = new javax.swing.JTextField();
-        caixadetexto_abaInserirPreco = new javax.swing.JTextField();
-        labelISBN_abaInserir = new javax.swing.JLabel();
-        labelTitulo_abaInserir = new javax.swing.JLabel();
-        labelpreco_abaInserir = new javax.swing.JLabel();
-        labelNomeDaEditora_radiolivros_abaInserir = new javax.swing.JLabel();
-        botaoAutor_abainserir = new javax.swing.JButton();
-        labelAutores_abainserir = new javax.swing.JLabel();
-        labelAutoresEscolhidos_abaInserir = new javax.swing.JLabel();
-        labelNomeDaEditora_abaInserir = new javax.swing.JLabel();
-        caixadetexto_NomeDaEditora_abaInserir = new javax.swing.JTextField();
-        labelURL_abaInserir = new javax.swing.JLabel();
-        caixadetexto_URL_abaInserir = new javax.swing.JTextField();
-        labelQueMostraConfimacao_abaInserir = new javax.swing.JLabel();
-        botaoinserir_abaInserir1 = new javax.swing.JButton();
+        abaInserir = new JPanel();
+        titulo_abaInserir = new JLabel();
+        botaoAjuda_abaInserir = new JButton();
+        radioButton_AutorAbaInserir = new JRadioButton();
+        radioButton_LivrosAbaInserir = new JRadioButton();
+        radioButton_EditorasAbaInserir = new JRadioButton();
+        caixadetexto_abaInserirSobreNome = new JTextField();
+        caixadetexto_abaInserirNome1 = new JTextField();
+        labelNome_abaInserir = new JLabel();
+        labelSobreNome_abaInserir = new JLabel();
+        caixadetexto_abaInserirTitulo = new JTextField();
+        caixadetexto_abaInserirISBN = new JTextField();
+        caixadetexto_abaInserirEditora = new JTextField();
+        caixadetexto_abaInserirPreco = new JTextField();
+        labelISBN_abaInserir = new JLabel();
+        labelTitulo_abaInserir = new JLabel();
+        labelpreco_abaInserir = new JLabel();
+        labelNomeDaEditora_radiolivros_abaInserir = new JLabel();
+        botaoAutor_abainserir = new JButton();
+        labelAutores_abainserir = new JLabel();
+        labelAutoresEscolhidos_abaInserir = new JLabel();
+        labelNomeDaEditora_abaInserir = new JLabel();
+        caixadetexto_NomeDaEditora_abaInserir = new JTextField();
+        labelURL_abaInserir = new JLabel();
+        caixadetexto_URL_abaInserir = new JTextField();
+        labelQueMostraConfimacao_abaInserir = new JLabel();
+        botaoinserir_abaInserir1 = new JButton();
         
-        tabela_abaAutor = new javax.swing.JTable();
+        tabela_abaAutor = new JTable();
         botao_autor = new JButton();
 
         // OBJETOS DA ABA ALTERAR
 
-        LblDadosAntigosEditorasAlterar = new javax.swing.JLabel();
-        LblNovoDadosEditorasAlterar = new javax.swing.JLabel();
+        LblDadosAntigosEditorasAlterar = new JLabel();
+        LblNovoDadosEditorasAlterar = new JLabel();
 
-        grupo_abaALterar = new javax.swing.ButtonGroup();
+        grupo_abaALterar = new ButtonGroup();
 
-        abaAlterar = new javax.swing.JPanel();
-        titulo_abaAlterar = new javax.swing.JLabel();
-        BtnAjudaAlterar = new javax.swing.JButton();
-        BtnAcaoAlterar = new javax.swing.JButton();
+        abaAlterar = new JPanel();
+        titulo_abaAlterar = new JLabel();
+        BtnAjudaAlterar = new JButton();
+        BtnAcaoAlterar = new JButton();
 
-        botaoAutor_abaAlterar = new javax.swing.JButton();
-        LblPrimeiroNomeAlterar = new javax.swing.JLabel();
+        botaoAutor_abaAlterar = new JButton();
+        LblPrimeiroNomeAlterar = new JLabel();
         TxtFieldSobrenomeAlterar = new JLabel();
 
-        TxtFieldNomeAlterar = new javax.swing.JLabel();
-        LblNovosDadosAutoresAlterar = new javax.swing.JLabel();
-        LblDadosAntigoAutoresAlterar = new javax.swing.JLabel();
-        LblPrimeiroNomeAlterar2 = new javax.swing.JLabel();
+        TxtFieldNomeAlterar = new JLabel();
+        LblNovosDadosAutoresAlterar = new JLabel();
+        LblDadosAntigoAutoresAlterar = new JLabel();
+        LblPrimeiroNomeAlterar2 = new JLabel();
 
-        BtnLivrosAlterar = new javax.swing.JButton();
-        LblAntigoPrecoAlterar = new javax.swing.JLabel();
-        TxtFieldAntigoTituloAlterar = new javax.swing.JLabel();
+        BtnLivrosAlterar = new JButton();
+        LblAntigoPrecoAlterar = new JLabel();
+        TxtFieldAntigoTituloAlterar = new JLabel();
 
-        TxtFieldPrecoAntigoAlterar = new javax.swing.JLabel();
-        LblTituloNovoAlterar = new javax.swing.JLabel();
+        TxtFieldPrecoAntigoAlterar = new JLabel();
+        LblTituloNovoAlterar = new JLabel();
 
-        TxtFieldNovoTituloAlterar = new javax.swing.JTextField();
-        TxtFieldNovoPrecoAlterar = new javax.swing.JTextField();
-        LblNovoPrecoAlterar = new javax.swing.JLabel();
-        LblNovoTituloAlterar = new javax.swing.JLabel();
-        LblAntigaUrlAlterar = new javax.swing.JLabel();
-        BtnEditorasAlterar = new javax.swing.JButton();
-        LblAntigoNomeEditoraAlterar = new javax.swing.JLabel();
-        TxtFieldAntigaUrlAlterar = new javax.swing.JLabel();
-        TxtFieldAntigoNomeEditoraAlterar = new javax.swing.JLabel();
+        TxtFieldNovoTituloAlterar = new JTextField();
+        TxtFieldNovoPrecoAlterar = new JTextField();
+        LblNovoPrecoAlterar = new JLabel();
+        LblNovoTituloAlterar = new JLabel();
+        LblAntigaUrlAlterar = new JLabel();
+        BtnEditorasAlterar = new JButton();
+        LblAntigoNomeEditoraAlterar = new JLabel();
+        TxtFieldAntigaUrlAlterar = new JLabel();
+        TxtFieldAntigoNomeEditoraAlterar = new JLabel();
 
-        LblNovoNomeEditoraAlterar = new javax.swing.JLabel();
-        LblNovaUrlAlterar = new javax.swing.JLabel();
-        TxtFieldNovaUrlAlterar = new javax.swing.JTextField();
-        TxtFieldNovoNomeEditoraAlterar = new javax.swing.JTextField();
+        LblNovoNomeEditoraAlterar = new JLabel();
+        LblNovaUrlAlterar = new JLabel();
+        TxtFieldNovaUrlAlterar = new JTextField();
+        TxtFieldNovoNomeEditoraAlterar = new JTextField();
 
-        radioButton_AutorAbaInserir1 = new javax.swing.JRadioButton();
-        radioButton_EditorasAbaInserir1 = new javax.swing.JRadioButton();
-        radioButton_LivrosAbaInserir1 = new javax.swing.JRadioButton();
-        TxtFieldNovoNomeAlterar = new javax.swing.JTextField();
-        TxtFieldNovoSobrenomeAlterar = new javax.swing.JTextField();
+        radioButton_AutorAbaInserir1 = new JRadioButton();
+        radioButton_EditorasAbaInserir1 = new JRadioButton();
+        radioButton_LivrosAbaInserir1 = new JRadioButton();
+        TxtFieldNovoNomeAlterar = new JTextField();
+        TxtFieldNovoSobrenomeAlterar = new JTextField();
 
-        LblDadosAntigosLivrosAlterar = new javax.swing.JLabel();
-        lblNovosDadosLivrosAlterar = new javax.swing.JLabel();
+        LblDadosAntigosLivrosAlterar = new JLabel();
+        lblNovosDadosLivrosAlterar = new JLabel();
 
         tabelaAutor_abaAlterar = new JTable();
         botaoAttAutor_abaAlterar = new JButton();
@@ -189,32 +178,32 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
 
         // OBJETOS DA ABA DELETAR
 
-        grupo_abaDeletar = new javax.swing.ButtonGroup();
-        abaDeletar = new javax.swing.JPanel();
-        LblTituloDeletar = new javax.swing.JLabel();
-        BtnAjudaDeletar = new javax.swing.JButton();
-        radioButton_EditorasAbaDeletar = new javax.swing.JRadioButton();
-        LblPrimeiroNomeDeletar = new javax.swing.JLabel();
-        LblISBNDeletar = new javax.swing.JLabel();
-        LblNomeDaEditoraDeletar = new javax.swing.JLabel();
-        LblSobrenomeDeletar = new javax.swing.JLabel();
-        BtnDeletarDeletar = new javax.swing.JButton();
-        TxtFieldPrimeiroNomeAutorDeletar = new javax.swing.JTextField();
+        grupo_abaDeletar = new ButtonGroup();
+        abaDeletar = new JPanel();
+        LblTituloDeletar = new JLabel();
+        BtnAjudaDeletar = new JButton();
+        radioButton_EditorasAbaDeletar = new JRadioButton();
+        LblPrimeiroNomeDeletar = new JLabel();
+        LblISBNDeletar = new JLabel();
+        LblNomeDaEditoraDeletar = new JLabel();
+        LblSobrenomeDeletar = new JLabel();
+        BtnDeletarDeletar = new JButton();
+        TxtFieldPrimeiroNomeAutorDeletar = new JTextField();
 
-        TxtFieldISBNDeletar = new javax.swing.JTextField();
-        TxtFieldNomeDaEditoraDeletar = new javax.swing.JTextField();
-        LblConclusaoDeTarefaDeletar = new javax.swing.JLabel();
+        TxtFieldISBNDeletar = new JTextField();
+        TxtFieldNomeDaEditoraDeletar = new JTextField();
+        LblConclusaoDeTarefaDeletar = new JLabel();
 
-        radioButton_AutorDeletar = new javax.swing.JRadioButton();
-        radioButton_LivrosDeletar = new javax.swing.JRadioButton();
+        radioButton_AutorDeletar = new JRadioButton();
+        radioButton_LivrosDeletar = new JRadioButton();
     
-        TxtFieldSobrenomeAutorDeletar = new javax.swing.JTextField();
+        TxtFieldSobrenomeAutorDeletar = new JTextField();
 
 
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        janelacomabas.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.lightGray, java.awt.Color.darkGray));
+        janelacomabas.setBorder(BorderFactory.createEtchedBorder(java.awt.Color.lightGray, java.awt.Color.darkGray));
 
         abaPesquisa.setBorder(new javax.swing.border.MatteBorder(null));
 
@@ -272,58 +261,58 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
         BtnAjudaPesquisa.setText("Ajuda?");
         BtnAjudaPesquisa.setToolTipText("");
 
-        javax.swing.GroupLayout abaPesquisaLayout = new javax.swing.GroupLayout(abaPesquisa);
+        GroupLayout abaPesquisaLayout = new GroupLayout(abaPesquisa);
         abaPesquisa.setLayout(abaPesquisaLayout);
         abaPesquisaLayout.setHorizontalGroup(
-            abaPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            abaPesquisaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(abaPesquisaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(abaPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(abaPesquisaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(abaPesquisaLayout.createSequentialGroup()
-                        .addGroup(abaPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(abaPesquisaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addGroup(abaPesquisaLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(Filtrodepesquisa_abaPesquisa)
                                 .addGap(122, 122, 122)
                                 .addComponent(CheckBoxLivrosPesquisa)
                                 .addGap(122, 122, 122)
-                                //.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                //.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(CheckBoxAutoresPesquisa)
                                 .addGap(122, 122, 122)
                                 .addComponent(CheckBoxEditorasPesquisa))
                             .addComponent(TxtFieldPesquisa))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BtnPesquisa))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, GroupLayout.Alignment.TRAILING)
                     .addGroup(abaPesquisaLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(tituloPesquisa)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaPesquisaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(GroupLayout.Alignment.TRAILING, abaPesquisaLayout.createSequentialGroup()
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BtnAjudaPesquisa)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         abaPesquisaLayout.setVerticalGroup(
-            abaPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            abaPesquisaLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(abaPesquisaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(tituloPesquisa)
                 .addGap(4, 4, 4)
-                .addGroup(abaPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxtFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(abaPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(abaPesquisaLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(TxtFieldPesquisa, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnPesquisa, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(abaPesquisaLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(CheckBoxAutoresPesquisa)
                     .addComponent(Filtrodepesquisa_abaPesquisa)
                     .addComponent(CheckBoxLivrosPesquisa)
                     .addComponent(CheckBoxEditorasPesquisa))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BtnAjudaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BtnAjudaPesquisa, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -388,16 +377,16 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
        
         LblConclusaoDeTarefaDeletar.setText("");
 
-        javax.swing.GroupLayout abaDeletarLayout = new javax.swing.GroupLayout(abaDeletar);
+        GroupLayout abaDeletarLayout = new GroupLayout(abaDeletar);
         abaDeletar.setLayout(abaDeletarLayout);
         abaDeletarLayout.setHorizontalGroup(
-            abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            abaDeletarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(abaDeletarLayout.createSequentialGroup()
-                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaDeletarLayout.createSequentialGroup()
+                .addGroup(abaDeletarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(GroupLayout.Alignment.TRAILING, abaDeletarLayout.createSequentialGroup()
                         .addGap(95, 95, 95)
-                        .addComponent(LblISBNDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(LblISBNDeletar, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TxtFieldISBNDeletar)
                         .addGap(21, 21, 21))
                     .addGroup(abaDeletarLayout.createSequentialGroup()
@@ -407,72 +396,72 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(abaDeletarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(abaDeletarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(abaDeletarLayout.createSequentialGroup()
                         .addComponent(BtnAjudaDeletar)
                         .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(LblConclusaoDeTarefaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LblConclusaoDeTarefaDeletar, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BtnDeletarDeletar))
                     .addGroup(abaDeletarLayout.createSequentialGroup()
                         .addComponent(radioButton_AutorDeletar)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(abaDeletarLayout.createSequentialGroup()
-                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaDeletarLayout.createSequentialGroup()
+                .addGroup(abaDeletarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(GroupLayout.Alignment.TRAILING, abaDeletarLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(abaDeletarLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                             .addComponent(LblPrimeiroNomeDeletar)
                             .addComponent(LblSobrenomeDeletar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(abaDeletarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addComponent(TxtFieldPrimeiroNomeAutorDeletar)
                             .addComponent(TxtFieldSobrenomeAutorDeletar)))
                     .addGroup(abaDeletarLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(abaDeletarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addComponent(radioButton_EditorasAbaDeletar)
                             .addGroup(abaDeletarLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 25, GroupLayout.PREFERRED_SIZE)
                                 .addComponent(LblNomeDaEditoraDeletar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtFieldNomeDaEditoraDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtFieldNomeDaEditoraDeletar, GroupLayout.PREFERRED_SIZE, 455, GroupLayout.PREFERRED_SIZE)))))
                 .addGap(21, 21, 21))
             .addGroup(abaDeletarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LblTituloDeletar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         abaDeletarLayout.setVerticalGroup(
-            abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            abaDeletarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(abaDeletarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(LblTituloDeletar)
                 .addGap(16, 16, 16)
                 .addComponent(radioButton_AutorDeletar)
                 .addGap(18, 18, 18)
-                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(abaDeletarLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(LblPrimeiroNomeDeletar)
-                    .addComponent(TxtFieldPrimeiroNomeAutorDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtFieldPrimeiroNomeAutorDeletar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
-                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(abaDeletarLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(LblSobrenomeDeletar)
-                    .addComponent(TxtFieldSobrenomeAutorDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                    .addComponent(TxtFieldSobrenomeAutorDeletar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(radioButton_LivrosDeletar)
                 .addGap(1, 1, 1)
-                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(abaDeletarLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(LblISBNDeletar)
-                    .addComponent(TxtFieldISBNDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtFieldISBNDeletar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addComponent(radioButton_EditorasAbaDeletar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(abaDeletarLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(LblNomeDaEditoraDeletar)
-                    .addComponent(TxtFieldNomeDaEditoraDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-                .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TxtFieldNomeDaEditoraDeletar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addGroup(abaDeletarLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnAjudaDeletar)
                     .addComponent(BtnDeletarDeletar)
                     .addComponent(LblConclusaoDeTarefaDeletar))
@@ -546,11 +535,11 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
 
         TxtFieldSobrenomeAlterar.setBackground(new java.awt.Color(204, 204, 255));
         TxtFieldSobrenomeAlterar.setText("Sobrenome do autor");
-        TxtFieldSobrenomeAlterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtFieldSobrenomeAlterar.setBorder(BorderFactory.createEtchedBorder());
 
         TxtFieldNomeAlterar.setBackground(new java.awt.Color(204, 204, 255));
         TxtFieldNomeAlterar.setText("Nome do autor");
-        TxtFieldNomeAlterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtFieldNomeAlterar.setBorder(BorderFactory.createEtchedBorder());
 
         LblNovosDadosAutoresAlterar.setText("Novos Dados");
 
@@ -568,13 +557,13 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
 
         TxtFieldAntigoTituloAlterar.setBackground(new java.awt.Color(204, 204, 255));
         TxtFieldAntigoTituloAlterar.setText("Titulo do livro");
-        TxtFieldAntigoTituloAlterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtFieldAntigoTituloAlterar.setBorder(BorderFactory.createEtchedBorder());
 
         LblDadosAntigosLivrosAlterar.setText("Dados Antigos");
 
         TxtFieldPrecoAntigoAlterar.setBackground(new java.awt.Color(204, 204, 255));
         TxtFieldPrecoAntigoAlterar.setText("Preço");
-        TxtFieldPrecoAntigoAlterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtFieldPrecoAntigoAlterar.setBorder(BorderFactory.createEtchedBorder());
 
         LblTituloNovoAlterar.setText("Titulo:");
 
@@ -596,11 +585,11 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
 
         TxtFieldAntigaUrlAlterar.setBackground(new java.awt.Color(204, 204, 255));
         TxtFieldAntigaUrlAlterar.setText("URL da editora");
-        TxtFieldAntigaUrlAlterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtFieldAntigaUrlAlterar.setBorder(BorderFactory.createEtchedBorder());
 
         TxtFieldAntigoNomeEditoraAlterar.setBackground(new java.awt.Color(204, 204, 255));
         TxtFieldAntigoNomeEditoraAlterar.setText("Nome Da Editora");
-        TxtFieldAntigoNomeEditoraAlterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        TxtFieldAntigoNomeEditoraAlterar.setBorder(BorderFactory.createEtchedBorder());
 
         LblDadosAntigosEditorasAlterar.setText("Dados Antigos");
 
@@ -614,39 +603,39 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
 
         TxtFieldNovoNomeEditoraAlterar.setText("");
 
-        javax.swing.GroupLayout abaAlterarLayout = new javax.swing.GroupLayout(abaAlterar);
+        GroupLayout abaAlterarLayout = new GroupLayout(abaAlterar);
         abaAlterar.setLayout(abaAlterarLayout);
         abaAlterarLayout.setHorizontalGroup(
-            abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(abaAlterarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaAlterarLayout.createSequentialGroup()
+                .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(GroupLayout.Alignment.TRAILING, abaAlterarLayout.createSequentialGroup()
                         .addComponent(botaoAutor_abaAlterar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addGroup(abaAlterarLayout.createSequentialGroup()
                                 .addComponent(LblPrimeiroNomeAlterar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtFieldNomeAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtFieldNomeAlterar, GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE))
                             .addGroup(abaAlterarLayout.createSequentialGroup()
                                 .addComponent(LblPrimeiroNomeAlterar2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(TxtFieldNovoNomeAlterar)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxtFieldSobrenomeAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TxtFieldNovoSobrenomeAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                        .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addComponent(TxtFieldSobrenomeAlterar, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtFieldNovoSobrenomeAlterar, GroupLayout.PREFERRED_SIZE, 184, GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(21, Short.MAX_VALUE))
                     .addGroup(abaAlterarLayout.createSequentialGroup()
                         .addComponent(radioButton_LivrosAbaInserir1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LblDadosAntigosLivrosAlterar)
                         .addGap(68, 68, 68)
                         .addComponent(lblNovosDadosLivrosAlterar)
                         .addGap(145, 145, 145))
                     .addGroup(abaAlterarLayout.createSequentialGroup()
-                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addGroup(abaAlterarLayout.createSequentialGroup()
                                 .addComponent(radioButton_AutorAbaInserir1)
                                 .addGap(189, 189, 189)
@@ -656,141 +645,141 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
                                 .addComponent(LblNovosDadosAutoresAlterar))
                             .addGroup(abaAlterarLayout.createSequentialGroup()
                                 .addComponent(BtnLivrosAlterar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                     .addComponent(LblAntigoPrecoAlterar)
                                     .addComponent(LblNovoTituloAlterar))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                     .addComponent(TxtFieldPrecoAntigoAlterar)
-                                    .addComponent(TxtFieldAntigoTituloAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(TxtFieldAntigoTituloAlterar, GroupLayout.PREFERRED_SIZE, 109, GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(abaAlterarLayout.createSequentialGroup()
-                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addGroup(abaAlterarLayout.createSequentialGroup()
                                 .addComponent(radioButton_EditorasAbaInserir1)
                                 .addGap(182, 182, 182)
                                 .addComponent(LblDadosAntigosEditorasAlterar)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaAlterarLayout.createSequentialGroup()
+                            .addGroup(GroupLayout.Alignment.TRAILING, abaAlterarLayout.createSequentialGroup()
                                 .addComponent(BtnAjudaAlterar)
                                 .addGap(580, 580, 580)
                                 .addComponent(BtnAcaoAlterar))
                             .addGroup(abaAlterarLayout.createSequentialGroup()
                                 .addComponent(BtnEditorasAlterar)
                                 .addGap(18, 18, 18)
-                                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                     .addGroup(abaAlterarLayout.createSequentialGroup()
                                         .addComponent(LblNovoNomeEditoraAlterar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(TxtFieldNovoNomeEditoraAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TxtFieldNovoNomeEditoraAlterar, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(LblNovaUrlAlterar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(TxtFieldNovaUrlAlterar))
                                     .addGroup(abaAlterarLayout.createSequentialGroup()
                                         .addComponent(LblAntigoNomeEditoraAlterar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(TxtFieldAntigoNomeEditoraAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TxtFieldAntigoNomeEditoraAlterar, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(LblAntigaUrlAlterar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(TxtFieldAntigaUrlAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(TxtFieldAntigaUrlAlterar, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                         .addContainerGap())))
             .addGroup(abaAlterarLayout.createSequentialGroup()
-                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(abaAlterarLayout.createSequentialGroup()
                         .addGap(182, 182, 182)
                         .addComponent(titulo_abaAlterar))
                     .addGroup(abaAlterarLayout.createSequentialGroup()
                         .addGap(354, 354, 354)
-                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addGroup(abaAlterarLayout.createSequentialGroup()
                                 .addComponent(LblTituloNovoAlterar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtFieldNovoTituloAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtFieldNovoTituloAlterar, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE))
                             .addGroup(abaAlterarLayout.createSequentialGroup()
                                 .addComponent(LblNovoPrecoAlterar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtFieldNovoPrecoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TxtFieldNovoPrecoAlterar, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE))))
                     .addGroup(abaAlterarLayout.createSequentialGroup()
                         .addGap(257, 257, 257)
                         .addComponent(LblNovoDadosEditorasAlterar)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         abaAlterarLayout.setVerticalGroup(
-            abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(abaAlterarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titulo_abaAlterar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                     .addComponent(LblDadosAntigoAutoresAlterar)
                     .addComponent(radioButton_AutorAbaInserir1))
                 .addGap(9, 9, 9)
-                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoAutor_abaAlterar)
                     .addComponent(LblPrimeiroNomeAlterar)
                     .addComponent(TxtFieldNomeAlterar)
                     .addComponent(TxtFieldSobrenomeAlterar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(LblNovosDadosAutoresAlterar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(LblPrimeiroNomeAlterar2)
-                    .addComponent(TxtFieldNovoNomeAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtFieldNovoSobrenomeAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TxtFieldNovoNomeAlterar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtFieldNovoSobrenomeAlterar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(radioButton_LivrosAbaInserir1)
                     .addComponent(LblDadosAntigosLivrosAlterar)
                     .addComponent(lblNovosDadosLivrosAlterar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(abaAlterarLayout.createSequentialGroup()
-                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(BtnLivrosAlterar)
                             .addComponent(TxtFieldAntigoTituloAlterar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(TxtFieldPrecoAntigoAlterar)
                             .addComponent(LblAntigoPrecoAlterar)))
                     .addComponent(LblNovoTituloAlterar)
                     .addGroup(abaAlterarLayout.createSequentialGroup()
-                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(LblTituloNovoAlterar)
-                            .addComponent(TxtFieldNovoTituloAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TxtFieldNovoTituloAlterar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(LblNovoPrecoAlterar)
-                            .addComponent(TxtFieldNovoPrecoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TxtFieldNovoPrecoAlterar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(radioButton_EditorasAbaInserir1)
                     .addComponent(LblDadosAntigosEditorasAlterar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnEditorasAlterar)
                     .addComponent(LblAntigoNomeEditoraAlterar)
                     .addComponent(TxtFieldAntigoNomeEditoraAlterar)
                     .addComponent(LblAntigaUrlAlterar)
                     .addComponent(TxtFieldAntigaUrlAlterar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LblNovoDadosEditorasAlterar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(LblNovoNomeEditoraAlterar)
                     .addComponent(LblNovaUrlAlterar)
-                    .addComponent(TxtFieldNovaUrlAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxtFieldNovoNomeEditoraAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TxtFieldNovaUrlAlterar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TxtFieldNovoNomeEditoraAlterar, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(abaAlterarLayout.createSequentialGroup()
                         .addGap(56, 56, 56)
-                        .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(abaAlterarLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(BtnAcaoAlterar)
                             .addComponent(BtnAjudaAlterar)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaAlterarLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(GroupLayout.Alignment.TRAILING, abaAlterarLayout.createSequentialGroup()
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                 .addContainerGap())
         )));
 
@@ -879,52 +868,52 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
         botaoinserir_abaInserir1.setText("Inserir");
         botaoinserir_abaInserir1.setToolTipText("");
 
-        javax.swing.GroupLayout abaInserirLayout = new javax.swing.GroupLayout(abaInserir);
+        GroupLayout abaInserirLayout = new GroupLayout(abaInserir);
         abaInserir.setLayout(abaInserirLayout);
         abaInserirLayout.setHorizontalGroup(
-            abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            abaInserirLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(abaInserirLayout.createSequentialGroup()
-                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(abaInserirLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
                     .addGroup(abaInserirLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(abaInserirLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addGroup(abaInserirLayout.createSequentialGroup()
                                 .addGap(23, 23, 23)
-                                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(labelAutoresEscolhidos_abaInserir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(abaInserirLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(labelAutoresEscolhidos_abaInserir, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(abaInserirLayout.createSequentialGroup()
-                                        .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(abaInserirLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                             .addGroup(abaInserirLayout.createSequentialGroup()
-                                                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(botaoAutor_abainserir, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(abaInserirLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                                    .addComponent(botaoAutor_abainserir, GroupLayout.PREFERRED_SIZE, 157, GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(labelAutores_abainserir))
                                                 .addGap(18, 18, 18)
-                                                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(abaInserirLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                                                     .addGroup(abaInserirLayout.createSequentialGroup()
                                                         .addComponent(labelNomeDaEditora_radiolivros_abaInserir)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                                         .addComponent(caixadetexto_abaInserirEditora))
                                                     .addGroup(abaInserirLayout.createSequentialGroup()
                                                         .addComponent(labelTitulo_abaInserir)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(caixadetexto_abaInserirTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(caixadetexto_abaInserirTitulo, GroupLayout.PREFERRED_SIZE, 141, GroupLayout.PREFERRED_SIZE)))
                                                 .addGap(21, 21, 21)
-                                                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addGroup(abaInserirLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                                                     .addComponent(labelpreco_abaInserir)
                                                     .addComponent(labelISBN_abaInserir))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(abaInserirLayout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
                                                     .addComponent(caixadetexto_abaInserirISBN)
-                                                    .addComponent(caixadetexto_abaInserirPreco, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)))
+                                                    .addComponent(caixadetexto_abaInserirPreco, GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)))
                                             .addGroup(abaInserirLayout.createSequentialGroup()
                                                 .addGap(0, 0, Short.MAX_VALUE)
                                                 .addComponent(labelNome_abaInserir)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(caixadetexto_abaInserirNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(caixadetexto_abaInserirNome1, GroupLayout.PREFERRED_SIZE, 194, GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(labelSobreNome_abaInserir)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(caixadetexto_abaInserirSobreNome, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(caixadetexto_abaInserirSobreNome, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)))
                                         .addGap(2, 2, 2))))
                             .addComponent(radioButton_AutorAbaInserir)
                             .addComponent(radioButton_EditorasAbaInserir)
@@ -935,68 +924,68 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
                             .addGroup(abaInserirLayout.createSequentialGroup()
                                 .addComponent(botaoAjuda_abaInserir)
                                 .addGap(18, 18, 18)
-                                .addComponent(labelQueMostraConfimacao_abaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelQueMostraConfimacao_abaInserir, GroupLayout.PREFERRED_SIZE, 343, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(botaoinserir_abaInserir1))))
                     .addGroup(abaInserirLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(labelNomeDaEditora_abaInserir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(caixadetexto_NomeDaEditora_abaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(caixadetexto_NomeDaEditora_abaInserir, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelURL_abaInserir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(caixadetexto_URL_abaInserir)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         abaInserirLayout.setVerticalGroup(
-            abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            abaInserirLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(abaInserirLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(titulo_abaInserir)
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(radioButton_AutorAbaInserir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(abaInserirLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNome_abaInserir)
-                    .addComponent(caixadetexto_abaInserirNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(caixadetexto_abaInserirNome1, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelSobreNome_abaInserir)
-                    .addComponent(caixadetexto_abaInserirSobreNome, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(caixadetexto_abaInserirSobreNome, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addComponent(radioButton_LivrosAbaInserir)
-                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(abaInserirLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(abaInserirLayout.createSequentialGroup()
                         .addGap(4, 4, 4)
-                        .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(caixadetexto_abaInserirTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(caixadetexto_abaInserirISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(abaInserirLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addComponent(caixadetexto_abaInserirTitulo, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(caixadetexto_abaInserirISBN, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelISBN_abaInserir)
                             .addComponent(labelTitulo_abaInserir))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(abaInserirLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(labelNomeDaEditora_radiolivros_abaInserir)
-                            .addComponent(caixadetexto_abaInserirPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(caixadetexto_abaInserirPreco, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelpreco_abaInserir)
-                            .addComponent(caixadetexto_abaInserirEditora, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(caixadetexto_abaInserirEditora, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26))
                     .addGroup(abaInserirLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(botaoAutor_abainserir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(labelAutores_abainserir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(labelAutoresEscolhidos_abaInserir)
                 .addGap(29, 29, 29)
                 .addComponent(radioButton_EditorasAbaInserir)
                 .addGap(18, 18, 18)
-                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(abaInserirLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(labelNomeDaEditora_abaInserir)
-                    .addComponent(caixadetexto_NomeDaEditora_abaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(caixadetexto_NomeDaEditora_abaInserir, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelURL_abaInserir)
-                    .addComponent(caixadetexto_URL_abaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(caixadetexto_URL_abaInserir, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
-                .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelQueMostraConfimacao_abaInserir, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(abaInserirLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelQueMostraConfimacao_abaInserir, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoinserir_abaInserir1)
                     .addComponent(botaoAjuda_abaInserir))
                 .addContainerGap(9, Short.MAX_VALUE))
@@ -1004,17 +993,17 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
 
         janelacomabas.addTab("Inserir", abaInserir);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(janelacomabas)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(janelacomabas)
@@ -1167,8 +1156,9 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
         JOptionPane.showMessageDialog(null, infos, "Como deletar:", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    // MÉTODOS DA JANELA INSERIR
-
+    //*****************************
+    //* MÉTODOS DA JANELA INSERIR *
+    //*****************************
 
     public void camposInsLivros(ActionListener al){
 
@@ -1380,7 +1370,9 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
         this.botao_autor.addActionListener(al);
     } 
 
-    // MÉTODOS JANELA ALTERAR
+    //**************************
+    //* MÉTODOS JANELA ALTERAR *
+    //**************************
 
     public void pesquisaAutorAlterar(ActionListener al){
         this.botaoAutor_abaAlterar.addActionListener(al);
@@ -1751,63 +1743,43 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
         this.BtnAcaoAlterar.addActionListener(al);
     }
 
-    
+    //***************************
+    //* MÉTODOS JANELA PESQUISA *
+    //***************************
 
-
-    
-   
-
-
-    // MÉTODOS JANELA PESQUISA
-
-    
-
-    public void limpaTabelaInserir(){
+    public void limpaTabelaInserir(){ // LIMPA A JTABLE DA TELA INSERIR
         modelo2.setRowCount(0);
     }
 
-    public void realizarPesquisa(ActionListener al){
+    public void realizarPesquisa(ActionListener al){ // BOTÃO DE PESQUISA
         this.BtnPesquisa.addActionListener(al);
     }
 
-    public void habilita(){
-        this.TxtFieldPesquisa.setVisible(false);
-    }
-   
-    public void informacoes(ActionListener al){
+    public void informacoes(ActionListener al){ // BOTÃO DE AJUDA
         this.BtnAjudaPesquisa.addActionListener(al);
-    }
-    
-    public void setOpcao(){
-
-        this.pesquisaAuthors = CheckBoxAutoresPesquisa.isSelected();
-        this.pesquisaBooks = CheckBoxLivrosPesquisa.isSelected();
-        this.pesquisaPublishers = CheckBoxEditorasPesquisa.isSelected();
-
-    }
-
-   
-    
+    } 
      
-    public Boolean getOpcaoLivro(){
-        return this.pesquisaBooks;
+    public Boolean getOpcaoLivro(){ // RETORNA SE O USUÁRIO CLICOU NA CHECKBOX LIVRO
+        return this.CheckBoxLivrosPesquisa.isSelected();
     }
 
-    public Boolean getOpcaoAutor(){
-        return this.pesquisaAuthors;
+    public Boolean getOpcaoAutor(){ // RETORNA SE O USUÁRIO CLICOU NA CHECKBOX AUTOR
+        return this.CheckBoxAutoresPesquisa.isSelected();
     }
 
-    public Boolean getOpcaoEditora(){
-        return this.pesquisaPublishers;
+    public Boolean getOpcaoEditora(){ // RETORNA SE O USUÁRIO CLICOU NA CHECKBOX EDITORA
+        return this.CheckBoxEditorasPesquisa.isSelected();
     }
 
-    public String getTexto(){
+    public String getTexto(){ // RETORNA O TEXTO DO CAMPO DE PESQUISA
         return this.TxtFieldPesquisa.getText();
     }
 
-    public void limpaTabelaPesquisa(){
+    public void limpaTabelaPesquisa(){ // LIMPA A JTABLE DA TELA DE PESQUISA
         modelo.setRowCount(0);
     }
+
+    // MÉTODOS QUE ATUALIZAM A JTABLE DA TELA DE PESQUISA
 
     public void atualizaTabelaAutor(int contador, Autores autor){
 
@@ -1860,144 +1832,142 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
 
     }
     
-    public void mensagemErro(){
-        JOptionPane.showMessageDialog(null, "TESTE", "Erro ", JOptionPane.INFORMATION_MESSAGE);
-    }
+    // FIM DOS MÉTODOS QUE ATUALIZAM A JTABLE DA TELA PESQUISA
 
-    public void mensagemAjudaPesquisa(){
+    public void mensagemAjudaPesquisa(){ // MENSAGEM POP-UP DO BOTÃO AJUDA
 
         String[] infos = {"Nas checkboxs escolha os campos que deseja pesquisar.", "Autores: Pesquisas feitas no sobrenome", "Livros: Pesquisas feitas pelo título.", "Editoras: Pesquisas feitas pelo nome."};
         JOptionPane.showMessageDialog(null, infos, "Como realizar as pesquisas:", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    private javax.swing.ButtonGroup g1;
-    private javax.swing.JLabel Filtrodepesquisa_abaAlterar;
-    private javax.swing.JLabel Filtrodepesquisa_abaDeletar;
-    private javax.swing.JLabel Filtrodepesquisa_abaInserir;
-    private javax.swing.JLabel Filtrodepesquisa_abaPesquisa;
-    private javax.swing.JPanel abaInserir;
-    private javax.swing.JPanel abaPesquisa;
-    private javax.swing.JButton botaoAlterar_abaAlterar;
-    private javax.swing.JButton botaoDeletar_abaDeletar;
-    private javax.swing.JButton botaoinserir_abaInserir;
-    private javax.swing.JButton botaopesquisar_abaAlterar;
-    private javax.swing.JButton botaopesquisar_abaDeletar;
-    private javax.swing.JButton botaopesquisar_abaInserir;
-    private javax.swing.JButton BtnPesquisa;    
-    private javax.swing.JButton BtnAjudaPesquisa;
-    private javax.swing.JLabel TxtFieldSobrenomeAlterar;
-    private javax.swing.JTextField caixadetexto_abaDeletar;
-    private javax.swing.JTextField caixadetexto_abaInserir;
-    private javax.swing.JTextField TxtFieldPesquisa;
-    private javax.swing.JCheckBox checkboxAutores_abaAlterar;
-    private javax.swing.JCheckBox checkboxAutores_abaDeletar;
-    private javax.swing.JCheckBox checkboxAutores_abaInserir;
-    private javax.swing.JCheckBox CheckBoxAutoresPesquisa;
-    private javax.swing.JCheckBox checkboxEditoras_abaAlterar;
-    private javax.swing.JCheckBox checkboxEditoras_abaDeletar;
-    private javax.swing.JCheckBox checkboxEditoras_abaInserir;
-    private javax.swing.JCheckBox CheckBoxEditorasPesquisa;
-    private javax.swing.JCheckBox checkboxLivros_abaAlterar;
-    private javax.swing.JCheckBox checkboxLivros_abaDeletar;
-    private javax.swing.JCheckBox CheckBoxLivrosPesquisa;
-    private javax.swing.JCheckBox checkboxLivros_abainserir;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTabbedPane janelacomabas;
-    private javax.swing.JTable tabela_abaAlterar;
-    private javax.swing.JTable tabela_abaDeletar;
-    private javax.swing.JTable tabela_abaInserir;
-    private javax.swing.JTable tabela_abaPesquisa;
-    private javax.swing.JLabel tituloPesquisa;
-    private javax.swing.JLabel titulo_abaInserir;
+    private ButtonGroup g1;
+    private JLabel Filtrodepesquisa_abaAlterar;
+    private JLabel Filtrodepesquisa_abaDeletar;
+    private JLabel Filtrodepesquisa_abaInserir;
+    private JLabel Filtrodepesquisa_abaPesquisa;
+    private JPanel abaInserir;
+    private JPanel abaPesquisa;
+    private JButton botaoAlterar_abaAlterar;
+    private JButton botaoDeletar_abaDeletar;
+    private JButton botaoinserir_abaInserir;
+    private JButton botaopesquisar_abaAlterar;
+    private JButton botaopesquisar_abaDeletar;
+    private JButton botaopesquisar_abaInserir;
+    private JButton BtnPesquisa;    
+    private JButton BtnAjudaPesquisa;
+    private JLabel TxtFieldSobrenomeAlterar;
+    private JTextField caixadetexto_abaDeletar;
+    private JTextField caixadetexto_abaInserir;
+    private JTextField TxtFieldPesquisa;
+    private JCheckBox checkboxAutores_abaAlterar;
+    private JCheckBox checkboxAutores_abaDeletar;
+    private JCheckBox checkboxAutores_abaInserir;
+    private JCheckBox CheckBoxAutoresPesquisa;
+    private JCheckBox checkboxEditoras_abaAlterar;
+    private JCheckBox checkboxEditoras_abaDeletar;
+    private JCheckBox checkboxEditoras_abaInserir;
+    private JCheckBox CheckBoxEditorasPesquisa;
+    private JCheckBox checkboxLivros_abaAlterar;
+    private JCheckBox checkboxLivros_abaDeletar;
+    private JCheckBox CheckBoxLivrosPesquisa;
+    private JCheckBox checkboxLivros_abainserir;
+    private JScrollPane jScrollPane1;
+    private JScrollPane jScrollPane2;
+    private JScrollPane jScrollPane3;
+    private JScrollPane jScrollPane4;
+    private JTabbedPane janelacomabas;
+    private JTable tabela_abaAlterar;
+    private JTable tabela_abaDeletar;
+    private JTable tabela_abaInserir;
+    private JTable tabela_abaPesquisa;
+    private JLabel tituloPesquisa;
+    private JLabel titulo_abaInserir;
 
     // VARIAVEIS ABA INSERIR
 
-    private javax.swing.JButton botaoinserir_abaInserir1;
-    private javax.swing.JButton botaoAutor_abainserir;
-    private javax.swing.JButton botaoAjuda_abaInserir;
+    private JButton botaoinserir_abaInserir1;
+    private JButton botaoAutor_abainserir;
+    private JButton botaoAjuda_abaInserir;
 
     private JDialog popUp;
 
-    private javax.swing.JTextField caixadetexto_NomeDaEditora_abaInserir;
-    private javax.swing.JTextField caixadetexto_URL_abaInserir;
+    private JTextField caixadetexto_NomeDaEditora_abaInserir;
+    private JTextField caixadetexto_URL_abaInserir;
 
-    private javax.swing.JTextField caixadetexto_abaInserirEditora;
-    private javax.swing.JTextField caixadetexto_abaInserirISBN;
-    private javax.swing.JTextField caixadetexto_abaInserirNome1;
-    private javax.swing.JTextField caixadetexto_abaInserirPreco;
-    private javax.swing.JTextField caixadetexto_abaInserirSobreNome;
-    private javax.swing.JTextField caixadetexto_abaInserirTitulo;
+    private JTextField caixadetexto_abaInserirEditora;
+    private JTextField caixadetexto_abaInserirISBN;
+    private JTextField caixadetexto_abaInserirNome1;
+    private JTextField caixadetexto_abaInserirPreco;
+    private JTextField caixadetexto_abaInserirSobreNome;
+    private JTextField caixadetexto_abaInserirTitulo;
 
-    private javax.swing.JLabel labelAutoresEscolhidos_abaInserir;
-    private javax.swing.JLabel labelAutores_abainserir;
-    private javax.swing.JLabel labelISBN_abaInserir;
-    private javax.swing.JLabel labelNomeDaEditora_abaInserir;
-    private javax.swing.JLabel labelNomeDaEditora_radiolivros_abaInserir;
-    private javax.swing.JLabel labelNome_abaInserir;
-    private javax.swing.JLabel labelQueMostraConfimacao_abaInserir;
-    private javax.swing.JLabel labelSobreNome_abaInserir;
-    private javax.swing.JLabel labelTitulo_abaInserir;
-    private javax.swing.JLabel labelURL_abaInserir;
-    private javax.swing.JLabel labelpreco_abaInserir;
-    private javax.swing.JRadioButton radioButton_AutorAbaInserir;
-    private javax.swing.JRadioButton radioButton_EditorasAbaInserir;
-    private javax.swing.JRadioButton radioButton_LivrosAbaInserir;
+    private JLabel labelAutoresEscolhidos_abaInserir;
+    private JLabel labelAutores_abainserir;
+    private JLabel labelISBN_abaInserir;
+    private JLabel labelNomeDaEditora_abaInserir;
+    private JLabel labelNomeDaEditora_radiolivros_abaInserir;
+    private JLabel labelNome_abaInserir;
+    private JLabel labelQueMostraConfimacao_abaInserir;
+    private JLabel labelSobreNome_abaInserir;
+    private JLabel labelTitulo_abaInserir;
+    private JLabel labelURL_abaInserir;
+    private JLabel labelpreco_abaInserir;
+    private JRadioButton radioButton_AutorAbaInserir;
+    private JRadioButton radioButton_EditorasAbaInserir;
+    private JRadioButton radioButton_LivrosAbaInserir;
 
     private JTable tabela_abaAutor ;
     private JButton botao_autor;
 
     // VARIÁVEIS DA ABA ALTERAR
 
-    private javax.swing.ButtonGroup grupo_abaALterar;
+    private ButtonGroup grupo_abaALterar;
 
-    private javax.swing.JLabel LblPrimeiroNomeAlterar2;
-    private javax.swing.JPanel abaAlterar;
+    private JLabel LblPrimeiroNomeAlterar2;
+    private JPanel abaAlterar;
 
-    private javax.swing.JButton BtnAjudaAlterar;
-    private javax.swing.JButton BtnAcaoAlterar;
-    private javax.swing.JButton botaoAutor_abaAlterar;
-    private javax.swing.JButton BtnEditorasAlterar;
-    private javax.swing.JButton BtnLivrosAlterar;
+    private JButton BtnAjudaAlterar;
+    private JButton BtnAcaoAlterar;
+    private JButton botaoAutor_abaAlterar;
+    private JButton BtnEditorasAlterar;
+    private JButton BtnLivrosAlterar;
     
-    private javax.swing.JTextField TxtFieldNovaUrlAlterar;
-    private javax.swing.JTextField TxtFieldNovoNomeEditoraAlterar;
+    private JTextField TxtFieldNovaUrlAlterar;
+    private JTextField TxtFieldNovoNomeEditoraAlterar;
 
-    private javax.swing.JTextField TxtFieldNovoTituloAlterar;
-    private javax.swing.JTextField TxtFieldNovoPrecoAlterar;
+    private JTextField TxtFieldNovoTituloAlterar;
+    private JTextField TxtFieldNovoPrecoAlterar;
 
-    private javax.swing.JLabel TxtFieldAntigaUrlAlterar;
+    private JLabel TxtFieldAntigaUrlAlterar;
     
-    private javax.swing.JLabel LblNovosDadosAutoresAlterar;
-    private javax.swing.JLabel TxtFieldAntigoNomeEditoraAlterar;
-    private javax.swing.JLabel LblNovoNomeEditoraAlterar;
-    private javax.swing.JLabel LblAntigoNomeEditoraAlterar;
-    private javax.swing.JLabel LblAntigoPrecoAlterar;
-    private javax.swing.JLabel TxtFieldPrecoAntigoAlterar;
-    private javax.swing.JLabel TxtFieldNomeAlterar;
-    private javax.swing.JLabel LblNovoTituloAlterar;
-    private javax.swing.JLabel LblNovaUrlAlterar;
-    private javax.swing.JLabel LblAntigaUrlAlterar;
-    private javax.swing.JLabel LblTituloNovoAlterar;
-    private javax.swing.JLabel TxtFieldAntigoTituloAlterar;
-    private javax.swing.JLabel LblDadosAntigoAutoresAlterar;
-    private javax.swing.JLabel LblNovoPrecoAlterar;
-    private javax.swing.JLabel LblPrimeiroNomeAlterar;
-    private javax.swing.JLabel titulo_abaAlterar;
+    private JLabel LblNovosDadosAutoresAlterar;
+    private JLabel TxtFieldAntigoNomeEditoraAlterar;
+    private JLabel LblNovoNomeEditoraAlterar;
+    private JLabel LblAntigoNomeEditoraAlterar;
+    private JLabel LblAntigoPrecoAlterar;
+    private JLabel TxtFieldPrecoAntigoAlterar;
+    private JLabel TxtFieldNomeAlterar;
+    private JLabel LblNovoTituloAlterar;
+    private JLabel LblNovaUrlAlterar;
+    private JLabel LblAntigaUrlAlterar;
+    private JLabel LblTituloNovoAlterar;
+    private JLabel TxtFieldAntigoTituloAlterar;
+    private JLabel LblDadosAntigoAutoresAlterar;
+    private JLabel LblNovoPrecoAlterar;
+    private JLabel LblPrimeiroNomeAlterar;
+    private JLabel titulo_abaAlterar;
 
-    private javax.swing.JLabel lblNovosDadosLivrosAlterar;
-    private javax.swing.JLabel LblDadosAntigosEditorasAlterar;
-    private javax.swing.JLabel LblNovoDadosEditorasAlterar;
-    private javax.swing.JLabel LblDadosAntigosLivrosAlterar;
+    private JLabel lblNovosDadosLivrosAlterar;
+    private JLabel LblDadosAntigosEditorasAlterar;
+    private JLabel LblNovoDadosEditorasAlterar;
+    private JLabel LblDadosAntigosLivrosAlterar;
 
-    private javax.swing.JRadioButton radioButton_AutorAbaInserir1;
-    private javax.swing.JRadioButton radioButton_EditorasAbaInserir1;
-    private javax.swing.JRadioButton radioButton_LivrosAbaInserir1;
+    private JRadioButton radioButton_AutorAbaInserir1;
+    private JRadioButton radioButton_EditorasAbaInserir1;
+    private JRadioButton radioButton_LivrosAbaInserir1;
 
-    private javax.swing.JTextField TxtFieldNovoNomeAlterar;
-    private javax.swing.JTextField TxtFieldNovoSobrenomeAlterar;
+    private JTextField TxtFieldNovoNomeAlterar;
+    private JTextField TxtFieldNovoSobrenomeAlterar;
 
     private JTable tabelaAutor_abaAlterar;
     private JButton botaoAttAutor_abaAlterar;
@@ -2010,27 +1980,27 @@ public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
 
     // VARIÁVEIS DA ABA DELETAR
 
-    private javax.swing.ButtonGroup grupo_abaDeletar;
-    private javax.swing.JPanel abaDeletar;
+    private ButtonGroup grupo_abaDeletar;
+    private JPanel abaDeletar;
 
-    private javax.swing.JRadioButton radioButton_AutorDeletar;
-    private javax.swing.JRadioButton radioButton_EditorasAbaDeletar;
-    private javax.swing.JRadioButton radioButton_LivrosDeletar;
+    private JRadioButton radioButton_AutorDeletar;
+    private JRadioButton radioButton_EditorasAbaDeletar;
+    private JRadioButton radioButton_LivrosDeletar;
 
-    private javax.swing.JTextField TxtFieldISBNDeletar;
-    private javax.swing.JTextField TxtFieldNomeDaEditoraDeletar;
-    private javax.swing.JTextField TxtFieldPrimeiroNomeAutorDeletar;
-    private javax.swing.JTextField TxtFieldSobrenomeAutorDeletar;
+    private JTextField TxtFieldISBNDeletar;
+    private JTextField TxtFieldNomeDaEditoraDeletar;
+    private JTextField TxtFieldPrimeiroNomeAutorDeletar;
+    private JTextField TxtFieldSobrenomeAutorDeletar;
 
-    private javax.swing.JButton BtnAjudaDeletar;
-    private javax.swing.JButton BtnDeletarDeletar;
+    private JButton BtnAjudaDeletar;
+    private JButton BtnDeletarDeletar;
 
-    private javax.swing.JLabel LblConclusaoDeTarefaDeletar;
-    private javax.swing.JLabel LblISBNDeletar;
-    private javax.swing.JLabel LblPrimeiroNomeDeletar;
-    private javax.swing.JLabel LblNomeDaEditoraDeletar;
-    private javax.swing.JLabel LblSobrenomeDeletar;
-    private javax.swing.JLabel LblTituloDeletar;
+    private JLabel LblConclusaoDeTarefaDeletar;
+    private JLabel LblISBNDeletar;
+    private JLabel LblPrimeiroNomeDeletar;
+    private JLabel LblNomeDaEditoraDeletar;
+    private JLabel LblSobrenomeDeletar;
+    private JLabel LblTituloDeletar;
 
 
 

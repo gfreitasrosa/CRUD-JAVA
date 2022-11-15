@@ -31,23 +31,31 @@ public class Controller {
 
     public void init(){
 
+        // ABA PESQUISA
+
         this.view.realizarPesquisa(new AcaoPesquisa());
         this.view.informacoes(new AcaoInformacaoPesquisa());
   
-        this.view.addAutorInserir(new AcaoAddAutor());
-        this.view.attAutor(new AcaoAttAutorInserir());
+        // ABA DELETAR
         
-
         this.view.deletar(new AcaoDeletar());
         this.view.habilitarTelasDeletar(new AcaoHabilitarTelaDeletar());
         this.view.ajudaDeletar(new AcaoInformacaoDeletar());
 
+        // ABA INSERIR
+
+        this.view.addAutorInserir(new AcaoAddAutor());
+        this.view.attAutor(new AcaoAttAutorInserir());
+
         this.view.camposInsAutores(new AcaoHabilitarTelaInserir());
         this.view.camposInsEditoras(new AcaoHabilitarTelaInserir());
         this.view.camposInsLivros(new AcaoHabilitarTelaInserir());
+
         this.view.Inserir(new AcaoInsertAutores());
         this.view.Inserir(new AcaoInsertEditoras());
         this.view.Inserir(new AcaoinsertLivros());
+
+        // ABA ALTERAR
 
         this.view.pesquisaAutorAlterar(new AcaoPesquisaAlterar());
         this.view.pesquisaEditoraAlterar(new AcaoPesquisaAlterar());
@@ -70,96 +78,67 @@ public class Controller {
         
         @Override
         public void actionPerformed(ActionEvent ae){
-          view.setOpcao();
 
           contador = 0;
           view.limpaTabelaPesquisa();
 
+            // VERIFICA A ESCOLHA DO USUÁRIO NAS CHECKBOX
             if (view.getOpcaoAutor() && view.getOpcaoEditora() && view.getOpcaoLivro()){
-
-                if(view.getTexto() != ""){
-                    if (model.buscarTudo(view.getTexto()).isEmpty()){
-                        for (RelTudo relacao: model.listarTudo()){
-                            contador ++;
-                            view.atualizaTabelaRelGeral(contador, relacao);
-
-                        }
-                    } else{
-                        for (RelTudo valores: model.buscarTudo(view.getTexto())){
-                            contador ++;
-                            view.atualizaTabelaRelGeral(contador, valores);
-                        }
+                // VERIFICA O USUÁRIO ESCREVEU ALGO
+                if (model.buscarTudo(view.getTexto()).isEmpty()){
+                    // CASO SIM, EXECUTA O MÉTODO DE LISTAR TUDO
+                    for (RelTudo relacao: model.listarTudo()){
+                        contador ++;
+                        view.atualizaTabelaRelGeral(contador, relacao);
+                    }
+                } else{
+                    // CASO NÃO, EXECUTA O MÉTODO UTILIZANDO A CLAUSULA 'WHERE' NO BD
+                    for (RelTudo valores: model.buscarTudo(view.getTexto())){
+                        contador ++;
+                        view.atualizaTabelaRelGeral(contador, valores);
                     }
                 }
-
-                return;
-
             } else if (view.getOpcaoAutor() && view.getOpcaoLivro()){
-
-                if(view.getTexto() != ""){
-                    if (model.buscarRelLivroAutor(view.getTexto()).isEmpty()){
-                        for (RelLivrosAutores relacao: model.buscarRelLivroAutor(view.getTexto())){
-                            contador ++;
-           
-                            view.atualizaRelLivroAutor(contador, relacao);
-    
-                        }
-                    } else{
-                        for (RelLivrosAutores relacao: model.buscarRelLivroAutor(view.getTexto())){
-                            contador ++;
-                            view.atualizaRelLivroAutor(contador, relacao);
-    
-    
-                        }
+                if (model.buscarRelLivroAutor(view.getTexto()).isEmpty()){
+                    for (RelLivrosAutores relacao: model.buscarRelLivroAutor(view.getTexto())){
+                        contador ++;
+                        view.atualizaRelLivroAutor(contador, relacao);
                     }
-                }
-                
+                } else{
+                    for (RelLivrosAutores relacao: model.buscarRelLivroAutor(view.getTexto())){
+                        contador ++;
+                        view.atualizaRelLivroAutor(contador, relacao);
+                    }
+                }  
             } else if (view.getOpcaoEditora() && view.getOpcaoLivro()){
-
-                if(view.getTexto() != ""){
-                    if (model.buscarLivroSelecionado(view.getTexto()).isEmpty()){
-                        for (RelLivrosEditoras relacao: model.buscarRelLivroEditora(view.getTexto())){
-                            contador ++;
-                            view.atualizaRelLivroEditora(contador, relacao);
-                           // view.atualizaTabelaEditora(contador, relacao);
-                            //  CRIAR O MÉTODO PARA ATUALIZAR A VIEW
-
-                        }
-                    } else{
-                        for (RelLivrosEditoras relacao: model.buscarRelLivroEditora(view.getTexto())){
-                            contador ++;
-                            view.atualizaRelLivroEditora(contador, relacao);
-
-
-                        }
+                if (model.buscarLivroSelecionado(view.getTexto()).isEmpty()){
+                    for (RelLivrosEditoras relacao: model.buscarRelLivroEditora(view.getTexto())){
+                        contador ++;
+                        view.atualizaRelLivroEditora(contador, relacao);
+                    }
+                } else{
+                    for (RelLivrosEditoras relacao: model.buscarRelLivroEditora(view.getTexto())){
+                        contador ++;
+                        view.atualizaRelLivroEditora(contador, relacao);
                     }
                 }
-            
             } else if (view.getOpcaoEditora() && view.getOpcaoAutor()){
 
                 JOptionPane.showMessageDialog(null, "A relação de pesquisa Autores e Editoras não existe!", "Erro", JOptionPane.ERROR_MESSAGE);
 
             } else if (view.getOpcaoAutor()){
 
-                if(view.getTexto() != ""){
-                    if (model.buscarAutorSelecionado(view.getTexto()).isEmpty()){
-                        for (Autores autor: model.listarTodosAutores()){
-                            contador ++;
-                            view.atualizaTabelaAutor(contador, autor);
-
-                        }
-                    } else{
-                        for (Autores autor: model.buscarAutorSelecionado(view.getTexto())){
-                            contador ++;
-                            view.atualizaTabelaAutor(contador, autor);
-
-                            
-
-
-                        }
+                if (model.buscarAutorSelecionado(view.getTexto()).isEmpty()){
+                    for (Autores autor: model.listarTodosAutores()){
+                        contador ++;
+                    view.atualizaTabelaAutor(contador, autor);
                     }
-                }
-            
+                } else{
+                    for (Autores autor: model.buscarAutorSelecionado(view.getTexto())){
+                        contador ++;
+                        view.atualizaTabelaAutor(contador, autor);
+                    }
+                }  
             } else if (view.getOpcaoLivro()){
                 if (model.buscarLivroSelecionado(view.getTexto()).isEmpty()){
                     for (Livros livro: model.listarTodosLivros()){
@@ -171,38 +150,31 @@ public class Controller {
                     for (Livros livro: model.buscarLivroSelecionado(view.getTexto())){
                         contador ++;
                         view.atualizaTabelaLivro(contador, livro);
-
-
                     }
                 }
-
             } else if (view.getOpcaoEditora()){
                 if (model.buscarEditoraSelecionada(view.getTexto()).isEmpty()){
                     for (Editoras editora: model.listarTodasEditoras()){
                         contador ++; 
                         view.atualizaTabelaEditora(contador, editora);
-
                     }
                 } else{
                     for (Editoras editora: model.buscarEditoraSelecionada(view.getTexto())){
                         contador ++;
                         view.atualizaTabelaEditora(contador, editora);
-
-
                     }
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "Escolha alguma opção para pesquisar", "Atenção", JOptionPane.WARNING_MESSAGE);
 
-            }
-            
+                JOptionPane.showMessageDialog(null, "Escolha alguma opção para pesquisar", "Atenção", JOptionPane.WARNING_MESSAGE);
+            }  
         }
     }
-
     public class AcaoInformacaoPesquisa implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent ae){
+            // MÉTODO CHAMADO AO CLICAR NO BOTÃO AJUDA
             view.mensagemAjudaPesquisa();    
             
         }
@@ -277,7 +249,7 @@ public class Controller {
         public void actionPerformed (ActionEvent ae) {
             view.desabilitarTelaDeletar(); // Deixa a tela desabilitada
 
-            // Chma da view e habilita opção na tela confor escolhido pelo usuário
+            // Chama da view e habilita opção na tela confor escolhido pelo usuário
             if (view.verificaEscolhaDeletarAutor()) {
                 view.habilitarAutorDeletar();
             } else if (view.verificaEscolhaDeletarLivro()) {
