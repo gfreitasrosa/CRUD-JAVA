@@ -13,6 +13,9 @@ import model.entidades.*;
 
 public class ConexaoBD implements Dao{
 
+    private int idPublisher;
+    private int autorId;
+
     static private final String USER = "root";
     static private final String PASS = "";
     static private final String DATABASE = "livraria";
@@ -380,34 +383,90 @@ public class ConexaoBD implements Dao{
     // MÉTODOS RESPONSÁVEIS POR ADICIONAR AS ENTIDADES DO BD
 
     @Override
-    public void InsertLivros(Livros livros){
+    public void InsertLivros(String titulo, String isbn, float preco, String nomeEditora, String name, String fname){
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)) {
+            String sqlRelacao = "select * from authors where name = ? and fname = ? ";
+            PreparedStatement pstm = con.prepareStatement(sqlRelacao);
 
-            String SqlInsertLivros = "insert into Books (title, isbn, price) values (?, ?, ?)";
-            PreparedStatement pstm = con.prepareStatement(SqlInsertLivros);
+            pstm.setString(1, name);
+            pstm.setString(2, fname);
+            ResultSet rs = pstm.executeQuery();
 
-            pstm.setString(1, livros.getTitle());
-            pstm.setString(2, livros.getIsbn());
-            pstm.setFloat(3, livros.getPrice());
-            pstm.execute();
+            if(rs.next()){
+               autorId = rs.getInt("author_id");
 
-            JOptionPane.showMessageDialog(null, "Adicionado com sucesso.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+
+            }else {
+                System.out.println("Autor não cadastrada! ");
+            }
+
+
 
         }catch (SQLException ErroSql) {
             JOptionPane.showMessageDialog(null, "Erro ao adicionar", "Erro", JOptionPane.INFORMATION_MESSAGE);
         }
+
+        try(Connection con = DriverManager.getConnection(URL, USER, PASS)) {
+            String sqlPesquisaEditora = "select * from publishers where name = ?";
+            PreparedStatement pstm = con.prepareStatement(sqlPesquisaEditora);
+
+            pstm.setString(1, nomeEditora);
+            ResultSet rs = pstm.executeQuery();
+
+            if(rs.next()){
+                idPublisher = rs.getInt("publisher_id");
+
+
+            }else {
+                System.out.println("Editora não cadastrada! ");
+            }
+
+        }catch (SQLException ErroSql) {
+            JOptionPane.showMessageDialog(null, "Erro ao adicionar", "Erro", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        try(Connection con = DriverManager.getConnection(URL, USER, PASS)) {
+
+            String SqlInsertLivros = "insert into Books (title, isbn, publisher_id, price) values (?, ?, ?, ?)";
+            PreparedStatement pstm = con.prepareStatement(SqlInsertLivros);
+
+            pstm.setString(1, titulo);
+            pstm.setString(2, isbn);
+            pstm.setInt(3, idPublisher);
+            pstm.setFloat(4, preco);
+            pstm.execute();
+
+
+
+        }catch (SQLException ErroSql) {
+            JOptionPane.showMessageDialog(null, "Erro ao adicionar", "Erro", JOptionPane.INFORMATION_MESSAGE);
+        }
+        try(Connection con2 = DriverManager.getConnection(URL, USER, PASS)) {
+            String sqlInsert = "insert into booksauthors (author_id, isbn) value (?,?);";
+            PreparedStatement pstm2 = con2.prepareStatement(sqlInsert);
+
+            pstm2.setInt(1, autorId);
+            pstm2.setString(2, isbn);
+            pstm2.execute();
+
+
+
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Livro adicionado sem autor.", "Observação ", JOptionPane.INFORMATION_MESSAGE);
+
+        }
     }
 
     @Override
-    public void InsertAutores(Autores autores){
+    public void InsertAutores(String Nome, String Sobrenome){
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
             String SqlInsertAutores = "insert into Authors (name, fname) value (?, ?)";
             PreparedStatement pstm = con.prepareStatement(SqlInsertAutores);
 
-            pstm.setString(1, autores.getName());
-            pstm.setString(2, autores.getFname());
+            pstm.setString(1, Sobrenome);
+            pstm.setString(2, Nome);
             pstm.execute();
 
         }catch (SQLException ErroSql){
@@ -416,13 +475,13 @@ public class ConexaoBD implements Dao{
     }
 
     @Override
-    public void InsertEditoras(Editoras editoras){
+    public void InsertEditoras(String nomeEditora, String Url){
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)) {
             String SqlInsertEditoras = "insert into Publishers (name, url) value (?, ?)";
             PreparedStatement pstm = con.prepareStatement(SqlInsertEditoras);
 
-            pstm.setString(1, editoras.getName());
-            pstm.setString(2, editoras.getUrl());
+            pstm.setString(1, nomeEditora);
+            pstm.setString(2, Url);
             pstm.execute();
 
             JOptionPane.showMessageDialog(null, "Adicionado com sucesso.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
@@ -437,15 +496,25 @@ public class ConexaoBD implements Dao{
 
     @Override
     public void apagarLivro(String isbn){
+        String queryDeleteBook = "DELETE FROM booksauthors WHERE isbn = ?";
+
+        try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
+            PreparedStatement pstm = con.prepareStatement(queryDeleteBook);
+            pstm.setString(1, isbn);
+            pstm.execute();
+        } catch(SQLException ErroSql){
+            JOptionPane.showMessageDialog(null, "Erro ao executar query no Banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+
+
         String queryDelBook = "DELETE FROM Books WHERE isbn = ?";
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
             PreparedStatement pstm = con.prepareStatement(queryDelBook);
             pstm.setString(1, isbn);
             pstm.execute();
-        } catch(Exception e){
-            e.printStackTrace();
-
+        } catch(SQLException ErroSql){
+            JOptionPane.showMessageDialog(null, "Erro ao executar query no Banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
         }
 
     }
@@ -453,49 +522,70 @@ public class ConexaoBD implements Dao{
     @Override
     public void apagarAutor(String nome, String sobrenome){
 
-        String queryVerificaAutor = "SELECT * FROM booksauthors AS ba INNER JOIN authors AS a ON a.author_id = ba.author_id WHERE a.fname = ? AND a.name = ?;";
+        String queryDeleteBook = "DELETE FROM booksauthors WHERE author_id IN (SELECT author_id FROM authors WHERE name = ? and fname = ?)";
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
-            PreparedStatement pstm = con.prepareStatement(queryVerificaAutor);
-            pstm.setString(1, nome);
-            pstm.setString(2, sobrenome);
-            ResultSet rs = pstm.executeQuery();
-
-            System.out.println("O autor possuí um livro cadastrado em seu nome, exclua-o primeiro.");
-            return;
-        } catch(Exception e){
-            e.printStackTrace();
-
-        }
-
-        String queryDelAuthor = "DELETE FROM Authors WHERE fname = ? AND name = ?;";
-
-        try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
-            PreparedStatement pstm = con.prepareStatement(queryDelAuthor);
-            pstm.setString(1, nome);
-            pstm.setString(2, sobrenome);
+            PreparedStatement pstm = con.prepareStatement(queryDeleteBook);
+            pstm.setString(1, sobrenome);
+            pstm.setString(2, nome);
             pstm.execute();
-        } catch(Exception e){
-            e.printStackTrace();
-
+            JOptionPane.showMessageDialog(null, "Valor apagado da tabela booksauthor", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        } catch(SQLException ErroSql){
+            JOptionPane.showMessageDialog(null, "Erro ao executar query no Banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
         }
 
+        String queryDelAuthor = "DELETE FROM authors WHERE fname = ? AND name = ?;";
+
+        try(Connection con1 = DriverManager.getConnection(URL, USER, PASS)){
+            PreparedStatement pstm1 = con1.prepareStatement(queryDelAuthor);
+            pstm1.setString(1, nome);
+            pstm1.setString(2, sobrenome);
+            pstm1.execute();
+            JOptionPane.showMessageDialog(null, "Valor apagado da tabela authors", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        } catch(SQLException ErroSql){
+          JOptionPane.showMessageDialog(null, "Erro ao executar query no Banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     @Override
-    public void apagarEditora(Integer ID){
-        String queryDelPubli = "DELETE FROM Publishers WHERE publisher_id = ?";
+    public void apagarEditora(String editora){
+        String queryVerificaEditora = "SELECT * FROM books WHERE publisher_id IN (SELECT publisher_id FROM publishers WHERE name = ?);";
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
-            PreparedStatement pstm = con.prepareStatement(queryDelPubli);
-            pstm.setInt(1, ID);
-            pstm.execute();
-        } catch(Exception e){
-            e.printStackTrace();
+            PreparedStatement pstm = con.prepareStatement(queryVerificaEditora);
+            pstm.setString(1, editora);
+            ResultSet rs = pstm.executeQuery();
 
+            if (rs.next()) {
+                String queryUpdEditoraToNull = "UPDATE books SET publisher_id = null WHERE publisher_id IN (SELECT publisher_id FROM publishers WHERE name = ?);";
+
+                try(Connection con1 = DriverManager.getConnection(URL, USER, PASS)){
+                    PreparedStatement pstm1 = con1.prepareStatement(queryUpdEditoraToNull);
+                    pstm1.setString(1, editora);
+                    pstm1.executeUpdate();
+
+                } catch(SQLException ErroSql){
+                    JOptionPane.showMessageDialog(null, "Erro ao executar query no Banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+
+            String queryDelPubli = "DELETE FROM publishers WHERE name = ?";
+
+            try(Connection con2 = DriverManager.getConnection(URL, USER, PASS)){
+                PreparedStatement pstm2 = con2.prepareStatement(queryDelPubli);
+                pstm2.setString(1, editora);
+                pstm2.execute();
+                JOptionPane.showMessageDialog(null, "Valor apagado da tabela publishers", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+
+            } catch(SQLException ErroSql){
+                JOptionPane.showMessageDialog(null, "Erro ao executar query no Banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch(SQLException ErroSql){
+            JOptionPane.showMessageDialog(null, "Erro ao executar query no Banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
         }
-
     }
+
 
     public void atualizarAutor(String novoNome, String novoSobrenome, String antigoNome, String antigoSobrenome ) {
 
@@ -514,13 +604,9 @@ public class ConexaoBD implements Dao{
         } catch (Exception e) {
 
             JOptionPane.showMessageDialog(null, "Erro ao atualizar", "Erro", JOptionPane.ERROR_MESSAGE);
-
-
+            
         }
     }
-
-
-
 
 
    public void atualizarLivro(String novoTitulo, float novoPreco, String antigoTitulo, float antigoPreco){
@@ -539,8 +625,6 @@ public class ConexaoBD implements Dao{
        } catch(Exception e){
 
            JOptionPane.showMessageDialog( null,  "Erro ao atualizar",  "Erro", JOptionPane.ERROR_MESSAGE);
-
-
 
        }
    }
@@ -562,10 +646,7 @@ public class ConexaoBD implements Dao{
 
            JOptionPane.showMessageDialog( null,  "Erro ao atualizar",  "Erro", JOptionPane.ERROR_MESSAGE);
 
-
-
        }
-
    }
 }
 

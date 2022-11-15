@@ -22,12 +22,12 @@ public interface Dao {
     public List<RelLivrosAutores> buscarRelLivroAutor(String nome);
     public List<RelLivrosEditoras> buscarRelLivroEditora(String nome);
     public List<RelTudo> buscarTudo(String nome);
-    public void InsertLivros(Livros livros);
-    public void InsertAutores(Autores autores);
-    public void InsertEditoras(Editoras editoras);
+    public void InsertLivros(String titulo, String isbn, float preco, String nomeEditora, String name, String fname);
+    public void InsertAutores(String Nome, String Sobrenome);
+    public void InsertEditoras(String nomeEditora, String Url);
     public void apagarLivro(String isbn);
     public void apagarAutor(String nome, String sobrenome);
-    public void apagarEditora(Integer ID);
+    public void apagarEditora(String nome);
     
 
 }

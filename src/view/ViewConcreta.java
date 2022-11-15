@@ -53,6 +53,8 @@ public class ViewConcreta extends javax.swing.JFrame {
         modelo2 = (DefaultTableModel) this.tabela_abaAutor.getModel();
         modelo3 = (DefaultTableModel) this.tabelaAutor_abaAlterar.getModel();
         modelo4 = (DefaultTableModel) this.tabelaEditoras_abaAlterar.getModel();
+        this.desabilitarTela();
+        this.desabilitarTelaDeletar();
     }
 
     /**
@@ -131,7 +133,7 @@ public class ViewConcreta extends javax.swing.JFrame {
         caixadetexto_abaInserirTitulo = new javax.swing.JTextField();
         caixadetexto_abaInserirISBN = new javax.swing.JTextField();
         caixadetexto_abaInserirEditora = new javax.swing.JTextField();
-        caixadetexto_abaInserirNome5 = new javax.swing.JTextField();
+        caixadetexto_abaInserirPreco = new javax.swing.JTextField();
         labelISBN_abaInserir = new javax.swing.JLabel();
         labelTitulo_abaInserir = new javax.swing.JLabel();
         labelpreco_abaInserir = new javax.swing.JLabel();
@@ -228,10 +230,9 @@ public class ViewConcreta extends javax.swing.JFrame {
         labelConclusaodeTarefa_abaDeletar = new javax.swing.JLabel();
 
         radioButton_AutorDeletar = new javax.swing.JRadioButton();
-        caixadetextoSobrenomeAutor_abainserir = new javax.swing.JTextField();
         radioButton_LivrosDeletar = new javax.swing.JRadioButton();
     
-
+        caixadetextoSobrenomeAutor_abaDeletar = new javax.swing.JTextField();
 
 
 
@@ -409,7 +410,7 @@ public class ViewConcreta extends javax.swing.JFrame {
             }
         ));
        
-        labelConclusaodeTarefa_abaDeletar.setText("aqui vai a msg de conclusão DELETARESTETEXTODEPOIS");
+        labelConclusaodeTarefa_abaDeletar.setText("");
 
         javax.swing.GroupLayout abaDeletarLayout = new javax.swing.GroupLayout(abaDeletar);
         abaDeletar.setLayout(abaDeletarLayout);
@@ -451,7 +452,7 @@ public class ViewConcreta extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(caixadetextoPrimeiroNomeAutor_abaDeletar)
-                            .addComponent(caixadetextoSobrenomeAutor_abainserir)))
+                            .addComponent(caixadetextoSobrenomeAutor_abaDeletar)))
                     .addGroup(abaDeletarLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -481,7 +482,7 @@ public class ViewConcreta extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(abaDeletarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelSobrenome_abaDeletar)
-                    .addComponent(caixadetextoSobrenomeAutor_abainserir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(caixadetextoSobrenomeAutor_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(radioButton_LivrosDeletar)
                 .addGap(1, 1, 1)
@@ -838,9 +839,9 @@ public class ViewConcreta extends javax.swing.JFrame {
 
         labelSobreNome_abaInserir.setText("Sobrenome:");
 
-        caixadetexto_abaInserirNome5.addActionListener(new java.awt.event.ActionListener() {
+        caixadetexto_abaInserirPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caixadetexto_abaInserirNome5ActionPerformed(evt);
+                caixadetexto_abaInserirPrecoActionPerformed(evt);
             }
         });
 
@@ -924,7 +925,7 @@ public class ViewConcreta extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                     .addComponent(caixadetexto_abaInserirISBN)
-                                                    .addComponent(caixadetexto_abaInserirNome5, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)))
+                                                    .addComponent(caixadetexto_abaInserirPreco, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)))
                                             .addGroup(abaInserirLayout.createSequentialGroup()
                                                 .addGap(0, 0, Short.MAX_VALUE)
                                                 .addComponent(labelNome_abaInserir)
@@ -984,7 +985,7 @@ public class ViewConcreta extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(abaInserirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(labelNomeDaEditora_radiolivros_abaInserir)
-                            .addComponent(caixadetexto_abaInserirNome5, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(caixadetexto_abaInserirPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelpreco_abaInserir)
                             .addComponent(caixadetexto_abaInserirEditora, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(26, 26, 26))
@@ -1036,9 +1037,9 @@ public class ViewConcreta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // MÉTODOS GERADOS PELO NETBEANS
-    private void caixadetexto_abaInserirNome5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixadetexto_abaInserirNome5ActionPerformed
+    private void caixadetexto_abaInserirPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixadetexto_abaInserirPrecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_caixadetexto_abaInserirNome5ActionPerformed
+    }//GEN-LAST:event_caixadetexto_abaInserirPrecoActionPerformed
 
     private void botaoAutor_abainserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAutor_abainserirActionPerformed
         // TODO add your handling code here:
@@ -1107,28 +1108,76 @@ public class ViewConcreta extends javax.swing.JFrame {
         return this.radioButton_AutorDeletar.isSelected();
     }
 
-    // public boolean verificaEscolhaInserirEditora(){
-    //     return this.radioButton_EditorasAbaInserir.isSelected();
-    // }
+    public boolean verificaEscolhaDeletarEditora(){
+        return this.radioButton_EditorasAbaDeletar.isSelected();
+    }
 
-    // public boolean verificaEscolhaInserirLivro(){
-    //     return this.radioButton_LivrosAbaInserir.isSelected();
-    // }
+     public boolean verificaEscolhaDeletarLivro(){
+         return this.radioButton_LivrosDeletar.isSelected();
+     }
 
     public String getTextoNomeAutor(){
         return this.caixadetextoPrimeiroNomeAutor_abaDeletar.getText();
     }
 
     public String getTextoSobrenomeAutor(){
-        return this.caixadetextoSobrenomeAutor_abainserir.getText();
+        return this.caixadetextoSobrenomeAutor_abaDeletar.getText();
     }
 
+    public String getTextoISBN() {
+        return this.caixadetextoISBN_abaDeletar.getText();
+    }
+
+    public String getTextoEditora() {
+        return this.caixadetextoNomeDaEditora_abaDeletar.getText();
+    }
+
+    public void atualizarMensagemConclusao(String mensagem) {
+        this.labelConclusaodeTarefa_abaDeletar.setText(mensagem);
+    }
+
+    public void habilitarLivrosDeletar(){
+        this.caixadetextoISBN_abaDeletar.setEnabled(true);
+    }
+
+    public void habilitarAutorDeletar(){
+        this.caixadetextoPrimeiroNomeAutor_abaDeletar.setEnabled(true);
+        this.caixadetextoSobrenomeAutor_abaDeletar.setEnabled(true);
+    }
+
+    public void habilitarEditorasDeletar(){
+        this.caixadetextoNomeDaEditora_abaDeletar.setEnabled(true);
+    }
+    public void desabilitarTelaDeletar(){
+        this.caixadetextoISBN_abaDeletar.setEnabled(false);
+
+        
+        this.caixadetextoSobrenomeAutor_abaDeletar.setEnabled(false);
+        this.caixadetextoPrimeiroNomeAutor_abaDeletar.setEnabled(false);
+
+        this.caixadetextoNomeDaEditora_abaDeletar.setEnabled(false);
+    }
+
+    public void habilitarTelasDeletar(ActionListener al) {
+        this.radioButton_AutorDeletar.addActionListener(al);
+        this.radioButton_LivrosDeletar.addActionListener(al);
+        this.radioButton_EditorasAbaDeletar.addActionListener(al);
+    }
+
+    public void ajudaDeletar(ActionListener al) {
+        this.botaoAjuda_abaDeletar.addActionListener(al);
+    }
+
+    public void mensagemAjudaDeletar(){
+        String[] infos = {"Nas checkboxs escolha os campos que deseja deletar.", "Autor: Deletar a partir do Nome e Sobrenome", "Livros: Deleta a partir do ISBN do livro.", "Editoras: Deleta a partir do nome da Editora."};
+        JOptionPane.showMessageDialog(null, infos, "Como deletar:", JOptionPane.INFORMATION_MESSAGE);
+    }
 
     // MÉTODOS DA JANELA INSERIR
 
 
     public void camposInsLivros(ActionListener al){
-        
+
         this.radioButton_LivrosAbaInserir.addActionListener(al);
 
     }
@@ -1148,7 +1197,6 @@ public class ViewConcreta extends javax.swing.JFrame {
     public boolean verificaEscolhaInserirAutor(){
         return this.radioButton_AutorAbaInserir.isSelected();
     }
-
     public boolean verificaEscolhaInserirEditora(){
         return this.radioButton_EditorasAbaInserir.isSelected();
     }
@@ -1157,15 +1205,98 @@ public class ViewConcreta extends javax.swing.JFrame {
         return this.radioButton_LivrosAbaInserir.isSelected();
     }
 
-    public void desabilitaLivrosEditoras(){
+    public void habilitaEditoras(){
+        this.caixadetexto_NomeDaEditora_abaInserir.setEnabled(true);
+        this.caixadetexto_URL_abaInserir.setEnabled(true);
+    }
 
+    public void habilitarAutor(){
+        this.caixadetexto_abaInserirSobreNome.setEnabled(true);
+        this.caixadetexto_abaInserirNome1.setEnabled(true);
+
+    }
+
+    public void habilitaLivros(){
+        this.caixadetexto_abaInserirTitulo.setEnabled(true);
+        this.caixadetexto_abaInserirPreco.setEnabled(true);
+        this.caixadetexto_abaInserirISBN.setEnabled(true);
+        this.caixadetexto_abaInserirEditora.setEnabled(true);
+        this.botaoAutor_abainserir.setEnabled(true);
+
+    }
+    public void habilitarTela(){
+        this.caixadetexto_abaInserirSobreNome.setEnabled(true);
+        this.caixadetexto_abaInserirNome1.setEnabled(true);
+
+        this.caixadetexto_abaInserirTitulo.setEnabled(true);
+        this.caixadetexto_abaInserirPreco.setEnabled(true);
+        this.caixadetexto_abaInserirISBN.setEnabled(true);
+        this.caixadetexto_abaInserirEditora.setEnabled(true);
+        this.botaoAutor_abainserir.setEnabled(true);
+        this.caixadetexto_NomeDaEditora_abaInserir.setEnabled(true);
+        this.caixadetexto_URL_abaInserir.setEnabled(true);
+    }
+    public void desabilitarTela(){
         this.caixadetexto_abaInserirSobreNome.setEnabled(false);
         this.caixadetexto_abaInserirNome1.setEnabled(false);
 
+        this.caixadetexto_abaInserirTitulo.setEnabled(false);
+        this.caixadetexto_abaInserirPreco.setEnabled(false);
+        this.caixadetexto_abaInserirISBN.setEnabled(false);
+        this.caixadetexto_abaInserirEditora.setEnabled(false);
+        this.botaoAutor_abainserir.setEnabled(false);
         this.caixadetexto_NomeDaEditora_abaInserir.setEnabled(false);
         this.caixadetexto_URL_abaInserir.setEnabled(false);
+    }
 
+    //inicializando botao de inserir
+    public void Inserir(ActionListener al){
+        this.botaoinserir_abaInserir1.addActionListener(al);
+    }
 
+    // Gets para Autor
+    public String getNome(){
+        return this.caixadetexto_abaInserirNome1.getText();
+    }
+
+    public String getSobrenome(){
+       return this.caixadetexto_abaInserirSobreNome.getText();
+    }
+
+    //Gets para editoras
+
+    public String getNomeEditora(){
+        return this.caixadetexto_NomeDaEditora_abaInserir.getText();
+    }
+
+    public String getUrl(){
+        return this.caixadetexto_URL_abaInserir.getText();
+    }
+
+    // Gets para os livros
+
+    public String getInserirTitulo(){
+        return this.caixadetexto_abaInserirTitulo.getText();
+    }
+
+    public String getInserirPreco(){
+        if (this.caixadetexto_abaInserirPreco.getText().equals("")){
+            return "0";
+        }else{
+            return this.caixadetexto_abaInserirPreco.getText();
+        }
+    }
+
+    public String getISBN(){
+        return this.caixadetexto_abaInserirISBN.getText();
+    }
+
+    public String getInserirEditoras(){
+        return this.caixadetexto_abaInserirEditora.getText();
+    }
+
+    public String getAutoresSelecionados(){
+        return this.labelAutoresEscolhidos_abaInserir.getText();
     }
 
     // MÉTODOS JANELA ALTERAR
@@ -1552,7 +1683,7 @@ public class ViewConcreta extends javax.swing.JFrame {
     private javax.swing.JButton botaoAutor_abainserir;
     private javax.swing.JButton botaoAjuda_abaInserir;
 
-     private JDialog popUp;
+    private JDialog popUp;
 
     private javax.swing.JTextField caixadetexto_NomeDaEditora_abaInserir;
     private javax.swing.JTextField caixadetexto_URL_abaInserir;
@@ -1560,7 +1691,7 @@ public class ViewConcreta extends javax.swing.JFrame {
     private javax.swing.JTextField caixadetexto_abaInserirEditora;
     private javax.swing.JTextField caixadetexto_abaInserirISBN;
     private javax.swing.JTextField caixadetexto_abaInserirNome1;
-    private javax.swing.JTextField caixadetexto_abaInserirNome5;
+    private javax.swing.JTextField caixadetexto_abaInserirPreco;
     private javax.swing.JTextField caixadetexto_abaInserirSobreNome;
     private javax.swing.JTextField caixadetexto_abaInserirTitulo;
 
@@ -1634,37 +1765,41 @@ public class ViewConcreta extends javax.swing.JFrame {
 
     private javax.swing.JLabel labelQueMostraConfimacao_abaInserir1;
 
-    // VARIÁVEIS DA ABA DELETAR
-
-    private javax.swing.JPanel abaDeletar;
-
-    private javax.swing.JButton botaoAjuda_abaDeletar;
-    private javax.swing.JButton botaoDeletar_abaDeletar1;
     
-    private javax.swing.JTextField caixadetextoISBN_abaDeletar;
-    private javax.swing.JTextField caixadetextoNomeDaEditora_abaDeletar;
-    private javax.swing.JTextField caixadetextoPrimeiroNomeAutor_abaDeletar;
-
-    private javax.swing.ButtonGroup grupo_abaDeletar;
-
-    private javax.swing.JLabel labelConclusaodeTarefa_abaDeletar;
-    
-    private javax.swing.JLabel labelISBN_abaDeletar;
-    private javax.swing.JLabel labelPrimeiroNome_abaDeletar;
-    private javax.swing.JLabel labelNomedaEditora_abaDeletar;
-    private javax.swing.JLabel labelSobrenome_abaDeletar;
-    private javax.swing.JRadioButton radioButton_EditorasAbaDeletar;
-    private javax.swing.JLabel titulo_abaDeletar;
-
-    private javax.swing.JRadioButton radioButton_AutorDeletar;
-    private javax.swing.JRadioButton radioButton_LivrosDeletar;
-    private javax.swing.JTextField caixadetextoSobrenomeAutor_abainserir;
-
     private JTable tabelaAutor_abaAlterar;
     private JButton botaoAttAutor_abaAlterar;
 
     private JTable tabelaEditoras_abaAlterar;
     private JButton botaoAttEditoras_abaAlterar;
+
+
+    // VARIÁVEIS DA ABA DELETAR
+
+    private javax.swing.ButtonGroup grupo_abaDeletar;
+    private javax.swing.JPanel abaDeletar;
+
+    private javax.swing.JRadioButton radioButton_AutorDeletar;
+    private javax.swing.JRadioButton radioButton_EditorasAbaDeletar;
+    private javax.swing.JRadioButton radioButton_LivrosDeletar;
+
+    private javax.swing.JTextField caixadetextoISBN_abaDeletar;
+    private javax.swing.JTextField caixadetextoNomeDaEditora_abaDeletar;
+    private javax.swing.JTextField caixadetextoPrimeiroNomeAutor_abaDeletar;
+    private javax.swing.JTextField caixadetextoSobrenomeAutor_abaDeletar;
+
+    private javax.swing.JButton botaoAjuda_abaDeletar;
+    private javax.swing.JButton botaoDeletar_abaDeletar1;
+
+    private javax.swing.JLabel labelConclusaodeTarefa_abaDeletar;
+    private javax.swing.JLabel labelISBN_abaDeletar;
+    private javax.swing.JLabel labelPrimeiroNome_abaDeletar;
+    private javax.swing.JLabel labelNomedaEditora_abaDeletar;
+    private javax.swing.JLabel labelSobrenome_abaDeletar;
+    private javax.swing.JLabel titulo_abaDeletar;
+
+
+
+
 
 
 
