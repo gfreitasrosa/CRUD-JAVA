@@ -1633,6 +1633,7 @@ public class ViewConcreta extends javax.swing.JFrame {
     // }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    
     private javax.swing.ButtonGroup g1;
     private javax.swing.JLabel Filtrodepesquisa_abaAlterar;
     private javax.swing.JLabel Filtrodepesquisa_abaDeletar;
