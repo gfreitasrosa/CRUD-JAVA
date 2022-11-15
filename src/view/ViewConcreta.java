@@ -412,7 +412,7 @@ public class ViewConcreta extends javax.swing.JFrame {
                     .addGroup(abaDeletarLayout.createSequentialGroup()
                         .addComponent(botaoAjuda_abaDeletar)
                         .addGap(18, 18, Short.MAX_VALUE)
-                        .addComponent(labelConclusaodeTarefa_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelConclusaodeTarefa_abaDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(botaoDeletar_abaDeletar1))
                     .addGroup(abaDeletarLayout.createSequentialGroup()
