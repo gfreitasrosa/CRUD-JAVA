@@ -137,7 +137,7 @@ public class Controller {
             
             } else if (view.getOpcaoEditora() && view.getOpcaoAutor()){
 
-                JOptionPane.showMessageDialog(null, "A relação de pesquisa Autores e Editoras não existe!", "Erro ao pesquisar", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "A relação de pesquisa Autores e Editoras não existe!", "Erro", JOptionPane.ERROR_MESSAGE);
 
             } else if (view.getOpcaoAutor()){
 
@@ -191,7 +191,11 @@ public class Controller {
 
                     }
                 }
+            } else {
+                JOptionPane.showMessageDialog(null, "Escolha alguma opção para pesquisar", "Atenção", JOptionPane.WARNING_MESSAGE);
+
             }
+            
         }
     }
 

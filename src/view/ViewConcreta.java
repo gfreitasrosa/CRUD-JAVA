@@ -30,7 +30,7 @@ import java.awt.event.MouseEvent;
  *
  * @author Admin-PC
  */
-public class ViewConcreta extends javax.swing.JFrame {
+public class ViewConcreta extends javax.swing.JFrame implements ViewAbstrata {
 
     /**
      * Creates new form NewJFrame
@@ -64,7 +64,7 @@ public class ViewConcreta extends javax.swing.JFrame {
 
 
     @SuppressWarnings("unchecked")
-    private void initComponents() {
+    public void initComponents() {
 
         
 
@@ -74,13 +74,13 @@ public class ViewConcreta extends javax.swing.JFrame {
         tituloPesquisa = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela_abaPesquisa = new javax.swing.JTable();
-        caixadetexto_abaPesquisa = new javax.swing.JTextField();
-        botaopesquisar_abaPesquisa = new javax.swing.JButton();
-        checkboxAutores_abaPesquisa = new javax.swing.JCheckBox();
+        TxtFieldPesquisa = new javax.swing.JTextField();
+        BtnPesquisa = new javax.swing.JButton();
+        CheckBoxAutoresPesquisa = new javax.swing.JCheckBox();
         Filtrodepesquisa_abaPesquisa = new javax.swing.JLabel();
-        checkboxLivros_abaPesquisa = new javax.swing.JCheckBox();
-        checkboxEditoras_abaPesquisa = new javax.swing.JCheckBox();
-        botaoAjuda_abaPesquisa = new javax.swing.JButton();
+        CheckBoxLivrosPesquisa = new javax.swing.JCheckBox();
+        CheckBoxEditorasPesquisa = new javax.swing.JCheckBox();
+        BtnAjudaPesquisa = new javax.swing.JButton();
 
         abaDeletar = new javax.swing.JPanel();
         titulo_abaDeletar = new javax.swing.JLabel();
@@ -134,7 +134,7 @@ public class ViewConcreta extends javax.swing.JFrame {
 
         abaAlterar = new javax.swing.JPanel();
         titulo_abaAlterar = new javax.swing.JLabel();
-        botaoAjuda_abaAlterar = new javax.swing.JButton();
+        BtnAjudaAlterar = new javax.swing.JButton();
         BtnAcaoAlterar = new javax.swing.JButton();
 
         botaoAutor_abaAlterar = new javax.swing.JButton();
@@ -174,7 +174,6 @@ public class ViewConcreta extends javax.swing.JFrame {
         TxtFieldNovoNomeAlterar = new javax.swing.JTextField();
         TxtFieldNovoSobrenomeAlterar = new javax.swing.JTextField();
 
-        LblConfirmarcaoAlterar = new javax.swing.JLabel();
         LblDadosAntigosLivrosAlterar = new javax.swing.JLabel();
         lblNovosDadosLivrosAlterar = new javax.swing.JLabel();
 
@@ -235,43 +234,43 @@ public class ViewConcreta extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabela_abaPesquisa);
 
-        caixadetexto_abaPesquisa.setBackground(new java.awt.Color(204, 204, 204));
-        caixadetexto_abaPesquisa.addActionListener(new java.awt.event.ActionListener() {
+        TxtFieldPesquisa.setBackground(new java.awt.Color(204, 204, 204));
+        TxtFieldPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caixadetexto_abaPesquisaActionPerformed(evt);
+                TxtFieldPesquisaActionPerformed(evt);
             }
         });
 
-        botaopesquisar_abaPesquisa.setBackground(new java.awt.Color(204, 204, 204));
-        botaopesquisar_abaPesquisa.setText("Pesquisar");
+        BtnPesquisa.setBackground(new java.awt.Color(204, 204, 204));
+        BtnPesquisa.setText("Pesquisar");
 
-        checkboxAutores_abaPesquisa.setText("Autores");
-        checkboxAutores_abaPesquisa.addActionListener(new java.awt.event.ActionListener() {
+        CheckBoxAutoresPesquisa.setText("Autores");
+        CheckBoxAutoresPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkboxAutores_abaPesquisaActionPerformed(evt);
+                CheckBoxAutoresPesquisaActionPerformed(evt);
             }
         });
 
         Filtrodepesquisa_abaPesquisa.setText("Pesquisar em:");
 
-        checkboxLivros_abaPesquisa.setText("Livros");
-        checkboxLivros_abaPesquisa.addActionListener(new java.awt.event.ActionListener() {
+        CheckBoxLivrosPesquisa.setText("Livros");
+        CheckBoxLivrosPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkboxLivros_abaPesquisaActionPerformed(evt);
+                CheckBoxLivrosPesquisaActionPerformed(evt);
             }
         });
 
-        checkboxEditoras_abaPesquisa.setText("Editoras");
-        checkboxEditoras_abaPesquisa.addActionListener(new java.awt.event.ActionListener() {
+        CheckBoxEditorasPesquisa.setText("Editoras");
+        CheckBoxEditorasPesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkboxEditoras_abaPesquisaActionPerformed(evt);
+                CheckBoxEditorasPesquisaActionPerformed(evt);
             }
         });
 
-        botaoAjuda_abaPesquisa.setBackground(new java.awt.Color(204, 204, 204));
-        botaoAjuda_abaPesquisa.setFont(new java.awt.Font("Swis721 Blk BT", 0, 14)); // NOI18N
-        botaoAjuda_abaPesquisa.setText("Ajuda?");
-        botaoAjuda_abaPesquisa.setToolTipText("");
+        BtnAjudaPesquisa.setBackground(new java.awt.Color(204, 204, 204));
+        BtnAjudaPesquisa.setFont(new java.awt.Font("Swis721 Blk BT", 0, 14)); // NOI18N
+        BtnAjudaPesquisa.setText("Ajuda?");
+        BtnAjudaPesquisa.setToolTipText("");
 
         javax.swing.GroupLayout abaPesquisaLayout = new javax.swing.GroupLayout(abaPesquisa);
         abaPesquisa.setLayout(abaPesquisaLayout);
@@ -286,15 +285,15 @@ public class ViewConcreta extends javax.swing.JFrame {
                                 .addGap(6, 6, 6)
                                 .addComponent(Filtrodepesquisa_abaPesquisa)
                                 .addGap(122, 122, 122)
-                                .addComponent(checkboxLivros_abaPesquisa)
+                                .addComponent(CheckBoxLivrosPesquisa)
                                 .addGap(122, 122, 122)
                                 //.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(checkboxAutores_abaPesquisa)
+                                .addComponent(CheckBoxAutoresPesquisa)
                                 .addGap(122, 122, 122)
-                                .addComponent(checkboxEditoras_abaPesquisa))
-                            .addComponent(caixadetexto_abaPesquisa))
+                                .addComponent(CheckBoxEditorasPesquisa))
+                            .addComponent(TxtFieldPesquisa))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaopesquisar_abaPesquisa))
+                        .addComponent(BtnPesquisa))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(abaPesquisaLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -303,7 +302,7 @@ public class ViewConcreta extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaPesquisaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaoAjuda_abaPesquisa)
+                .addComponent(BtnAjudaPesquisa)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         abaPesquisaLayout.setVerticalGroup(
@@ -313,18 +312,18 @@ public class ViewConcreta extends javax.swing.JFrame {
                 .addComponent(tituloPesquisa)
                 .addGap(4, 4, 4)
                 .addGroup(abaPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(caixadetexto_abaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaopesquisar_abaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtFieldPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtnPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(abaPesquisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkboxAutores_abaPesquisa)
+                    .addComponent(CheckBoxAutoresPesquisa)
                     .addComponent(Filtrodepesquisa_abaPesquisa)
-                    .addComponent(checkboxLivros_abaPesquisa)
-                    .addComponent(checkboxEditoras_abaPesquisa))
+                    .addComponent(CheckBoxLivrosPesquisa)
+                    .addComponent(CheckBoxEditorasPesquisa))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(botaoAjuda_abaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnAjudaPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -487,13 +486,13 @@ public class ViewConcreta extends javax.swing.JFrame {
         titulo_abaAlterar.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         titulo_abaAlterar.setText("Alterar dados existentes");
 
-        botaoAjuda_abaAlterar.setBackground(new java.awt.Color(204, 204, 204));
-        botaoAjuda_abaAlterar.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
-        botaoAjuda_abaAlterar.setText("Ajuda?");
-        botaoAjuda_abaAlterar.setToolTipText("");
-        botaoAjuda_abaAlterar.addActionListener(new java.awt.event.ActionListener() {
+        BtnAjudaAlterar.setBackground(new java.awt.Color(204, 204, 204));
+        BtnAjudaAlterar.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
+        BtnAjudaAlterar.setText("Ajuda?");
+        BtnAjudaAlterar.setToolTipText("");
+        BtnAjudaAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAjuda_abaAlterarActionPerformed(evt);
+                BtnAjudaAlterarActionPerformed(evt);
             }
         });
 
@@ -546,11 +545,11 @@ public class ViewConcreta extends javax.swing.JFrame {
         LblPrimeiroNomeAlterar.setText("Primeiro nome:");
 
         TxtFieldSobrenomeAlterar.setBackground(new java.awt.Color(204, 204, 255));
-        TxtFieldSobrenomeAlterar.setText("(sobrenome do Autor)");
+        TxtFieldSobrenomeAlterar.setText("Sobrenome do autor");
         TxtFieldSobrenomeAlterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         TxtFieldNomeAlterar.setBackground(new java.awt.Color(204, 204, 255));
-        TxtFieldNomeAlterar.setText("(primeiro nome do Autor)");
+        TxtFieldNomeAlterar.setText("Nome do autor");
         TxtFieldNomeAlterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         LblNovosDadosAutoresAlterar.setText("Novos Dados");
@@ -559,31 +558,31 @@ public class ViewConcreta extends javax.swing.JFrame {
 
         LblPrimeiroNomeAlterar2.setText("Primeiro nome:");
 
-        TxtFieldNovoNomeAlterar.setText("(primeiro nome)");
+        TxtFieldNovoNomeAlterar.setText("");
 
-        TxtFieldNovoSobrenomeAlterar.setText("Sobrenome");
+        TxtFieldNovoSobrenomeAlterar.setText("");
 
         BtnLivrosAlterar.setText("Escolher Livro");
 
         LblAntigoPrecoAlterar.setText("Preço:");
 
         TxtFieldAntigoTituloAlterar.setBackground(new java.awt.Color(204, 204, 255));
-        TxtFieldAntigoTituloAlterar.setText("(titulo do livro)");
+        TxtFieldAntigoTituloAlterar.setText("Titulo do livro");
         TxtFieldAntigoTituloAlterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         LblDadosAntigosLivrosAlterar.setText("Dados Antigos");
 
         TxtFieldPrecoAntigoAlterar.setBackground(new java.awt.Color(204, 204, 255));
-        TxtFieldPrecoAntigoAlterar.setText("(preço)");
+        TxtFieldPrecoAntigoAlterar.setText("Preço");
         TxtFieldPrecoAntigoAlterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         LblTituloNovoAlterar.setText("Titulo:");
 
         lblNovosDadosLivrosAlterar.setText("Novos Dados");
 
-        TxtFieldNovoTituloAlterar.setText("novo titulo");
+        TxtFieldNovoTituloAlterar.setText("");
 
-        TxtFieldNovoPrecoAlterar.setText("novo preço");
+        TxtFieldNovoPrecoAlterar.setText("");
 
         LblNovoPrecoAlterar.setText("Preço:");
 
@@ -596,11 +595,11 @@ public class ViewConcreta extends javax.swing.JFrame {
         LblAntigoNomeEditoraAlterar.setText("Nome da Editora:");
 
         TxtFieldAntigaUrlAlterar.setBackground(new java.awt.Color(204, 204, 255));
-        TxtFieldAntigaUrlAlterar.setText("URL");
+        TxtFieldAntigaUrlAlterar.setText("URL da editora");
         TxtFieldAntigaUrlAlterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         TxtFieldAntigoNomeEditoraAlterar.setBackground(new java.awt.Color(204, 204, 255));
-        TxtFieldAntigoNomeEditoraAlterar.setText("(nome Da Editora)");
+        TxtFieldAntigoNomeEditoraAlterar.setText("Nome Da Editora");
         TxtFieldAntigoNomeEditoraAlterar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         LblDadosAntigosEditorasAlterar.setText("Dados Antigos");
@@ -611,11 +610,9 @@ public class ViewConcreta extends javax.swing.JFrame {
 
         LblNovaUrlAlterar.setText("URL:");
 
-        TxtFieldNovaUrlAlterar.setText("jTextField5");
+        TxtFieldNovaUrlAlterar.setText("");
 
-        TxtFieldNovoNomeEditoraAlterar.setText("jTextField6");
-
-        LblConfirmarcaoAlterar.setText("(label que vai ser pra mostrar a confirmação de inserção, apagar depois tbm)");
+        TxtFieldNovoNomeEditoraAlterar.setText("");
 
         javax.swing.GroupLayout abaAlterarLayout = new javax.swing.GroupLayout(abaAlterar);
         abaAlterar.setLayout(abaAlterarLayout);
@@ -676,10 +673,8 @@ public class ViewConcreta extends javax.swing.JFrame {
                                 .addComponent(LblDadosAntigosEditorasAlterar)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaAlterarLayout.createSequentialGroup()
-                                .addComponent(botaoAjuda_abaAlterar)
-                                .addGap(18, 18, 18)
-                                .addComponent(LblConfirmarcaoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
+                                .addComponent(BtnAjudaAlterar)
+                                .addGap(580, 580, 580)
                                 .addComponent(BtnAcaoAlterar))
                             .addGroup(abaAlterarLayout.createSequentialGroup()
                                 .addComponent(BtnEditorasAlterar)
@@ -793,12 +788,11 @@ public class ViewConcreta extends javax.swing.JFrame {
                         .addGap(56, 56, 56)
                         .addGroup(abaAlterarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BtnAcaoAlterar)
-                            .addComponent(botaoAjuda_abaAlterar)))
+                            .addComponent(BtnAjudaAlterar)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, abaAlterarLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(LblConfirmarcaoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-        );
+        )));
 
         LblPrimeiroNomeAlterar.getAccessibleContext().setAccessibleName("Nome do Autor:");
 
@@ -1045,21 +1039,21 @@ public class ViewConcreta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_labelAutoresEscolhidos_abaInserirComponentAdded
 
-    private void caixadetexto_abaPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixadetexto_abaPesquisaActionPerformed
+    private void TxtFieldPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFieldPesquisaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_caixadetexto_abaPesquisaActionPerformed
+    }//GEN-LAST:event_TxtFieldPesquisaActionPerformed
 
-    private void checkboxAutores_abaPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxAutores_abaPesquisaActionPerformed
+    private void CheckBoxAutoresPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxAutoresPesquisaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_checkboxAutores_abaPesquisaActionPerformed
+    }//GEN-LAST:event_CheckBoxAutoresPesquisaActionPerformed
 
-    private void checkboxLivros_abaPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxLivros_abaPesquisaActionPerformed
+    private void CheckBoxLivrosPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxLivrosPesquisaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_checkboxLivros_abaPesquisaActionPerformed
+    }//GEN-LAST:event_CheckBoxLivrosPesquisaActionPerformed
 
-    private void checkboxEditoras_abaPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxEditoras_abaPesquisaActionPerformed
+    private void CheckBoxEditorasPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxEditorasPesquisaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_checkboxEditoras_abaPesquisaActionPerformed
+    }//GEN-LAST:event_CheckBoxEditorasPesquisaActionPerformed
 
     private void caixadetexto_abaInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixadetexto_abaInserirActionPerformed
         // TODO add your handling code here:
@@ -1082,9 +1076,9 @@ public class ViewConcreta extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoAjuda_abaDeletarActionPerformed
 
 
-    private void botaoAjuda_abaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAjuda_abaAlterarActionPerformed
+    private void BtnAjudaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAjudaAlterarActionPerformed
         // TODO add your handling code here
-    }//GEN-LAST:event_botaoAjuda_abaAlterarActionPerformed
+    }//GEN-LAST:event_BtnAjudaAlterarActionPerformed
 
     private void botaoAutor_abaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAutor_abaAlterarActionPerformed
         // TODO add your handling code here:
@@ -1766,22 +1760,22 @@ public class ViewConcreta extends javax.swing.JFrame {
     }
 
     public void realizarPesquisa(ActionListener al){
-        this.botaopesquisar_abaPesquisa.addActionListener(al);
+        this.BtnPesquisa.addActionListener(al);
     }
 
     public void habilita(){
-        this.caixadetexto_abaPesquisa.setVisible(false);
+        this.TxtFieldPesquisa.setVisible(false);
     }
    
     public void informacoes(ActionListener al){
-        this.botaoAjuda_abaPesquisa.addActionListener(al);
+        this.BtnAjudaPesquisa.addActionListener(al);
     }
     
     public void setOpcao(){
 
-        this.pesquisaAuthors = checkboxAutores_abaPesquisa.isSelected();
-        this.pesquisaBooks = checkboxLivros_abaPesquisa.isSelected();
-        this.pesquisaPublishers = checkboxEditoras_abaPesquisa.isSelected();
+        this.pesquisaAuthors = CheckBoxAutoresPesquisa.isSelected();
+        this.pesquisaBooks = CheckBoxLivrosPesquisa.isSelected();
+        this.pesquisaPublishers = CheckBoxEditorasPesquisa.isSelected();
 
     }
 
@@ -1801,7 +1795,7 @@ public class ViewConcreta extends javax.swing.JFrame {
     }
 
     public String getTexto(){
-        return this.caixadetexto_abaPesquisa.getText();
+        return this.TxtFieldPesquisa.getText();
     }
 
     public void limpaTabelaPesquisa(){
@@ -1882,23 +1876,23 @@ public class ViewConcreta extends javax.swing.JFrame {
     private javax.swing.JButton botaopesquisar_abaAlterar;
     private javax.swing.JButton botaopesquisar_abaDeletar;
     private javax.swing.JButton botaopesquisar_abaInserir;
-    private javax.swing.JButton botaopesquisar_abaPesquisa;    
-    private javax.swing.JButton botaoAjuda_abaPesquisa;
+    private javax.swing.JButton BtnPesquisa;    
+    private javax.swing.JButton BtnAjudaPesquisa;
     private javax.swing.JLabel TxtFieldSobrenomeAlterar;
     private javax.swing.JTextField caixadetexto_abaDeletar;
     private javax.swing.JTextField caixadetexto_abaInserir;
-    private javax.swing.JTextField caixadetexto_abaPesquisa;
+    private javax.swing.JTextField TxtFieldPesquisa;
     private javax.swing.JCheckBox checkboxAutores_abaAlterar;
     private javax.swing.JCheckBox checkboxAutores_abaDeletar;
     private javax.swing.JCheckBox checkboxAutores_abaInserir;
-    private javax.swing.JCheckBox checkboxAutores_abaPesquisa;
+    private javax.swing.JCheckBox CheckBoxAutoresPesquisa;
     private javax.swing.JCheckBox checkboxEditoras_abaAlterar;
     private javax.swing.JCheckBox checkboxEditoras_abaDeletar;
     private javax.swing.JCheckBox checkboxEditoras_abaInserir;
-    private javax.swing.JCheckBox checkboxEditoras_abaPesquisa;
+    private javax.swing.JCheckBox CheckBoxEditorasPesquisa;
     private javax.swing.JCheckBox checkboxLivros_abaAlterar;
     private javax.swing.JCheckBox checkboxLivros_abaDeletar;
-    private javax.swing.JCheckBox checkboxLivros_abaPesquisa;
+    private javax.swing.JCheckBox CheckBoxLivrosPesquisa;
     private javax.swing.JCheckBox checkboxLivros_abainserir;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1955,7 +1949,7 @@ public class ViewConcreta extends javax.swing.JFrame {
     private javax.swing.JLabel LblPrimeiroNomeAlterar2;
     private javax.swing.JPanel abaAlterar;
 
-    private javax.swing.JButton botaoAjuda_abaAlterar;
+    private javax.swing.JButton BtnAjudaAlterar;
     private javax.swing.JButton BtnAcaoAlterar;
     private javax.swing.JButton botaoAutor_abaAlterar;
     private javax.swing.JButton BtnEditorasAlterar;
@@ -1997,8 +1991,6 @@ public class ViewConcreta extends javax.swing.JFrame {
 
     private javax.swing.JTextField TxtFieldNovoNomeAlterar;
     private javax.swing.JTextField TxtFieldNovoSobrenomeAlterar;
-
-    private javax.swing.JLabel LblConfirmarcaoAlterar;
 
     private JTable tabelaAutor_abaAlterar;
     private JButton botaoAttAutor_abaAlterar;
