@@ -53,6 +53,7 @@ public class Controller {
         this.view.Inserir(new AcaoInsertAutores());
         this.view.Inserir(new AcaoInsertEditoras());
         this.view.Inserir(new AcaoinsertLivros());
+        this.view.BtnAjudaInserir(new AcaoInformacaoInserir());
 
         // ABA ALTERAR
 
@@ -440,7 +441,14 @@ public class Controller {
         }
 
     }
+    public class AcaoInformacaoInserir implements ActionListener{ // mensagem de ajuda para o usuário.
 
+        @Override
+        public void actionPerformed(ActionEvent ae){
+            view.mensagemAjudaInserir();
+
+        }
+    }
     // CLASSES DE ACAO PARA A TELA ALTERAR
 
     public class AcaoPesquisaAlterar implements ActionListener{

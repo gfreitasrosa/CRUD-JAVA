@@ -1039,6 +1039,17 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     }
 
+    public void BtnAjudaInserir(ActionListener al){
+        this.botaoAjuda_abaInserir.addActionListener(al);
+    }
+    
+    public void mensagemAjudaInserir(){
+
+        String[] infos = {"Nas checkbox selecione o que deseja inserir para habilitar os campos", "Autores: Inserir Nome e Sobrenome", "Livros: Escolha o Autor, Insira o Titulo, Preco, ISBN e Editora", "Editora: Insira o Nome da Editora e URL."};
+        JOptionPane.showMessageDialog(null, infos, "Como utilizar o método Inserir:", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+   
     public void camposInsEditoras(ActionListener al){
 
         this.radioButton_EditorasAbaInserir.addActionListener(al);
