@@ -751,13 +751,10 @@ public class ConexaoBD implements Dao{
        
         // NESSE MÉTODO NÃO PRECISA FAZER VERIFICAÇÃO SE EXISTE NO BANCO, POIS O NOME JA VEM DE UMA PESQUISA NO BANCO
 
-<<<<<<< HEAD
+
         // QUERY PARA ATUALIZAR O AUTOR
         String queryUpdAutor = "UPDATE authors set fname = ?, name = ? WHERE fname = ? AND name = ?;";
-=======
-        // QUERY PARA ATUALIAZR O AUTOR
-        String queryUpdAutor = "UPDATE authors SET fname = ?, name = ? WHERE fname = ? AND name = ?;";
->>>>>>> a33c12f6fa97931446cba427a551a93f11779056
+
 
         try (Connection con = DriverManager.getConnection(URL, USER, PASS)) {
             PreparedStatement pstm = con.prepareStatement(queryUpdAutor);
