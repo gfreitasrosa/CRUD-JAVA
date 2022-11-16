@@ -11,7 +11,6 @@ import view.*;
 
 import java.awt.event.ActionListener;
 
-import javax.swing.Action;
 import javax.swing.JOptionPane;
 
 import java.awt.event.ActionEvent;
@@ -361,7 +360,6 @@ public class Controller {
 
                 }else{
                     model.InsertEditoras(nomeEditora, Url);
-                    JOptionPane.showMessageDialog(null, "Adicionado com sucesso ", "Erro", JOptionPane.INFORMATION_MESSAGE);
 
                 }
 
@@ -378,8 +376,6 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent ae){
             String[] listaAutoresEscolhidos;
-            String nome;
-            String sobrenome;
             String[] listaLinhas;
 
             if(view.verificaEscolhaInserirLivro()){
@@ -411,7 +407,7 @@ public class Controller {
                     for (String valor : listaAutoresEscolhidos) {
                         listaLinhas = valor.split(" ");
 
-                        model.InsertLivros(titulo, isbn, preco, nomeEditora, listaLinhas[1], listaLinhas[2]);
+                        model.InsertLivros(titulo, isbn, preco, nomeEditora, listaLinhas[1], listaLinhas[2] + " " + listaLinhas[3]);
                         listaLinhas = null;
                         
 

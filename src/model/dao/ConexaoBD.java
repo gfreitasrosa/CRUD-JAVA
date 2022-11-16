@@ -2,9 +2,6 @@ package model.dao;
 
 import javax.swing.*;
 
-import com.mysql.cj.Query;
-import com.mysql.cj.xdevapi.Result;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -314,9 +311,7 @@ public class ConexaoBD implements Dao{
         }
 
         return lista_relLivrosEditoras;
-
     }
-
 
     @Override
     public List<RelTudo> buscarTudo(String nome){ // MÉTODO QUE REALIZA PESQUISA DE RELACIONANDO TODOS OS DADOS DO BD (COM WHERE)
@@ -371,6 +366,7 @@ public class ConexaoBD implements Dao{
     @Override
     public void InsertLivros(String titulo, String isbn, float preco, String nomeEditora, String name, String fname){ // MÉTODO QUE REALIZA INSERT NA 'books'
 
+
         // TRY PARA VERIFICAR SE O AUTOR INSERIDO ESTÁ CADASTRADO NO BANCO DE DADOS
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)) {
             String sqlRelacao = "select * from authors where name = ? and fname = ? ";
@@ -384,7 +380,7 @@ public class ConexaoBD implements Dao{
                 // CASO SIM, PASSA O ID DESSE AUTOR PARA A VARIAVEL autorId
                 autorId = rs.getInt("author_id");
             } else {
-                // CASO NÃO, PASSA O VALOR null PARA A VARIÁVEL autorId
+                // CASO NÃO, PASSA O VALOR 0 PARA A VARIÁVEL autorId
                 autorId = 0;
             }
 
@@ -407,12 +403,12 @@ public class ConexaoBD implements Dao{
 
             }else {
                 // CASO NÃO, RETORNA UMA MENSAGEM DE ERRO E CANCELA O MÉTODO
-                JOptionPane.showMessageDialog(null, "Editora inserida não cadastrada no banco de dados", "Erro", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Editora inserida não cadastrada no banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
         }catch (SQLException ErroSql) {
-            JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados", "Erro", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
         }
 
         // QUERY PARA ADICIONAR O LIVRO INSERIDO
@@ -430,7 +426,8 @@ public class ConexaoBD implements Dao{
             JOptionPane.showMessageDialog(null, "Livro adicionado com Sucesso. ", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 
         }catch (SQLException ErroSql) {
-            JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados", "Erro", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados, verifique se o livro já está cadastrado", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
         }
 
         // QUERY PARA ADICIONAR A RELAÇÃO DESSE LIVRO COM O AUTOR NA TABELA 'booksauthors'
@@ -449,6 +446,7 @@ public class ConexaoBD implements Dao{
             
         }catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Livro adicionado sem autor.", "Observação ", JOptionPane.INFORMATION_MESSAGE);
+            
         }
     }
 
@@ -576,7 +574,7 @@ public class ConexaoBD implements Dao{
                 if(escolha == JOptionPane.YES_OPTION){
                     this.apagarLivro(isbn); // CHAMA O MÉTODO DE APAGAR LIVRO E CONTINUA A EXECUÇÃO DO MÉTODO
                     JOptionPane.showMessageDialog(null, "Livro apagado", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-                } else if (escolha == JOptionPane.CANCEL_OPTION){
+                } else if (escolha == JOptionPane.CANCEL_OPTION || escolha ==JOptionPane.CLOSED_OPTION){
                     JOptionPane.showMessageDialog(null, "Autor nao apagado", "Atenção", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
@@ -620,6 +618,7 @@ public class ConexaoBD implements Dao{
     @Override
     public void apagarEditora(String editora){ // // MÉTODO QUE REALIZA DELETE na 'publishers'
 
+        int contador = 1;
         int escolha;
         String isbn;
 
@@ -644,7 +643,7 @@ public class ConexaoBD implements Dao{
         }
 
         // SELECT PARA VERIFICAR SE ESSA EDITORA POSSUI LIVRO CADASTRADO NELA 
-        String queryVerificaLivro= "SELECT * FROM books WHERE publisher_id IN (SELECT publisher_id FROM publishers WHERE name = ?);";
+        String queryVerificaLivro= "SELECT *  FROM books WHERE publisher_id IN (SELECT publisher_id FROM publishers WHERE name = ?);";
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
             PreparedStatement pstm = con.prepareStatement(queryVerificaLivro);
@@ -653,15 +652,18 @@ public class ConexaoBD implements Dao{
 
             if (rs.next()) {
                 
-                isbn = rs.getString("isbn");
-
                 // CASO EXISTA RELAÇÃO, ABRE UM POP-UP PARA O USUÁRIO ESCOLHER SE ELE QUER APAGAR O LIVRO TAMBÉM OU SÓ A RELAÇÃO
                 escolha = JOptionPane.showConfirmDialog(null, "A editora inserida possuí livros cadastrados no sistema, deseja exclui-los?", "Atençao", JOptionPane.YES_NO_CANCEL_OPTION);
                 
                 if(escolha == JOptionPane.YES_OPTION){
-                    this.apagarLivro(isbn); // CHAMA O MÉTODO DE APAGAR LIVRO E CONTINUA A EXECUÇÃO DO MÉTODO
-                    JOptionPane.showMessageDialog(null, "Livro apagado", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-                } else if (escolha == JOptionPane.CANCEL_OPTION){
+                    while (rs.next()){
+                        contador ++;
+                        isbn = rs.getString("isbn");
+                        this.apagarLivro(isbn); // CHAMA O MÉTODO DE APAGAR LIVRO E CONTINUA A EXECUÇÃO DO MÉTODO  
+                    }
+
+                    JOptionPane.showMessageDialog(null, contador + " Livros apagados", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                } else if (escolha == JOptionPane.CANCEL_OPTION || escolha ==JOptionPane.CLOSED_OPTION){
                     JOptionPane.showMessageDialog(null, "Editora não apagada", "Atenção", JOptionPane.WARNING_MESSAGE);
                     return;
                 }

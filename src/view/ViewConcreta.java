@@ -7,16 +7,11 @@ package view;
 import java.awt.FlowLayout;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
-import javax.xml.crypto.AlgorithmMethod;
-import java.util.List;
-
 
 import model.entidades.*;
 
-import java.awt.event.*;
-                                        
+import java.awt.event.*;                                 
 
 /**
  *
@@ -51,8 +46,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         this.desabilitaTelaAlterar();
     }
 
-
-    @SuppressWarnings("unchecked")
     public void initComponents() {
 
         
@@ -73,15 +66,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
         abaDeletar = new JPanel();
         LblTituloDeletar = new JLabel();
-        caixadetexto_abaDeletar = new JTextField();
-        botaopesquisar_abaDeletar = new JButton();
-        Filtrodepesquisa_abaDeletar = new JLabel();
-        checkboxLivros_abaDeletar = new JCheckBox();
-        checkboxAutores_abaDeletar = new JCheckBox();
-        checkboxEditoras_abaDeletar = new JCheckBox();
-        jScrollPane3 = new JScrollPane();
-        tabela_abaDeletar = new JTable();
-        botaoDeletar_abaDeletar = new JButton();
 
         abaInserir = new JPanel();
         titulo_abaInserir = new JLabel();
@@ -108,7 +92,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         caixadetexto_NomeDaEditora_abaInserir = new JTextField();
         labelURL_abaInserir = new JLabel();
         caixadetexto_URL_abaInserir = new JTextField();
-        labelQueMostraConfimacao_abaInserir = new JLabel();
         botaoinserir_abaInserir1 = new JButton();
         
         tabela_abaAutor = new JTable();
@@ -224,37 +207,18 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         jScrollPane1.setViewportView(tabela_abaPesquisa);
 
         TxtFieldPesquisa.setBackground(new java.awt.Color(204, 204, 204));
-        TxtFieldPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtFieldPesquisaActionPerformed(evt);
-            }
-        });
 
         BtnPesquisa.setBackground(new java.awt.Color(204, 204, 204));
+
         BtnPesquisa.setText("Pesquisar");
 
         CheckBoxAutoresPesquisa.setText("Autores");
-        CheckBoxAutoresPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CheckBoxAutoresPesquisaActionPerformed(evt);
-            }
-        });
 
         Filtrodepesquisa_abaPesquisa.setText("Pesquisar em:");
 
         CheckBoxLivrosPesquisa.setText("Livros");
-        CheckBoxLivrosPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CheckBoxLivrosPesquisaActionPerformed(evt);
-            }
-        });
 
         CheckBoxEditorasPesquisa.setText("Editoras");
-        CheckBoxEditorasPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CheckBoxEditorasPesquisaActionPerformed(evt);
-            }
-        });
 
         BtnAjudaPesquisa.setBackground(new java.awt.Color(204, 204, 204));
         BtnAjudaPesquisa.setFont(new java.awt.Font("Swis721 Blk BT", 0, 14)); // NOI18N
@@ -316,7 +280,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        janelacomabas.addTab("Pesquisa", abaPesquisa);
+        janelacomabas.addTab("Pesquisar", abaPesquisa);
 
        
         janelacomabas.addTab("Inserir", abaInserir);
@@ -330,11 +294,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         BtnAjudaDeletar.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
         BtnAjudaDeletar.setText("Ajuda?");
         BtnAjudaDeletar.setToolTipText("");
-        BtnAjudaDeletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAjudaDeletarActionPerformed(evt);
-            }
-        });
 
         grupo_abaDeletar.add(radioButton_AutorDeletar);
         radioButton_AutorDeletar.setText("Autor");
@@ -479,11 +438,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         BtnAjudaAlterar.setFont(new java.awt.Font("Swis721 Blk BT", 0, 18)); // NOI18N
         BtnAjudaAlterar.setText("Ajuda?");
         BtnAjudaAlterar.setToolTipText("");
-        BtnAjudaAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnAjudaAlterarActionPerformed(evt);
-            }
-        });
 
         tabelaAutor_abaAlterar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -525,11 +479,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         radioButton_EditorasAbaInserir1.setText("Editoras");
 
         botaoAutor_abaAlterar.setText("Escolher Autor");
-        botaoAutor_abaAlterar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAutor_abaAlterarActionPerformed(evt);
-            }
-        });
 
         LblPrimeiroNomeAlterar.setText("Primeiro nome:");
 
@@ -818,12 +767,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
         labelSobreNome_abaInserir.setText("Sobrenome:");
 
-        caixadetexto_abaInserirPreco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caixadetexto_abaInserirPrecoActionPerformed(evt);
-            }
-        });
-
         labelISBN_abaInserir.setText("ISBN");
 
         labelTitulo_abaInserir.setText("Título do Livro: ");
@@ -834,26 +777,16 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         labelNomeDaEditora_radiolivros_abaInserir.setToolTipText("");
 
         botaoAutor_abainserir.setText("Escolher Autor");
-        botaoAutor_abainserir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAutor_abainserirActionPerformed(evt);
-            }
-        });
 
         labelAutores_abainserir.setText("Autores:");
 
         labelAutoresEscolhidos_abaInserir.setText("");
-        labelAutoresEscolhidos_abaInserir.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                labelAutoresEscolhidos_abaInserirComponentAdded(evt);
-            }
-        });
+    
 
         labelNomeDaEditora_abaInserir.setText("Nome da Editora:");
 
         labelURL_abaInserir.setText("URL:");
 
-        labelQueMostraConfimacao_abaInserir.setText("(label que vai ser pra mostrar a confirmação de inserção, apagar depois tbm)");
 
         tabela_abaAutor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -924,7 +857,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
                             .addGroup(abaInserirLayout.createSequentialGroup()
                                 .addComponent(botaoAjuda_abaInserir)
                                 .addGap(18, 18, 18)
-                                .addComponent(labelQueMostraConfimacao_abaInserir, GroupLayout.PREFERRED_SIZE, 343, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(botaoinserir_abaInserir1))))
                     .addGroup(abaInserirLayout.createSequentialGroup()
@@ -985,7 +917,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
                     .addComponent(caixadetexto_URL_abaInserir, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(abaInserirLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelQueMostraConfimacao_abaInserir, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaoinserir_abaInserir1)
                     .addComponent(botaoAjuda_abaInserir))
                 .addContainerGap(9, Short.MAX_VALUE))
@@ -1013,65 +944,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
        
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
-
-    // MÉTODOS GERADOS PELO NETBEANS
-    private void caixadetexto_abaInserirPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixadetexto_abaInserirPrecoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_caixadetexto_abaInserirPrecoActionPerformed
-
-    private void botaoAutor_abainserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAutor_abainserirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoAutor_abainserirActionPerformed
-
-    private void labelAutoresEscolhidos_abaInserirComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_labelAutoresEscolhidos_abaInserirComponentAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_labelAutoresEscolhidos_abaInserirComponentAdded
-
-    private void TxtFieldPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFieldPesquisaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtFieldPesquisaActionPerformed
-
-    private void CheckBoxAutoresPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxAutoresPesquisaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CheckBoxAutoresPesquisaActionPerformed
-
-    private void CheckBoxLivrosPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxLivrosPesquisaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CheckBoxLivrosPesquisaActionPerformed
-
-    private void CheckBoxEditorasPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckBoxEditorasPesquisaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CheckBoxEditorasPesquisaActionPerformed
-
-    private void caixadetexto_abaInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixadetexto_abaInserirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_caixadetexto_abaInserirActionPerformed
-
-    private void checkboxLivros_abainserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxLivros_abainserirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_checkboxLivros_abainserirActionPerformed
-
-    private void checkboxAutores_abaInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxAutores_abaInserirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_checkboxAutores_abaInserirActionPerformed
-
-    private void checkboxEditoras_abaInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxEditoras_abaInserirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_checkboxEditoras_abaInserirActionPerformed
-
-    private void BtnAjudaDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAjudaDeletarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnAjudaDeletarActionPerformed
-
-
-    private void BtnAjudaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAjudaAlterarActionPerformed
-        // TODO add your handling code here
-    }//GEN-LAST:event_BtnAjudaAlterarActionPerformed
-
-    private void botaoAutor_abaAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAutor_abaAlterarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoAutor_abaAlterarActionPerformed
+    }
 
     // *****************************
     // * MÉTODOS DA JANELA DELETAR *
@@ -1841,44 +1714,18 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     }
 
     private ButtonGroup g1;
-    private JLabel Filtrodepesquisa_abaAlterar;
-    private JLabel Filtrodepesquisa_abaDeletar;
-    private JLabel Filtrodepesquisa_abaInserir;
     private JLabel Filtrodepesquisa_abaPesquisa;
     private JPanel abaInserir;
     private JPanel abaPesquisa;
-    private JButton botaoAlterar_abaAlterar;
-    private JButton botaoDeletar_abaDeletar;
-    private JButton botaoinserir_abaInserir;
-    private JButton botaopesquisar_abaAlterar;
-    private JButton botaopesquisar_abaDeletar;
-    private JButton botaopesquisar_abaInserir;
     private JButton BtnPesquisa;    
     private JButton BtnAjudaPesquisa;
     private JLabel TxtFieldSobrenomeAlterar;
-    private JTextField caixadetexto_abaDeletar;
-    private JTextField caixadetexto_abaInserir;
     private JTextField TxtFieldPesquisa;
-    private JCheckBox checkboxAutores_abaAlterar;
-    private JCheckBox checkboxAutores_abaDeletar;
-    private JCheckBox checkboxAutores_abaInserir;
     private JCheckBox CheckBoxAutoresPesquisa;
-    private JCheckBox checkboxEditoras_abaAlterar;
-    private JCheckBox checkboxEditoras_abaDeletar;
-    private JCheckBox checkboxEditoras_abaInserir;
     private JCheckBox CheckBoxEditorasPesquisa;
-    private JCheckBox checkboxLivros_abaAlterar;
-    private JCheckBox checkboxLivros_abaDeletar;
     private JCheckBox CheckBoxLivrosPesquisa;
-    private JCheckBox checkboxLivros_abainserir;
     private JScrollPane jScrollPane1;
-    private JScrollPane jScrollPane2;
-    private JScrollPane jScrollPane3;
-    private JScrollPane jScrollPane4;
     private JTabbedPane janelacomabas;
-    private JTable tabela_abaAlterar;
-    private JTable tabela_abaDeletar;
-    private JTable tabela_abaInserir;
     private JTable tabela_abaPesquisa;
     private JLabel tituloPesquisa;
     private JLabel titulo_abaInserir;
@@ -1907,7 +1754,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     private JLabel labelNomeDaEditora_abaInserir;
     private JLabel labelNomeDaEditora_radiolivros_abaInserir;
     private JLabel labelNome_abaInserir;
-    private JLabel labelQueMostraConfimacao_abaInserir;
     private JLabel labelSobreNome_abaInserir;
     private JLabel labelTitulo_abaInserir;
     private JLabel labelURL_abaInserir;
@@ -2001,7 +1847,4 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     private JLabel LblNomeDaEditoraDeletar;
     private JLabel LblSobrenomeDeletar;
     private JLabel LblTituloDeletar;
-
-
-
 }

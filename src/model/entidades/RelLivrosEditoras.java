@@ -1,7 +1,5 @@
 package model.entidades;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 public class RelLivrosEditoras {
 
      private Livros titulo;

@@ -1,7 +1,5 @@
 package model.entidades;
 
-import model.entidades.*;
-
 public class RelTudo {
 
     Autores sobrenome;
