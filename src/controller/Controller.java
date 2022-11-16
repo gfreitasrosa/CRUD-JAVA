@@ -393,8 +393,8 @@ public class Controller {
                 }else if (nomeEditora.equals("")){
                     JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta nome da editora ", "Erro", JOptionPane.INFORMATION_MESSAGE);
 
-                } else if (preco == 0.0) {
-                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta o preco ", "Erro", JOptionPane.INFORMATION_MESSAGE);
+                } else if (preco == 0.0 || Float.isNaN(preco)) {
+                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta o preço ou preço inválido", "Erro", JOptionPane.INFORMATION_MESSAGE);
 
                 } else if (isbn.equals("")) {
                     JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta a ISBN ", "Erro", JOptionPane.INFORMATION_MESSAGE);
@@ -406,8 +406,12 @@ public class Controller {
                 } else {
                     for (String valor : listaAutoresEscolhidos) {
                         listaLinhas = valor.split(" ");
-
-                        model.InsertLivros(titulo, isbn, preco, nomeEditora, listaLinhas[1], listaLinhas[2] + " " + listaLinhas[3]);
+                        if (listaLinhas.length > 3){
+                            model.InsertLivros(titulo, isbn, preco, nomeEditora, listaLinhas[1], listaLinhas[2] + " " + listaLinhas[3]);
+                        } else {
+                            model.InsertLivros(titulo, isbn, preco, nomeEditora, listaLinhas[1], listaLinhas[2]);
+                        }
+                        
                         listaLinhas = null;
                         
 

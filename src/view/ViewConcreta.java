@@ -1137,9 +1137,13 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     }
 
     public String getInserirPreco(){
-        if (this.caixadetexto_abaInserirPreco.getText().equals("")){
+        if (!this.caixadetexto_abaInserirPreco.getText().matches("[0-9]*")){
             return "0";
-        }else{
+             
+        }else if (this.caixadetexto_abaInserirPreco.getText().equals("")){
+            return "0";
+            
+        } else {
             return this.caixadetexto_abaInserirPreco.getText();
         }
     }
