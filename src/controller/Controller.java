@@ -306,7 +306,7 @@ public class Controller {
         }
     }
 
-    public class AcaoInsertAutores implements ActionListener{
+    public class AcaoInsertAutores implements ActionListener{ // Acão realizada para inserir autores
         String nomeAutor;
         String sobreNomeAutor;
 
@@ -314,16 +314,18 @@ public class Controller {
         public void actionPerformed(ActionEvent al){
 
 
-            if(view.verificaEscolhaInserirAutor()){
+            if(view.verificaEscolhaInserirAutor()){ // Recebe a informação que o usuário passa
                 nomeAutor = view.getNome();
                 sobreNomeAutor = view.getSobrenome();
 
+                if(nomeAutor.equals("") && sobreNomeAutor.equals("")){ // Verificações de campos em branco.
+                    JOptionPane.showMessageDialog(null, "Campos em branco ", "Erro", JOptionPane.ERROR_MESSAGE);
 
-                if (nomeAutor.equals("")){
-                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta o Nome do Autor ", "Erro", JOptionPane.INFORMATION_MESSAGE);
+                }else if (nomeAutor.equals("")){ 
+                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta o Nome do Autor ", "Erro", JOptionPane.ERROR_MESSAGE);
 
                 } else if (sobreNomeAutor.equals("")) {
-                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta Sobrenome do Autor", "Erro", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta Sobrenome do Autor", "Erro", JOptionPane.ERROR_MESSAGE);
 
                 }else{
                     model.InsertAutores(nomeAutor, sobreNomeAutor);
@@ -334,24 +336,24 @@ public class Controller {
         }
     }
 
-    public class AcaoInsertEditoras implements ActionListener {
+    public class AcaoInsertEditoras implements ActionListener { // Ação adicionar editoras
         String nomeEditora;
         String Url;
 
         @Override
         public void actionPerformed(ActionEvent al) {
-            if (view.verificaEscolhaInserirEditora()) {
+            if (view.verificaEscolhaInserirEditora()) { // Recebendo entrada do usuário
                 nomeEditora = view.getNomeEditora();
                 Url = view.getUrl();
 
-                if (nomeEditora.equals("") && Url.equals("")) {
-                    JOptionPane.showMessageDialog(null, "Campos em branco. ", "Erro", JOptionPane.INFORMATION_MESSAGE);
+                if (nomeEditora.equals("") && Url.equals("")) { // Verificações de campos em branco.
+                    JOptionPane.showMessageDialog(null, "Campos em branco. ", "Erro", JOptionPane.ERROR_MESSAGE);
 
                 } else if (nomeEditora.equals("")){
-                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta nome da editora ", "Erro", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta nome da editora ", "Erro", JOptionPane.ERROR_MESSAGE);
 
                 } else if (Url.equals("")) {
-                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta a URL ", "Erro", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta a URL ", "Erro", JOptionPane.ERROR_MESSAGE);
 
                 }else{
                     model.InsertEditoras(nomeEditora, Url);
@@ -363,42 +365,42 @@ public class Controller {
         }
     }
 
-    public class AcaoinsertLivros implements ActionListener{
+    public class AcaoinsertLivros implements ActionListener{ // Acão para inserir livros
         String titulo;
         String nomeEditora;
         Float preco;
         String isbn;
         @Override
-        public void actionPerformed(ActionEvent ae){
+        public void actionPerformed(ActionEvent ae){ 
             String[] listaAutoresEscolhidos;
             String[] listaLinhas;
 
-            if(view.verificaEscolhaInserirLivro()){
+            if(view.verificaEscolhaInserirLivro()){ // Recebimento dos dados do usuário
                 titulo = view.getInserirTitulo();
                 nomeEditora = view.getInserirEditoras();
                 preco = Float.parseFloat(view.getInserirPreco());
                 isbn = view.getISBN();
                 listaAutoresEscolhidos = view.getAutoresSelecionados().split(" / ");
 
-                if (titulo.equals("") && nomeEditora.equals("") && preco == 0.0 && isbn.equals("")){
-                    JOptionPane.showMessageDialog(null, "Campos em branco ", "Erro", JOptionPane.INFORMATION_MESSAGE);
+                if (titulo.equals("") && nomeEditora.equals("") && preco == 0.0 && isbn.equals("")){ // Verificação dos campos em branco 
+                    JOptionPane.showMessageDialog(null, "Campos em branco ", "Erro", JOptionPane.ERROR_MESSAGE);
                 } else if(titulo.equals("")) {
-                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta Titulo do livro ", "Erro", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta Titulo do livro ", "Erro", JOptionPane.ERROR_MESSAGE);
 
                 }else if (nomeEditora.equals("")){
-                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta nome da editora ", "Erro", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta nome da editora ", "Erro", JOptionPane.ERROR_MESSAGE);
 
                 } else if (preco == 0.0 || Float.isNaN(preco)) {
-                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta o preço ou preço inválido", "Erro", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta o preço ou preço inválido", "Erro", JOptionPane.ERROR_MESSAGE);
 
                 } else if (isbn.equals("")) {
-                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta a ISBN ", "Erro", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Erro ao adicionar, falta a ISBN ", "Erro", JOptionPane.ERROR_MESSAGE);
 
-                } else if (listaAutoresEscolhidos.length < 1) {
+                } else if (listaAutoresEscolhidos.length < 1) { // Entrada no banco de dados sem utilizar o botão autor
                     model.InsertLivros(titulo, isbn, preco, nomeEditora, null, null);
 
 
-                } else {
+                } else { // Entrada no banco de dados com o usuário inserindo autores.
                     for (String valor : listaAutoresEscolhidos) {
                         listaLinhas = valor.split(" ");
                         if (listaLinhas.length > 3){
