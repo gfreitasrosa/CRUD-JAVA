@@ -772,7 +772,8 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
         labelURL_abaInserir.setText("URL:");
 
-
+        labelQueMostraConfimacao_abaInserir.setText("");
+        
         tabela_abaAutor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
             },
@@ -842,7 +843,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
                             .addGroup(abaInserirLayout.createSequentialGroup()
                                 .addComponent(botaoAjuda_abaInserir)
                                 .addGap(18, 18, 18)
-                                .addComponent(labelQueMostraConfimacao_abaInserir)
                                 .addGap(18, 18, 18)
                                 .addComponent(botaoinserir_abaInserir1))))
                     .addGroup(abaInserirLayout.createSequentialGroup()
@@ -852,7 +852,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
                         .addComponent(caixadetexto_NomeDaEditora_abaInserir, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelURL_abaInserir)
-                        .addComponent(labelQueMostraConfimacao_abaInserir)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(caixadetexto_URL_abaInserir)))
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
