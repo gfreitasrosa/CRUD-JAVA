@@ -17,7 +17,7 @@ import java.awt.event.ActionEvent;
 
 public class Controller {
 
-    ViewConcreta view;
+    ViewAbstrata view;
     Dao model;
     int contador;
 
@@ -58,7 +58,7 @@ public class Controller {
         // ABA ALTERAR
 
         this.view.pesquisaAutorAlterar(new AcaoPesquisaAlterar());
-        this.view.pesquisaEditoraAlterar(new AcaoPesquisaAlterar());
+        this.view.pesquisarEditoraAlterar(new AcaoPesquisaAlterar());
         this.view.pesquisaLivrosAlterar(new AcaoPesquisaAlterar());
 
         this.view.camposAlterarAutor(new AcaoHabilitaTelaAlterar());
@@ -70,6 +70,8 @@ public class Controller {
         this.view.attEditoraAlterar(new AcaoAttDadosAntigosAlterar());
 
         this.view.realizaAlteracao(new AcaoAlterar());
+
+        this.view.ajudaAlterar(new AcaoAjudaAlterar());
     }
 
     // CLASSES RELACIONADAS A ABA PESQUISA
@@ -181,6 +183,8 @@ public class Controller {
     }
 
     // CLASSES RELACIONADAS A ABA DELETAR
+
+    
     
     public class AcaoDeletar implements ActionListener{
         String nomeAutor;
@@ -346,7 +350,6 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent al) {
             if (view.verificaEscolhaInserirEditora()) {
-
                 nomeEditora = view.getNomeEditora();
                 Url = view.getUrl();
 
@@ -429,13 +432,14 @@ public class Controller {
             view.desabilitarTela();
 
             if (view.verificaEscolhaInserirAutor()){
+                view.limpaAutoresInserir();
                 view.habilitarAutor();
 
             } else if (view.verificaEscolhaInserirEditora()){
+                view.limpaAutoresInserir();
                 view.habilitaEditoras();
 
             } else if (view.verificaEscolhaInserirLivro()){
-
                 view.habilitaLivros();
             }
         }
@@ -450,6 +454,16 @@ public class Controller {
         }
     }
     // CLASSES DE ACAO PARA A TELA ALTERAR
+
+    public class AcaoAjudaAlterar implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent ae){
+            // MÉTODO CHAMADO AO CLICAR NO BOTÃO AJUDA
+            view.mensagemAjudaAlterar();;    
+            
+        }
+    }
 
     public class AcaoPesquisaAlterar implements ActionListener{
        

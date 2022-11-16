@@ -12,6 +12,7 @@ public class ConexaoBD implements Dao{
 
     private int idPublisher;
     private int autorId;
+    private String nomeAutor;
 
     static private final String USER = "root";
     static private final String PASS = "";
@@ -366,19 +367,19 @@ public class ConexaoBD implements Dao{
     @Override
     public void InsertLivros(String titulo, String isbn, float preco, String nomeEditora, String name, String fname){ // MÉTODO QUE REALIZA INSERT NA 'books'
 
-
         // TRY PARA VERIFICAR SE O AUTOR INSERIDO ESTÁ CADASTRADO NO BANCO DE DADOS
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)) {
-            String sqlRelacao = "select * from authors where name = ? and fname = ? ";
+            String sqlRelacao = "select * from authors where name LIKE ? or fname = ? ";
             PreparedStatement pstm = con.prepareStatement(sqlRelacao);
 
-            pstm.setString(1, name);
-            pstm.setString(2, fname);
+            pstm.setString(1, name + "%");
+            pstm.setString(2, fname );
             ResultSet rs = pstm.executeQuery();
 
             if(rs.next()){
                 // CASO SIM, PASSA O ID DESSE AUTOR PARA A VARIAVEL autorId
                 autorId = rs.getInt("author_id");
+                nomeAutor = rs.getString("fname") + " " + rs.getString("name");
             } else {
                 // CASO NÃO, PASSA O VALOR 0 PARA A VARIÁVEL autorId
                 autorId = 0;
@@ -411,43 +412,104 @@ public class ConexaoBD implements Dao{
             JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
         }
 
-        // QUERY PARA ADICIONAR O LIVRO INSERIDO
+        // QUERY PARA VERIFICAR SE O LIVRO JÁ ESTÁ CADASTRADO
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)) {
+            String sqlVerificacaoLivro = "select * from books where isbn = ?";
+            PreparedStatement pstm = con.prepareStatement(sqlVerificacaoLivro);
 
-            String SqlInsertLivros = "insert into Books (title, isbn, publisher_id, price) values (?, ?, ?, ?)";
-            PreparedStatement pstm = con.prepareStatement(SqlInsertLivros);
+            pstm.setString(1, isbn);
+            ResultSet rs = pstm.executeQuery();
 
-            pstm.setString(1, titulo);
-            pstm.setString(2, isbn);
-            pstm.setInt(3, idPublisher);
-            pstm.setFloat(4, preco);
-            pstm.execute();
+            if(rs.next()){
+                // SE ESTIVER CADASTRADO, QUERY PARA VERIFICAR SE A RELAÇÃO DO AUTOR JÁ ESTÁ CADASTRADA
+                if(autorId != 0){
+                    try(Connection con2 = DriverManager.getConnection(URL, USER, PASS)) {
+                        String sqlVerificacaoAutor = "select * from booksauthors where author_id = ? AND isbn = ? ";
+                        PreparedStatement pstm2 = con2.prepareStatement(sqlVerificacaoAutor);
+            
+                        pstm2.setInt(1, autorId);
+                        pstm2.setString(2, isbn);
+                        ResultSet rs2 = pstm2.executeQuery();
 
-            JOptionPane.showMessageDialog(null, "Livro adicionado com Sucesso. ", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                        if(!rs2.next()){
 
-        }catch (SQLException ErroSql) {
-            JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados, verifique se o livro já está cadastrado", "Erro", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+                            // SE NÃO TIVER CADASTRADA, INSERE A RELAÇÃO
+                            try(Connection con3 = DriverManager.getConnection(URL, USER, PASS)) {
+                                String sqlInsert = "insert into booksauthors (author_id, isbn) value (?,?);";
+                                PreparedStatement pstm3 = con3.prepareStatement(sqlInsert);                
+                               
+                                pstm3.setInt(1, autorId);
+                                pstm3.setString(2, isbn);
+                                pstm3.execute();
+                                
+                                JOptionPane.showMessageDialog(null, "Relação com o autor " + nomeAutor + " inserida", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 
-        // QUERY PARA ADICIONAR A RELAÇÃO DESSE LIVRO COM O AUTOR NA TABELA 'booksauthors'
-        try(Connection con2 = DriverManager.getConnection(URL, USER, PASS)) {
-            String sqlInsert = "insert into booksauthors (author_id, isbn) value (?,?);";
-            PreparedStatement pstm2 = con2.prepareStatement(sqlInsert);
+                            
+                            }catch (Exception e) {
+                            JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados", "Erro ", JOptionPane.ERROR_MESSAGE);
+                            
+                            }
 
-            if (autorId == 0){
-                JOptionPane.showMessageDialog(null, "Nenhuma relação inserida", "Observação ", JOptionPane.INFORMATION_MESSAGE);
+                        } else {
+                            // SE TIVER A RELAÇÃO DO AUTOR COM O LIVRO ESTIVER CADASTRADA, RETORNA UMA MENASGEM PARA O USUÁRIO E TERMINA A EXECUÇÃO DO MÉTODO
+                            JOptionPane.showMessageDialog(null, "O livro inserido já está cadastrado e sua relação com o autor " + nomeAutor + " também",  "Atençâo:", JOptionPane.WARNING_MESSAGE);
+                            return;
+                        }
 
+                    }catch (SQLException ErroSql) {
+                        JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+                
             } else {
-                pstm2.setInt(1, autorId);
-                pstm2.setString(2, isbn);
-                pstm2.execute();
-            }
-            
-        }catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Livro adicionado sem autor.", "Observação ", JOptionPane.INFORMATION_MESSAGE);
-            
+                // CASO NÃO, CADASTRA O LIVRO
+
+                // QUERY PARA ADICIONAR O LIVRO INSERIDO
+                try(Connection con4 = DriverManager.getConnection(URL, USER, PASS)) {
+
+                    String SqlInsertLivros = "insert into Books (title, isbn, publisher_id, price) values (?, ?, ?, ?)";
+                    PreparedStatement pstm4 = con4.prepareStatement(SqlInsertLivros);
+
+                    pstm4.setString(1, titulo);
+                    pstm4.setString(2, isbn);
+                    pstm4.setInt(3, idPublisher);
+                    pstm4.setFloat(4, preco);
+                    pstm4.execute();
+
+                    JOptionPane.showMessageDialog(null, "Livro adicionado com Sucesso. ", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+
+                }catch (SQLException ErroSql) {
+                    JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados, verifique se o livro já está cadastrado e o dados estão corretos", "Erro", JOptionPane.ERROR_MESSAGE);
+                    return;
+                } 
+
+                if(autorId != 0){
+
+                    // QUERY PARA CADASTRAR A PRIMEIRA RELAÇÃO DO AUTOR INSERIDO COM O LIVRO
+                    try(Connection con3 = DriverManager.getConnection(URL, USER, PASS)) {
+                        String sqlInsert = "insert into booksauthors (author_id, isbn) value (?,?);";
+                        PreparedStatement pstm3 = con3.prepareStatement(sqlInsert);                
+                       
+                        pstm3.setInt(1, autorId);
+                        pstm3.setString(2, isbn);
+                        pstm3.execute();
+
+                        JOptionPane.showMessageDialog(null, "Relação com o autor " + nomeAutor + " inserida", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+
+                        
+                    
+                    }catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados", "Erro ", JOptionPane.ERROR_MESSAGE);
+                    
+                    }
+                }
+                
+            } 
+                   
+        }catch (SQLException ErroSql) {
+                    JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados", "Erro", JOptionPane.INFORMATION_MESSAGE);
         }
+
     }
 
     @Override
@@ -574,7 +636,7 @@ public class ConexaoBD implements Dao{
                 if(escolha == JOptionPane.YES_OPTION){
                     this.apagarLivro(isbn); // CHAMA O MÉTODO DE APAGAR LIVRO E CONTINUA A EXECUÇÃO DO MÉTODO
                     JOptionPane.showMessageDialog(null, "Livro apagado", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-                } else if (escolha == JOptionPane.CANCEL_OPTION || escolha ==JOptionPane.CLOSED_OPTION){
+                } else if (escolha == JOptionPane.CANCEL_OPTION ){
                     JOptionPane.showMessageDialog(null, "Autor nao apagado", "Atenção", JOptionPane.WARNING_MESSAGE);
                     return;
                 }

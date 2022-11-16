@@ -46,6 +46,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         this.desabilitaTelaAlterar();
     }
 
+    @Override
     public void initComponents() {
 
         
@@ -950,59 +951,68 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     // * MÉTODOS DA JANELA DELETAR *
     // *****************************
 
+    @Override
     public void deletar(ActionListener al){
         this.BtnDeletarDeletar.addActionListener(al);
     }
     
-    // Métodos para pegar a escolha de qual seção o autor vai deletar
+    @Override // Métodos para pegar a escolha de qual seção o autor vai deletar
     public boolean verificaEscolhaDeletarAutor(){
         return this.radioButton_AutorDeletar.isSelected();
     }
 
+    @Override
     public boolean verificaEscolhaDeletarEditora(){
         return this.radioButton_EditorasAbaDeletar.isSelected();
     }
 
-     public boolean verificaEscolhaDeletarLivro(){
+    @Override
+    public boolean verificaEscolhaDeletarLivro(){
          return this.radioButton_LivrosDeletar.isSelected();
     }
 
-    // Métodos Gets para pegar o texto digitado pelo user
+    @Override // Métodos Gets para pegar o texto digitado pelo user
     public String getTextoNomeAutor(){
         return this.TxtFieldPrimeiroNomeAutorDeletar.getText();
     }
 
+    @Override
     public String getTextoSobrenomeAutor(){
         return this.TxtFieldSobrenomeAutorDeletar.getText();
     }
 
+    @Override
     public String getTextoISBN() {
         return this.TxtFieldISBNDeletar.getText();
     }
 
+    @Override
     public String getTextoEditora() {
         return this.TxtFieldNomeDaEditoraDeletar.getText();
     }
 
-    // Mensagem no fim da tela que trata os campos vazio
+    @Override // Mensagem no fim da tela que trata os campos vazio
     public void atualizarMensagemConclusao(String mensagem) {
         this.LblConclusaoDeTarefaDeletar.setText(mensagem);
     }
 
+    @Override
     public void habilitarLivrosDeletar(){
         this.TxtFieldISBNDeletar.setEnabled(true);
     }
 
+    @Override
     public void habilitarAutorDeletar(){
         this.TxtFieldPrimeiroNomeAutorDeletar.setEnabled(true);
         this.TxtFieldSobrenomeAutorDeletar.setEnabled(true);
     }
 
+    @Override
     public void habilitarEditorasDeletar(){
         this.TxtFieldNomeDaEditoraDeletar.setEnabled(true);
     }
 
-    // Método que deixa a tela desabilitada por padrão
+    @Override // Método que deixa a tela desabilitada por padrão
     public void desabilitarTelaDeletar(){
         this.TxtFieldISBNDeletar.setEnabled(false);
     
@@ -1012,18 +1022,19 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         this.TxtFieldNomeDaEditoraDeletar.setEnabled(false);
     }
 
+    @Override
     public void habilitarTelasDeletar(ActionListener al) {
         this.radioButton_AutorDeletar.addActionListener(al);
         this.radioButton_LivrosDeletar.addActionListener(al);
         this.radioButton_EditorasAbaDeletar.addActionListener(al);
     }
 
-    // Método do botão de ajuda
+    @Override // Método do botão de ajuda
     public void ajudaDeletar(ActionListener al) {
         this.BtnAjudaDeletar.addActionListener(al);
     }
 
-    // Popup da mensagem em si do botao de ajuda
+    @Override // Popup da mensagem em si do botao de ajuda
     public void mensagemAjudaDeletar(){
         String[] infos = {"Nas checkboxs escolha os campos que deseja deletar.", "Autor: Deletar a partir do Nome e Sobrenome", "Livros: Deleta a partir do ISBN do livro.", "Editoras: Deleta a partir do nome da Editora."};
         JOptionPane.showMessageDialog(null, infos, "Como deletar:", JOptionPane.INFORMATION_MESSAGE);
@@ -1033,57 +1044,72 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     //* MÉTODOS DA JANELA INSERIR *
     //*****************************
 
+    public void limpaAutoresInserir(){
+        this.labelAutoresEscolhidos_abaInserir.setText("");
+    }
+
+    @Override
     public void camposInsLivros(ActionListener al){
 
         this.radioButton_LivrosAbaInserir.addActionListener(al);
 
     }
 
+    @Override
     public void BtnAjudaInserir(ActionListener al){
         this.botaoAjuda_abaInserir.addActionListener(al);
     }
-    
+
+    @Override
     public void mensagemAjudaInserir(){
 
         String[] infos = {"Nas checkbox selecione o que deseja inserir para habilitar os campos", "Autores: Inserir Nome e Sobrenome", "Livros: Escolha o Autor, Insira o Titulo, Preco, ISBN e Editora", "Editora: Insira o Nome da Editora e URL."};
         JOptionPane.showMessageDialog(null, infos, "Como utilizar o método Inserir:", JOptionPane.INFORMATION_MESSAGE);
     }
 
-   
+    @Override
     public void camposInsEditoras(ActionListener al){
 
         this.radioButton_EditorasAbaInserir.addActionListener(al);
 
     }
 
+    @Override
     public void camposInsAutores(ActionListener al){
 
         this.radioButton_AutorAbaInserir.addActionListener(al);
  
     }
 
+    @Override
     public boolean verificaEscolhaInserirAutor(){
         return this.radioButton_AutorAbaInserir.isSelected();
     }
+
+    @Override
     public boolean verificaEscolhaInserirEditora(){
         return this.radioButton_EditorasAbaInserir.isSelected();
     }
 
+    @Override
     public boolean verificaEscolhaInserirLivro(){
         return this.radioButton_LivrosAbaInserir.isSelected();
     }
 
+    @Override
     public void habilitaEditoras(){
         this.caixadetexto_NomeDaEditora_abaInserir.setEnabled(true);
         this.caixadetexto_URL_abaInserir.setEnabled(true);
     }
 
+    @Override
     public void habilitarAutor(){
         this.caixadetexto_abaInserirSobreNome.setEnabled(true);
         this.caixadetexto_abaInserirNome1.setEnabled(true);
 
     }
 
+    @Override
     public void habilitaLivros(){
         this.caixadetexto_abaInserirTitulo.setEnabled(true);
         this.caixadetexto_abaInserirPreco.setEnabled(true);
@@ -1092,6 +1118,8 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         this.botaoAutor_abainserir.setEnabled(true);
 
     }
+
+    @Override
     public void habilitarTela(){
         this.caixadetexto_abaInserirSobreNome.setEnabled(true);
         this.caixadetexto_abaInserirNome1.setEnabled(true);
@@ -1104,6 +1132,8 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         this.caixadetexto_NomeDaEditora_abaInserir.setEnabled(true);
         this.caixadetexto_URL_abaInserir.setEnabled(true);
     }
+
+    @Override
     public void desabilitarTela(){
         this.caixadetexto_abaInserirSobreNome.setEnabled(false);
         this.caixadetexto_abaInserirNome1.setEnabled(false);
@@ -1117,36 +1147,39 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         this.caixadetexto_URL_abaInserir.setEnabled(false);
     }
 
-    //inicializando botao de inserir
+    @Override //inicializando botao de inserir
     public void Inserir(ActionListener al){
         this.botaoinserir_abaInserir1.addActionListener(al);
     }
 
-    // Gets para Autor
+    @Override // Gets para Autor
     public String getNome(){
         return this.caixadetexto_abaInserirNome1.getText();
     }
 
+    @Override
     public String getSobrenome(){
        return this.caixadetexto_abaInserirSobreNome.getText();
     }
 
     //Gets para editoras
-
+    @Override
     public String getNomeEditora(){
         return this.caixadetexto_NomeDaEditora_abaInserir.getText();
     }
 
+    @Override
     public String getUrl(){
         return this.caixadetexto_URL_abaInserir.getText();
     }
 
     // Gets para os livros
-
+    @Override
     public String getInserirTitulo(){
         return this.caixadetexto_abaInserirTitulo.getText();
     }
 
+    @Override
     public String getInserirPreco(){
         if (!this.caixadetexto_abaInserirPreco.getText().matches("[0-9]*")){
             return "0";
@@ -1159,18 +1192,22 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         }
     }
 
+    @Override
     public String getISBN(){
         return this.caixadetexto_abaInserirISBN.getText();
     }
 
+    @Override
     public String getInserirEditoras(){
         return this.caixadetexto_abaInserirEditora.getText();
     }
 
+    @Override
     public String getAutoresSelecionados(){
         return this.labelAutoresEscolhidos_abaInserir.getText();
     }
 
+    @Override
     public String pesquisaInserir(){
         int value;
         value = this.tabela_abaAutor.getSelectedRow();
@@ -1179,15 +1216,13 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         return texto;
     }
 
-  
-
+    @Override
     public void attTextoAutorInserir(String texto){
         labelAutoresEscolhidos_abaInserir.setText(labelAutoresEscolhidos_abaInserir.getText() + " " + texto);
         
     }
 
-    
-
+    @Override
     public void popUpAutorAbaInserir(){
         
         // JFrame table = new JFrame();
@@ -1227,10 +1262,12 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         
     }
 
+    @Override
     public void addAutorInserir(ActionListener al){
         this.botaoAutor_abainserir.addActionListener(al);
     }
 
+    @Override
     public void atualizaAutoresAbaInserir(int contador, Autores autor){
 
         String[] infos = {(Integer.toString(contador)), autor.getName(), autor.getFname()};
@@ -1239,21 +1276,25 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         this.tabela_abaAutor.getTableHeader().resizeAndRepaint();
     }
 
+    @Override
     public Boolean getOpcaoAutorAbaInserir(){
 
        return radioButton_AutorAbaInserir.isSelected();
     }
 
+    @Override
     public Boolean getOpcaoEditoraAbaInserir(){
 
         return radioButton_EditorasAbaInserir.isSelected();
     }
     
+    @Override
     public Boolean getOpcaoLivroAbarInserir(){
 
         return radioButton_LivrosAbaInserir.isSelected();
     }
 
+    @Override
     public void attAutor(ActionListener al){
         this.botao_autor.addActionListener(al);
     } 
@@ -1262,10 +1303,24 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     //* MÉTODOS JANELA ALTERAR *
     //**************************
 
+    @Override
+    public void ajudaAlterar(ActionListener al){
+        this.BtnAjudaAlterar.addActionListener(al);
+    }
+
+    @Override
+    public void mensagemAjudaAlterar(){ // MENSAGEM POP-UP DO BOTÃO AJUDA
+
+        String[] infos = {"Clique no botão referente a qual entidade deseja atualizar", "Escolha ela na lista", "Insira o novos dados e clique no botão Alterar"};
+        JOptionPane.showMessageDialog(null, infos, "Como realizar as alterações:", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    @Override
     public void pesquisaAutorAlterar(ActionListener al){
         this.botaoAutor_abaAlterar.addActionListener(al);
     }
 
+    @Override
     public void popUpAutorAbaAlterar(){
         
         // JFrame table = new JFrame();
@@ -1308,11 +1363,13 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         
     }
 
-    public void pesquisaEditoraAlterar(ActionListener al){
+    @Override
+    public void pesquisarEditoraAlterar(ActionListener al){
         this.BtnEditorasAlterar.addActionListener(al);
         
     }
 
+    @Override
     public void popUpEditorasAbaAlterar(){
         
         // JFrame table = new JFrame();
@@ -1355,6 +1412,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         
     }
 
+    @Override
     public void atualizaAutoresAbaAlterar(int contador, Autores autor){
 
         String[] infos = {(Integer.toString(contador)), autor.getName(), autor.getFname()};
@@ -1363,6 +1421,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         this.tabelaAutor_abaAlterar.getTableHeader().resizeAndRepaint();
     }
 
+    @Override
     public void atualizaLivrosAbaAlterar(int contador, Livros livro){
 
         String[] infos = {(Integer.toString(contador)),livro.getTitle(),Float.toString(livro.getPrice())};
@@ -1371,6 +1430,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         this.tabelaLivros_abaAlterar.getTableHeader().resizeAndRepaint();
     }
 
+    @Override
     public void atualizaEditorasAbaAlterar(int contador, Editoras editora){
 
         String[] infos = {(Integer.toString(contador)), editora.getName(),editora.getUrl()};
@@ -1379,11 +1439,13 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         this.tabelaEditoras_abaAlterar.getTableHeader().resizeAndRepaint();
     }
 
+    @Override
     public void pesquisaLivrosAlterar(ActionListener al){
         this.BtnLivrosAlterar.addActionListener(al);
 
     }
     
+    @Override
     public void popUpLivrosAbaAlterar(){
 
         // JFrame table = new JFrame();
@@ -1426,20 +1488,24 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     }
 
+    @Override
     public boolean getLivrosAbaAlterar(){
         return radioButton_LivrosAbaInserir1.isSelected();
 
 
     }
     
+    @Override
     public boolean getEditorasAbaAlterar(){
         return radioButton_EditorasAbaInserir1.isSelected();
     }
     
+    @Override
     public boolean getAutorAbaAlterar(){
         return radioButton_AutorAbaInserir1.isSelected();
     }
 
+    @Override
     public void desabilitaTelaAlterar(){
 
         this.TxtFieldNovoNomeEditoraAlterar.setEnabled(false);
@@ -1456,6 +1522,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         this.BtnLivrosAlterar.setEnabled(false);
     }
 
+    @Override
     public void habilitaAutorTelaAlterar(){
 
         this.TxtFieldNovoSobrenomeAlterar.setEnabled(true);
@@ -1465,6 +1532,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     }
 
+    @Override
     public void habilitaEditoriaTelaAlterar(){
 
         this.TxtFieldNovaUrlAlterar.setEnabled(true);
@@ -1475,6 +1543,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     }
 
+    @Override
     public void habilitaLivroTelaAlterar(){
 
         this.TxtFieldNovoTituloAlterar.setEnabled(true);
@@ -1485,30 +1554,35 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     }
 
+    @Override
     public void camposAlterarAutor(ActionListener al){
         
         this.radioButton_AutorAbaInserir1.addActionListener(al);
 
     }
 
+    @Override
     public void camposAlterarEditoras(ActionListener al){
 
         this.radioButton_EditorasAbaInserir1.addActionListener(al);
 
     }
 
+    @Override
     public void camposAlterarLivros(ActionListener al){
 
         this.radioButton_LivrosAbaInserir1.addActionListener(al);
  
     }
 
+    @Override
     public void limpaTabelaAlterar(){
         modelo3.setRowCount(0);
         modelo4.setRowCount(0);
         modelo5.setRowCount(0);
     }
 
+    @Override
     public String pesquisaAutorAlterar(){
         int value;
         value = this.tabelaAutor_abaAlterar.getSelectedRow();
@@ -1517,6 +1591,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         return texto;
     }
 
+    @Override
     public void attTextoAutorAlterar(String texto){
         String[] ListaAutor;
         ListaAutor = texto.split(" ");
@@ -1532,10 +1607,12 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         
     }
 
+    @Override
     public void attAutorAlterar(ActionListener al){
         this.botaoAttAutor_abaAlterar.addActionListener(al);
     } 
 
+    @Override
     public String pesquisaLivroAlterar(){
         int value;
         value = this.tabelaLivros_abaAlterar.getSelectedRow();
@@ -1544,10 +1621,12 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         return texto;
     }
 
+    @Override
     public void attLivroAlterar(ActionListener al){
         this.botaoAttLivros_abaAlterar.addActionListener(al);
     } 
 
+    @Override
     public void attTextoLivroAlterar(String texto){
         String[] ListaLivro;
         ListaLivro = texto.split("/");
@@ -1558,6 +1637,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         
     }
 
+    @Override
     public String pesquisaEditoraAlterar(){
         int value;
         value = this.tabelaEditoras_abaAlterar.getSelectedRow();
@@ -1566,10 +1646,12 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         return texto;
     }
 
+    @Override
     public void attEditoraAlterar(ActionListener al){
         this.botaoAttEditoras_abaAlterar.addActionListener(al);
     } 
 
+    @Override
     public void attTextoEditoraAlterar(String texto){
         String[] ListaEditora;
         ListaEditora = texto.split("/");
@@ -1579,54 +1661,67 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
                
     }
 
+    @Override
     public String getAntigoNomeAutorAlterar(){
         return this.TxtFieldNomeAlterar.getText();
     }
 
+    @Override
     public String getAntigoSobrenomeAutorAlterar(){
         return this.TxtFieldSobrenomeAlterar.getText();
     }
 
+    @Override
     public String getAntigoTituloLivroAlterar(){
         return this.TxtFieldAntigoTituloAlterar.getText();
     }
 
+    @Override
     public String getAntigoPrecoLivroAlterar(){
         return this.TxtFieldPrecoAntigoAlterar.getText();
     }
 
+    @Override
     public String getAntigoNomeEditoraAlterar(){
         return this.TxtFieldAntigoNomeEditoraAlterar.getText();
     }
 
+    @Override
     public String getAntigaUrlAlterar(){
         return this.TxtFieldAntigaUrlAlterar.getText();
     }
 
+    @Override
     public String getNovoNomeAutorAlterar(){
         return this.TxtFieldNovoNomeAlterar.getText();
     }
 
+    @Override
     public String getNovoSobrenomeAutorAlterar(){
         return this.TxtFieldNovoSobrenomeAlterar.getText();
     }
 
+    @Override
     public String getNovoTituloLivroAlterar(){
         return this.TxtFieldNovoTituloAlterar.getText();
     }
 
+    @Override
     public String getNovoPrecoLivroAlterar(){
         return this.TxtFieldNovoPrecoAlterar.getText();
     }
 
+    @Override
     public String getNovoNomeEditoraAlterar(){
         return this.TxtFieldNovoNomeEditoraAlterar.getText();
     }
 
+    @Override
     public String getNovaUrlEditoraAlterar(){
         return this.TxtFieldNovaUrlAlterar.getText();
     }
 
+    @Override
     public void realizaAlteracao(ActionListener al){
         this.BtnAcaoAlterar.addActionListener(al);
     }
@@ -1635,40 +1730,49 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     //* MÉTODOS JANELA PESQUISA *
     //***************************
 
+    @Override
     public void limpaTabelaInserir(){ // LIMPA A JTABLE DA TELA INSERIR
         modelo2.setRowCount(0);
     }
 
+    @Override
     public void realizarPesquisa(ActionListener al){ // BOTÃO DE PESQUISA
         this.BtnPesquisa.addActionListener(al);
     }
 
+    @Override
     public void informacoes(ActionListener al){ // BOTÃO DE AJUDA
         this.BtnAjudaPesquisa.addActionListener(al);
     } 
-     
+    
+    @Override
     public Boolean getOpcaoLivro(){ // RETORNA SE O USUÁRIO CLICOU NA CHECKBOX LIVRO
         return this.CheckBoxLivrosPesquisa.isSelected();
     }
 
+    @Override
     public Boolean getOpcaoAutor(){ // RETORNA SE O USUÁRIO CLICOU NA CHECKBOX AUTOR
         return this.CheckBoxAutoresPesquisa.isSelected();
     }
 
+    @Override
     public Boolean getOpcaoEditora(){ // RETORNA SE O USUÁRIO CLICOU NA CHECKBOX EDITORA
         return this.CheckBoxEditorasPesquisa.isSelected();
     }
 
+    @Override
     public String getTexto(){ // RETORNA O TEXTO DO CAMPO DE PESQUISA
         return this.TxtFieldPesquisa.getText();
     }
 
+    @Override
     public void limpaTabelaPesquisa(){ // LIMPA A JTABLE DA TELA DE PESQUISA
         modelo.setRowCount(0);
     }
 
     // MÉTODOS QUE ATUALIZAM A JTABLE DA TELA DE PESQUISA
 
+    @Override
     public void atualizaTabelaAutor(int contador, Autores autor){
 
         String[] infos = {(Integer.toString(contador)), autor.getName(), autor.getFname()};
@@ -1677,6 +1781,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         this.tabela_abaPesquisa.getTableHeader().resizeAndRepaint();
     }
 
+    @Override
     public void atualizaTabelaLivro(int contador, Livros livro){
         
         String[] infos = {(Integer.toString(contador)), "", "", livro.getTitle(), livro.getIsbn(), Float.toString(livro.getPrice())};
@@ -1685,6 +1790,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         this.tabela_abaPesquisa.getTableHeader().resizeAndRepaint();
     }
 
+    @Override
     public void atualizaTabelaEditora(int contador, Editoras editora){
         
         String[] infos = {(Integer.toString(contador)), "", "", "", "", "", editora.getName(), editora.getUrl()};
@@ -1693,6 +1799,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         this.tabela_abaPesquisa.getTableHeader().resizeAndRepaint();
     }
 
+    @Override
     public void atualizaTabelaRelGeral(int contador, RelTudo valor){
 
        
@@ -1703,6 +1810,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         this.tabela_abaPesquisa.getTableHeader().resizeAndRepaint();
     }
 
+    @Override
     public void atualizaRelLivroAutor(int contador, RelLivrosAutores dados){
 
         String[] infos = {(Integer.toString(contador)),  dados.getSobrenome().getName(), dados.getNome().getFname(), dados.getTitulo().getTitle(), dados.getIsbn().getIsbn(), Float.toString(dados.getPreco().getPrice())};
@@ -1711,6 +1819,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         this.tabela_abaPesquisa.getTableHeader().resizeAndRepaint();
     }
 
+    @Override
     public void atualizaRelLivroEditora(int contador, RelLivrosEditoras dados){
 
         String[] infos = {(Integer.toString(contador)), "", "", dados.getTitulo().getTitle(), dados.getIsbn().getIsbn(), Float.toString(dados.getPreco().getPrice()), dados.getNome().getName(), dados.getUrl().getUrl()};
@@ -1722,6 +1831,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     
     // FIM DOS MÉTODOS QUE ATUALIZAM A JTABLE DA TELA PESQUISA
 
+    @Override
     public void mensagemAjudaPesquisa(){ // MENSAGEM POP-UP DO BOTÃO AJUDA
 
         String[] infos = {"Nas checkboxs escolha os campos que deseja pesquisar.", "Autores: Pesquisas feitas no sobrenome", "Livros: Pesquisas feitas pelo título.", "Editoras: Pesquisas feitas pelo nome."};
