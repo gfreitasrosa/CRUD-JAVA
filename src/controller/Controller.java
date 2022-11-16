@@ -244,7 +244,7 @@ public class Controller {
         public void actionPerformed (ActionEvent ae) {
             view.desabilitarTelaDeletar(); // Deixa a tela desabilitada
 
-            // Chama da view e habilita opção na tela confor escolhido pelo usuário
+            // Chama da view e habilita opção na tela conforme escolhido pelo usuário
             if (view.verificaEscolhaDeletarAutor()) {
                 view.habilitarAutorDeletar();
             } else if (view.verificaEscolhaDeletarLivro()) {
@@ -447,6 +447,7 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent ae){
             contador = 0;
+            // Sua função é aparecer os dados pegos no banco de dados
 
             view.limpaTabelaAlterar();
 
@@ -481,7 +482,7 @@ public class Controller {
     }
 
     public class AcaoHabilitaTelaAlterar implements ActionListener{
-
+           // Ao clicar no radiobutton ele faz a liberação .
         @Override
         public void actionPerformed(ActionEvent ae){
             view.desabilitaTelaAlterar();
@@ -503,6 +504,7 @@ public class Controller {
         public void actionPerformed(ActionEvent ae){
             if (view.getAutorAbaAlterar()){
                 view.attTextoAutorAlterar(view.pesquisaAutorAlterar());
+                // Sua Função é ao clicar na linha do popup é adicionar a janela principal
 
             } else if (view.getLivrosAbaAlterar()){
                 view.attTextoLivroAlterar(view.pesquisaLivroAlterar());
@@ -522,11 +524,15 @@ public class Controller {
                     JOptionPane.showMessageDialog(null, "Preencha todos os campos referentes ao autor", "Erro", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
+                // Verificação dos campos se está preechindo
 
                 model.atualizarAutor(view.getNovoNomeAutorAlterar(),
                 view.getNovoSobrenomeAutorAlterar(),
                 view.getAntigoNomeAutorAlterar(),
                 view.getAntigoSobrenomeAutorAlterar());
+                //
+
+                // Pesquisa ao banco de dados com o novo nome , ao antigo nome
 
             }else if (view.getLivrosAbaAlterar()){
                 if (!verificaCamposLivro()){
@@ -564,6 +570,7 @@ public class Controller {
                 return true;
             }
         }
+        // Verificações dos campos se estão preenchidos , caso não (ERRO).
 
         public boolean verificaCamposLivro(){
             if (
