@@ -9,7 +9,7 @@ import java.awt.FlowLayout;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-import model.entidades.*;
+import entities.*;
 
 import java.awt.event.*;                                 
 

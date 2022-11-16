@@ -1,13 +1,13 @@
 package model.dao;
 
-import model.entidades.Editoras;
-import model.entidades.Autores;
-import model.entidades.Livros;
-import model.entidades.RelLivrosAutores;
-import model.entidades.RelLivrosEditoras;
-import model.entidades.RelTudo;
-
 import java.util.List;
+
+import entities.Autores;
+import entities.Editoras;
+import entities.Livros;
+import entities.RelLivrosAutores;
+import entities.RelLivrosEditoras;
+import entities.RelTudo;
 
 public interface Dao {
 

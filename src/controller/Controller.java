@@ -1,17 +1,18 @@
  package controller;
 
 import model.dao.*;
-import model.entidades.Autores;
-import model.entidades.Livros;
-import model.entidades.RelLivrosAutores;
-import model.entidades.RelLivrosEditoras;
-import model.entidades.Editoras;
-import model.entidades.RelTudo;
 import view.*;
 
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
+
+import entities.Autores;
+import entities.Editoras;
+import entities.Livros;
+import entities.RelLivrosAutores;
+import entities.RelLivrosEditoras;
+import entities.RelTudo;
 
 import java.awt.event.ActionEvent;
 

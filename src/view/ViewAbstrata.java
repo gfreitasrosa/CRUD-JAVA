@@ -1,7 +1,8 @@
 package view;
 
 import java.awt.event.ActionListener;
-import model.entidades.*;
+
+import entities.*;
 
 public interface ViewAbstrata {
 

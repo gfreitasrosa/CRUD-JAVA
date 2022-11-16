@@ -2,11 +2,11 @@ package model.dao;
 
 import javax.swing.*;
 
+import entities.*;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import model.entidades.*;
 
 public class ConexaoBD implements Dao{
 

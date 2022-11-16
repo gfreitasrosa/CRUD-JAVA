@@ -1,4 +1,4 @@
-package model.entidades;
+package entities;
 
 public class Livros {
 
