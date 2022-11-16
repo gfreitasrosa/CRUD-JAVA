@@ -589,7 +589,7 @@ public class Controller {
                 
 
             } else {
-                JOptionPane.showMessageDialog(null, "Escolha uma entidade e insira seus dados para atualizar", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Escolha uma opção e insira seus dados para atualizar", "Erro", JOptionPane.ERROR_MESSAGE);
 
             }
 

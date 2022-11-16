@@ -81,6 +81,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         labelURL_abaInserir = new JLabel();
         caixadetexto_URL_abaInserir = new JTextField();
         botaoinserir_abaInserir1 = new JButton();
+        labelQueMostraConfimacao_abaInserir = new javax.swing.JLabel();
         
         tabela_abaAutor = new JTable();
         botao_autor = new JButton();
@@ -841,6 +842,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
                             .addGroup(abaInserirLayout.createSequentialGroup()
                                 .addComponent(botaoAjuda_abaInserir)
                                 .addGap(18, 18, 18)
+                                .addComponent(labelQueMostraConfimacao_abaInserir)
                                 .addGap(18, 18, 18)
                                 .addComponent(botaoinserir_abaInserir1))))
                     .addGroup(abaInserirLayout.createSequentialGroup()
@@ -850,6 +852,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
                         .addComponent(caixadetexto_NomeDaEditora_abaInserir, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(labelURL_abaInserir)
+                        .addComponent(labelQueMostraConfimacao_abaInserir)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(caixadetexto_URL_abaInserir)))
                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1776,6 +1779,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     private JTextField caixadetexto_abaInserirSobreNome;
     private JTextField caixadetexto_abaInserirTitulo;
 
+    private JLabel labelQueMostraConfimacao_abaInserir;
     private JLabel labelAutoresEscolhidos_abaInserir;
     private JLabel labelAutores_abainserir;
     private JLabel labelISBN_abaInserir;
