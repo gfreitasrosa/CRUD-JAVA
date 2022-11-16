@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConexaoBD implements Dao{
-
     private int idPublisher;
     private int autorId;
     private String nomeAutor;
@@ -42,7 +41,7 @@ public class ConexaoBD implements Dao{
            }
 
        } catch(Exception e){
-               e.printStackTrace();
+            e.printStackTrace();
        }
 
         return livros;
@@ -115,7 +114,6 @@ public class ConexaoBD implements Dao{
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
             PreparedStatement pstm = con.prepareStatement(query);
 
-
             ResultSet rs = pstm.executeQuery();
 
             while(rs.next()) {
@@ -139,7 +137,6 @@ public class ConexaoBD implements Dao{
             JOptionPane.showMessageDialog(null, "Acoteceu algum erro na busca, contante o suporte!", "Erro", JOptionPane.ERROR_MESSAGE);
             lista_rel.clear();
             return lista_rel;
-
         }
 
         return lista_rel;
@@ -173,7 +170,6 @@ public class ConexaoBD implements Dao{
 
         return autores_sel;
 
-
     }
 
     @Override
@@ -181,7 +177,7 @@ public class ConexaoBD implements Dao{
 
         List<Editoras> editoras_sel = new ArrayList<>();
 
-            final String query = "SELECT * FROM Publishers WHERE Publishers.name LIKE ?;";
+        final String query = "SELECT * FROM Publishers WHERE Publishers.name LIKE ?;";
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
             PreparedStatement pstm = con.prepareStatement(query);
@@ -198,11 +194,9 @@ public class ConexaoBD implements Dao{
 
         } catch(Exception e){
             e.printStackTrace();
-
         }
 
         return editoras_sel;
-
 
     }
 
@@ -230,7 +224,6 @@ public class ConexaoBD implements Dao{
 
         } catch(Exception e){
             e.printStackTrace();
-
         }
 
         return livros_rel;
@@ -269,7 +262,6 @@ public class ConexaoBD implements Dao{
 
         } catch(Exception e){
             e.printStackTrace();
-
         }
 
         return lista_rel;
@@ -308,7 +300,6 @@ public class ConexaoBD implements Dao{
 
         } catch(Exception e){
             e.printStackTrace();
-
         }
 
         return lista_relLivrosEditoras;
@@ -357,7 +348,6 @@ public class ConexaoBD implements Dao{
 
         } catch(SQLException e){
            JOptionPane.showMessageDialog(null, "Acoteceu algum erro na busca, contante o suporte!", "Erro", JOptionPane.ERROR_MESSAGE);
-
         }
         return lista_rel;
     }
@@ -391,7 +381,9 @@ public class ConexaoBD implements Dao{
 
         // TRY PARA VERIFICAR SE A EDITORA INSERIDA ESTÁ CADASTRADA NO BANCO DE DADOS
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)) {
+
             String sqlPesquisaEditora = "select * from publishers where name = ?";
+
             PreparedStatement pstm = con.prepareStatement(sqlPesquisaEditora);
 
             pstm.setString(1, nomeEditora);
@@ -400,7 +392,6 @@ public class ConexaoBD implements Dao{
             if(rs.next()){
                 // CASO SIM, PASSA O ID DESSA EDITORA PARA A VARIÁVEL idPublisher
                 idPublisher = rs.getInt("publisher_id");
-
 
             }else {
                 // CASO NÃO, RETORNA UMA MENSAGEM DE ERRO E CANCELA O MÉTODO
@@ -494,22 +485,18 @@ public class ConexaoBD implements Dao{
                         pstm3.setString(2, isbn);
                         pstm3.execute();
 
-                        JOptionPane.showMessageDialog(null, "Relação com o autor " + nomeAutor + " inserida", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-
-                        
+                        JOptionPane.showMessageDialog(null, "Relação com o autor " + nomeAutor + " inserida", "Sucesso", JOptionPane.INFORMATION_MESSAGE);    
                     
                     }catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados", "Erro ", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados", "Erro ", JOptionPane.ERROR_MESSAGE);
                     
                     }
-                }
-                
+                } 
             } 
                    
         }catch (SQLException ErroSql) {
-                    JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados", "Erro", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados", "Erro", JOptionPane.INFORMATION_MESSAGE);
         }
-
     }
 
     @Override
@@ -539,7 +526,6 @@ public class ConexaoBD implements Dao{
             pstm.execute();
 
             JOptionPane.showMessageDialog(null, "Adicionado com sucesso.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-
 
         }catch (SQLException ErroSql){
             JOptionPane.showMessageDialog(null, "Erro ao adicionar", "Erro", JOptionPane.INFORMATION_MESSAGE);
@@ -590,7 +576,6 @@ public class ConexaoBD implements Dao{
         } catch(SQLException ErroSql){
             JOptionPane.showMessageDialog(null, "Erro ao executar query no Banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
         }
-
     }
 
     @Override
@@ -699,9 +684,7 @@ public class ConexaoBD implements Dao{
             }
 
         } catch (Exception e) {
-
             JOptionPane.showMessageDialog(null, "Erro ao executar a query no banco de dados", "Erro", JOptionPane.ERROR_MESSAGE);
-
         }
 
         // SELECT PARA VERIFICAR SE ESSA EDITORA POSSUI LIVRO CADASTRADO NELA 
@@ -725,7 +708,7 @@ public class ConexaoBD implements Dao{
                     }
 
                     JOptionPane.showMessageDialog(null, contador + " Livros apagados", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-                } else if (escolha == JOptionPane.CANCEL_OPTION || escolha ==JOptionPane.CLOSED_OPTION){
+                } else if (escolha == JOptionPane.CANCEL_OPTION || escolha == JOptionPane.CLOSED_OPTION){
                     JOptionPane.showMessageDialog(null, "Editora não apagada", "Atenção", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
@@ -766,12 +749,10 @@ public class ConexaoBD implements Dao{
     @Override
     public void atualizarAutor(String novoNome, String novoSobrenome, String antigoNome, String antigoSobrenome){ // MÉTODO QUE REALIZA UPDATE NA 'authors'
        
-
         // NESSE MÉTODO NÃO PRECISA FAZER VERIFICAÇÃO SE EXISTE NO BANCO, POIS O NOME JA VEM DE UMA PESQUISA NO BANCO
 
         // QUERY PARA ATUALIAZR O AUTOR
         String queryUpdAutor = "UPDATE authors set fname = ?, name = ? WHERE fname = ? AND name = ?;";
-
 
         try (Connection con = DriverManager.getConnection(URL, USER, PASS)) {
             PreparedStatement pstm = con.prepareStatement(queryUpdAutor);
@@ -786,8 +767,6 @@ public class ConexaoBD implements Dao{
         } catch (Exception e) {
             System.out.println(e);
             JOptionPane.showMessageDialog(null, "Erro ao atualizar", "Erro", JOptionPane.ERROR_MESSAGE);
-
-
         }
     }
 
@@ -812,7 +791,6 @@ public class ConexaoBD implements Dao{
        } catch(Exception e){
            System.out.println(e);
            JOptionPane.showMessageDialog( null,  "Erro ao atualizar",  "Erro", JOptionPane.ERROR_MESSAGE);
-
        }
    }
 
@@ -834,12 +812,9 @@ public class ConexaoBD implements Dao{
 
            JOptionPane.showMessageDialog(null, "Editora atualizada com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 
-
         } catch(Exception e){
 
            JOptionPane.showMessageDialog( null,  "Erro ao atualizar",  "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
-
-

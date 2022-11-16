@@ -5,9 +5,7 @@ import java.awt.event.ActionListener;
 import entities.*;
 
 public interface ViewAbstrata {
-
    public void initComponents();
-
 
    // *****************************
    // * MÉTODOS DA JANELA DELETAR *
@@ -136,11 +134,4 @@ public interface ViewAbstrata {
    public void atualizaRelLivroAutor(int contador, RelLivrosAutores dados);
    public void atualizaRelLivroEditora(int contador, RelLivrosEditoras dados);
    public void mensagemAjudaPesquisa(); // MENSAGEM POP-UP DO BOTÃO AJUDA
-
-
-
-
-
-
-
 }

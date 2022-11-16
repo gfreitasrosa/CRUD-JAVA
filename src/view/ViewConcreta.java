@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 import java.awt.FlowLayout;
@@ -13,10 +9,6 @@ import entities.*;
 
 import java.awt.event.*;                                 
 
-/**
- *
- * @author Admin-PC
- */
 public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     /**
@@ -28,9 +20,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     DefaultTableModel modelo4;
     DefaultTableModel modelo5;
 
-
     String EscolhaAbaInserir;
-
 
     public ViewConcreta() {
         initComponents();
@@ -48,9 +38,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     @Override
     public void initComponents() {
-
-        
-
         g1 = new ButtonGroup();
         janelacomabas = new JTabbedPane();
         abaPesquisa = new JPanel();
@@ -159,7 +146,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         tabelaLivros_abaAlterar = new JTable();
         botaoAttLivros_abaAlterar = new JButton();
 
-
         // OBJETOS DA ABA DELETAR
 
         grupo_abaDeletar = new ButtonGroup();
@@ -182,8 +168,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         radioButton_LivrosDeletar = new JRadioButton();
     
         TxtFieldSobrenomeAutorDeletar = new JTextField();
-
-
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -283,7 +267,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
         janelacomabas.addTab("Pesquisar", abaPesquisa);
 
-       
         janelacomabas.addTab("Inserir", abaInserir);
 
         abaDeletar.setBorder(new javax.swing.border.MatteBorder(null));
@@ -457,11 +440,11 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         ));
 
         tabelaLivros_abaAlterar.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                },
-                new String [] {
-                        "Nº Ordem","Titulo", "Preço"
-                }
+            new Object [][] {
+            },
+            new String [] {
+                    "Nº Ordem","Titulo", "Preço"
+            }
         ));
 
         BtnAcaoAlterar.setBackground(new java.awt.Color(51, 255, 204));
@@ -942,8 +925,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
                 .addContainerGap())
         );
 
-       
-
         pack();
     }
 
@@ -954,21 +935,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     @Override
     public void deletar(ActionListener al){
         this.BtnDeletarDeletar.addActionListener(al);
-    }
-    
-    @Override // Métodos para pegar a escolha de qual seção o autor vai deletar
-    public boolean verificaEscolhaDeletarAutor(){
-        return this.radioButton_AutorDeletar.isSelected();
-    }
-
-    @Override
-    public boolean verificaEscolhaDeletarEditora(){
-        return this.radioButton_EditorasAbaDeletar.isSelected();
-    }
-
-    @Override
-    public boolean verificaEscolhaDeletarLivro(){
-         return this.radioButton_LivrosDeletar.isSelected();
     }
 
     @Override // Métodos Gets para pegar o texto digitado pelo user
@@ -994,6 +960,21 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     @Override // Mensagem no fim da tela que trata os campos vazio
     public void atualizarMensagemConclusao(String mensagem) {
         this.LblConclusaoDeTarefaDeletar.setText(mensagem);
+    }
+
+    @Override // Métodos para pegar a escolha de qual seção o autor vai deletar
+    public boolean verificaEscolhaDeletarAutor() {
+        return this.radioButton_AutorDeletar.isSelected();
+    }
+
+    @Override
+    public boolean verificaEscolhaDeletarEditora() {
+        return this.radioButton_EditorasAbaDeletar.isSelected();
+    }
+
+    @Override
+    public boolean verificaEscolhaDeletarLivro() {
+        return this.radioButton_LivrosDeletar.isSelected();
     }
 
     @Override
@@ -1050,9 +1031,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     @Override
     public void camposInsLivros(ActionListener al){
-
         this.radioButton_LivrosAbaInserir.addActionListener(al);
-
     }
 
     @Override
@@ -1062,23 +1041,18 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     @Override
     public void mensagemAjudaInserir(){
-
         String[] infos = {"Nas checkbox selecione o que deseja inserir para habilitar os campos", "Autores: Inserir Nome e Sobrenome", "Livros: Escolha o Autor, Insira o Titulo, Preco, ISBN e Editora", "Editora: Insira o Nome da Editora e URL."};
         JOptionPane.showMessageDialog(null, infos, "Como utilizar o método Inserir:", JOptionPane.INFORMATION_MESSAGE);
     }
 
     @Override
     public void camposInsEditoras(ActionListener al){
-
         this.radioButton_EditorasAbaInserir.addActionListener(al);
-
     }
 
     @Override
     public void camposInsAutores(ActionListener al){
-
         this.radioButton_AutorAbaInserir.addActionListener(al);
- 
     }
 
     @Override
@@ -1106,7 +1080,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     public void habilitarAutor(){
         this.caixadetexto_abaInserirSobreNome.setEnabled(true);
         this.caixadetexto_abaInserirNome1.setEnabled(true);
-
     }
 
     @Override
@@ -1116,7 +1089,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         this.caixadetexto_abaInserirISBN.setEnabled(true);
         this.caixadetexto_abaInserirEditora.setEnabled(true);
         this.botaoAutor_abainserir.setEnabled(true);
-
     }
 
     @Override
@@ -1219,12 +1191,10 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     @Override
     public void attTextoAutorInserir(String texto){
         labelAutoresEscolhidos_abaInserir.setText(labelAutoresEscolhidos_abaInserir.getText() + " " + texto);
-        
     }
 
     @Override
     public void popUpAutorAbaInserir(){
-        
         // JFrame table = new JFrame();
         // table.setSize(300, 300);
         // table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -1235,10 +1205,8 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         popUp.setLayout(new FlowLayout());
         popUp.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
-        
         // JPanel panel = new JPanel();
         JScrollPane scroll = new JScrollPane(tabela_abaAutor);
-
 
         botao_autor.setText("Adicionar");
 
@@ -1255,11 +1223,9 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
         popUp.setVisible(true); 
 
-
         // table.add(tabela_abaAutor);
         // table.add(botao_autor);
         // table.add(jScrollPane1);
-        
     }
 
     @Override
@@ -1278,19 +1244,16 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     @Override
     public Boolean getOpcaoAutorAbaInserir(){
-
        return radioButton_AutorAbaInserir.isSelected();
     }
 
     @Override
     public Boolean getOpcaoEditoraAbaInserir(){
-
         return radioButton_EditorasAbaInserir.isSelected();
     }
     
     @Override
     public Boolean getOpcaoLivroAbarInserir(){
-
         return radioButton_LivrosAbaInserir.isSelected();
     }
 
@@ -1310,7 +1273,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     @Override
     public void mensagemAjudaAlterar(){ // MENSAGEM POP-UP DO BOTÃO AJUDA
-
         String[] infos = {"Clique no botão referente a qual entidade deseja atualizar", "Escolha ela na lista", "Insira o novos dados e clique no botão Alterar"};
         JOptionPane.showMessageDialog(null, infos, "Como realizar as alterações:", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -1322,7 +1284,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     @Override
     public void popUpAutorAbaAlterar(){
-        
         // JFrame table = new JFrame();
         // table.setSize(300, 300);
         // table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -1333,17 +1294,12 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         popUp.setLayout(new FlowLayout());
         popUp.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
-        
         // JPanel panel = new JPanel();
         JScrollPane scroll = new JScrollPane(tabelaAutor_abaAlterar);
 
-
         botaoAttAutor_abaAlterar.setText("Adicionar");
 
-
-        
         tabelaAutor_abaAlterar.setSize(350, 350);
-
 
         // panel.add(tabela_abaAutor);
         // panel.setSize(480, 380);
@@ -1356,22 +1312,18 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
         popUp.setVisible(true); 
 
-
         // table.add(tabela_abaAutor);
         // table.add(botao_autor);
         // table.add(jScrollPane1);
-        
     }
 
     @Override
     public void pesquisarEditoraAlterar(ActionListener al){
         this.BtnEditorasAlterar.addActionListener(al);
-        
     }
 
     @Override
     public void popUpEditorasAbaAlterar(){
-        
         // JFrame table = new JFrame();
         // table.setSize(300, 300);
         // table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -1381,18 +1333,13 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         popUp.setSize(500, 500);
         popUp.setLayout(new FlowLayout());
         popUp.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-
         
         // JPanel panel = new JPanel();
         JScrollPane scroll = new JScrollPane(tabelaEditoras_abaAlterar);
 
-
         botaoAttEditoras_abaAlterar.setText("Adicionar");
-
-
         
         tabelaEditoras_abaAlterar.setSize(350, 350);
-
 
         // panel.add(tabela_abaAutor);
         // panel.setSize(480, 380);
@@ -1405,16 +1352,13 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
         popUp.setVisible(true); 
 
-
         // table.add(tabela_abaAutor);
         // table.add(botao_autor);
-        // table.add(jScrollPane1);
-        
+        // table.add(jScrollPane1);   
     }
 
     @Override
     public void atualizaAutoresAbaAlterar(int contador, Autores autor){
-
         String[] infos = {(Integer.toString(contador)), autor.getName(), autor.getFname()};
 
         modelo3.addRow(infos);
@@ -1423,7 +1367,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     @Override
     public void atualizaLivrosAbaAlterar(int contador, Livros livro){
-
         String[] infos = {(Integer.toString(contador)),livro.getTitle(),Float.toString(livro.getPrice())};
 
         modelo5.addRow(infos);
@@ -1432,7 +1375,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     @Override
     public void atualizaEditorasAbaAlterar(int contador, Editoras editora){
-
         String[] infos = {(Integer.toString(contador)), editora.getName(),editora.getUrl()};
 
         modelo4.addRow(infos);
@@ -1442,12 +1384,10 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     @Override
     public void pesquisaLivrosAlterar(ActionListener al){
         this.BtnLivrosAlterar.addActionListener(al);
-
     }
     
     @Override
     public void popUpLivrosAbaAlterar(){
-
         // JFrame table = new JFrame();
         // table.setSize(300, 300);
         // table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -1458,17 +1398,12 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         popUp.setLayout(new FlowLayout());
         popUp.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
-
         // JPanel panel = new JPanel();
         JScrollPane scroll = new JScrollPane(tabelaLivros_abaAlterar);
 
-
         botaoAttLivros_abaAlterar.setText("Adicionar");
 
-
-
         tabelaLivros_abaAlterar.setSize(350, 350);
-
 
         // panel.add(tabela_abaAutor);
         // panel.setSize(480, 380);
@@ -1481,18 +1416,14 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
         popUp.setVisible(true);
 
-
         // table.add(tabela_abaAutor);
         // table.add(botao_autor);
         // table.add(jScrollPane1);
-
     }
 
     @Override
     public boolean getLivrosAbaAlterar(){
         return radioButton_LivrosAbaInserir1.isSelected();
-
-
     }
     
     @Override
@@ -1507,7 +1438,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     @Override
     public void desabilitaTelaAlterar(){
-
         this.TxtFieldNovoNomeEditoraAlterar.setEnabled(false);
         this.TxtFieldNovaUrlAlterar.setEnabled(false);
 
@@ -1524,55 +1454,41 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     @Override
     public void habilitaAutorTelaAlterar(){
-
         this.TxtFieldNovoSobrenomeAlterar.setEnabled(true);
         this.TxtFieldNovoNomeAlterar.setEnabled(true);
 
         this.botaoAutor_abaAlterar.setEnabled(true);
-
     }
 
     @Override
     public void habilitaEditoriaTelaAlterar(){
-
         this.TxtFieldNovaUrlAlterar.setEnabled(true);
         
-
         this.BtnEditorasAlterar.setEnabled(true);
         this.TxtFieldNovoNomeEditoraAlterar.setEnabled(true);
-
     }
 
     @Override
     public void habilitaLivroTelaAlterar(){
-
         this.TxtFieldNovoTituloAlterar.setEnabled(true);
         this.TxtFieldNovoPrecoAlterar.setEnabled(true);
 
         this.BtnLivrosAlterar.setEnabled(true);
-
-
     }
 
     @Override
     public void camposAlterarAutor(ActionListener al){
-        
         this.radioButton_AutorAbaInserir1.addActionListener(al);
-
     }
 
     @Override
     public void camposAlterarEditoras(ActionListener al){
-
         this.radioButton_EditorasAbaInserir1.addActionListener(al);
-
     }
 
     @Override
     public void camposAlterarLivros(ActionListener al){
-
         this.radioButton_LivrosAbaInserir1.addActionListener(al);
- 
     }
 
     @Override
@@ -1603,8 +1519,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
             TxtFieldSobrenomeAlterar.setText(ListaAutor[0]); 
             TxtFieldNomeAlterar.setText(ListaAutor[1]);
             
-        }
-        
+        } 
     }
 
     @Override
@@ -1632,9 +1547,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         ListaLivro = texto.split("/");
 
         TxtFieldAntigoTituloAlterar.setText(ListaLivro[0]); 
-        TxtFieldPrecoAntigoAlterar.setText(ListaLivro[1]);
-            
-        
+        TxtFieldPrecoAntigoAlterar.setText(ListaLivro[1]);   
     }
 
     @Override
@@ -1657,8 +1570,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         ListaEditora = texto.split("/");
 
         TxtFieldAntigoNomeEditoraAlterar.setText(ListaEditora[0]); 
-        TxtFieldAntigaUrlAlterar.setText(ListaEditora[1]);
-               
+        TxtFieldAntigaUrlAlterar.setText(ListaEditora[1]);        
     }
 
     @Override
@@ -1774,7 +1686,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     @Override
     public void atualizaTabelaAutor(int contador, Autores autor){
-
         String[] infos = {(Integer.toString(contador)), autor.getName(), autor.getFname()};
 
         modelo.addRow(infos);
@@ -1782,8 +1693,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     }
 
     @Override
-    public void atualizaTabelaLivro(int contador, Livros livro){
-        
+    public void atualizaTabelaLivro(int contador, Livros livro){ 
         String[] infos = {(Integer.toString(contador)), "", "", livro.getTitle(), livro.getIsbn(), Float.toString(livro.getPrice())};
 
         modelo.addRow(infos);
@@ -1791,8 +1701,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     }
 
     @Override
-    public void atualizaTabelaEditora(int contador, Editoras editora){
-        
+    public void atualizaTabelaEditora(int contador, Editoras editora){   
         String[] infos = {(Integer.toString(contador)), "", "", "", "", "", editora.getName(), editora.getUrl()};
 
         modelo.addRow(infos);
@@ -1801,10 +1710,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     @Override
     public void atualizaTabelaRelGeral(int contador, RelTudo valor){
-
-       
         String[] infos = {(Integer.toString(contador)), valor.getNomeAutor().getName(),valor.getSobrenome().getFname(), valor.getTitulo().getTitle(), valor.getIsbn().getIsbn(), Float.toString(valor.getPreco().getPrice()), valor.getNomeEditora().getName(), valor.getUrl().getUrl()};
-
 
         modelo.addRow(infos);
         this.tabela_abaPesquisa.getTableHeader().resizeAndRepaint();
@@ -1812,7 +1718,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     @Override
     public void atualizaRelLivroAutor(int contador, RelLivrosAutores dados){
-
         String[] infos = {(Integer.toString(contador)),  dados.getSobrenome().getName(), dados.getNome().getFname(), dados.getTitulo().getTitle(), dados.getIsbn().getIsbn(), Float.toString(dados.getPreco().getPrice())};
 
         modelo.addRow(infos);
@@ -1821,7 +1726,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     @Override
     public void atualizaRelLivroEditora(int contador, RelLivrosEditoras dados){
-
         String[] infos = {(Integer.toString(contador)), "", "", dados.getTitulo().getTitle(), dados.getIsbn().getIsbn(), Float.toString(dados.getPreco().getPrice()), dados.getNome().getName(), dados.getUrl().getUrl()};
 
         modelo.addRow(infos);
@@ -1833,7 +1737,6 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     @Override
     public void mensagemAjudaPesquisa(){ // MENSAGEM POP-UP DO BOTÃO AJUDA
-
         String[] infos = {"Nas checkboxs escolha os campos que deseja pesquisar.", "Autores: Pesquisas feitas no sobrenome", "Livros: Pesquisas feitas pelo título.", "Editoras: Pesquisas feitas pelo nome."};
         JOptionPane.showMessageDialog(null, infos, "Como realizar as pesquisas:", JOptionPane.INFORMATION_MESSAGE);
     }
