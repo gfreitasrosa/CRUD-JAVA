@@ -744,15 +744,20 @@ public class ConexaoBD implements Dao{
         }
     }
 
-    // MÉTODOS RESPONSÁVEIS POR ATUALIAZAR AS ENTIDADES DO BANCO DE DADOS
+    // MÉTODOS RESPONSÁVEIS POR ATUALIZAR AS ENTIDADES DO BANCO DE DADOS
 
     @Override
     public void atualizarAutor(String novoNome, String novoSobrenome, String antigoNome, String antigoSobrenome){ // MÉTODO QUE REALIZA UPDATE NA 'authors'
        
         // NESSE MÉTODO NÃO PRECISA FAZER VERIFICAÇÃO SE EXISTE NO BANCO, POIS O NOME JA VEM DE UMA PESQUISA NO BANCO
 
+<<<<<<< HEAD
+        // QUERY PARA ATUALIZAR O AUTOR
+        String queryUpdAutor = "UPDATE authors set fname = ?, name = ? WHERE fname = ? AND name = ?;";
+=======
         // QUERY PARA ATUALIAZR O AUTOR
         String queryUpdAutor = "UPDATE authors SET fname = ?, name = ? WHERE fname = ? AND name = ?;";
+>>>>>>> a33c12f6fa97931446cba427a551a93f11779056
 
         try (Connection con = DriverManager.getConnection(URL, USER, PASS)) {
             PreparedStatement pstm = con.prepareStatement(queryUpdAutor);

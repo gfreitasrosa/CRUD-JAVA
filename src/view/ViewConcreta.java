@@ -1269,7 +1269,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     //**************************
 
     @Override
-    public void ajudaAlterar(ActionListener al){
+    public void ajudaAlterar(ActionListener al){ // BOTÃO AJUDA ALTERAR
         this.BtnAjudaAlterar.addActionListener(al);
     }
 
@@ -1280,12 +1280,12 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     }
 
     @Override
-    public void pesquisaAutorAlterar(ActionListener al){
+    public void pesquisaAutorAlterar(ActionListener al){ // BOTÃO DO AUTOR ALTERAR
         this.botaoAutor_abaAlterar.addActionListener(al);
     }
 
     @Override
-    public void popUpAutorAbaAlterar(){
+    public void popUpAutorAbaAlterar(){ // POP UP DO AUTOR
         // JFrame table = new JFrame();
         // table.setSize(300, 300);
         // table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -1320,12 +1320,12 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     }
 
     @Override
-    public void pesquisarEditoraAlterar(ActionListener al){
+    public void pesquisarEditoraAlterar(ActionListener al){ // BOTÃO EDITORA ALTERAR
         this.BtnEditorasAlterar.addActionListener(al);
     }
 
     @Override
-    public void popUpEditorasAbaAlterar(){
+    public void popUpEditorasAbaAlterar(){  // POPUP DA EDITORA
         // JFrame table = new JFrame();
         // table.setSize(300, 300);
         // table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -1360,7 +1360,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     }
 
     @Override
-    public void atualizaAutoresAbaAlterar(int contador, Autores autor){
+    public void atualizaAutoresAbaAlterar(int contador, Autores autor){ // TABLE QUE APARECE NOME DO AUTOR SOBRENOME
         String[] infos = {(Integer.toString(contador)), autor.getName(), autor.getFname()};
 
         modelo3.addRow(infos);
@@ -1384,12 +1384,12 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     }
 
     @Override
-    public void pesquisaLivrosAlterar(ActionListener al){
+    public void pesquisaLivrosAlterar(ActionListener al){  // BOTÃO DO LIVRO ALTERAR
         this.BtnLivrosAlterar.addActionListener(al);
     }
     
     @Override
-    public void popUpLivrosAbaAlterar(){
+    public void popUpLivrosAbaAlterar(){    // POP UP DO LIVRO ALTERAR
         // JFrame table = new JFrame();
         // table.setSize(300, 300);
         // table.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -1424,22 +1424,22 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     }
 
     @Override
-    public boolean getLivrosAbaAlterar(){
+    public boolean getLivrosAbaAlterar(){ // RADIOBUTTON DO LIVROS SE ESTÁ SELECIONADO
         return radioButton_LivrosAbaInserir1.isSelected();
     }
     
     @Override
-    public boolean getEditorasAbaAlterar(){
+    public boolean getEditorasAbaAlterar(){ // RADIOBUTTON DAS EDITORAS SE ESTÁ SELECIONADO
         return radioButton_EditorasAbaInserir1.isSelected();
     }
     
     @Override
-    public boolean getAutorAbaAlterar(){
+    public boolean getAutorAbaAlterar(){ // RADIOBUTTON DOS AUTORES SE ESTÁ SELECIONADO
         return radioButton_AutorAbaInserir1.isSelected();
     }
 
     @Override
-    public void desabilitaTelaAlterar(){
+    public void desabilitaTelaAlterar(){ // PARA DESABILITAR O USO CASO NÃO ESTEJA SELECIONADO
         this.TxtFieldNovoNomeEditoraAlterar.setEnabled(false);
         this.TxtFieldNovaUrlAlterar.setEnabled(false);
 
@@ -1455,7 +1455,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     }
 
     @Override
-    public void habilitaAutorTelaAlterar(){
+    public void habilitaAutorTelaAlterar(){ // HABILITAR CASO ESTEJA SELECIONADO AUTOR
         this.TxtFieldNovoSobrenomeAlterar.setEnabled(true);
         this.TxtFieldNovoNomeAlterar.setEnabled(true);
 
@@ -1463,7 +1463,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     }
 
     @Override
-    public void habilitaEditoriaTelaAlterar(){
+    public void habilitaEditoriaTelaAlterar(){ // HABILITAR CASO ESTEJA SELECIONADO EDITORAS
         this.TxtFieldNovaUrlAlterar.setEnabled(true);
         
         this.BtnEditorasAlterar.setEnabled(true);
@@ -1471,7 +1471,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     }
 
     @Override
-    public void habilitaLivroTelaAlterar(){
+    public void habilitaLivroTelaAlterar(){ // HABILITAR CASO ESTEJA SELECIONADO LIVROS
         this.TxtFieldNovoTituloAlterar.setEnabled(true);
         this.TxtFieldNovoPrecoAlterar.setEnabled(true);
 
@@ -1484,7 +1484,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     }
 
     @Override
-    public void camposAlterarEditoras(ActionListener al){
+    public void camposAlterarEditoras(ActionListener al){ //
         this.radioButton_EditorasAbaInserir1.addActionListener(al);
     }
 
@@ -1494,7 +1494,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     }
 
     @Override
-    public void limpaTabelaAlterar(){
+    public void limpaTabelaAlterar(){ // LIMPAR A TABELA ALTERAR
         modelo3.setRowCount(0);
         modelo4.setRowCount(0);
         modelo5.setRowCount(0);
@@ -1553,7 +1553,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     }
 
     @Override
-    public String pesquisaEditoraAlterar(){
+    public String pesquisaEditoraAlterar(){ // TABELA DE PESQUISA EDITORAS
         int value;
         value = this.tabelaEditoras_abaAlterar.getSelectedRow();
 
@@ -1562,7 +1562,7 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     }
 
     @Override
-    public void attEditoraAlterar(ActionListener al){
+    public void attEditoraAlterar(ActionListener al){ // BOTÃO EDITORAS
         this.botaoAttEditoras_abaAlterar.addActionListener(al);
     } 
 
@@ -1576,67 +1576,67 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
     }
 
     @Override
-    public String getAntigoNomeAutorAlterar(){
+    public String getAntigoNomeAutorAlterar(){ // TXTFIELD DO ANTIGO NOME AUTOR
         return this.TxtFieldNomeAlterar.getText();
     }
 
     @Override
-    public String getAntigoSobrenomeAutorAlterar(){
+    public String getAntigoSobrenomeAutorAlterar(){ // TXTFIELD DO ANTIGO SOBRENOME AUTOR
         return this.TxtFieldSobrenomeAlterar.getText();
     }
 
     @Override
-    public String getAntigoTituloLivroAlterar(){
+    public String getAntigoTituloLivroAlterar(){ // TXTFIELD DO ANTIGO TITULO DO LIVRO
         return this.TxtFieldAntigoTituloAlterar.getText();
     }
 
     @Override
-    public String getAntigoPrecoLivroAlterar(){
+    public String getAntigoPrecoLivroAlterar(){ // TXTFIELD DO ANTIGO PREÇO DO LIVRO
         return this.TxtFieldPrecoAntigoAlterar.getText();
     }
 
     @Override
-    public String getAntigoNomeEditoraAlterar(){
+    public String getAntigoNomeEditoraAlterar(){ // TXTFIELD DO ANTIGONOME DA EDITORA
         return this.TxtFieldAntigoNomeEditoraAlterar.getText();
     }
 
     @Override
-    public String getAntigaUrlAlterar(){
+    public String getAntigaUrlAlterar(){ // TXTFIELD DA ANTIGA URL
         return this.TxtFieldAntigaUrlAlterar.getText();
     }
 
     @Override
-    public String getNovoNomeAutorAlterar(){
+    public String getNovoNomeAutorAlterar(){ // TXTFIELD DO NOVO NOME AUTOR
         return this.TxtFieldNovoNomeAlterar.getText();
     }
 
     @Override
-    public String getNovoSobrenomeAutorAlterar(){
+    public String getNovoSobrenomeAutorAlterar(){ // TXTFIELD DO NOVO SOBRENOME AUTOR
         return this.TxtFieldNovoSobrenomeAlterar.getText();
     }
 
     @Override
-    public String getNovoTituloLivroAlterar(){
+    public String getNovoTituloLivroAlterar(){ // TEXTFIELD DO NOVO TITULO LIVRO
         return this.TxtFieldNovoTituloAlterar.getText();
     }
 
     @Override
-    public String getNovoPrecoLivroAlterar(){
+    public String getNovoPrecoLivroAlterar(){ //TXTFIELD DO NOVO PREÇO LIVRO
         return this.TxtFieldNovoPrecoAlterar.getText();
     }
 
     @Override
-    public String getNovoNomeEditoraAlterar(){
+    public String getNovoNomeEditoraAlterar(){ // TXTFIELD DO NOVO NOME EDITORA
         return this.TxtFieldNovoNomeEditoraAlterar.getText();
     }
 
     @Override
-    public String getNovaUrlEditoraAlterar(){
+    public String getNovaUrlEditoraAlterar(){ // TEXTFIELD DA NOVA URL
         return this.TxtFieldNovaUrlAlterar.getText();
     }
 
     @Override
-    public void realizaAlteracao(ActionListener al){
+    public void realizaAlteracao(ActionListener al){ // BOTÃO DE ALTERAR
         this.BtnAcaoAlterar.addActionListener(al);
     }
 
