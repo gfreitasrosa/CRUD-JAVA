@@ -10,7 +10,7 @@ Para isso foi criado um sistema de controle para uma livraria, no qual é possí
 
 Você pode [acessar o código fonte do projeto](https://github.com/gfreitasrosa/CRUD-JAVA/tree/main/src) ou [baixá-lo](https://github.com/gfreitasrosa/CRUD-JAVA/archive/refs/heads/main.zip).
 
-### *Desenvolvedores*:
+## *Desenvolvedores*:
 
 <table align="center">
   <tr>
