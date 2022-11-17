@@ -11,9 +11,6 @@ import java.awt.event.*;
 
 public class ViewConcreta extends JFrame implements ViewAbstrata {
 
-    /**
-     * Creates new form NewJFrame
-     */
     DefaultTableModel modelo;
     DefaultTableModel modelo2;
     DefaultTableModel modelo3;
@@ -22,15 +19,17 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     String EscolhaAbaInserir;
 
-    public ViewConcreta() {
+    public ViewConcreta() { // COSNTRUCTOR DA VIEW
         initComponents();
         pack();
         setVisible(true);
+
         modelo = (DefaultTableModel) this.tabela_abaPesquisa.getModel();
         modelo2 = (DefaultTableModel) this.tabela_abaAutor.getModel();
         modelo3 = (DefaultTableModel) this.tabelaAutor_abaAlterar.getModel();
         modelo4 = (DefaultTableModel) this.tabelaEditoras_abaAlterar.getModel();
         modelo5 = (DefaultTableModel) this.tabelaLivros_abaAlterar.getModel();
+
         this.desabilitarTela();
         this.desabilitarTelaDeletar();
         this.desabilitaTelaAlterar();
@@ -38,8 +37,16 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     @Override
     public void initComponents() {
-        g1 = new ButtonGroup();
+
+        // *******************************************
+        // * INICIO DA ÁREA DE INSTANCIA DOS OBJETOS *
+        // *******************************************
+       
+
         janelacomabas = new JTabbedPane();
+
+        // OBJETOS DA ABA PESQUISA
+
         abaPesquisa = new JPanel();
         tituloPesquisa = new JLabel();
         jScrollPane1 = new JScrollPane();
@@ -54,6 +61,10 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
         abaDeletar = new JPanel();
         LblTituloDeletar = new JLabel();
+
+        // OBJETOS DA ABA INSERIR
+
+        g1 = new ButtonGroup();
 
         abaInserir = new JPanel();
         titulo_abaInserir = new JLabel();
@@ -85,6 +96,10 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         
         tabela_abaAutor = new JTable();
         botao_autor = new JButton();
+
+        radioButton_AutorAbaInserir1 = new JRadioButton();
+        radioButton_EditorasAbaInserir1 = new JRadioButton();
+        radioButton_LivrosAbaInserir1 = new JRadioButton();
 
         // OBJETOS DA ABA ALTERAR
 
@@ -124,16 +139,13 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         TxtFieldAntigaUrlAlterar = new JLabel();
         TxtFieldAntigoNomeEditoraAlterar = new JLabel();
 
+        TxtFieldNovoNomeAlterar = new JTextField();
+        TxtFieldNovoSobrenomeAlterar = new JTextField();
+
         LblNovoNomeEditoraAlterar = new JLabel();
         LblNovaUrlAlterar = new JLabel();
         TxtFieldNovaUrlAlterar = new JTextField();
         TxtFieldNovoNomeEditoraAlterar = new JTextField();
-
-        radioButton_AutorAbaInserir1 = new JRadioButton();
-        radioButton_EditorasAbaInserir1 = new JRadioButton();
-        radioButton_LivrosAbaInserir1 = new JRadioButton();
-        TxtFieldNovoNomeAlterar = new JTextField();
-        TxtFieldNovoSobrenomeAlterar = new JTextField();
 
         LblDadosAntigosLivrosAlterar = new JLabel();
         lblNovosDadosLivrosAlterar = new JLabel();
@@ -169,6 +181,10 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
         radioButton_LivrosDeletar = new JRadioButton();
     
         TxtFieldSobrenomeAutorDeletar = new JTextField();
+
+        // ******************************************
+        // * FIM DA ÁREA DE INSTANCIA DOS OBJETOS   *
+        // ******************************************
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -929,6 +945,10 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
         pack();
     }
+
+    // *****************************
+    // * INÍCIO DA AREA DE MÉTODOS *
+    // *****************************
 
     // *****************************
     // * MÉTODOS DA JANELA DELETAR *
@@ -1739,9 +1759,16 @@ public class ViewConcreta extends JFrame implements ViewAbstrata {
 
     @Override
     public void mensagemAjudaPesquisa(){ // MENSAGEM POP-UP DO BOTÃO AJUDA
-        String[] infos = {"Nas checkboxs escolha os campos que deseja pesquisar.", "Autores: Pesquisas feitas no sobrenome", "Livros: Pesquisas feitas pelo título.", "Editoras: Pesquisas feitas pelo nome."};
+        String[] infos = {"Nas checkboxs escolha os campos que deseja pesquisar.", "Autores: Pesquisas feitas no sobrenome.", "Livros: Pesquisas feitas pelo título e ISBN.", "Editoras: Pesquisas feitas pelo nome."};
         JOptionPane.showMessageDialog(null, infos, "Como realizar as pesquisas:", JOptionPane.INFORMATION_MESSAGE);
     }
+    
+
+    // ***************************
+    // * FIM DA AREA DE MÉTODOS  *
+    // ***************************
+
+    // VARIAVEIS DA ABA PESQUISA
 
     private ButtonGroup g1;
     private JLabel Filtrodepesquisa_abaPesquisa;

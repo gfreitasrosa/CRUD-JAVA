@@ -148,7 +148,7 @@ public class ConexaoBD implements Dao{
 
         List<Autores> autores_sel = new ArrayList<>();
 
-        final String query = "SELECT * FROM Authors WHERE Authors.name  LIKE ?;";
+        final String query = "SELECT * FROM Authors WHERE Authors.name LIKE ?;";
 
         try(Connection con = DriverManager.getConnection(URL, USER, PASS)){
             PreparedStatement pstm = con.prepareStatement(query);
